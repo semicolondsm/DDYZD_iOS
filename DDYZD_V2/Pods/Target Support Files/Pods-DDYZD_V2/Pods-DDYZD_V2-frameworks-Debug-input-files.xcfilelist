@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-DDYZD_V2/Pods-DDYZD_V2-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/DSMSDK/DSMSDK.framework
