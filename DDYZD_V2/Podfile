@@ -7,4 +7,6 @@ target 'DDYZD_V2' do
 
   # Pods for DDYZD_V2
 
+  pod 'Alamofire'
+
 end

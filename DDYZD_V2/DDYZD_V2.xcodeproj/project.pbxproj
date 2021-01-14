@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12B9BDB115327E4F11873272 /* Pods_DDYZD_V2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8869DDC5BC0228ACFDBDB078 /* Pods_DDYZD_V2.framework */; };
 		925C9EAB25B08BE7005A3694 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C9EAA25B08BE7005A3694 /* AppDelegate.swift */; };
 		925C9EAD25B08BE7005A3694 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C9EAC25B08BE7005A3694 /* SceneDelegate.swift */; };
 		925C9EAF25B08BE7005A3694 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C9EAE25B08BE7005A3694 /* ViewController.swift */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C060B2074DD201E17A54FE5 /* Pods-DDYZD_V2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDYZD_V2.debug.xcconfig"; path = "Target Support Files/Pods-DDYZD_V2/Pods-DDYZD_V2.debug.xcconfig"; sourceTree = "<group>"; };
+		39D66F64AB6C141A5DDAA1D6 /* Pods-DDYZD_V2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDYZD_V2.release.xcconfig"; path = "Target Support Files/Pods-DDYZD_V2/Pods-DDYZD_V2.release.xcconfig"; sourceTree = "<group>"; };
+		8869DDC5BC0228ACFDBDB078 /* Pods_DDYZD_V2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDYZD_V2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		925C9EA725B08BE7005A3694 /* DDYZD_V2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDYZD_V2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		925C9EAA25B08BE7005A3694 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		925C9EAC25B08BE7005A3694 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12B9BDB115327E4F11873272 /* Pods_DDYZD_V2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		539CF63AB70C5BA53047CAA5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8869DDC5BC0228ACFDBDB078 /* Pods_DDYZD_V2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8FE9FA11C3FFB31C7920D6A7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0C060B2074DD201E17A54FE5 /* Pods-DDYZD_V2.debug.xcconfig */,
+				39D66F64AB6C141A5DDAA1D6 /* Pods-DDYZD_V2.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		925C9E9E25B08BE7005A3694 = {
 			isa = PBXGroup;
 			children = (
 				925C9EA925B08BE7005A3694 /* DDYZD_V2 */,
 				925C9EA825B08BE7005A3694 /* Products */,
+				8FE9FA11C3FFB31C7920D6A7 /* Pods */,
+				539CF63AB70C5BA53047CAA5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 925C9EBB25B08BE9005A3694 /* Build configuration list for PBXNativeTarget "DDYZD_V2" */;
 			buildPhases = (
+				AFE9F90BE060837F62679A76 /* [CP] Check Pods Manifest.lock */,
 				925C9EA325B08BE7005A3694 /* Sources */,
 				925C9EA425B08BE7005A3694 /* Frameworks */,
 				925C9EA525B08BE7005A3694 /* Resources */,
+				42FC0E197E39196A0AC4ECDB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		42FC0E197E39196A0AC4ECDB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DDYZD_V2/Pods-DDYZD_V2-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DDYZD_V2/Pods-DDYZD_V2-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DDYZD_V2/Pods-DDYZD_V2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AFE9F90BE060837F62679A76 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DDYZD_V2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		925C9EA325B08BE7005A3694 /* Sources */ = {
@@ -283,6 +352,7 @@
 		};
 		925C9EBC25B08BE9005A3694 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C060B2074DD201E17A54FE5 /* Pods-DDYZD_V2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +372,7 @@
 		};
 		925C9EBD25B08BE9005A3694 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39D66F64AB6C141A5DDAA1D6 /* Pods-DDYZD_V2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
