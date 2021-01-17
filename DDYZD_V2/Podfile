@@ -11,4 +11,7 @@ target 'DDYZD_V2' do
   
   pod 'DSMSDK', '~> 1.1'
 
+  pod 'RxSwift', '~> 6.0'
+  pod 'RxCocoa', '~> 6.0'
+
 end
