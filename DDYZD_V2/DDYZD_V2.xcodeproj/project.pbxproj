@@ -95,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				926E86DC25B4191800E7F213 /* UI */,
+				926E86E425B41F0900E7F213 /* Util */,
 				926E86DE25B4194400E7F213 /* View */,
 				926E86DD25B4193200E7F213 /* Model */,
 				926E86DF25B4194B00E7F213 /* ViewModel */,
@@ -147,6 +148,13 @@
 			children = (
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		926E86E425B41F0900E7F213 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
