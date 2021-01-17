@@ -26,8 +26,13 @@ enum DDYZDAPI {
     case exitClub(_ clubID: Int)            // 소속 동아리 나가기
     case followClub(_ clubID: Int)          // 동아리 팔로우
     
-    //head authority
+    //only head authority
     case makeRecruitment(_ clubID: Int)     // 동아리 모집 공고 생성
+    case updateProfileImage(_ clubID: Int)  // 동아리 프로필 이미지 등록
+    case updateHongboImage(_ clubID: Int)   // 동아리 홍보물 등록
+    case updateBannerImage(_ clubID: Int)   // 동아리 베너 등록
+    case updateClubInfo(_ clibID: Int)      // 동아리 정보 수정
+    case assignmentHead(_ clubID: Int)      // 동아리 헤드 양도
     
     
     func path() -> String {
@@ -58,6 +63,16 @@ enum DDYZDAPI {
             return "/club/\(clubID)/follow"
         case .makeRecruitment(let clubID):
             return "/club/\(clubID)/recruitment"
+        case .updateProfileImage(let clubID):
+            return "/club/\(clubID)/profile"
+        case .updateHongboImage(let clubID):
+            return "/club/\(clubID)/hongbo"
+        case .updateBannerImage(let clubID):
+            return "/club/\(clubID)/banner"
+        case .updateClubInfo(let clubID):
+            return "/club/\(clubID)"
+        case .assignmentHead(let clubID):
+            return "/club/\(clubID)/head"
         }
     }
     
