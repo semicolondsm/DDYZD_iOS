@@ -14,6 +14,8 @@
 		925C9EB725B08BE9005A3694 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925C9EB525B08BE9005A3694 /* LaunchScreen.storyboard */; };
 		926E86E725B4404F00E7F213 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926E86E625B4404F00E7F213 /* HTTPClient.swift */; };
 		926E86F625B448D900E7F213 /* DDYZDAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926E86F525B448D900E7F213 /* DDYZDAPI.swift */; };
+		92FBA6A025B537320014FB8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92FBA69F25B537320014FB8B /* GoogleService-Info.plist */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		925C9EB825B08BE9005A3694 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		926E86E625B4404F00E7F213 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		926E86F525B448D900E7F213 /* DDYZDAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDYZDAPI.swift; sourceTree = "<group>"; };
+		92C35EFF25B5B4B600D30DDF /* DDYZD_V2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = DDYZD_V2.entitlements; path = ../DDYZD_V2.entitlements; sourceTree = "<group>"; };
+		92FBA69F25B537320014FB8B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				925C9EB825B08BE9005A3694 /* Info.plist */,
+				92FBA69F25B537320014FB8B /* GoogleService-Info.plist */,
+				92C35EFF25B5B4B600D30DDF /* DDYZD_V2.entitlements */,
 			);
 			path = "Surpporting Files";
 			sourceTree = "<group>";
@@ -99,10 +105,10 @@
 			isa = PBXGroup;
 			children = (
 				926E86DC25B4191800E7F213 /* UI */,
-				926E86E425B41F0900E7F213 /* Util */,
-				926E86DE25B4194400E7F213 /* View */,
-				926E86DD25B4193200E7F213 /* Model */,
-				926E86DF25B4194B00E7F213 /* ViewModel */,
+				92FBA6C025B53A3F0014FB8B /* Util */,
+				92FBA6C325B53A750014FB8B /* Model */,
+				92FBA6C225B53A660014FB8B /* View */,
+				92FBA6C125B53A5B0014FB8B /* ViewModel */,
 				926E86E025B4195500E7F213 /* Networking */,
 			);
 			path = Source;
@@ -126,41 +132,42 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
-		926E86DD25B4193200E7F213 /* Model */ = {
+		926E86E025B4195500E7F213 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				926E86E625B4404F00E7F213 /* HTTPClient.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		92FBA6C025B53A3F0014FB8B /* Util */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Model;
+			path = Util;
 			sourceTree = "<group>";
 		};
-		926E86DE25B4194400E7F213 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		926E86DF25B4194B00E7F213 /* ViewModel */ = {
+		92FBA6C125B53A5B0014FB8B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		926E86E025B4195500E7F213 /* Networking */ = {
+		92FBA6C225B53A660014FB8B /* View */ = {
 			isa = PBXGroup;
 			children = (
 				926E86E625B4404F00E7F213 /* HTTPClient.swift */,
 				926E86F525B448D900E7F213 /* DDYZDAPI.swift */,
 			);
-			path = Networking;
+			path = View;
 			sourceTree = "<group>";
 		};
-		926E86E425B41F0900E7F213 /* Util */ = {
+		92FBA6C325B53A750014FB8B /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Util;
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				925C9EB725B08BE9005A3694 /* LaunchScreen.storyboard in Resources */,
+				92FBA6A025B537320014FB8B /* GoogleService-Info.plist in Resources */,
 				925C9EB425B08BE9005A3694 /* Assets.xcassets in Resources */,
 				925C9EB225B08BE7005A3694 /* Main.storyboard in Resources */,
 			);
@@ -427,6 +435,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "DDYZD_V2/Surpporting Files/DDYZD_V2.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P5QSBGBP3C;
 				INFOPLIST_FILE = "DDYZD_V2/Surpporting Files/Info.plist";
@@ -434,7 +443,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kimxwan0319.DDYZD-V2";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.semicolon.DDYZD-V2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -447,6 +456,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "DDYZD_V2/Surpporting Files/DDYZD_V2.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P5QSBGBP3C;
 				INFOPLIST_FILE = "DDYZD_V2/Surpporting Files/Info.plist";
@@ -454,7 +464,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kimxwan0319.DDYZD-V2";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.semicolon.DDYZD-V2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
