@@ -100,10 +100,10 @@
 			isa = PBXGroup;
 			children = (
 				926E86DC25B4191800E7F213 /* UI */,
-				926E86E425B41F0900E7F213 /* Util */,
-				926E86DE25B4194400E7F213 /* View */,
-				926E86DD25B4193200E7F213 /* Model */,
-				926E86DF25B4194B00E7F213 /* ViewModel */,
+				92FBA6C025B53A3F0014FB8B /* Util */,
+				92FBA6C325B53A750014FB8B /* Model */,
+				92FBA6C225B53A660014FB8B /* View */,
+				92FBA6C125B53A5B0014FB8B /* ViewModel */,
 				926E86E025B4195500E7F213 /* Networking */,
 			);
 			path = Source;
@@ -127,27 +127,6 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
-		926E86DD25B4193200E7F213 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		926E86DE25B4194400E7F213 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		926E86DF25B4194B00E7F213 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		926E86E025B4195500E7F213 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,11 +135,32 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		926E86E425B41F0900E7F213 /* Util */ = {
+		92FBA6C025B53A3F0014FB8B /* Util */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		92FBA6C125B53A5B0014FB8B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		92FBA6C225B53A660014FB8B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		92FBA6C325B53A750014FB8B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
