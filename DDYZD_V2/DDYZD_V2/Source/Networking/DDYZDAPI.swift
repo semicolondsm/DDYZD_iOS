@@ -78,6 +78,8 @@ enum DDYZDAPI {
     
     func header() -> HTTPHeaders? {
         switch self {
+        case .clubList, .clubDetailInfo(_), .getRecruitment(_), .getClubMember(_):
+            return nil
         case .getToken(let DSMAuthToken) :
             return ["access_token": "Bearer \(DSMAuthToken)"]
         case .refreshToken :
@@ -85,8 +87,11 @@ enum DDYZDAPI {
                 return nil
             }
             return ["refresh-token": "Bearer \(refreshToken)"]
+        case .updateProfileImage(_), .updateHongboImage(_), .updateBannerImage(_):
+            return ["Authorization": "Bearer 여기 토큰",
+                    "Content-Type": "multipart/form-data"]
         default:
-            return nil
+            return ["Authorization": "Bearer 여기 토큰"]
         }
     }
 }
