@@ -17,6 +17,12 @@ enum DDYZDAPI {
     case userInfo(_ gcn: String)            // 유저 정보
     case updateInfo                         // 프로필 수정
     
+    //feed
+    case flagIt(_ feedID: Int)              // 피드 flag달기
+    case uploadFeed(_ clubID: Int)          // 피드 올리기
+    case updateFeed(_ feedID: Int)          // 피드 수정
+    case uploadFeedFile(_ feedID: Int)      // 피드 파일 업로드
+    
     //club
     case clubList                           // 동아리 리스트 반환
     case clubDetailInfo(_ clubID: Int)      // 동아리 상세 정보
@@ -47,6 +53,14 @@ enum DDYZDAPI {
             return "/users/\(gcn)"
         case .updateInfo:
             return "/users/profile"
+        case .flagIt(let feedID):
+            return "/feed/\(feedID)/flag"
+        case .uploadFeed(let clubID):
+            return "feed/\(clubID)"
+        case .updateFeed(let feedID):
+            return "feed/\(feedID)"
+        case .uploadFeedFile(let feedID):
+            return "feed/\(feedID)/medium"
         case .clubList:
             return "/club/list"
         case .clubDetailInfo(let clubID):
@@ -87,11 +101,17 @@ enum DDYZDAPI {
                 return nil
             }
             return ["refresh-token": "Bearer \(refreshToken)"]
-        case .updateProfileImage(_), .updateHongboImage(_), .updateBannerImage(_):
-            return ["Authorization": "Bearer 여기 토큰",
+        case .updateProfileImage(_), .updateHongboImage(_), .updateBannerImage(_), .uploadFeedFile(_):
+            guard let accessToken = UserDefaults.standard.string(forKey: "accessToken") else {
+                return nil
+            }
+            return ["Authorization": "Bearer \(accessToken)",
                     "Content-Type": "multipart/form-data"]
         default:
-            return ["Authorization": "Bearer 여기 토큰"]
+            guard let accessToken = UserDefaults.standard.string(forKey: "accessToken") else {
+                return nil
+            }
+            return ["Authorization": "Bearer \(accessToken)"]
         }
     }
 }
