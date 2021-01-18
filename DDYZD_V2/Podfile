@@ -8,9 +8,10 @@ target 'DDYZD_V2' do
   # Pods for DDYZD_V2
 
   pod 'Alamofire', '~> 5.2'
-  pod 'RxAlamofire', '~> 6.1'
   pod 'DSMSDK', '~> 1.1'
-  pod 'RxSwift', '~> 6.0'
+  pod 'Firebase/Messaging'
+  pod 'RxAlamofire', '~> 6.1'
   pod 'RxCocoa', '~> 6.0'
-
+  pod 'RxSwift', '~> 6.0'
+  
 end
