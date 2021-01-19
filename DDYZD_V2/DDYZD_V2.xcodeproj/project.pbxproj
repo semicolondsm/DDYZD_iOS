@@ -62,6 +62,13 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9200D04025B7407600461843 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		925C9E9E25B08BE7005A3694 = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +156,7 @@
 		92FBA6C125B53A5B0014FB8B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9200D04025B7407600461843 /* Auth */,
 				9263697F25B7358100D2D107 /* ViewModelProtocol.swift */,
 			);
 			path = ViewModel;
