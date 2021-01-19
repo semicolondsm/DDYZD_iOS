@@ -15,6 +15,7 @@
 		9263695C25B6824200D2D107 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9263695B25B6824200D2D107 /* Login.storyboard */; };
 		9263696025B684ED00D2D107 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263695F25B684ED00D2D107 /* LoginViewController.swift */; };
 		9263697125B721C200D2D107 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263697025B721C200D2D107 /* LoginViewModel.swift */; };
+		9263697825B7335C00D2D107 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263697725B7335C00D2D107 /* AuthAPI.swift */; };
 		926E86E725B4404F00E7F213 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926E86E625B4404F00E7F213 /* HTTPClient.swift */; };
 		92C35F4225B5BD0700D30DDF /* DDYZDAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C35F4125B5BD0600D30DDF /* DDYZDAPI.swift */; };
 		92FBA6A025B537320014FB8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92FBA69F25B537320014FB8B /* GoogleService-Info.plist */; };
@@ -34,6 +35,7 @@
 		9263695F25B684ED00D2D107 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9263696425B6EE0E00D2D107 /* DDYZD_V2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = DDYZD_V2.entitlements; path = "DDYZD_V2/Surpporting Files/DDYZD_V2.entitlements"; sourceTree = SOURCE_ROOT; };
 		9263697025B721C200D2D107 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		9263697725B7335C00D2D107 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		926E86E625B4404F00E7F213 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		92C35F4125B5BD0600D30DDF /* DDYZDAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDYZDAPI.swift; sourceTree = "<group>"; };
 		92FBA69F25B537320014FB8B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -107,7 +109,7 @@
 		9263695E25B684CE00D2D107 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9263695F25B684ED00D2D107 /* LoginViewController.swift */,
+				9263697625B7333E00D2D107 /* Auth */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -115,9 +117,33 @@
 		9263696F25B721A000D2D107 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				9263697025B721C200D2D107 /* LoginViewModel.swift */,
+				9263697425B7332800D2D107 /* Auth */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9263697425B7332800D2D107 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				9263697025B721C200D2D107 /* LoginViewModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		9263697525B7333300D2D107 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				9263697725B7335C00D2D107 /* AuthAPI.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		9263697625B7333E00D2D107 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				9263695F25B684ED00D2D107 /* LoginViewController.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		926E86D725B416E400E7F213 /* Surpporting Files */ = {
@@ -164,6 +190,7 @@
 		926E86E025B4195500E7F213 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				9263697525B7333300D2D107 /* Auth */,
 				926E86E625B4404F00E7F213 /* HTTPClient.swift */,
 				92C35F4125B5BD0600D30DDF /* DDYZDAPI.swift */,
 			);
@@ -290,6 +317,7 @@
 				926E86E725B4404F00E7F213 /* HTTPClient.swift in Sources */,
 				92C35F4225B5BD0700D30DDF /* DDYZDAPI.swift in Sources */,
 				9263697125B721C200D2D107 /* LoginViewModel.swift in Sources */,
+				9263697825B7335C00D2D107 /* AuthAPI.swift in Sources */,
 				925C9EAB25B08BE7005A3694 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
