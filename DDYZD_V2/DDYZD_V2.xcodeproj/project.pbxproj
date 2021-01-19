@@ -16,6 +16,7 @@
 		9263696025B684ED00D2D107 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263695F25B684ED00D2D107 /* LoginViewController.swift */; };
 		9263697125B721C200D2D107 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263697025B721C200D2D107 /* LoginViewModel.swift */; };
 		9263697825B7335C00D2D107 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263697725B7335C00D2D107 /* AuthAPI.swift */; };
+		9263698025B7358100D2D107 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263697F25B7358100D2D107 /* ViewModelProtocol.swift */; };
 		926E86E725B4404F00E7F213 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926E86E625B4404F00E7F213 /* HTTPClient.swift */; };
 		92C35F4225B5BD0700D30DDF /* DDYZDAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C35F4125B5BD0600D30DDF /* DDYZDAPI.swift */; };
 		92FBA6A025B537320014FB8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92FBA69F25B537320014FB8B /* GoogleService-Info.plist */; };
@@ -36,6 +37,7 @@
 		9263696425B6EE0E00D2D107 /* DDYZD_V2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = DDYZD_V2.entitlements; path = "DDYZD_V2/Surpporting Files/DDYZD_V2.entitlements"; sourceTree = SOURCE_ROOT; };
 		9263697025B721C200D2D107 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		9263697725B7335C00D2D107 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		9263697F25B7358100D2D107 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
 		926E86E625B4404F00E7F213 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		92C35F4125B5BD0600D30DDF /* DDYZDAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDYZDAPI.swift; sourceTree = "<group>"; };
 		92FBA69F25B537320014FB8B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -197,6 +199,37 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+        
+		92FBA6C025B53A3F0014FB8B /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		92FBA6C125B53A5B0014FB8B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9263697F25B7358100D2D107 /* ViewModelProtocol.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		92FBA6C225B53A660014FB8B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		92FBA6C325B53A750014FB8B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -319,6 +352,7 @@
 				9263697125B721C200D2D107 /* LoginViewModel.swift in Sources */,
 				9263697825B7335C00D2D107 /* AuthAPI.swift in Sources */,
 				925C9EAB25B08BE7005A3694 /* AppDelegate.swift in Sources */,
+				9263698025B7358100D2D107 /* ViewModelProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
