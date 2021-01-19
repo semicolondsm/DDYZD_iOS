@@ -12,6 +12,7 @@
 		925C9EB225B08BE7005A3694 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925C9EB025B08BE7005A3694 /* Main.storyboard */; };
 		925C9EB425B08BE9005A3694 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925C9EB325B08BE9005A3694 /* Assets.xcassets */; };
 		925C9EB725B08BE9005A3694 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925C9EB525B08BE9005A3694 /* LaunchScreen.storyboard */; };
+		9263695C25B6824200D2D107 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9263695B25B6824200D2D107 /* Login.storyboard */; };
 		926E86E725B4404F00E7F213 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926E86E625B4404F00E7F213 /* HTTPClient.swift */; };
 		92C35F4225B5BD0700D30DDF /* DDYZDAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C35F4125B5BD0600D30DDF /* DDYZDAPI.swift */; };
 		92FBA6A025B537320014FB8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92FBA69F25B537320014FB8B /* GoogleService-Info.plist */; };
@@ -27,6 +28,7 @@
 		925C9EB325B08BE9005A3694 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		925C9EB625B08BE9005A3694 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		925C9EB825B08BE9005A3694 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9263695B25B6824200D2D107 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		926E86E625B4404F00E7F213 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		92C35EFF25B5B4B600D30DDF /* DDYZD_V2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = DDYZD_V2.entitlements; path = ../DDYZD_V2.entitlements; sourceTree = "<group>"; };
 		92C35F4125B5BD0600D30DDF /* DDYZDAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDYZDAPI.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				925C9EB025B08BE7005A3694 /* Main.storyboard */,
+				9263695B25B6824200D2D107 /* Login.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				925C9EB725B08BE9005A3694 /* LaunchScreen.storyboard in Resources */,
 				92FBA6A025B537320014FB8B /* GoogleService-Info.plist in Resources */,
 				925C9EB425B08BE9005A3694 /* Assets.xcassets in Resources */,
+				9263695C25B6824200D2D107 /* Login.storyboard in Resources */,
 				925C9EB225B08BE7005A3694 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
