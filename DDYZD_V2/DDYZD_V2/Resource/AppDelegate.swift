@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DSMSDK
 import Firebase
 import UserNotificationsUI
 
@@ -17,7 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        DSMSDKCommon.initSDK(clientID: "e20961403e0b43009c5dc070a8245e2e",
+                             clientSecret: "e20961403e0b43009c5dc070a8245e2e",
+                             redirectURL: "https://semicolondsm.xyz/")
+        
         FirebaseApp.configure()
+        
         
         UNUserNotificationCenter.current().delegate = self
 
