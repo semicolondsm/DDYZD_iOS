@@ -51,4 +51,5 @@ enum StatusCodes: Int {
     case unauthorized = 401     // 토큰 인증 실패
     case forbidden = 403        // 권한 없음
     case notFound = 404         // 찾을 수 없는 경로
+    case fault = 0              // 내부 로직 오류
 }
