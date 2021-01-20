@@ -86,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				9200D04A25B7411100461843 /* Auth */,
+				9200D12625B88ED500461843 /* Club */,
 				9200D04B25B7411100461843 /* ViewModelProtocol.swift */,
 			);
 			path = ViewModel;
@@ -114,6 +115,20 @@
 				9200D0E625B8836000461843 /* AuthenticationServices+Rx.swift */,
 			);
 			path = ASAuthorization;
+			sourceTree = "<group>";
+		};
+		9200D12525B88EAA00461843 /* Club */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Club;
+			sourceTree = "<group>";
+		};
+		9200D12625B88ED500461843 /* Club */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Club;
 			sourceTree = "<group>";
 		};
 		925C9E9E25B08BE7005A3694 = {
@@ -158,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				9263697625B7333E00D2D107 /* Auth */,
+				9200D12525B88EAA00461843 /* Club */,
 			);
 			path = View;
 			sourceTree = "<group>";
