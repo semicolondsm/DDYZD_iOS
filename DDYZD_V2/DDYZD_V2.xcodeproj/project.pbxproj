@@ -13,7 +13,7 @@
 		9200D0B925B751E700461843 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200D0B825B751E700461843 /* Token.swift */; };
 		9200D0DF25B882BE00461843 /* ASAuthorizationControllerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200D0DE25B882BE00461843 /* ASAuthorizationControllerProxy.swift */; };
 		9200D0E725B8836000461843 /* AuthenticationServices+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200D0E625B8836000461843 /* AuthenticationServices+Rx.swift */; };
-		9200D12025B88DCF00461843 /* ClubList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9200D11F25B88DCF00461843 /* ClubList.storyboard */; };
+		9200D12025B88DCF00461843 /* Club.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9200D11F25B88DCF00461843 /* Club.storyboard */; };
 		9200D12325B88E7000461843 /* ClubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200D12225B88E7000461843 /* ClubModel.swift */; };
 		9200D12825B88EF200461843 /* ClubListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200D12725B88EF200461843 /* ClubListViewController.swift */; };
 		9200D12C25B88F1A00461843 /* ClubListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200D12B25B88F1A00461843 /* ClubListViewModel.swift */; };
@@ -39,7 +39,7 @@
 		9200D0B825B751E700461843 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		9200D0DE25B882BE00461843 /* ASAuthorizationControllerProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASAuthorizationControllerProxy.swift; sourceTree = "<group>"; };
 		9200D0E625B8836000461843 /* AuthenticationServices+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticationServices+Rx.swift"; sourceTree = "<group>"; };
-		9200D11F25B88DCF00461843 /* ClubList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClubList.storyboard; sourceTree = "<group>"; };
+		9200D11F25B88DCF00461843 /* Club.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Club.storyboard; sourceTree = "<group>"; };
 		9200D12225B88E7000461843 /* ClubModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubModel.swift; sourceTree = "<group>"; };
 		9200D12725B88EF200461843 /* ClubListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListViewController.swift; sourceTree = "<group>"; };
 		9200D12B25B88F1A00461843 /* ClubListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListViewModel.swift; sourceTree = "<group>"; };
@@ -241,7 +241,7 @@
 			children = (
 				925C9EB025B08BE7005A3694 /* Main.storyboard */,
 				9263695B25B6824200D2D107 /* Auth.storyboard */,
-				9200D11F25B88DCF00461843 /* ClubList.storyboard */,
+				9200D11F25B88DCF00461843 /* Club.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -317,7 +317,7 @@
 			files = (
 				925C9EB725B08BE9005A3694 /* LaunchScreen.storyboard in Resources */,
 				92FBA6A025B537320014FB8B /* GoogleService-Info.plist in Resources */,
-				9200D12025B88DCF00461843 /* ClubList.storyboard in Resources */,
+				9200D12025B88DCF00461843 /* Club.storyboard in Resources */,
 				925C9EB425B08BE9005A3694 /* Assets.xcassets in Resources */,
 				9263695C25B6824200D2D107 /* Auth.storyboard in Resources */,
 				925C9EB225B08BE7005A3694 /* Main.storyboard in Resources */,
