@@ -81,18 +81,18 @@
 		9200D04925B7411100461843 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				9200D04A25B7411100461843 /* API */,
+				9200D04A25B7411100461843 /* Auth */,
 				9200D04B25B7411100461843 /* ViewModelProtocol.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		9200D04A25B7411100461843 /* API */ = {
+		9200D04A25B7411100461843 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				9200D0B325B74DAA00461843 /* LoginViewModel.swift */,
 			);
-			path = API;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		9200D0DC25B8822200461843 /* Util */ = {
