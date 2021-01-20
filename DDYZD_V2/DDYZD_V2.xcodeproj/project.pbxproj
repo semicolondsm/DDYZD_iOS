@@ -157,12 +157,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		9263697525B7333300D2D107 /* Auth */ = {
+		9263697525B7333300D2D107 /* API */ = {
 			isa = PBXGroup;
 			children = (
 				9263697725B7335C00D2D107 /* AuthAPI.swift */,
 			);
-			path = Auth;
+			path = API;
 			sourceTree = "<group>";
 		};
 		9263697625B7333E00D2D107 /* Auth */ = {
@@ -218,7 +218,7 @@
 		926E86E025B4195500E7F213 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				9263697525B7333300D2D107 /* Auth */,
+				9263697525B7333300D2D107 /* API */,
 				926E86E625B4404F00E7F213 /* HTTPClient.swift */,
 				92C35F4125B5BD0600D30DDF /* DDYZDAPI.swift */,
 			);
