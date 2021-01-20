@@ -102,16 +102,10 @@ enum DDYZDAPI {
             }
             return ["refresh-token": "Bearer \(refreshToken)"]
         case .updateProfileImage(_), .updateHongboImage(_), .updateBannerImage(_), .uploadFeedFile(_):
-            guard let accessToken = UserDefaults.standard.string(forKey: "accessToken") else {
-                return nil
-            }
-            return ["Authorization": "Bearer \(accessToken)",
+            return ["Authorization": "Bearer \(Token.accessToken)",
                     "Content-Type": "multipart/form-data"]
         default:
-            guard let accessToken = UserDefaults.standard.string(forKey: "accessToken") else {
-                return nil
-            }
-            return ["Authorization": "Bearer \(accessToken)"]
+            return ["Authorization": "Bearer \(Token.accessToken)"]
         }
     }
 }

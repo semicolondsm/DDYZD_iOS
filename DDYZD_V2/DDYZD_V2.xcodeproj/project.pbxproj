@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		12B9BDB115327E4F11873272 /* Pods_DDYZD_V2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8869DDC5BC0228ACFDBDB078 /* Pods_DDYZD_V2.framework */; };
 		9200D04C25B7411100461843 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200D04B25B7411100461843 /* ViewModelProtocol.swift */; };
+		9200D0B425B74DAA00461843 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200D0B325B74DAA00461843 /* LoginViewModel.swift */; };
+		9200D0B925B751E700461843 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200D0B825B751E700461843 /* Token.swift */; };
 		925C9EAB25B08BE7005A3694 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C9EAA25B08BE7005A3694 /* AppDelegate.swift */; };
 		925C9EB225B08BE7005A3694 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925C9EB025B08BE7005A3694 /* Main.storyboard */; };
 		925C9EB425B08BE9005A3694 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925C9EB325B08BE9005A3694 /* Assets.xcassets */; };
 		925C9EB725B08BE9005A3694 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925C9EB525B08BE9005A3694 /* LaunchScreen.storyboard */; };
-		9263698025B7358100D2D107 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263697F25B7358100D2D107 /* ViewModelProtocol.swift */; };
+		9263695C25B6824200D2D107 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9263695B25B6824200D2D107 /* Login.storyboard */; };
+		9263696025B684ED00D2D107 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263695F25B684ED00D2D107 /* LoginViewController.swift */; };
+		9263697825B7335C00D2D107 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263697725B7335C00D2D107 /* AuthAPI.swift */; };
 		926E86E725B4404F00E7F213 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926E86E625B4404F00E7F213 /* HTTPClient.swift */; };
 		92C35F4225B5BD0700D30DDF /* DDYZDAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C35F4125B5BD0600D30DDF /* DDYZDAPI.swift */; };
 		92FBA6A025B537320014FB8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92FBA69F25B537320014FB8B /* GoogleService-Info.plist */; };
@@ -24,15 +28,19 @@
 		39D66F64AB6C141A5DDAA1D6 /* Pods-DDYZD_V2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDYZD_V2.release.xcconfig"; path = "Target Support Files/Pods-DDYZD_V2/Pods-DDYZD_V2.release.xcconfig"; sourceTree = "<group>"; };
 		8869DDC5BC0228ACFDBDB078 /* Pods_DDYZD_V2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDYZD_V2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9200D04B25B7411100461843 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
+		9200D0B325B74DAA00461843 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		9200D0B825B751E700461843 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		925C9EA725B08BE7005A3694 /* DDYZD_V2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDYZD_V2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		925C9EAA25B08BE7005A3694 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		925C9EB125B08BE7005A3694 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		925C9EB325B08BE9005A3694 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		925C9EB625B08BE9005A3694 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		925C9EB825B08BE9005A3694 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9263697F25B7358100D2D107 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
+		9263695B25B6824200D2D107 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		9263695F25B684ED00D2D107 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9263696425B6EE0E00D2D107 /* DDYZD_V2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = DDYZD_V2.entitlements; path = "DDYZD_V2/Surpporting Files/DDYZD_V2.entitlements"; sourceTree = SOURCE_ROOT; };
+		9263697725B7335C00D2D107 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		926E86E625B4404F00E7F213 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
-		92C35EFF25B5B4B600D30DDF /* DDYZD_V2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = DDYZD_V2.entitlements; path = ../DDYZD_V2.entitlements; sourceTree = "<group>"; };
 		92C35F4125B5BD0600D30DDF /* DDYZDAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDYZDAPI.swift; sourceTree = "<group>"; };
 		92FBA69F25B537320014FB8B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,14 +74,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		9200D04725B7410200461843 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				9263697F25B7358100D2D107 /* ViewModelProtocol.swift */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		9200D04925B7411100461843 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +86,7 @@
 		9200D04A25B7411100461843 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				9200D0B325B74DAA00461843 /* LoginViewModel.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -97,7 +98,6 @@
 				925C9EA825B08BE7005A3694 /* Products */,
 				8FE9FA11C3FFB31C7920D6A7 /* Pods */,
 				539CF63AB70C5BA53047CAA5 /* Frameworks */,
-				9200D04725B7410200461843 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,17 +122,42 @@
 		9263695325B5C0C100D2D107 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9200D0B825B751E700461843 /* Token.swift */,
 			);
 			name = Model;
 			path = DDYZD_V2/Source/Model;
 			sourceTree = SOURCE_ROOT;
+		};
+		9263695E25B684CE00D2D107 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9263697625B7333E00D2D107 /* Auth */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9263697525B7333300D2D107 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				9263697725B7335C00D2D107 /* AuthAPI.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		9263697625B7333E00D2D107 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				9263695F25B684ED00D2D107 /* LoginViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
 		};
 		926E86D725B416E400E7F213 /* Surpporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				925C9EB825B08BE9005A3694 /* Info.plist */,
 				92FBA69F25B537320014FB8B /* GoogleService-Info.plist */,
-				92C35EFF25B5B4B600D30DDF /* DDYZD_V2.entitlements */,
+				9263696425B6EE0E00D2D107 /* DDYZD_V2.entitlements */,
 			);
 			path = "Surpporting Files";
 			sourceTree = "<group>";
@@ -142,6 +167,7 @@
 			children = (
 				926E86DC25B4191800E7F213 /* UI */,
 				9263695325B5C0C100D2D107 /* Model */,
+				9263695E25B684CE00D2D107 /* View */,
 				9200D04925B7411100461843 /* ViewModel */,
 				926E86E025B4195500E7F213 /* Networking */,
 			);
@@ -162,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				925C9EB025B08BE7005A3694 /* Main.storyboard */,
+				9263695B25B6824200D2D107 /* Login.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -169,6 +196,7 @@
 		926E86E025B4195500E7F213 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				9263697525B7333300D2D107 /* Auth */,
 				926E86E625B4404F00E7F213 /* HTTPClient.swift */,
 				92C35F4125B5BD0600D30DDF /* DDYZDAPI.swift */,
 			);
@@ -237,6 +265,7 @@
 				925C9EB725B08BE9005A3694 /* LaunchScreen.storyboard in Resources */,
 				92FBA6A025B537320014FB8B /* GoogleService-Info.plist in Resources */,
 				925C9EB425B08BE9005A3694 /* Assets.xcassets in Resources */,
+				9263695C25B6824200D2D107 /* Login.storyboard in Resources */,
 				925C9EB225B08BE7005A3694 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,11 +319,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9263696025B684ED00D2D107 /* LoginViewController.swift in Sources */,
 				926E86E725B4404F00E7F213 /* HTTPClient.swift in Sources */,
 				9200D04C25B7411100461843 /* ViewModelProtocol.swift in Sources */,
 				92C35F4225B5BD0700D30DDF /* DDYZDAPI.swift in Sources */,
+				9263697825B7335C00D2D107 /* AuthAPI.swift in Sources */,
 				925C9EAB25B08BE7005A3694 /* AppDelegate.swift in Sources */,
-				9263698025B7358100D2D107 /* ViewModelProtocol.swift in Sources */,
+				9200D0B425B74DAA00461843 /* LoginViewModel.swift in Sources */,
+				9200D0B925B751E700461843 /* Token.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

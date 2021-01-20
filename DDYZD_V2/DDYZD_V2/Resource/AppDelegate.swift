@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Override point for customization after application launch.
         
         DSMSDKCommon.initSDK(clientID: "e20961403e0b43009c5dc070a8245e2e",
-                             clientSecret: "e20961403e0b43009c5dc070a8245e2e",
+                             clientSecret: "b1336493014a4cef8a480712c2be4bcf",
                              redirectURL: "https://semicolondsm.xyz/")
         
         FirebaseApp.configure()
