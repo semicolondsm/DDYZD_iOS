@@ -12,7 +12,7 @@ import RxAlamofire
 
 class HTTPClient {
     
-    let baseURL = ""
+    let baseURL = "http://180.228.167.34"
     
     typealias httpResult = Observable<(HTTPURLResponse, Data)>
     
