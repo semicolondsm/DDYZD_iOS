@@ -24,10 +24,10 @@
             </objects>
             <point key="canvasLocation" x="275" y="-152"/>
         </scene>
-        <!--ClubList-->
+        <!--Club-->
         <scene sceneID="vSO-Fq-qWc">
             <objects>
-                <viewControllerPlaceholder storyboardName="ClubList" id="Rah-hz-uLA" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Club" id="Rah-hz-uLA" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="p9Z-CY-Bif"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DtT-YK-afy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
