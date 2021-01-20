@@ -15,6 +15,7 @@
 		9200D0E725B8836000461843 /* AuthenticationServices+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200D0E625B8836000461843 /* AuthenticationServices+Rx.swift */; };
 		9200D12025B88DCF00461843 /* ClubList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9200D11F25B88DCF00461843 /* ClubList.storyboard */; };
 		9200D12325B88E7000461843 /* ClubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200D12225B88E7000461843 /* ClubModel.swift */; };
+		9200D12825B88EF200461843 /* ClubListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200D12725B88EF200461843 /* ClubListViewController.swift */; };
 		925C9EAB25B08BE7005A3694 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C9EAA25B08BE7005A3694 /* AppDelegate.swift */; };
 		925C9EB225B08BE7005A3694 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925C9EB025B08BE7005A3694 /* Main.storyboard */; };
 		925C9EB425B08BE9005A3694 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925C9EB325B08BE9005A3694 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 		9200D0E625B8836000461843 /* AuthenticationServices+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticationServices+Rx.swift"; sourceTree = "<group>"; };
 		9200D11F25B88DCF00461843 /* ClubList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClubList.storyboard; sourceTree = "<group>"; };
 		9200D12225B88E7000461843 /* ClubModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubModel.swift; sourceTree = "<group>"; };
+		9200D12725B88EF200461843 /* ClubListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListViewController.swift; sourceTree = "<group>"; };
 		925C9EA725B08BE7005A3694 /* DDYZD_V2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDYZD_V2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		925C9EAA25B08BE7005A3694 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		925C9EB125B08BE7005A3694 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 		9200D12525B88EAA00461843 /* Club */ = {
 			isa = PBXGroup;
 			children = (
+				9200D12725B88EF200461843 /* ClubListViewController.swift */,
 			);
 			path = Club;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				9263697825B7335C00D2D107 /* AuthAPI.swift in Sources */,
 				9200D0E725B8836000461843 /* AuthenticationServices+Rx.swift in Sources */,
 				925C9EAB25B08BE7005A3694 /* AppDelegate.swift in Sources */,
+				9200D12825B88EF200461843 /* ClubListViewController.swift in Sources */,
 				9200D0B425B74DAA00461843 /* LoginViewModel.swift in Sources */,
 				9200D0DF25B882BE00461843 /* ASAuthorizationControllerProxy.swift in Sources */,
 				9200D0B925B751E700461843 /* Token.swift in Sources */,
