@@ -91,6 +91,13 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
+		9200D0DC25B8822200461843 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		925C9E9E25B08BE7005A3694 = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				926E86DC25B4191800E7F213 /* UI */,
+				9200D0DC25B8822200461843 /* Util */,
 				9263695325B5C0C100D2D107 /* Model */,
 				9263695E25B684CE00D2D107 /* View */,
 				9200D04925B7411100461843 /* ViewModel */,
