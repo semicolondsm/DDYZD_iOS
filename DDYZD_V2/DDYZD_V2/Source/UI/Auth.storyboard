@@ -93,6 +93,7 @@
                     <connections>
                         <outlet property="DSMAuthProvider" destination="nOe-sK-XIz" id="oZ2-R0-DEb"/>
                         <outlet property="appleAuthProvider" destination="EUm-PB-j52" id="uGx-Ea-e8G"/>
+                        <outlet property="justBrowsingBtn" destination="ebM-WL-eBl" id="M3B-BV-THk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4at-fG-g4R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

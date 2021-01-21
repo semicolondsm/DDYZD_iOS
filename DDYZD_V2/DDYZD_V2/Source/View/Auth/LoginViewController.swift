@@ -14,6 +14,7 @@ import RxSwift
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var justBrowsingBtn: UIButton!
     @IBOutlet weak var appleAuthProvider: UIStackView!
     @IBOutlet weak var DSMAuthProvider: UIStackView!
     
@@ -27,6 +28,11 @@ class LoginViewController: UIViewController {
     }
     
     func bind(){
+        justBrowsingBtn.rx.tap.subscribe(onNext: {
+            self.dismiss(animated: true)
+        })
+        .disposed(by: disposeBag)
+        
         let DSMAuthBtn = UIButton()
         DSMAuthBtn.setBackgroundImage(UIImage(named: "DSMAuthLoginBtn"), for: .normal)
         
