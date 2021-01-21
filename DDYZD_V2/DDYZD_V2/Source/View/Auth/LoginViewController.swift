@@ -38,6 +38,14 @@ class LoginViewController: UIViewController {
         
         let input = LoginViewModel.input.init(vc: self, loginWithDSMAuthBtnDriver: DSMAuthBtn.rx.tap.asDriver())
         let output = viewModel.transform(input)
+        
+        output.result.subscribe(onNext:{ error in
+            print(error)
+        }, onCompleted:{
+            self.dismiss(animated: true)
+        })
+        .disposed(by: disposeBag)
+        
     }
     
     

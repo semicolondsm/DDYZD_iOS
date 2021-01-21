@@ -23,12 +23,6 @@ class AuthAPI {
                     }
                     Token.accessToken = data.access_token
                     return .success
-                case 400:
-                    return .badRequest
-                case 401:
-                    return .unauthorized
-                case 404:
-                    return .notFound
                 default:
                     print(response.statusCode)
                     return .fault

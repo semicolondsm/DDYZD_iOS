@@ -31,10 +31,15 @@ class LoginViewModel: ViewModelProtocol {
         input.loginWithDSMAuthBtnDriver.asObservable().subscribe(onNext: {
             DSMAUTH.loginWithDSMAuth(vc: input.vc){ (token, error) in
                 if let error = error{
-                    print(error)
                     result.onError(error)
                 } else {
                     api.signIn(token!.Access_Token).subscribe(onNext: { res in
+                        switch res {
+                        case .success:
+                            result.onCompleted()
+                        default:
+                            result.onNext("로그인 실패")
+                        }
                     })
                     .disposed(by: self.disposeBag)
                 }
