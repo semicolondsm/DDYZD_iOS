@@ -12,12 +12,12 @@ import RxAlamofire
 
 class HTTPClient {
     
-    let baseURL = "http://180.228.167.34"
+    let baseURL = "http://180.228.167.34:3000"
     
     typealias httpResult = Observable<(HTTPURLResponse, Data)>
     
     func get(_ api: DDYZDAPI, param: Parameters?) -> httpResult {
-        return requestData(.get, baseURL + api.path(),
+        return requestData(.get, baseURL + api.path() + now(),
                            parameters: param,
                            encoding: JSONEncoding.prettyPrinted,
                            headers: api.header())
@@ -42,6 +42,14 @@ class HTTPClient {
                            parameters: param,
                            encoding: JSONEncoding.prettyPrinted,
                            headers: api.header())
+    }
+    
+    
+    private func now() -> String {
+        let formatter_time = DateFormatter()
+        formatter_time.dateFormat = "ss"
+        let current_time_string = formatter_time.string(from: Date())
+        return current_time_string
     }
 }
 
