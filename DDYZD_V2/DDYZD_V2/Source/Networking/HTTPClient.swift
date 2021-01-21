@@ -17,7 +17,7 @@ class HTTPClient {
     typealias httpResult = Observable<(HTTPURLResponse, Data)>
     
     func get(_ api: DDYZDAPI, param: Parameters?) -> httpResult {
-        return requestData(.get, baseURL + api.path() + now(),
+        return requestData(.get, baseURL + api.path() + "?" + now(),
                            parameters: param,
                            encoding: JSONEncoding.prettyPrinted,
                            headers: api.header())
