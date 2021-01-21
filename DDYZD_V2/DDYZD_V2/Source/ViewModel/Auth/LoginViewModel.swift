@@ -35,6 +35,7 @@ class LoginViewModel: ViewModelProtocol {
                     result.onError(error)
                 } else {
                     api.signIn(token!.Access_Token).subscribe(onNext: { res in
+                        print(res)
                     })
                     .disposed(by: self.disposeBag)
                 }
