@@ -32,19 +32,12 @@ class LoginViewController: UIViewController {
         
         let appleAuthBtn = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: .whiteOutline)
         appleAuthBtn.cornerRadius = 50
-        appleAuthBtn.rx.loginOnTap(scope: [.email, .fullName])
-            .subscribe(onNext: { res in
-                print(res)
-            })
-            .disposed(by: disposeBag)
         
         self.DSMAuthProvider.addArrangedSubview(DSMAuthBtn)
         self.appleAuthProvider.addArrangedSubview(appleAuthBtn)
         
         let input = LoginViewModel.input.init(vc: self, loginWithDSMAuthBtnDriver: DSMAuthBtn.rx.tap.asDriver())
         let output = viewModel.transform(input)
-        
-        output.result
     }
     
     

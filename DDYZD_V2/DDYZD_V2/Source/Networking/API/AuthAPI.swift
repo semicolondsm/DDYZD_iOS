@@ -14,7 +14,7 @@ class AuthAPI {
     let httpClient = HTTPClient()
     
     func signIn(_ DSMAuth_token: String) -> Observable<StatusCodes> {
-        httpClient.get(.getToken(DSMAuth_token), param: [:])
+        httpClient.get(.getToken(DSMAuth_token), param: nil)
             .map{response, data -> StatusCodes in
                 switch response.statusCode {
                 case 200:
