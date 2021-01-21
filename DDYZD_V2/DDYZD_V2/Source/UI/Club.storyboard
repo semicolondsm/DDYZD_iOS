@@ -27,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="-210" y="-9"/>
         </scene>
-        <!--View Controller-->
+        <!--Club List View Controller-->
         <scene sceneID="Dpw-VC-5qg">
             <objects>
-                <viewController id="atj-HX-u2j" sceneMemberID="viewController">
+                <viewController id="atj-HX-u2j" customClass="ClubListViewController" customModule="DDYZD_V2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0lq-g1-A9e">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
