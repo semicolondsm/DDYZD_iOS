@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+import Alamofire
+import RxSwift
+
+class ClubAPI {
+    let httpClient = HTTPClient()
+    
+    
+}
