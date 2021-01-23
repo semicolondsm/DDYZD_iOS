@@ -76,6 +76,6 @@ struct ClubListModel: Codable {
     let clubid: Int
     let clubname: String
     let clubdescription: String
-    let clibimage: String
+    let clubimage: String
     let clubtag: [String]
 }
