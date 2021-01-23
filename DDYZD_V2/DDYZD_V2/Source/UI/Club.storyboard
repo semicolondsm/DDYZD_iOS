@@ -76,6 +76,9 @@
                             <constraint firstItem="3Og-UK-stD" firstAttribute="trailing" secondItem="vUV-cD-UVa" secondAttribute="trailing" id="rXW-WK-g6V"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ClubListTable" destination="3Og-UK-stD" id="9yw-na-8sJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1N-zN-LiQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
