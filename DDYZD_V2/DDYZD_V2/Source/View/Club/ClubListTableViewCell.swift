@@ -15,10 +15,11 @@ class ClubListTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        setUI()
     }
 
     func setUI() {
-        clubProfileImageView.layer.cornerRadius = 50
+        clubProfileImageView.layer.cornerRadius = 30
     }
 }
