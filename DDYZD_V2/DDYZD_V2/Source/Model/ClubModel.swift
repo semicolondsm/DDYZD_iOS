@@ -32,5 +32,50 @@ enum ClubListCategory {
         }
     }
     
+    func classificationTag(_ tag: String) -> Bool{
+        switch self {
+        case .all:
+            return true
+        case .web:
+            if tag == "웹" {
+                return true
+            } else {
+                return false
+            }
+        case .app:
+            if tag == "앱" {
+                return true
+            } else {
+                return false
+            }
+        case .embedded:
+            if tag == "임베디드" {
+                return true
+            } else {
+                return false
+            }
+        case .ect:
+            if tag == "게임" || tag == "인공지능" || tag == "정보보안" {
+                return true
+            } else {
+                return false
+            }
+        case .CA:
+            if tag == "교과목" || tag == "전공과목" || tag == "스포츠" || tag == "예술 창의 교양" || tag == "교내활동" || tag == "기타" {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+    
     static let allItems = [all,web,app,embedded,ect,CA]
+}
+
+struct ClubListModel: Codable {
+    let clubID: String
+    let clubName: String
+    let clubTag: [String]
+    let clibImage: String
+    let clubDescription: String
 }
