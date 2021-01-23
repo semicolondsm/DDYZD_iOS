@@ -73,9 +73,9 @@ enum ClubListCategory {
 }
 
 struct ClubListModel: Codable {
-    let clubID: String
-    let clubName: String
-    let clubTag: [String]
-    let clibImage: String
-    let clubDescription: String
+    let clubid: Int
+    let clubname: String
+    let clubdescription: String
+    let clibimage: String
+    let clubtag: [String]
 }
