@@ -58,7 +58,6 @@ PODS:
     - nanopb/encode (= 2.30906.0)
   - nanopb/decode (2.30906.0)
   - nanopb/encode (2.30906.0)
-  - Parchment (3.0.1)
   - PromisesObjC (1.2.12)
   - RxAlamofire (6.1.1):
     - RxAlamofire/Core (= 6.1.1)
@@ -77,7 +76,6 @@ DEPENDENCIES:
   - DSMSDK (~> 1.1)
   - Firebase/Messaging
   - Kingfisher (~> 6.0)
-  - Parchment (~> 3.0)
   - RxAlamofire (~> 6.1)
   - RxCocoa (~> 6.0)
   - RxSwift (~> 6.0)
@@ -96,7 +94,6 @@ SPEC REPOS:
     - GoogleUtilities
     - Kingfisher
     - nanopb
-    - Parchment
     - PromisesObjC
     - RxAlamofire
     - RxCocoa
@@ -116,13 +113,12 @@ SPEC CHECKSUMS:
   GoogleUtilities: 3dc4ff0d5e4840e2fa8eef0889620e8c33d4218c
   Kingfisher: adde87a4f74f6a3845395769354efff593581740
   nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
-  Parchment: 466a1cfb6151780db8acb4bbedc2d9c6bfa1e2ff
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxCocoa: 3f79328fafa3645b34600f37c31e64c73ae3a80e
   RxRelay: 8d593be109c06ea850df027351beba614b012ffb
   RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
 
-PODFILE CHECKSUM: c8c8c5e0c15443ec11014af7b5dd8ecb66b72832
+PODFILE CHECKSUM: 318d761e4759b03b9e75f96a29bd8c384de7e468
 
 COCOAPODS: 1.10.1
