@@ -23,6 +23,7 @@ class ClubListTableViewController: UIViewController {
         super.viewDidLoad()
         
         setUI()
+        registerCell()
         bind()
     }
     
@@ -44,4 +45,9 @@ class ClubListTableViewController: UIViewController {
         .disposed(by: disposeBag)
     }
 
+    func registerCell() {
+        let nib = UINib(nibName: "ClubListTableViewCell", bundle: nil)
+        ClubListTable.register(nib, forCellReuseIdentifier: "ClubListTableViewCell")
+        ClubListTable.rowHeight = 80
+    }
 }
