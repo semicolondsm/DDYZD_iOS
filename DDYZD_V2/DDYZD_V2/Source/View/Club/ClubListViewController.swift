@@ -6,35 +6,79 @@
 //
 
 import UIKit
-import Parchment
 
-class ClubListViewController: UIViewController {
+import Tabman
+import Pageboy
 
+class ClubListViewController: TabmanViewController {
+
+    private var viewControllers = [UIViewController]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setNavigationBar()
+        embeddViewControllers()
         setTopTabbar()
     }
     
-
+    func setNavigationBar(){
+        navigationController?.navigationBar.shadowImage = UIImage()
+        
+        let label = UILabel()
+            
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "동아리 리스트"
+        label.font = UIFont.systemFont(ofSize: 25)
+        label.textAlignment = .left
+        navigationItem.titleView = label
+            
+        if let navigationBar = navigationController?.navigationBar{
+            label.widthAnchor.constraint(equalTo: navigationBar.widthAnchor, constant: -40).isActive = true
+        }
+    }
+    
+    func embeddViewControllers(){
+        for tag in ClubListCategory.allItems {
+            let vc = UIStoryboard.init(name: "Club", bundle: nil).instantiateViewController(withIdentifier: "ClubListTableViewController") as! ClubListTableViewController
+            vc.clubTag = tag
+            viewControllers.append(vc)
+        }
+    }
+    
     func setTopTabbar(){
-        let storyboard = UIStoryboard(name: "Club", bundle: nil)
-        let firstVC = storyboard.instantiateViewController(withIdentifier: "CluListTableViewController") as! CluListTableViewController
-        firstVC.title = "웹"
-        let secondVC = storyboard.instantiateViewController(withIdentifier: "CluListTableViewController") as! CluListTableViewController
-        secondVC.title = "앱"
+        self.dataSource = self
         
-        let pagingViewController = PagingViewController(viewControllers: [
-            firstVC,
-            secondVC
-        ])
+        let bar = TMBar.ButtonBar()
+        bar.layout.transitionStyle = .snap
+        bar.backgroundView.style = .blur(style: .light)
+        bar.indicator.tintColor = #colorLiteral(red: 0.4811326265, green: 0.1003668979, blue: 0.812384963, alpha: 1)
+        bar.buttons.customize{ $0.selectedTintColor = #colorLiteral(red: 0.4811326265, green: 0.1003668979, blue: 0.812384963, alpha: 1) }
         
-        // Make sure you add the PagingViewController as a child view
-        // controller and contrain it to the edges of the view.
-        addChild(pagingViewController)
-        view.addSubview(pagingViewController.view)
-        view.constrainToEdges(pagingViewController.view)
-        pagingViewController.didMove(toParent: self)
+        addBar(bar, dataSource: self, at: .top)
+        bar.layer.addBorder([.bottom], color: #colorLiteral(red: 0.7685618401, green: 0.768670857, blue: 0.7685275674, alpha: 1), width: 0.3)
     }
 
+}
+
+extension ClubListViewController: PageboyViewControllerDataSource, TMBarDataSource {
+    func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
+        let indexViewController = viewControllers[index] as! ClubListTableViewController
+        let item = TMBarItem(title: "")
+        item.title = indexViewController.clubTag.title() + "        "
+        
+        return item
+    }
+    
+    func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
+        return viewControllers.count
+    }
+
+    func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
+        return viewControllers[index]
+    }
+
+    func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
+        return nil
+    }
 }
