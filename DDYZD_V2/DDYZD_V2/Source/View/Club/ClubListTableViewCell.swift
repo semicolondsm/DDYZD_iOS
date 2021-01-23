@@ -9,15 +9,17 @@ import UIKit
 
 class ClubListTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var clubProfileImageView: UIImageView!
+    @IBOutlet weak var clubNameLable: UILabel!
+    @IBOutlet weak var clubDescription: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        setUI()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func setUI() {
+        clubProfileImageView.layer.cornerRadius = 30
     }
-
 }

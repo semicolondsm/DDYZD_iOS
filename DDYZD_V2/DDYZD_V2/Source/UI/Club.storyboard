@@ -15,9 +15,10 @@
                 <navigationController storyboardIdentifier="ClubNC" id="ivx-M9-aYT" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="JzV-MC-LsI"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KAR-98-ZzI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="KAR-98-ZzI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
                         <segue destination="atj-HX-u2j" kind="relationship" relationship="rootViewController" id="6PK-eO-ZQA"/>
@@ -25,14 +26,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KIh-Ky-eCY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-284" y="-9"/>
+            <point key="canvasLocation" x="-210" y="-9"/>
         </scene>
-        <!--View Controller-->
+        <!--Club List View Controller-->
         <scene sceneID="Dpw-VC-5qg">
             <objects>
-                <viewController id="atj-HX-u2j" sceneMemberID="viewController">
+                <viewController id="atj-HX-u2j" customClass="ClubListViewController" customModule="DDYZD_V2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0lq-g1-A9e">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="jc4-hg-khO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -42,6 +43,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="85W-k2-QkD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="557" y="-9"/>
+        </scene>
+        <!--Club List Table View Controller-->
+        <scene sceneID="Ahm-5e-QG9">
+            <objects>
+                <viewController storyboardIdentifier="ClubListTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3f7-DC-cNp" customClass="ClubListTableViewController" customModule="DDYZD_V2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WXx-8y-Z4x">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Og-UK-stD">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vUV-cD-UVa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3Og-UK-stD" firstAttribute="bottom" secondItem="vUV-cD-UVa" secondAttribute="bottom" id="kYJ-6K-Og8"/>
+                            <constraint firstItem="3Og-UK-stD" firstAttribute="leading" secondItem="vUV-cD-UVa" secondAttribute="leading" id="ls8-Su-pt1"/>
+                            <constraint firstItem="3Og-UK-stD" firstAttribute="top" secondItem="vUV-cD-UVa" secondAttribute="top" id="pDy-wM-7EU"/>
+                            <constraint firstItem="3Og-UK-stD" firstAttribute="trailing" secondItem="vUV-cD-UVa" secondAttribute="trailing" id="rXW-WK-g6V"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ClubListTable" destination="3Og-UK-stD" id="9yw-na-8sJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b1N-zN-LiQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="556.52173913043487" y="656.25"/>
         </scene>
     </scenes>
     <resources>

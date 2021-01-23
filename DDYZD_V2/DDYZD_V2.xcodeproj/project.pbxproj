@@ -18,7 +18,7 @@
 		9200D12825B88EF200461843 /* ClubListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200D12725B88EF200461843 /* ClubListViewController.swift */; };
 		9200D12C25B88F1A00461843 /* ClubListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200D12B25B88F1A00461843 /* ClubListViewModel.swift */; };
 		9200D13225B8903300461843 /* ClubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200D13125B8903300461843 /* ClubAPI.swift */; };
-		9200D15D25B996C600461843 /* CluListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200D15C25B996C600461843 /* CluListTableViewController.swift */; };
+		9200D15D25B996C600461843 /* ClubListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200D15C25B996C600461843 /* ClubListTableViewController.swift */; };
 		9200D19C25B99D0000461843 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200D19B25B99D0000461843 /* Extension.swift */; };
 		9200D38C25BBD6AD00461843 /* ClubListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200D38B25BBD6AD00461843 /* ClubListTableViewCell.swift */; };
 		9200D39025BBE2C400461843 /* ClubListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9200D38F25BBE2C400461843 /* ClubListTableViewCell.xib */; };
@@ -48,7 +48,7 @@
 		9200D12725B88EF200461843 /* ClubListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListViewController.swift; sourceTree = "<group>"; };
 		9200D12B25B88F1A00461843 /* ClubListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListViewModel.swift; sourceTree = "<group>"; };
 		9200D13125B8903300461843 /* ClubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubAPI.swift; sourceTree = "<group>"; };
-		9200D15C25B996C600461843 /* CluListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CluListTableViewController.swift; sourceTree = "<group>"; };
+		9200D15C25B996C600461843 /* ClubListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListTableViewController.swift; sourceTree = "<group>"; };
 		9200D19B25B99D0000461843 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		9200D38B25BBD6AD00461843 /* ClubListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListTableViewCell.swift; sourceTree = "<group>"; };
 		9200D38F25BBE2C400461843 /* ClubListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClubListTableViewCell.xib; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				9200D12725B88EF200461843 /* ClubListViewController.swift */,
-				9200D15C25B996C600461843 /* CluListTableViewController.swift */,
+				9200D15C25B996C600461843 /* ClubListTableViewController.swift */,
 				9200D38B25BBD6AD00461843 /* ClubListTableViewCell.swift */,
 			);
 			path = Club;
@@ -410,7 +410,7 @@
 				9200D0DF25B882BE00461843 /* ASAuthorizationControllerProxy.swift in Sources */,
 				9200D0B925B751E700461843 /* Token.swift in Sources */,
 				9200D12C25B88F1A00461843 /* ClubListViewModel.swift in Sources */,
-				9200D15D25B996C600461843 /* CluListTableViewController.swift in Sources */,
+				9200D15D25B996C600461843 /* ClubListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
