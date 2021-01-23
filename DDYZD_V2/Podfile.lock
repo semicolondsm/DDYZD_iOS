@@ -58,6 +58,7 @@ PODS:
     - nanopb/encode (= 2.30906.0)
   - nanopb/decode (2.30906.0)
   - nanopb/encode (2.30906.0)
+  - Pageboy (3.6.2)
   - PromisesObjC (1.2.12)
   - RxAlamofire (6.1.1):
     - RxAlamofire/Core (= 6.1.1)
@@ -70,6 +71,8 @@ PODS:
   - RxRelay (6.0.0):
     - RxSwift (= 6.0.0)
   - RxSwift (6.0.0)
+  - Tabman (2.9.1):
+    - Pageboy (~> 3.6.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
@@ -79,6 +82,7 @@ DEPENDENCIES:
   - RxAlamofire (~> 6.1)
   - RxCocoa (~> 6.0)
   - RxSwift (~> 6.0)
+  - Tabman (~> 2.9)
 
 SPEC REPOS:
   trunk:
@@ -94,11 +98,13 @@ SPEC REPOS:
     - GoogleUtilities
     - Kingfisher
     - nanopb
+    - Pageboy
     - PromisesObjC
     - RxAlamofire
     - RxCocoa
     - RxRelay
     - RxSwift
+    - Tabman
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
@@ -113,12 +119,14 @@ SPEC CHECKSUMS:
   GoogleUtilities: 3dc4ff0d5e4840e2fa8eef0889620e8c33d4218c
   Kingfisher: adde87a4f74f6a3845395769354efff593581740
   nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
+  Pageboy: cf121b9dd48c63f3f281b2a9ec93d02e0f23879b
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxCocoa: 3f79328fafa3645b34600f37c31e64c73ae3a80e
   RxRelay: 8d593be109c06ea850df027351beba614b012ffb
   RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
+  Tabman: 085d89c65be9e883629bdaf5b1453a6397e57846
 
-PODFILE CHECKSUM: 318d761e4759b03b9e75f96a29bd8c384de7e468
+PODFILE CHECKSUM: b28dcb30a955a662ed586dea92b6ea893a603193
 
 COCOAPODS: 1.10.1
