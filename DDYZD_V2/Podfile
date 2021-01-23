@@ -11,9 +11,9 @@ target 'DDYZD_V2' do
   pod 'DSMSDK', '~> 1.1'
   pod 'Firebase/Messaging'
   pod 'Kingfisher', '~> 6.0'
-  pod 'Parchment', '~> 3.0'
   pod 'RxAlamofire', '~> 6.1'
   pod 'RxCocoa', '~> 6.0'
   pod 'RxSwift', '~> 6.0'
+  pod 'Tabman', '~> 2.9'
   
 end
