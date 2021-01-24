@@ -39,6 +39,7 @@
 		92BED6EB25BD534B00526C33 /* ClubDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BED6EA25BD534B00526C33 /* ClubDetailViewController.swift */; };
 		92BED6EE25BD536200526C33 /* ClubDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BED6ED25BD536200526C33 /* ClubDetailViewModel.swift */; };
 		92C35F4225B5BD0700D30DDF /* DDYZDAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C35F4125B5BD0600D30DDF /* DDYZDAPI.swift */; };
+		92D1759D25BD696B00E6F2D6 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D1759C25BD696B00E6F2D6 /* MainPageViewController.swift */; };
 		92FBA6A025B537320014FB8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92FBA69F25B537320014FB8B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		92BED6EA25BD534B00526C33 /* ClubDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailViewController.swift; sourceTree = "<group>"; };
 		92BED6ED25BD536200526C33 /* ClubDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailViewModel.swift; sourceTree = "<group>"; };
 		92C35F4125B5BD0600D30DDF /* DDYZDAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDYZDAPI.swift; sourceTree = "<group>"; };
+		92D1759C25BD696B00E6F2D6 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		92FBA69F25B537320014FB8B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -220,6 +222,7 @@
 		9263695E25B684CE00D2D107 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				92D1759B25BD694C00E6F2D6 /* Main */,
 				9263697625B7333E00D2D107 /* Auth */,
 				9200D12525B88EAA00461843 /* Club */,
 				92BED6D725BD46FA00526C33 /* Chat */,
@@ -314,6 +317,14 @@
 			children = (
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		92D1759B25BD694C00E6F2D6 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				92D1759C25BD696B00E6F2D6 /* MainPageViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,6 +463,7 @@
 				9200D19C25B99D0000461843 /* Extension.swift in Sources */,
 				9200D0E725B8836000461843 /* AuthenticationServices+Rx.swift in Sources */,
 				925C9EAB25B08BE7005A3694 /* AppDelegate.swift in Sources */,
+				92D1759D25BD696B00E6F2D6 /* MainPageViewController.swift in Sources */,
 				9200D12825B88EF200461843 /* ClubListViewController.swift in Sources */,
 				9200D0B425B74DAA00461843 /* LoginViewModel.swift in Sources */,
 				9200D0DF25B882BE00461843 /* ASAuthorizationControllerProxy.swift in Sources */,
