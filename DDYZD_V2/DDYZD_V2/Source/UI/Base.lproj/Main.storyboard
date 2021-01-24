@@ -54,7 +54,9 @@
                         <viewLayoutGuide key="safeArea" id="dIY-lK-xRX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5TW-pS-Cim"/>
+                    <navigationItem key="navigationItem" id="5TW-pS-Cim">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="ChatIcon" id="Zb3-Ki-fvZ"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="56Z-qH-K3X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -72,6 +74,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ChatIcon" width="30" height="30"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
