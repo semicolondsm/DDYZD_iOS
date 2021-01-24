@@ -21,7 +21,8 @@ class AuthAPI {
                     guard let data = try? JSONDecoder().decode(TokenModel.self, from: data) else {
                         return .fault
                     }
-                    Token.accessToken = data.access_token
+                    Token.access_token = data.access_token
+                    Token.refresh_token = data.refresh_token
                     return .success
                 default:
                     print(response.statusCode)

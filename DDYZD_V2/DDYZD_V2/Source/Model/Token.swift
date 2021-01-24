@@ -13,5 +13,13 @@ struct TokenModel: Codable {
 }
 
 struct Token {
-    static var accessToken: String = ""
+    static var access_token: String = ""
+    static var refresh_token: String? {
+        get {
+            return UserDefaults.standard.string(forKey: "Token")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "Token")
+        }
+    }
 }
