@@ -102,10 +102,10 @@ enum DDYZDAPI {
             }
             return ["refresh-token": "Bearer \(refreshToken)"]
         case .updateProfileImage(_), .updateHongboImage(_), .updateBannerImage(_), .uploadFeedFile(_):
-            return ["Authorization": "Bearer \(Token.accessToken)",
+            return ["Authorization": "Bearer \(Token.access_token)",
                     "Content-Type": "multipart/form-data"]
         default:
-            return ["Authorization": "Bearer \(Token.accessToken)"]
+            return ["Authorization": "Bearer \(Token.access_token)"]
         }
     }
 }
