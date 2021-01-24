@@ -30,4 +30,16 @@ class AuthAPI {
                 }
             }
     }
+    
+    func postDeviceToken(_ device_token: String) -> Observable<StatusCodes> {
+        httpClient.post(.postDeviceToken(device_token), param: nil)
+            .map{ response, _ -> StatusCodes in
+                switch response.statusCode {
+                case 200:
+                    return .success
+                default:
+                    return .fault
+                }
+            }
+    }
 }
