@@ -54,7 +54,11 @@
                         <viewLayoutGuide key="safeArea" id="dIY-lK-xRX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5TW-pS-Cim"/>
+                    <navigationItem key="navigationItem" id="5TW-pS-Cim">
+                        <barButtonItem key="rightBarButtonItem" title="Chat" id="w0g-Jd-Ig7">
+                            <color key="tintColor" red="0.153221935" green="0.1083366647" blue="0.1134249344" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="56Z-qH-K3X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
