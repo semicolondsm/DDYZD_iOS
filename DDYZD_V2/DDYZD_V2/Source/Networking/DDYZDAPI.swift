@@ -97,15 +97,15 @@ enum DDYZDAPI {
         case .getToken(let DSMAuthToken) :
             return ["access_token": "Bearer \(DSMAuthToken)"]
         case .refreshToken :
-            guard let refreshToken = UserDefaults.standard.string(forKey: "refreshToken") else {
-                return nil
-            }
-            return ["refresh-token": "Bearer \(refreshToken)"]
+            guard let refresh_token = Token.refresh_token else { return nil }
+            return ["refresh-token": "Bearer \(refresh_token)"]
+        case .postDeviceToken:
+            
         case .updateProfileImage(_), .updateHongboImage(_), .updateBannerImage(_), .uploadFeedFile(_):
-            return ["Authorization": "Bearer \(Token.accessToken)",
+            return ["Authorization": "Bearer \(Token.access_token)",
                     "Content-Type": "multipart/form-data"]
         default:
-            return ["Authorization": "Bearer \(Token.accessToken)"]
+            return ["Authorization": "Bearer \(Token.access_token)"]
         }
     }
 }
