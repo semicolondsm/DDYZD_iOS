@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+import Alamofire
+import RxSwift
+
+class ChatAPI {
+    let httpClient = HTTPClient()
+    
+}
