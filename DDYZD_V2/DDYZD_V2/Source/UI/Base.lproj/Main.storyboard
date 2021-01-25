@@ -74,6 +74,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="ChatIcon" id="Zb3-Ki-fvZ"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="chatBtn" destination="Zb3-Ki-fvZ" id="23b-zN-Dt1"/>
                         <outlet property="feedView" destination="jDg-lO-2rU" id="HD2-Qv-63x"/>
                     </connections>
                 </viewController>
