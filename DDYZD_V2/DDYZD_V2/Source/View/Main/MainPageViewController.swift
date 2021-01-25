@@ -14,12 +14,11 @@ class MainPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setWebView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setNavigationbar()
-        setWebView()
     }
     
     func setNavigationbar(){
@@ -46,12 +45,17 @@ class MainPageViewController: UIViewController {
     
 }
 
-extension MainPageViewController: WKUIDelegate, WKNavigationDelegate {
+extension MainPageViewController: WKUIDelegate, WKNavigationDelegate, UIScrollViewDelegate {
     func setWebView(){
         let URL = "https://semicolondsm.xyz/mobile/feed"
         
         let request: URLRequest = URLRequest.init(url: NSURL.init(string: URL)! as URL, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 10)
         
         feedView.load(request)
+        feedView.scrollView.delegate = self
+    }
+    
+    func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
+      scrollView.pinchGestureRecognizer?.isEnabled = false
     }
 }
