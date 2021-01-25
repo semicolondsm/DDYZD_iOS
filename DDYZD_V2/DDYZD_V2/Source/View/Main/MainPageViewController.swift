@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import WebKit
 
 class MainPageViewController: UIViewController {
     
     @IBOutlet weak var goChatBtn: UIBarButtonItem!
+    @IBOutlet weak var feedView: WKWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +22,10 @@ class MainPageViewController: UIViewController {
         setNavigationbar()
     }
     
-
+    func setWebView(){
+        
+    }
+    
     func setNavigationbar(){
         
         self.navigationController?.navigationBar.prefersLargeTitles = false
@@ -42,5 +47,7 @@ class MainPageViewController: UIViewController {
         let leftButton = UIBarButtonItem(customView: customView)
         self.navigationItem.leftBarButtonItem = leftButton
     }
+    
+    
 
 }

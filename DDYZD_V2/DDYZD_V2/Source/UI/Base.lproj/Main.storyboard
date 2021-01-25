@@ -51,12 +51,31 @@
                     <view key="view" contentMode="scaleToFill" id="zZS-HO-DGJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDg-lO-2rU">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="dIY-lK-xRX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dIY-lK-xRX" firstAttribute="bottom" secondItem="jDg-lO-2rU" secondAttribute="bottom" id="Gev-cS-0bC"/>
+                            <constraint firstItem="jDg-lO-2rU" firstAttribute="leading" secondItem="dIY-lK-xRX" secondAttribute="leading" id="eqV-om-R43"/>
+                            <constraint firstItem="jDg-lO-2rU" firstAttribute="top" secondItem="dIY-lK-xRX" secondAttribute="top" id="hCf-EM-Db9"/>
+                            <constraint firstItem="dIY-lK-xRX" firstAttribute="trailing" secondItem="jDg-lO-2rU" secondAttribute="trailing" id="zhm-JI-ysV"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5TW-pS-Cim">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="ChatIcon" id="Zb3-Ki-fvZ"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="feedView" destination="jDg-lO-2rU" id="HD2-Qv-63x"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="56Z-qH-K3X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
