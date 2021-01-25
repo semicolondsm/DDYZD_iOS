@@ -6,16 +6,18 @@
 //
 
 import Foundation
+
 import Alamofire
+import FirebaseMessaging
 
 enum DDYZDAPI {
     
     //Auth
-    case getToken(_ DSMAuthToken: String)   // 토큰 발급
-    case postDeviceToken                    // 디바이스 토큰 입력
-    case refreshToken                       // 토큰 재발급
-    case userInfo(_ gcn: String)            // 유저 정보
-    case updateInfo                         // 프로필 수정
+    case getToken(_ DSMAuthToken: String)       // 토큰 발급
+    case postDeviceToken(_ DeviceToken: String) // 디바이스 토큰 입력
+    case refreshToken                           // 토큰 재발급
+    case userInfo(_ gcn: String)                // 유저 정보
+    case updateInfo                             // 프로필 수정
     
     //feed
     case flagIt(_ feedID: Int)              // 피드 flag달기
@@ -45,7 +47,7 @@ enum DDYZDAPI {
         switch self {
         case .getToken(_):
             return "/users/token"
-        case .postDeviceToken:
+        case .postDeviceToken(_):
             return "/users/device_token"
         case .refreshToken:
             return "/users/refresh"
@@ -97,15 +99,15 @@ enum DDYZDAPI {
         case .getToken(let DSMAuthToken) :
             return ["access_token": "Bearer \(DSMAuthToken)"]
         case .refreshToken :
-            guard let refreshToken = UserDefaults.standard.string(forKey: "refreshToken") else {
-                return nil
-            }
-            return ["refresh-token": "Bearer \(refreshToken)"]
+            guard let refresh_token = Token.refresh_token else { return nil }
+            return ["refresh-token": "Bearer \(refresh_token)"]
+        case .postDeviceToken(let DeviceToekn):
+            return ["device-token": "Bearer \(DeviceToekn)"]
         case .updateProfileImage(_), .updateHongboImage(_), .updateBannerImage(_), .uploadFeedFile(_):
-            return ["Authorization": "Bearer \(Token.accessToken)",
+            return ["Authorization": "Bearer \(Token.access_token)",
                     "Content-Type": "multipart/form-data"]
         default:
-            return ["Authorization": "Bearer \(Token.accessToken)"]
+            return ["Authorization": "Bearer \(Token.access_token)"]
         }
     }
 }
