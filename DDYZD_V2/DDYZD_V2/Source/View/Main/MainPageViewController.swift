@@ -19,10 +19,7 @@ class MainPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setNavigationbar()
-    }
-    
-    func setWebView(){
-        
+        setWebView()
     }
     
     func setNavigationbar(){
@@ -47,6 +44,14 @@ class MainPageViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = leftButton
     }
     
-    
+}
 
+extension MainPageViewController: WKUIDelegate, WKNavigationDelegate {
+    func setWebView(){
+        let URL = "https://semicolondsm.xyz/mobile/feed"
+        
+        let request: URLRequest = URLRequest.init(url: NSURL.init(string: URL)! as URL, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 10)
+        
+        feedView.load(request)
+    }
 }
