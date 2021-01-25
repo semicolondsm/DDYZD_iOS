@@ -45,17 +45,12 @@ class MainPageViewController: UIViewController {
     
 }
 
-extension MainPageViewController: WKUIDelegate, WKNavigationDelegate, UIScrollViewDelegate {
+extension MainPageViewController: WKUIDelegate, WKNavigationDelegate {
     func setWebView(){
         let URL = "https://semicolondsm.xyz/mobile/feed"
         
         let request: URLRequest = URLRequest.init(url: NSURL.init(string: URL)! as URL, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 10)
         
         feedView.load(request)
-        feedView.scrollView.delegate = self
-    }
-    
-    func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
-      scrollView.pinchGestureRecognizer?.isEnabled = false
     }
 }
