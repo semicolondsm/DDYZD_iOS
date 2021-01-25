@@ -10,7 +10,6 @@ import WebKit
 
 class MainPageViewController: UIViewController {
     
-    @IBOutlet weak var chatBtn: UIBarButtonItem!
     @IBOutlet weak var feedView: WKWebView!
     
     override func viewDidLoad() {
