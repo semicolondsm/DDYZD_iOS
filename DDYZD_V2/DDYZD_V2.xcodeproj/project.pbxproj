@@ -306,8 +306,8 @@
 		92BED6D725BD46FA00526C33 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				92BED6E425BD4B1C00526C33 /* ChatListTableViewCell.swift */,
 				92B9AE9A25BF03C900026892 /* ChatListViewController.swift */,
+				92BED6E425BD4B1C00526C33 /* ChatListTableViewCell.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
