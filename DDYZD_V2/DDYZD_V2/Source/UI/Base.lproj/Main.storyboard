@@ -35,6 +35,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="3Fb-2p-CFD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
                         <segue destination="NUV-NE-xN2" kind="relationship" relationship="rootViewController" id="v6s-LH-XwC"/>

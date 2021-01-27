@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Chat List View Controller-->
+        <!--qwe-->
         <scene sceneID="4c7-yv-THQ">
             <objects>
-                <viewController id="l1B-zG-hCe" customClass="ChatListViewController" customModule="DDYZD_V2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="qwe" hidesBottomBarWhenPushed="YES" id="l1B-zG-hCe" customClass="ChatListViewController" customModule="DDYZD_V2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3nd-8i-d7X">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VqZ-88-hHl"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="FUF-wW-e8f" firstAttribute="top" secondItem="VqZ-88-hHl" secondAttribute="top" id="AhL-Ot-Jqb"/>
                             <constraint firstAttribute="bottom" secondItem="FUF-wW-e8f" secondAttribute="bottom" id="Vl7-CN-KG6"/>
