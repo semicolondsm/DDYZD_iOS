@@ -71,7 +71,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5TW-pS-Cim">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="ChatIcon" id="Zb3-Ki-fvZ"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="ChatIcon" id="Zb3-Ki-fvZ">
+                            <connections>
+                                <segue destination="vMM-Rs-EyM" kind="show" id="MIB-nW-jBq"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="feedView" destination="jDg-lO-2rU" id="HD2-Qv-63x"/>
@@ -80,6 +84,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="56Z-qH-K3X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1865" y="-149"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="Ukg-Pt-pXY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chat" id="vMM-Rs-EyM" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="wXq-uI-mw9"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uW7-r8-2bh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2444" y="-398"/>
         </scene>
         <!--ClubNC-->
         <scene sceneID="vSO-Fq-qWc">
