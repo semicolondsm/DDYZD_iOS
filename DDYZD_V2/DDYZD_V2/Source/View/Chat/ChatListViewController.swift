@@ -14,6 +14,12 @@ class ChatListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setTabBarHide()
+        setNavigationBar()
+    }
+    
+    func setTabBarHide(){
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     func setNavigationBar(){
