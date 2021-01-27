@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,7 +13,7 @@
         <scene sceneID="ATC-Ph-wXb">
             <objects>
                 <tabBarController id="Y0h-jn-1G6" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cPQ-cp-QYA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="cPQ-cp-QYA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -26,51 +27,59 @@
             </objects>
             <point key="canvasLocation" x="275" y="-152"/>
         </scene>
-        <!--Root View Controller-->
-        <scene sceneID="Tcf-rG-Ohy">
-            <objects>
-                <tableViewController id="omn-SJ-Ipv" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KBd-0x-yqE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="pHp-Ho-Hjq">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pHp-Ho-Hjq" id="1fX-8w-cwb">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="omn-SJ-Ipv" id="fjb-dm-XKP"/>
-                            <outlet property="delegate" destination="omn-SJ-Ipv" id="Lnc-rG-FyM"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="U8j-Iw-gQy"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="npG-aI-KZI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1958" y="-148"/>
-        </scene>
         <!--Item-->
         <scene sceneID="jHc-LS-sSw">
             <objects>
                 <navigationController id="DcC-W2-OsD" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="GjO-AJ-81U"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Fb-2p-CFD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="3Fb-2p-CFD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="omn-SJ-Ipv" kind="relationship" relationship="rootViewController" id="hRE-Iq-zlY"/>
+                        <segue destination="NUV-NE-xN2" kind="relationship" relationship="rootViewController" id="v6s-LH-XwC"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGJ-Lf-EAC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1068" y="-148"/>
+        </scene>
+        <!--Main Page View Controller-->
+        <scene sceneID="pQa-ct-PsP">
+            <objects>
+                <viewController id="NUV-NE-xN2" customClass="MainPageViewController" customModule="DDYZD_V2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zZS-HO-DGJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDg-lO-2rU">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dIY-lK-xRX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dIY-lK-xRX" firstAttribute="bottom" secondItem="jDg-lO-2rU" secondAttribute="bottom" id="Gev-cS-0bC"/>
+                            <constraint firstItem="jDg-lO-2rU" firstAttribute="leading" secondItem="dIY-lK-xRX" secondAttribute="leading" id="eqV-om-R43"/>
+                            <constraint firstItem="jDg-lO-2rU" firstAttribute="top" secondItem="dIY-lK-xRX" secondAttribute="top" id="hCf-EM-Db9"/>
+                            <constraint firstItem="dIY-lK-xRX" firstAttribute="trailing" secondItem="jDg-lO-2rU" secondAttribute="trailing" id="zhm-JI-ysV"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="5TW-pS-Cim">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="ChatIcon" id="Zb3-Ki-fvZ"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="feedView" destination="jDg-lO-2rU" id="HD2-Qv-63x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="56Z-qH-K3X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1865" y="-149"/>
         </scene>
         <!--ClubNC-->
         <scene sceneID="vSO-Fq-qWc">
@@ -84,6 +93,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ChatIcon" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
