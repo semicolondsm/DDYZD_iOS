@@ -12,18 +12,16 @@ class ClubDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setTabBarHide()
+        setNavigationBar()
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setTabBarHide(){
+        self.tabBarController?.tabBar.isHidden = true
     }
-    */
-
+    
+    func setNavigationBar(){
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
 }
