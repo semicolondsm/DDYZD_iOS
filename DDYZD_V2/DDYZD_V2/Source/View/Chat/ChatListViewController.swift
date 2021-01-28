@@ -22,8 +22,7 @@ class ChatListViewController: UIViewController {
     
     func setNavigationBar(){
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
-        
+        self.navigationController?.navigationBar.topItem?.title = ""        
     }
 
 }
