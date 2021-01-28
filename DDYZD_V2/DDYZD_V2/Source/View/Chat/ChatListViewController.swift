@@ -18,11 +18,16 @@ class ChatListViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         setNavigationBar()
+        setUI()
     }
     
     func setNavigationBar(){
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.topItem?.title = ""        
+    }
+    
+    func setUI(){
+        ChatListTable.separatorStyle = .none
     }
 
 }
