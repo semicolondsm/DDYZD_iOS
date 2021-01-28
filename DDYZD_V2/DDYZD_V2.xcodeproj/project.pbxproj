@@ -22,6 +22,7 @@
 		9200D19C25B99D0000461843 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200D19B25B99D0000461843 /* Extension.swift */; };
 		9200D38C25BBD6AD00461843 /* ClubListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200D38B25BBD6AD00461843 /* ClubListTableViewCell.swift */; };
 		9200D39025BBE2C400461843 /* ClubListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9200D38F25BBE2C400461843 /* ClubListTableViewCell.xib */; };
+		9227C22C25C2F05300E6DF41 /* ChatListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9227C22B25C2F05300E6DF41 /* ChatListTableViewCell.xib */; };
 		925C9EAB25B08BE7005A3694 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C9EAA25B08BE7005A3694 /* AppDelegate.swift */; };
 		925C9EB225B08BE7005A3694 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925C9EB025B08BE7005A3694 /* Main.storyboard */; };
 		925C9EB425B08BE9005A3694 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925C9EB325B08BE9005A3694 /* Assets.xcassets */; };
@@ -32,7 +33,6 @@
 		926E86E725B4404F00E7F213 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926E86E625B4404F00E7F213 /* HTTPClient.swift */; };
 		92B9AE9B25BF03C900026892 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9AE9A25BF03C900026892 /* ChatListViewController.swift */; };
 		92BED6D225BD46C900526C33 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BED6D125BD46C900526C33 /* Chat.storyboard */; };
-		92BED6D525BD46E400526C33 /* ChatListTableViewCell.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BED6D425BD46E400526C33 /* ChatListTableViewCell.storyboard */; };
 		92BED6DA25BD473100526C33 /* ChatAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BED6D925BD473100526C33 /* ChatAPI.swift */; };
 		92BED6E525BD4B1C00526C33 /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BED6E425BD4B1C00526C33 /* ChatListTableViewCell.swift */; };
 		92BED6E825BD4BA600526C33 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BED6E725BD4BA600526C33 /* ChatModel.swift */; };
@@ -61,6 +61,7 @@
 		9200D19B25B99D0000461843 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		9200D38B25BBD6AD00461843 /* ClubListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListTableViewCell.swift; sourceTree = "<group>"; };
 		9200D38F25BBE2C400461843 /* ClubListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClubListTableViewCell.xib; sourceTree = "<group>"; };
+		9227C22B25C2F05300E6DF41 /* ChatListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatListTableViewCell.xib; sourceTree = "<group>"; };
 		925C9EA725B08BE7005A3694 /* DDYZD_V2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDYZD_V2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		925C9EAA25B08BE7005A3694 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		925C9EB125B08BE7005A3694 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -74,7 +75,6 @@
 		926E86E625B4404F00E7F213 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		92B9AE9A25BF03C900026892 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
 		92BED6D125BD46C900526C33 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
-		92BED6D425BD46E400526C33 /* ChatListTableViewCell.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "\U0010ChatListTableViewCell.storyboard"; sourceTree = "<group>"; };
 		92BED6D925BD473100526C33 /* ChatAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAPI.swift; sourceTree = "<group>"; };
 		92BED6E425BD4B1C00526C33 /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
 		92BED6E725BD4BA600526C33 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
@@ -175,7 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				9200D38F25BBE2C400461843 /* ClubListTableViewCell.xib */,
-				92BED6D425BD46E400526C33 /* ChatListTableViewCell.storyboard */,
+				9227C22B25C2F05300E6DF41 /* ChatListTableViewCell.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -388,10 +388,10 @@
 			files = (
 				925C9EB725B08BE9005A3694 /* LaunchScreen.storyboard in Resources */,
 				92FBA6A025B537320014FB8B /* GoogleService-Info.plist in Resources */,
-				92BED6D525BD46E400526C33 /* ChatListTableViewCell.storyboard in Resources */,
 				9200D39025BBE2C400461843 /* ClubListTableViewCell.xib in Resources */,
 				9200D12025B88DCF00461843 /* Club.storyboard in Resources */,
 				925C9EB425B08BE9005A3694 /* Assets.xcassets in Resources */,
+				9227C22C25C2F05300E6DF41 /* ChatListTableViewCell.xib in Resources */,
 				9263695C25B6824200D2D107 /* Auth.storyboard in Resources */,
 				92BED6D225BD46C900526C33 /* Chat.storyboard in Resources */,
 				925C9EB225B08BE7005A3694 /* Main.storyboard in Resources */,

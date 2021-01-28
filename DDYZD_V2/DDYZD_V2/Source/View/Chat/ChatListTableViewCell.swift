@@ -9,15 +9,17 @@ import UIKit
 
 class ChatListTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var clubProfileImageView: UIImageView!
+    @IBOutlet weak var clubNameLable: UILabel!
+    @IBOutlet weak var lastMessageLable: UILabel!
+    @IBOutlet weak var whenLable: UILabel!
+    @IBOutlet weak var unwatchedSignView: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    
+    
 
 }

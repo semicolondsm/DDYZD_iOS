@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClubListTableViewCell" rowHeight="80" id="KUU-sJ-1C7" customClass="ChatListTableViewCell" customModule="DDYZD_V2" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KUU-sJ-1C7" id="zQ7-5h-K0T">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QZm-yD-LUG">
+                        <rect key="frame" x="20" y="10" width="60" height="60"/>
+                        <color key="backgroundColor" red="0.3889680505" green="0.38326472039999998" blue="0.40922543410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="Nhk-Jw-XRQ"/>
+                            <constraint firstAttribute="height" constant="60" id="llj-HB-emm"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmn-Va-750">
+                        <rect key="frame" x="88" y="23" width="306" height="34"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFl-hn-YPf">
+                                <rect key="frame" x="8" y="0.0" width="74" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbL-5W-0N2">
+                                <rect key="frame" x="8" y="19" width="78" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="∙ when" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nr-Rs-AjN">
+                                <rect key="frame" x="94" y="19" width="42" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.72150677439999999" green="0.7216095924" blue="0.72147446869999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="aFl-hn-YPf" firstAttribute="top" secondItem="cmn-Va-750" secondAttribute="top" id="0OM-Yz-gUs"/>
+                            <constraint firstItem="3nr-Rs-AjN" firstAttribute="leading" secondItem="kbL-5W-0N2" secondAttribute="trailing" constant="8" symbolic="YES" id="8WP-Im-5w0"/>
+                            <constraint firstAttribute="bottom" secondItem="3nr-Rs-AjN" secondAttribute="bottom" id="DXf-Eo-P8a"/>
+                            <constraint firstItem="kbL-5W-0N2" firstAttribute="leading" secondItem="cmn-Va-750" secondAttribute="leading" constant="8" id="JVf-wa-GyI"/>
+                            <constraint firstAttribute="height" constant="34" id="Mb3-P2-334"/>
+                            <constraint firstItem="aFl-hn-YPf" firstAttribute="leading" secondItem="cmn-Va-750" secondAttribute="leading" constant="8" id="PhA-CB-UUG"/>
+                            <constraint firstAttribute="bottom" secondItem="kbL-5W-0N2" secondAttribute="bottom" id="f4w-Go-dOh"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5m3-Ug-CGy">
+                        <rect key="frame" x="384" y="35" width="10" height="10"/>
+                        <color key="backgroundColor" red="0.97331255670000005" green="0.91087192299999997" blue="0.45675104859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="ewr-gP-3kb"/>
+                            <constraint firstAttribute="width" constant="10" id="zjN-Rj-wiX"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="5m3-Ug-CGy" firstAttribute="centerY" secondItem="zQ7-5h-K0T" secondAttribute="centerY" id="2dG-zC-cS2"/>
+                    <constraint firstAttribute="trailing" secondItem="cmn-Va-750" secondAttribute="trailing" constant="20" symbolic="YES" id="KLP-fh-j6C"/>
+                    <constraint firstItem="cmn-Va-750" firstAttribute="centerY" secondItem="zQ7-5h-K0T" secondAttribute="centerY" id="KeJ-Si-z7b"/>
+                    <constraint firstItem="cmn-Va-750" firstAttribute="leading" secondItem="QZm-yD-LUG" secondAttribute="trailing" constant="8" symbolic="YES" id="UwS-Mj-S6V"/>
+                    <constraint firstAttribute="trailing" secondItem="5m3-Ug-CGy" secondAttribute="trailing" constant="20" symbolic="YES" id="buv-o9-3wh"/>
+                    <constraint firstItem="QZm-yD-LUG" firstAttribute="centerY" secondItem="zQ7-5h-K0T" secondAttribute="centerY" id="fDm-A0-CAF"/>
+                    <constraint firstItem="QZm-yD-LUG" firstAttribute="leading" secondItem="zQ7-5h-K0T" secondAttribute="leading" constant="20" symbolic="YES" id="nIm-8y-NEO"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="clubNameLable" destination="aFl-hn-YPf" id="NPU-3H-JoX"/>
+                <outlet property="clubProfileImageView" destination="QZm-yD-LUG" id="q5W-gp-Me3"/>
+                <outlet property="lastMessageLable" destination="kbL-5W-0N2" id="Vgl-ag-Nbd"/>
+                <outlet property="unwatchedSignView" destination="2dG-zC-cS2" id="8gO-uV-4GM"/>
+                <outlet property="whenLable" destination="3nr-Rs-AjN" id="iow-B8-atC"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="202.90178571428569"/>
+        </tableViewCell>
+    </objects>
+</document>
