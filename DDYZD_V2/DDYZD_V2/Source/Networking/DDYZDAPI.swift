@@ -8,7 +8,6 @@
 import Foundation
 
 import Alamofire
-import FirebaseMessaging
 
 enum DDYZDAPI {
     
@@ -41,6 +40,11 @@ enum DDYZDAPI {
     case updateBannerImage(_ clubID: Int)   // 동아리 베너 등록
     case updateClubInfo(_ clibID: Int)      // 동아리 정보 수정
     case assignmentHead(_ clubID: Int)      // 동아리 헤드 양도
+    
+    //Chat
+    case chatList                           // 채팅 리스트
+    case createChatRoom(_ clubID: Int)      // 채팅 룸 생성
+    case chatBreakdown(_ roomID: Int)       // 채팅 내역
     
     
     func path() -> String {
@@ -89,6 +93,12 @@ enum DDYZDAPI {
             return "/club/\(clubID)"
         case .assignmentHead(let clubID):
             return "/club/\(clubID)/head"
+        case .chatList:
+            return "/chat/list"
+        case .createChatRoom(let clubID):
+            return "chat/\(clubID)/room"
+        case .chatBreakdown(let roomID):
+            return "/chat/\(roomID)/breakdown"
         }
     }
     
