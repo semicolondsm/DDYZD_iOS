@@ -28,6 +28,7 @@ class ChatListViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         setNavigationBar()
+        registerCell()
         setUI()
     }
     
@@ -50,6 +51,21 @@ class ChatListViewController: UIViewController {
             print(errorMessage)
         })
         .disposed(by: disposeBag)
+        
+        output.chatList.bind(to: ChatListTable.rx.items(cellIdentifier: "ChatListTableViewCell", cellType: ChatListTableViewCell.self)){ row, item, cell in
+            cell.clubProfileImageView.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(item.clubimage)"))
+            cell.clubNameLable.text = item.clubname
+            cell.lastMessageLable.text = item.lastmessage
+        }
+        .disposed(by: disposeBag)
+        
+        
+    }
+    
+    func registerCell() {
+        let nib = UINib(nibName: "ChatListTableViewCell", bundle: nil)
+        ChatListTable.register(nib, forCellReuseIdentifier: "ChatListTableViewCell")
+        ChatListTable.rowHeight = 80
     }
 
 }
