@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct chatRoom: Codable {
+    let roomid: Int
+    let clubid: Int
+    let clubname: String
+    let clubimage: String
+    let lastmessage: String
+}
