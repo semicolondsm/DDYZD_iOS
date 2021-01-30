@@ -9,8 +9,6 @@ import UIKit
 
 extension UIView {
     
-    
-    
     func constrainToEdges(_ subview: UIView) {
       
       subview.translatesAutoresizingMaskIntoConstraints = false
