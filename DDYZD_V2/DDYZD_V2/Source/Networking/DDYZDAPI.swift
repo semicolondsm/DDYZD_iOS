@@ -107,7 +107,7 @@ enum DDYZDAPI {
         case .clubList, .clubDetailInfo(_), .getRecruitment(_), .getClubMember(_):
             return nil
         case .getToken(let DSMAuthToken) :
-            return ["access_token": "Bearer \(DSMAuthToken)"]
+            return ["access-token": "Bearer \(DSMAuthToken)"]
         case .refreshToken :
             guard let refresh_token = Token.refresh_token else { return nil }
             return ["refresh-token": "Bearer \(refresh_token)"]
