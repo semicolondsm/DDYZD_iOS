@@ -10,7 +10,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-class ClubListViewModel: ViewModelProtocol {
+class ClubListTableViewModel: ViewModelProtocol {
     
     let disposeBag = DisposeBag()
     
