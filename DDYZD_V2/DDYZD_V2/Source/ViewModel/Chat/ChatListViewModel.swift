@@ -34,6 +34,8 @@ class ChatListViewModel: ViewModelProtocol {
                 case .success:
                     chatList.accept(data!)
                     result.onCompleted()
+                case .unauthorized:
+                    result.onNext("Incorrect Token")
                 default:
                     result.onNext("API 'getChatList' ERROR")
                 }

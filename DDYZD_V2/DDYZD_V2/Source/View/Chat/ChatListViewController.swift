@@ -18,10 +18,12 @@ class ChatListViewController: UIViewController {
     
     private let viewModel = ChatListViewModel()
     private let disposeBag = DisposeBag()
+    private let loadList = BehaviorRelay<Void>(value: ())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        bind()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +38,18 @@ class ChatListViewController: UIViewController {
     
     func setUI(){
         ChatListTable.separatorStyle = .none
+    }
+    
+    func bind(){
+        let input = ChatListViewModel.input(
+            loadList: loadList.asSignal(onErrorJustReturn: ())
+        )
+        let output = viewModel.transform(input)
+        
+        output.result.subscribe(onNext: { errorMessage in
+            print(errorMessage)
+        })
+        .disposed(by: disposeBag)
     }
 
 }
