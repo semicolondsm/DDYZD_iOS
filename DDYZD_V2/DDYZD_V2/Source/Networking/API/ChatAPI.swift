@@ -13,12 +13,12 @@ import RxSwift
 class ChatAPI {
     let httpClient = HTTPClient()
     
-    func getCHatList() -> Observable<([room]? ,StatusCodes)> {
+    func getChatList() -> Observable<([ChatRoom]? ,StatusCodes)> {
         httpClient.get(.clubList, param: nil)
-            .map{ response, data -> ([room]?, StatusCodes) in
+            .map{ response, data -> ([ChatRoom]?, StatusCodes) in
                 switch response.statusCode {
                 case 200:
-                    guard let data = try? JSONDecoder().decode([room].self, from: data) else { return (nil, .fault)}
+                    guard let data = try? JSONDecoder().decode([ChatRoom].self, from: data) else { return (nil, .fault)}
                     return(data, .success)
                 default:
                     return (nil, .fault)
