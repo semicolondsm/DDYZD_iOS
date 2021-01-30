@@ -38,41 +38,19 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sCn-UQ-cZl">
                                 <rect key="frame" x="0.0" y="482.5" width="375" height="184.5"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MoW-yl-1Uy">
-                                        <rect key="frame" x="40" y="25" width="295" height="135"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nOe-sK-XIz">
-                                                <rect key="frame" x="0.0" y="0.0" width="295" height="60"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="60" id="Pg1-tx-FLQ"/>
-                                                </constraints>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EUm-PB-j52">
-                                                <rect key="frame" x="0.0" y="75" width="295" height="60"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="60" id="HXl-dn-wKa"/>
-                                                </constraints>
-                                            </stackView>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nOe-sK-XIz">
+                                        <rect key="frame" x="40" y="99.5" width="295" height="60"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="nOe-sK-XIz" firstAttribute="top" secondItem="MoW-yl-1Uy" secondAttribute="top" id="IET-6m-sHs"/>
-                                            <constraint firstAttribute="bottom" secondItem="EUm-PB-j52" secondAttribute="bottom" id="Su2-Dw-4WG"/>
-                                            <constraint firstItem="nOe-sK-XIz" firstAttribute="leading" secondItem="MoW-yl-1Uy" secondAttribute="leading" id="eKj-Hu-AeI"/>
-                                            <constraint firstAttribute="trailing" secondItem="nOe-sK-XIz" secondAttribute="trailing" id="fQ3-lc-lQY"/>
-                                            <constraint firstAttribute="trailing" secondItem="EUm-PB-j52" secondAttribute="trailing" id="hxH-lg-8q2"/>
-                                            <constraint firstItem="EUm-PB-j52" firstAttribute="top" secondItem="nOe-sK-XIz" secondAttribute="bottom" constant="15" id="ieu-gv-SYO"/>
-                                            <constraint firstItem="EUm-PB-j52" firstAttribute="leading" secondItem="MoW-yl-1Uy" secondAttribute="leading" id="sGC-f1-eTT"/>
+                                            <constraint firstAttribute="height" constant="60" id="Pg1-tx-FLQ"/>
                                         </constraints>
-                                    </view>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="MoW-yl-1Uy" secondAttribute="trailing" constant="40" id="FmP-Wh-TYz"/>
-                                    <constraint firstItem="MoW-yl-1Uy" firstAttribute="centerY" secondItem="sCn-UQ-cZl" secondAttribute="centerY" id="LsL-GQ-7rg"/>
-                                    <constraint firstItem="MoW-yl-1Uy" firstAttribute="leading" secondItem="sCn-UQ-cZl" secondAttribute="leading" constant="40" id="uGH-01-b1N"/>
+                                    <constraint firstAttribute="bottom" secondItem="nOe-sK-XIz" secondAttribute="bottom" constant="25" id="0lX-Po-MIY"/>
+                                    <constraint firstItem="nOe-sK-XIz" firstAttribute="leading" secondItem="sCn-UQ-cZl" secondAttribute="leading" constant="40" id="aou-dA-pPz"/>
+                                    <constraint firstAttribute="trailing" secondItem="nOe-sK-XIz" secondAttribute="trailing" constant="40" id="mvf-9o-Y8g"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -92,7 +70,6 @@
                     </view>
                     <connections>
                         <outlet property="DSMAuthProvider" destination="nOe-sK-XIz" id="oZ2-R0-DEb"/>
-                        <outlet property="appleAuthProvider" destination="EUm-PB-j52" id="uGx-Ea-e8G"/>
                         <outlet property="justBrowsingBtn" destination="ebM-WL-eBl" id="M3B-BV-THk"/>
                     </connections>
                 </viewController>

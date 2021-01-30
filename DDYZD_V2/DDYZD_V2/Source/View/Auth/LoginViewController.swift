@@ -36,11 +36,7 @@ class LoginViewController: UIViewController {
         let DSMAuthBtn = UIButton()
         DSMAuthBtn.setBackgroundImage(UIImage(named: "DSMAuthLoginBtn"), for: .normal)
         
-        let appleAuthBtn = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: .whiteOutline)
-        appleAuthBtn.cornerRadius = 50
-        
         self.DSMAuthProvider.addArrangedSubview(DSMAuthBtn)
-        self.appleAuthProvider.addArrangedSubview(appleAuthBtn)
         
         let input = LoginViewModel.input.init(vc: self, loginWithDSMAuthBtnDriver: DSMAuthBtn.rx.tap.asDriver())
         let output = viewModel.transform(input)
