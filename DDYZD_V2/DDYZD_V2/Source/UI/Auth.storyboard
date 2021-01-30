@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="CSF-aS-DuA">
             <objects>
-                <viewController id="osC-bC-gHF" customClass="LoginViewController" customModule="DDYZD_V2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="osC-bC-gHF" customClass="LoginViewController" customModule="DDYZD_V2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c4b-yp-Vlc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
