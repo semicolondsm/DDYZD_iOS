@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
     
     func bind(){
         justBrowsingBtn.rx.tap.subscribe(onNext: {
-            self.dismiss(animated: true)
+            self.dismiss(animated: true, completion: nil)
         })
         .disposed(by: disposeBag)
         
