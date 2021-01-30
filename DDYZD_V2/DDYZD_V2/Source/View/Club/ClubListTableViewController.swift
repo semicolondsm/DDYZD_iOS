@@ -16,7 +16,7 @@ class ClubListTableViewController: UIViewController {
     @IBOutlet weak var ClubListTable: UITableView!
     
     public var clubTag: ClubListCategory = .all
-    private let viewModel = ClubListViewModel()
+    private let viewModel = ClubListTableViewModel()
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -32,7 +32,7 @@ class ClubListTableViewController: UIViewController {
     }
     
     func bind(){
-        let input = ClubListViewModel.input(
+        let input = ClubListTableViewModel.input(
             clubTag: clubTag,
             selectIndexPath: ClubListTable.rx.itemSelected.asSignal()
         )
