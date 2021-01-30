@@ -79,7 +79,7 @@
                 <outlet property="clubNameLable" destination="aFl-hn-YPf" id="NPU-3H-JoX"/>
                 <outlet property="clubProfileImageView" destination="QZm-yD-LUG" id="q5W-gp-Me3"/>
                 <outlet property="lastMessageLable" destination="kbL-5W-0N2" id="Vgl-ag-Nbd"/>
-                <outlet property="unwatchedSignView" destination="2dG-zC-cS2" id="8gO-uV-4GM"/>
+                <outlet property="unwatchedSignView" destination="5m3-Ug-CGy" id="r6w-AN-rIo"/>
                 <outlet property="whenLable" destination="3nr-Rs-AjN" id="iow-B8-atC"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="202.90178571428569"/>

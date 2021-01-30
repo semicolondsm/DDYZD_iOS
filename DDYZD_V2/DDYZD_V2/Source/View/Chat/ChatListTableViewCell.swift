@@ -13,7 +13,7 @@ class ChatListTableViewCell: UITableViewCell {
     @IBOutlet weak var clubNameLable: UILabel!
     @IBOutlet weak var lastMessageLable: UILabel!
     @IBOutlet weak var whenLable: UILabel!
-    @IBOutlet weak var unwatchedSignView: NSLayoutConstraint!
+    @IBOutlet weak var unwatchedSignView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +23,7 @@ class ChatListTableViewCell: UITableViewCell {
     
     func setUI(){
         clubProfileImageView.layer.cornerRadius = 30
+        unwatchedSignView.layer.cornerRadius = 30
     }
 
 }
