@@ -9,8 +9,6 @@ import UIKit
 
 extension UIView {
     
-    
-    
     func constrainToEdges(_ subview: UIView) {
       
       subview.translatesAutoresizingMaskIntoConstraints = false
@@ -57,6 +55,17 @@ extension UIView {
         leadingContraint,
         trailingContraint])
     }
+}
+
+extension UIViewController {
+    
+    func moveLogin() {
+        let authView: UIStoryboard = UIStoryboard(name: "Auth", bundle: nil)
+        let loginVC = authView.instantiateViewController(identifier: "LoginViewController")
+        loginVC.modalPresentationStyle = .fullScreen
+        self.present(loginVC, animated: true, completion: nil)
+    }
+    
 }
 
 extension CALayer {
