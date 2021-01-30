@@ -59,6 +59,13 @@ extension UIView {
 
 extension UIViewController {
     
+    func moveLogin() {
+        let authView: UIStoryboard = UIStoryboard(name: "Auth", bundle: nil)
+        let loginVC = authView.instantiateViewController(identifier: "LoginViewController")
+        loginVC.modalPresentationStyle = .fullScreen
+        self.present(loginVC, animated: true, completion: nil)
+    }
+    
 }
 
 extension CALayer {
