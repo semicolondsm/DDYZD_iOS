@@ -23,13 +23,14 @@ class ChatListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        registerCell()
+        setUI()
         bind()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         setNavigationBar()
-        registerCell()
-        setUI()
+        loadList.accept(())
     }
     
     func setNavigationBar(){
@@ -48,7 +49,7 @@ class ChatListViewController: UIViewController {
         let output = viewModel.transform(input)
         
         output.result.subscribe(onNext: { errorMessage in
-            print(errorMessage)
+            self.moveLogin()
         })
         .disposed(by: disposeBag)
         
