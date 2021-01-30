@@ -22,8 +22,8 @@ class ChatListTableViewCell: UITableViewCell {
     }
     
     func setUI(){
-        clubProfileImageView.layer.cornerRadius = 30
-        unwatchedSignView.layer.cornerRadius = 30
+        clubProfileImageView.layer.cornerRadius = clubProfileImageView.frame.height/2
+        unwatchedSignView.layer.cornerRadius = unwatchedSignView.frame.height/2
     }
 
 }
