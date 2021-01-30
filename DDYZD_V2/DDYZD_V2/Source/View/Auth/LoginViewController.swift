@@ -14,6 +14,7 @@ import RxSwift
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var justBrowsingBtn: UIButton!
     @IBOutlet weak var appleAuthProvider: UIStackView!
     @IBOutlet weak var DSMAuthProvider: UIStackView!
     
@@ -27,19 +28,26 @@ class LoginViewController: UIViewController {
     }
     
     func bind(){
+        justBrowsingBtn.rx.tap.subscribe(onNext: {
+            self.dismiss(animated: true, completion: nil)
+        })
+        .disposed(by: disposeBag)
+        
         let DSMAuthBtn = UIButton()
         DSMAuthBtn.setBackgroundImage(UIImage(named: "DSMAuthLoginBtn"), for: .normal)
         
-        let appleAuthBtn = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: .whiteOutline)
-        appleAuthBtn.cornerRadius = 50
-        
         self.DSMAuthProvider.addArrangedSubview(DSMAuthBtn)
-        self.appleAuthProvider.addArrangedSubview(appleAuthBtn)
         
         let input = LoginViewModel.input.init(vc: self, loginWithDSMAuthBtnDriver: DSMAuthBtn.rx.tap.asDriver())
         let output = viewModel.transform(input)
         
-        output.result
+        output.result.subscribe(onNext:{ error in
+            print(error)
+        }, onCompleted:{
+            self.dismiss(animated: true)
+        })
+        .disposed(by: disposeBag)
+        
     }
     
     

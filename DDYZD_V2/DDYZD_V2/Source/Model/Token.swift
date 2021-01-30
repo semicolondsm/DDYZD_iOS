@@ -16,10 +16,10 @@ struct Token {
     static var access_token: String = ""
     static var refresh_token: String? {
         get {
-            return UserDefaults.standard.string(forKey: "Token")
+            return UserDefaults.standard.string(forKey: "refresh_token")
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "Token")
+            UserDefaults.standard.set(newValue, forKey: "refresh_token")
         }
     }
 }
