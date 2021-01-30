@@ -14,7 +14,7 @@ class ChatAPI {
     let httpClient = HTTPClient()
     
     func getChatList() -> Observable<([ChatRoom]? ,StatusCodes)> {
-        httpClient.get(.clubList, param: nil)
+        httpClient.get(.chatList, param: nil)
             .map{ response, data -> ([ChatRoom]?, StatusCodes) in
                 switch response.statusCode {
                 case 200:
