@@ -20,7 +20,7 @@ class ChatAPI {
                 case 200:
                     guard let data = try? JSONDecoder().decode([ChatRoom].self, from: data) else { return (nil, .fault)}
                     return(data, .success)
-                case 401:
+                case 401, 422:
                     return(nil, .unauthorized)
                 default:
                     return (nil, .fault)
