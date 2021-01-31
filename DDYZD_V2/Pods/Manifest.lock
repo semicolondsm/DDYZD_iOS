@@ -71,6 +71,9 @@ PODS:
   - RxRelay (6.0.0):
     - RxSwift (= 6.0.0)
   - RxSwift (6.0.0)
+  - Socket.IO-Client-Swift (15.2.0):
+    - Starscream (~> 3.1)
+  - Starscream (3.1.1)
   - Tabman (2.9.1):
     - Pageboy (~> 3.6.0)
 
@@ -82,6 +85,7 @@ DEPENDENCIES:
   - RxAlamofire (~> 6.1)
   - RxCocoa (~> 6.0)
   - RxSwift (~> 6.0)
+  - Socket.IO-Client-Swift (~> 15.2.0)
   - Tabman (~> 2.9)
 
 SPEC REPOS:
@@ -104,6 +108,8 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - Socket.IO-Client-Swift
+    - Starscream
     - Tabman
 
 SPEC CHECKSUMS:
@@ -125,8 +131,10 @@ SPEC CHECKSUMS:
   RxCocoa: 3f79328fafa3645b34600f37c31e64c73ae3a80e
   RxRelay: 8d593be109c06ea850df027351beba614b012ffb
   RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
+  Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
+  Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   Tabman: 085d89c65be9e883629bdaf5b1453a6397e57846
 
-PODFILE CHECKSUM: b28dcb30a955a662ed586dea92b6ea893a603193
+PODFILE CHECKSUM: d1425427e2fb07fbba6ccd27879e509f717c18aa
 
 COCOAPODS: 1.10.1
