@@ -12,6 +12,7 @@ class MainPageViewController: UIViewController {
     
     @IBOutlet weak var feedView: WKWebView!
     
+    let viewModel = MainPageViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
