@@ -16,10 +16,6 @@ class SocketIOManager {
     var manager = SocketManager(socketURL: URL(string: "https://api.semicolon.live")!, config: [.log(false), .compress])
     var socket: SocketIOClient!
     
-    init(_ room: String) {
-        socket = self.manager.socket(forNamespace: "/"+room)
-    }
-    
     func establishConnection() {
         socket.connect()
     }
