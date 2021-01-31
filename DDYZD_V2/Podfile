@@ -14,6 +14,7 @@ target 'DDYZD_V2' do
   pod 'RxAlamofire', '~> 6.1'
   pod 'RxCocoa', '~> 6.0'
   pod 'RxSwift', '~> 6.0'
+  pod 'Socket.IO-Client-Swift', '~> 15.2.0'
   pod 'Tabman', '~> 2.9'
   
 end
