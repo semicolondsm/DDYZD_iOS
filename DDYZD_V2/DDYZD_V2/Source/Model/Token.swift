@@ -12,6 +12,10 @@ struct TokenModel: Codable {
     let refresh_token: String
 }
 
+struct RefreshedToken {
+    let access_token: String
+}
+
 struct Token {
     static var access_token: String = ""
     static var refresh_token: String? {
