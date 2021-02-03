@@ -70,6 +70,7 @@
                     </view>
                     <connections>
                         <outlet property="DSMAuthProvider" destination="nOe-sK-XIz" id="oZ2-R0-DEb"/>
+                        <outlet property="introduceWebView" destination="mo4-8J-j9S" id="Jfj-5k-yve"/>
                         <outlet property="justBrowsingBtn" destination="ebM-WL-eBl" id="M3B-BV-THk"/>
                     </connections>
                 </viewController>

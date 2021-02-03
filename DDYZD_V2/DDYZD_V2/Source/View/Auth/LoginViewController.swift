@@ -11,10 +11,12 @@ import AuthenticationServices
 import DSMSDK
 import RxCocoa
 import RxSwift
+import WebKit
 
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var justBrowsingBtn: UIButton!
+    @IBOutlet weak var introduceWebView: WKWebView!
     @IBOutlet weak var DSMAuthProvider: UIStackView!
     
     let viewModel = LoginViewModel()
@@ -24,6 +26,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         bind()
+        setIntroduceWebView()
     }
     
     func bind(){
@@ -49,6 +52,11 @@ class LoginViewController: UIViewController {
         
     }
     
-    
+    func setIntroduceWebView(){
+        let url = "https://semicolondsm.xyz/mobile/loginslide"
+        let request = URLRequest(url: URL(string: url)!)
+        
+        introduceWebView.load(request)
+    }
 
 }
