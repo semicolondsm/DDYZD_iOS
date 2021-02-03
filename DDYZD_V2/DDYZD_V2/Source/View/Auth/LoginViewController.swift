@@ -11,12 +11,16 @@ import AuthenticationServices
 import DSMSDK
 import RxCocoa
 import RxSwift
+import WebKit
 
 class LoginViewController: UIViewController {
 
+    public var didJustBroesingBtnTaped: (()->Void)?
+    
     @IBOutlet weak var justBrowsingBtn: UIButton!
-    @IBOutlet weak var appleAuthProvider: UIStackView!
+    @IBOutlet weak var introduceWebView: WKWebView!
     @IBOutlet weak var DSMAuthProvider: UIStackView!
+    let DSMAuthBtn = UIButton()
     
     let viewModel = LoginViewModel()
     let disposeBag = DisposeBag()
@@ -24,22 +28,21 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setIntroduceWebView()
+        setDSMAtuhLoginBtn()
         bind()
     }
     
     func bind(){
-        justBrowsingBtn.rx.tap.subscribe(onNext: {
-            self.dismiss(animated: true, completion: nil)
-        })
-        .disposed(by: disposeBag)
-        
-        let DSMAuthBtn = UIButton()
-        DSMAuthBtn.setBackgroundImage(UIImage(named: "DSMAuthLoginBtn"), for: .normal)
-        
-        self.DSMAuthProvider.addArrangedSubview(DSMAuthBtn)
-        
         let input = LoginViewModel.input.init(vc: self, loginWithDSMAuthBtnDriver: DSMAuthBtn.rx.tap.asDriver())
         let output = viewModel.transform(input)
+        
+        justBrowsingBtn.rx.tap.subscribe(onNext: {
+            self.dismiss(animated: true){
+                (self.didJustBroesingBtnTaped)!()
+            }
+        })
+        .disposed(by: disposeBag)
         
         output.result.subscribe(onNext:{ error in
             print(error)
@@ -47,9 +50,19 @@ class LoginViewController: UIViewController {
             self.dismiss(animated: true)
         })
         .disposed(by: disposeBag)
-        
     }
     
+    func setDSMAtuhLoginBtn(){
+        DSMAuthBtn.setBackgroundImage(UIImage(named: "DSMAuthLoginBtn"), for: .normal)
+        self.DSMAuthProvider.addArrangedSubview(DSMAuthBtn)
+    }
     
+    func setIntroduceWebView(){
+        let url = "https://semicolondsm.xyz/mobile/loginslide"
+        let request = URLRequest(url: URL(string: url)!)
+        
+        introduceWebView.load(request)
+        introduceWebView.scrollView.isScrollEnabled = false
+    }
 
 }
