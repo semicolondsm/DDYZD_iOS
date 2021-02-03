@@ -15,7 +15,6 @@ import RxSwift
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var justBrowsingBtn: UIButton!
-    @IBOutlet weak var appleAuthProvider: UIStackView!
     @IBOutlet weak var DSMAuthProvider: UIStackView!
     
     let viewModel = LoginViewModel()
