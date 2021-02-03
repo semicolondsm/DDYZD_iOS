@@ -15,6 +15,8 @@ import WebKit
 
 class LoginViewController: UIViewController {
 
+    public var didJustBroesingBtnTaped: (()->Void)?
+    
     @IBOutlet weak var justBrowsingBtn: UIButton!
     @IBOutlet weak var introduceWebView: WKWebView!
     @IBOutlet weak var DSMAuthProvider: UIStackView!
@@ -36,7 +38,9 @@ class LoginViewController: UIViewController {
         let output = viewModel.transform(input)
         
         justBrowsingBtn.rx.tap.subscribe(onNext: {
-            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true){
+                (self.didJustBroesingBtnTaped)!()
+            }
         })
         .disposed(by: disposeBag)
         
