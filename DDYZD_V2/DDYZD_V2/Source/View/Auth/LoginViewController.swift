@@ -15,7 +15,8 @@ import WebKit
 
 class LoginViewController: UIViewController {
 
-    public var didJustBroesingBtnTaped: (()->Void)?
+    public var didJustBrowsingBtnTaped: (()->Void)?
+    public var didSuccessLogin: (()->Void)?
     
     @IBOutlet weak var justBrowsingBtn: UIButton!
     @IBOutlet weak var introduceWebView: WKWebView!
@@ -39,7 +40,9 @@ class LoginViewController: UIViewController {
         
         justBrowsingBtn.rx.tap.subscribe(onNext: {
             self.dismiss(animated: true){
-                (self.didJustBroesingBtnTaped)!()
+                if let closer = self.didJustBrowsingBtnTaped {
+                    closer()
+                }
             }
         })
         .disposed(by: disposeBag)
@@ -48,6 +51,9 @@ class LoginViewController: UIViewController {
             print(error)
         }, onCompleted:{
             self.dismiss(animated: true)
+            if let closer = self.didSuccessLogin {
+                closer()
+            }
         })
         .disposed(by: disposeBag)
     }
