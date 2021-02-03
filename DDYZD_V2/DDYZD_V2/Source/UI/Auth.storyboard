@@ -17,17 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mo4-8J-j9S">
-                                <rect key="frame" x="0.0" y="110" width="414" height="460"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="mo4-8J-j9S" secondAttribute="height" multiplier="9:10" id="blX-7h-24R"/>
-                                </constraints>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebM-WL-eBl">
                                 <rect key="frame" x="352" y="72" width="42" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -39,7 +28,7 @@
                                 <rect key="frame" x="0.0" y="570" width="414" height="292"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nOe-sK-XIz">
-                                        <rect key="frame" x="40" y="207" width="334" height="60"/>
+                                        <rect key="frame" x="40" y="56" width="334" height="60"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="Pg1-tx-FLQ"/>
@@ -48,11 +37,22 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="nOe-sK-XIz" secondAttribute="bottom" constant="25" id="0lX-Po-MIY"/>
                                     <constraint firstItem="nOe-sK-XIz" firstAttribute="leading" secondItem="sCn-UQ-cZl" secondAttribute="leading" constant="40" id="aou-dA-pPz"/>
                                     <constraint firstAttribute="trailing" secondItem="nOe-sK-XIz" secondAttribute="trailing" constant="40" id="mvf-9o-Y8g"/>
+                                    <constraint firstItem="nOe-sK-XIz" firstAttribute="top" secondItem="sCn-UQ-cZl" secondAttribute="top" constant="56" id="uGy-Hn-hlB"/>
                                 </constraints>
                             </view>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mo4-8J-j9S">
+                                <rect key="frame" x="0.0" y="110" width="414" height="460"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mo4-8J-j9S" secondAttribute="height" multiplier="9:10" id="blX-7h-24R"/>
+                                </constraints>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NpU-fe-Cc0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -70,6 +70,7 @@
                     </view>
                     <connections>
                         <outlet property="DSMAuthProvider" destination="nOe-sK-XIz" id="oZ2-R0-DEb"/>
+                        <outlet property="introduceWebView" destination="mo4-8J-j9S" id="Jfj-5k-yve"/>
                         <outlet property="justBrowsingBtn" destination="ebM-WL-eBl" id="M3B-BV-THk"/>
                     </connections>
                 </viewController>
