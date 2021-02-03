@@ -42,4 +42,24 @@ class AuthAPI {
                 }
             }
     }
+    
+    func refreshToken() -> Observable<StatusCodes> {
+        httpClient.get(.refreshToken, param: nil)
+            .map{response, data -> StatusCodes in
+                switch response.statusCode {
+                case 200:
+                    guard let data = try? JSONDecoder().decode(RefreshedToken.self, from: data) else {
+                        return .fault
+                    }
+                    
+                    Token.access_token = data.access_token
+                    
+                    return .success
+                    
+                default:
+                    return .fault
+                }
+            }
+    }
+    
 }
