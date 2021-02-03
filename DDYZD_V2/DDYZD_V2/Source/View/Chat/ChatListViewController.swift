@@ -63,7 +63,9 @@ class ChatListViewController: UIViewController {
         let output = viewModel.transform(input)
         
         output.result.subscribe(onNext: { errorMessage in
-            self.moveLogin()
+            self.moveLogin(didJustBroesingBtnTaped: {
+                self.navigationController?.popViewController(animated: true)
+            })
         })
         .disposed(by: disposeBag)
         
