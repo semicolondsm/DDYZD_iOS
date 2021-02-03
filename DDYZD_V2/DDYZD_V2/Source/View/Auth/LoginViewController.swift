@@ -16,6 +16,7 @@ import WebKit
 class LoginViewController: UIViewController {
 
     public var didJustBroesingBtnTaped: (()->Void)?
+    public var didSuccessLogin: (()->Void)?
     
     @IBOutlet weak var justBrowsingBtn: UIButton!
     @IBOutlet weak var introduceWebView: WKWebView!
@@ -48,6 +49,9 @@ class LoginViewController: UIViewController {
             print(error)
         }, onCompleted:{
             self.dismiss(animated: true)
+            if let closer = self.didSuccessLogin {
+                closer()
+            }
         })
         .disposed(by: disposeBag)
     }
