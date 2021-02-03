@@ -33,7 +33,6 @@ class ChatListViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         setNavigationBar()
-        loadList.accept(())
         
         socket.establishConnection()
         socket.socket.on("test") { (data, ack) in
@@ -63,8 +62,10 @@ class ChatListViewController: UIViewController {
         let output = viewModel.transform(input)
         
         output.result.subscribe(onNext: { errorMessage in
-            self.moveLogin(didJustBroesingBtnTaped: {
+            self.moveLogin(didJustBrowsingBtnTaped: {
                 self.navigationController?.popViewController(animated: true)
+            }, didSuccessLogin: {
+                self.loadList.accept(())
             })
         })
         .disposed(by: disposeBag)
