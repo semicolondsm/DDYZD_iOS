@@ -20,17 +20,30 @@ class ChatListViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private let loadList = BehaviorRelay<Void>(value: ())
     
+    let socket = SocketIOManager("")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         registerCell()
         setUI()
         bind()
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
         setNavigationBar()
         loadList.accept(())
+        
+        socket.establishConnection()
+        socket.socket.on("test") { (data, ack) in
+            print(data)
+        }
+        socket.socket.emit("test", ["qwer":"qwer"])
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        socket.closeConnection()
     }
     
     
@@ -60,7 +73,6 @@ class ChatListViewController: UIViewController {
             cell.lastMessageLable.text = item.lastmessage
         }
         .disposed(by: disposeBag)
-        
         
     }
     
