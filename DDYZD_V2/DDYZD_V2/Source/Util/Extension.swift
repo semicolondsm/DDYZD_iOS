@@ -59,9 +59,10 @@ extension UIView {
 
 extension UIViewController {
     
-    func moveLogin() {
+    func moveLogin(didJustBroesingBtnTaped: @escaping ()->Void ) {
         let authView: UIStoryboard = UIStoryboard(name: "Auth", bundle: nil)
-        let loginVC = authView.instantiateViewController(identifier: "LoginViewController")
+        let loginVC = authView.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+        loginVC.didJustBroesingBtnTaped = didJustBroesingBtnTaped
         loginVC.modalPresentationStyle = .fullScreen
         self.present(loginVC, animated: true, completion: nil)
     }
