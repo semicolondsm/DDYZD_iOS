@@ -6,21 +6,45 @@
 //
 
 import UIKit
+
+import RxCocoa
+import RxSwift
 import WebKit
+
 
 class MainPageViewController: UIViewController {
     
     @IBOutlet weak var feedView: WKWebView!
     
-    let viewModel = MainPageViewModel()
+    private let viewModel = MainPageViewModel()
+    private let disposeBag = DisposeBag()
+    
+    private let tokenRefresh = PublishSubject<Void>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bind()
+        refreshToken()
         setWebView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setNavigationbar()
+    }
+    
+    func bind() {
+        let input = MainPageViewModel.input.init(tokenRefresh: tokenRefresh.asDriver(onErrorJustReturn: ()))
+        let output = viewModel.transform(input)
+        
+        output.tokenRefreshResult.subscribe(onNext: { errorMessage in
+            print(errorMessage)
+        })
+        .disposed(by: disposeBag)
+    }
+    
+    func refreshToken(){
+        tokenRefresh.onNext(())
     }
     
     func setNavigationbar(){
@@ -44,6 +68,8 @@ class MainPageViewController: UIViewController {
         let leftButton = UIBarButtonItem(customView: customView)
         self.navigationItem.leftBarButtonItem = leftButton
     }
+    
+    
     
 }
 
