@@ -57,6 +57,7 @@ class LoginViewController: UIViewController {
         let request = URLRequest(url: URL(string: url)!)
         
         introduceWebView.load(request)
+        introduceWebView.scrollView.isScrollEnabled = false
     }
 
 }
