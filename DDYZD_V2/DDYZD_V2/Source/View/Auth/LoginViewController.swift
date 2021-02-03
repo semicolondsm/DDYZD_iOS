@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var justBrowsingBtn: UIButton!
     @IBOutlet weak var introduceWebView: WKWebView!
     @IBOutlet weak var DSMAuthProvider: UIStackView!
+    let DSMAuthBtn = UIButton()
     
     let viewModel = LoginViewModel()
     let disposeBag = DisposeBag()
@@ -25,23 +26,19 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        bind()
         setIntroduceWebView()
+        setDSMAtuhLoginBtn()
+        bind()
     }
     
     func bind(){
+        let input = LoginViewModel.input.init(vc: self, loginWithDSMAuthBtnDriver: DSMAuthBtn.rx.tap.asDriver())
+        let output = viewModel.transform(input)
+        
         justBrowsingBtn.rx.tap.subscribe(onNext: {
             self.dismiss(animated: true, completion: nil)
         })
         .disposed(by: disposeBag)
-        
-        let DSMAuthBtn = UIButton()
-        DSMAuthBtn.setBackgroundImage(UIImage(named: "DSMAuthLoginBtn"), for: .normal)
-        
-        self.DSMAuthProvider.addArrangedSubview(DSMAuthBtn)
-        
-        let input = LoginViewModel.input.init(vc: self, loginWithDSMAuthBtnDriver: DSMAuthBtn.rx.tap.asDriver())
-        let output = viewModel.transform(input)
         
         output.result.subscribe(onNext:{ error in
             print(error)
@@ -49,7 +46,11 @@ class LoginViewController: UIViewController {
             self.dismiss(animated: true)
         })
         .disposed(by: disposeBag)
-        
+    }
+    
+    func setDSMAtuhLoginBtn(){
+        DSMAuthBtn.setBackgroundImage(UIImage(named: "DSMAuthLoginBtn"), for: .normal)
+        self.DSMAuthProvider.addArrangedSubview(DSMAuthBtn)
     }
     
     func setIntroduceWebView(){
