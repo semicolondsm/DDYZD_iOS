@@ -32,6 +32,7 @@
 		926E86E725B4404F00E7F213 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926E86E625B4404F00E7F213 /* HTTPClient.swift */; };
 		92C35F4225B5BD0700D30DDF /* DDYZDAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C35F4125B5BD0600D30DDF /* DDYZDAPI.swift */; };
 		92D97E9025CC0760008456C8 /* ClubDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D97E8F25CC0760008456C8 /* ClubDetailViewController.swift */; };
+		92D97E9325CC0821008456C8 /* ClubDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D97E9225CC0821008456C8 /* ClubDetailViewModel.swift */; };
 		92FBA6A025B537320014FB8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92FBA69F25B537320014FB8B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		926E86E625B4404F00E7F213 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		92C35F4125B5BD0600D30DDF /* DDYZDAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDYZDAPI.swift; sourceTree = "<group>"; };
 		92D97E8F25CC0760008456C8 /* ClubDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailViewController.swift; sourceTree = "<group>"; };
+		92D97E9225CC0821008456C8 /* ClubDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailViewModel.swift; sourceTree = "<group>"; };
 		92FBA69F25B537320014FB8B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				9200D12B25B88F1A00461843 /* ClubListTableViewModel.swift */,
+				92D97E9225CC0821008456C8 /* ClubDetailViewModel.swift */,
 			);
 			path = Club;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				9200D0B925B751E700461843 /* Token.swift in Sources */,
 				9200D12C25B88F1A00461843 /* ClubListTableViewModel.swift in Sources */,
 				9200D15D25B996C600461843 /* ClubListTableViewController.swift in Sources */,
+				92D97E9325CC0821008456C8 /* ClubDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
