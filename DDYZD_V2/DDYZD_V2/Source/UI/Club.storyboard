@@ -26,7 +26,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KIh-Ky-eCY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-210" y="-9"/>
+            <point key="canvasLocation" x="-219" y="325"/>
         </scene>
         <!--Club List View Controller-->
         <scene sceneID="Dpw-VC-5qg">
@@ -72,7 +72,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1N-zN-LiQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="556.52173913043487" y="656.25"/>
+            <point key="canvasLocation" x="557" y="658"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="h83-Ss-khd">
+            <objects>
+                <viewController id="tTr-ix-LZX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jlO-W9-361">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="vlR-ID-1hv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RVM-P5-8oe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1333" y="325"/>
         </scene>
     </scenes>
     <resources>
