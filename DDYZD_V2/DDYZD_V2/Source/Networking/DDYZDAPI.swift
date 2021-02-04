@@ -102,7 +102,8 @@ enum DDYZDAPI {
             guard let refresh_token = Token.refresh_token else { return nil }
             return ["refresh-token": "Bearer \(refresh_token)"]
         case .postDeviceToken(let DeviceToekn):
-            return ["device-token": "Bearer \(DeviceToekn)"]
+            return ["device-token": "Bearer \(DeviceToekn)",
+                    "Authorization": "Bearer \(Token.access_token)"]
         case .updateProfileImage(_), .updateHongboImage(_), .updateBannerImage(_), .uploadFeedFile(_):
             return ["Authorization": "Bearer \(Token.access_token)",
                     "Content-Type": "multipart/form-data"]
