@@ -7,7 +7,7 @@
 
 import UIKit
 
-import AuthenticationServices
+
 import DSMSDK
 import RxCocoa
 import RxSwift
