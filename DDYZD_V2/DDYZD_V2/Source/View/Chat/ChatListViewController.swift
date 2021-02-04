@@ -33,12 +33,6 @@ class ChatListViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         setNavigationBar()
-        
-        socket.establishConnection()
-        socket.socket.on("test") { (data, ack) in
-            print(data)
-        }
-        socket.socket.emit("test", ["qwer":"qwer"])
     }
     
     override func viewDidDisappear(_ animated: Bool) {
