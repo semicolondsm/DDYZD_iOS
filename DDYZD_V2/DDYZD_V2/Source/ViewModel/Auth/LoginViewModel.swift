@@ -39,15 +39,7 @@ class LoginViewModel: ViewModelProtocol {
                         case .success:
                             Messaging.messaging().token{ token, err in
                                 if err != nil { return } else {
-                                    api.postDeviceToken(token!).asObservable().subscribe(onNext: { res in
-                                        switch res {
-                                        case .success:
-                                            print("SUCCESS")
-                                        default:
-                                            print("ERROR")
-                                        }
-                                    })
-                                    .disposed(by: self.disposeBag)
+                                    api.postDeviceToken(token!)
                                 }
                             }
                             result.onCompleted()
