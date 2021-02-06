@@ -42,6 +42,7 @@
 		92D97F1A25CEECAB008456C8 /* Feed.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D97F1925CEECAB008456C8 /* Feed.xib */; };
 		92D97F1E25CEED56008456C8 /* FeedBasicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D97F1D25CEED56008456C8 /* FeedBasicCollectionViewCell.swift */; };
 		92D97F2225CEEDCD008456C8 /* FeedWithImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D97F2125CEEDCD008456C8 /* FeedWithImageCollectionViewCell.swift */; };
+		92D97F2525CEEE98008456C8 /* FeedAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D97F2425CEEE98008456C8 /* FeedAPI.swift */; };
 		92FBA6A025B537320014FB8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92FBA69F25B537320014FB8B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		92D97F1925CEECAB008456C8 /* Feed.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Feed.xib; sourceTree = "<group>"; };
 		92D97F1D25CEED56008456C8 /* FeedBasicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBasicCollectionViewCell.swift; sourceTree = "<group>"; };
 		92D97F2125CEEDCD008456C8 /* FeedWithImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedWithImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		92D97F2425CEEE98008456C8 /* FeedAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAPI.swift; sourceTree = "<group>"; };
 		92FBA69F25B537320014FB8B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -239,6 +241,7 @@
 				9263697725B7335C00D2D107 /* AuthAPI.swift */,
 				9200D13125B8903300461843 /* ClubAPI.swift */,
 				92BED6D925BD473100526C33 /* ChatAPI.swift */,
+				92D97F2425CEEE98008456C8 /* FeedAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92D97F2525CEEE98008456C8 /* FeedAPI.swift in Sources */,
 				9200D12325B88E7000461843 /* ClubModel.swift in Sources */,
 				92BED6E525BD4B1C00526C33 /* ChatListTableViewCell.swift in Sources */,
 				9263696025B684ED00D2D107 /* LoginViewController.swift in Sources */,
