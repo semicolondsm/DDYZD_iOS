@@ -14,7 +14,6 @@ import WebKit
 
 class MainPageViewController: UIViewController {
     
-    @IBOutlet weak var feedView: UICollectionView!
     
     private let viewModel = MainPageViewModel()
     private let disposeBag = DisposeBag()
