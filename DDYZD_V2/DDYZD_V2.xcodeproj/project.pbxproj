@@ -44,6 +44,7 @@
 		92D97F2225CEEDCD008456C8 /* FeedWithImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D97F2125CEEDCD008456C8 /* FeedWithImageCollectionViewCell.swift */; };
 		92D97F2525CEEE98008456C8 /* FeedAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D97F2425CEEE98008456C8 /* FeedAPI.swift */; };
 		92D97F2825CEF1C0008456C8 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D97F2725CEF1C0008456C8 /* FeedModel.swift */; };
+		92D97F3525CEFD97008456C8 /* HeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D97F3425CEFD97008456C8 /* HeaderReusableView.swift */; };
 		92FBA6A025B537320014FB8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92FBA69F25B537320014FB8B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,7 @@
 		92D97F2125CEEDCD008456C8 /* FeedWithImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedWithImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		92D97F2425CEEE98008456C8 /* FeedAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAPI.swift; sourceTree = "<group>"; };
 		92D97F2725CEF1C0008456C8 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
+		92D97F3425CEFD97008456C8 /* HeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderReusableView.swift; sourceTree = "<group>"; };
 		92FBA69F25B537320014FB8B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -333,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				92D1759C25BD696B00E6F2D6 /* MainPageViewController.swift */,
+				92D97F3425CEFD97008456C8 /* HeaderReusableView.swift */,
 				92D97F1C25CEECFD008456C8 /* FeedCell */,
 			);
 			path = Main;
@@ -486,6 +489,7 @@
 				9200D38C25BBD6AD00461843 /* ClubListTableViewCell.swift in Sources */,
 				92B9AE9B25BF03C900026892 /* ChatListViewController.swift in Sources */,
 				92BED6EE25BD536200526C33 /* ClubDetailViewModel.swift in Sources */,
+				92D97F3525CEFD97008456C8 /* HeaderReusableView.swift in Sources */,
 				9200D13225B8903300461843 /* ClubAPI.swift in Sources */,
 				926E86E725B4404F00E7F213 /* HTTPClient.swift in Sources */,
 				9200D04C25B7411100461843 /* ViewModelProtocol.swift in Sources */,
