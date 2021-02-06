@@ -110,7 +110,7 @@ enum DDYZDAPI {
     
     func header() -> HTTPHeaders? {
         switch self {
-        case .clubList, .clubDetailInfo(_), .getRecruitment(_), .getClubMember(_), .feedList(_), .clubFeedList(_, _):
+        case .clubList, .clubDetailInfo(_), .getRecruitment(_), .getClubMember(_):
             return nil
         case .getToken(let DSMAuthToken) :
             return ["access-token": "Bearer \(DSMAuthToken)"]
