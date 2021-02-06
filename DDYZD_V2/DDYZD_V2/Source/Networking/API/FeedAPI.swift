@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+import Alamofire
+import RxSwift
+
+class FeedAPI {
+    let httpClient = HTTPClient()
+    
+}
