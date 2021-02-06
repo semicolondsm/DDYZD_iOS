@@ -14,8 +14,6 @@ import WebKit
 
 class MainPageViewController: UIViewController {
     
-    @IBOutlet weak var feedView: WKWebView!
-    
     private let viewModel = MainPageViewModel()
     private let disposeBag = DisposeBag()
     
@@ -71,14 +69,4 @@ class MainPageViewController: UIViewController {
     
     
     
-}
-
-extension MainPageViewController: WKUIDelegate, WKNavigationDelegate {
-    func setWebView(){
-        let URL = "https://semicolondsm.xyz/mobile/feed"
-        
-        let request: URLRequest = URLRequest.init(url: NSURL.init(string: URL)! as URL, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 10)
-        
-        feedView.load(request)
-    }
 }
