@@ -24,7 +24,6 @@ class MainPageViewController: UIViewController {
         
         bind()
         refreshToken()
-        setWebView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
