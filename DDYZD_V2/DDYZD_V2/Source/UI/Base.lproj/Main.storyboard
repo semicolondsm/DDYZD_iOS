@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y0h-jn-1G6">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -51,8 +51,41 @@
                     <view key="view" contentMode="scaleToFill" id="zZS-HO-DGJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bRd-Do-EJ1">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="H6l-Ur-EOM">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGW-mH-9Xb">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
+                                            <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <wkWebViewConfiguration key="configuration">
+                                                <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                                <wkPreferences key="preferences"/>
+                                            </wkWebViewConfiguration>
+                                        </wkWebView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="iGW-mH-9Xb" secondAttribute="trailing" id="80w-5c-uic"/>
+                                        <constraint firstItem="iGW-mH-9Xb" firstAttribute="leading" secondItem="H6l-Ur-EOM" secondAttribute="leading" id="JBA-8B-W1u"/>
+                                        <constraint firstItem="iGW-mH-9Xb" firstAttribute="top" secondItem="H6l-Ur-EOM" secondAttribute="top" id="Npg-k3-ZiZ"/>
+                                        <constraint firstAttribute="bottom" secondItem="iGW-mH-9Xb" secondAttribute="bottom" id="dDW-S0-cWw"/>
+                                    </constraints>
+                                </view>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="dIY-lK-xRX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bRd-Do-EJ1" firstAttribute="top" secondItem="dIY-lK-xRX" secondAttribute="top" id="7mw-ia-pG5"/>
+                            <constraint firstItem="dIY-lK-xRX" firstAttribute="bottom" secondItem="bRd-Do-EJ1" secondAttribute="bottom" id="JkL-nK-HKN"/>
+                            <constraint firstItem="dIY-lK-xRX" firstAttribute="trailing" secondItem="bRd-Do-EJ1" secondAttribute="trailing" id="TTp-8N-el4"/>
+                            <constraint firstItem="bRd-Do-EJ1" firstAttribute="leading" secondItem="dIY-lK-xRX" secondAttribute="leading" id="etW-oC-Ksk"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5TW-pS-Cim">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="ChatIcon" id="Zb3-Ki-fvZ">
@@ -61,6 +94,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="feedTable" destination="bRd-Do-EJ1" id="CjW-iI-RI3"/>
+                        <outlet property="headerWKView" destination="iGW-mH-9Xb" id="d00-G5-wab"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="56Z-qH-K3X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

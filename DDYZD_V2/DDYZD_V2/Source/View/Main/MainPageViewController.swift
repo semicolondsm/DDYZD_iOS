@@ -14,6 +14,8 @@ import WebKit
 
 class MainPageViewController: UIViewController {
     
+    @IBOutlet weak var headerWKView: WKWebView!
+    @IBOutlet weak var feedTable: UITableView!
     
     private let viewModel = MainPageViewModel()
     private let disposeBag = DisposeBag()
@@ -23,6 +25,7 @@ class MainPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setHeaderWKView()
         bind()
         refreshToken()
     }
@@ -65,6 +68,13 @@ class MainPageViewController: UIViewController {
 
         let leftButton = UIBarButtonItem(customView: customView)
         self.navigationItem.leftBarButtonItem = leftButton
+    }
+    
+    func setHeaderWKView() {
+        let URL = "https://semicolondsm.xyz/mobile/feed"
+        let request: URLRequest = URLRequest.init(url: NSURL.init(string: URL)! as URL, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 10)
+        headerWKView.load(request)
+        headerWKView.scrollView.isScrollEnabled = false
     }
     
     
