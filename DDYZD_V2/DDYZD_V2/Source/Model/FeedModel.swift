@@ -11,14 +11,11 @@ struct FeedListModel: Codable {
     let feedId: Int
     let clubName: String
     let profileImage: String
-    let isFollow: Bool
     let uploadAt: String
     let content: String
-    let media: [Medium]
-    let isFlag: Bool
+    let media: [String]
     let flags: Int
+    let flag: Bool
+    let follow: Bool
 }
 
-struct Medium: Codable {
-    let medium: String
-}
