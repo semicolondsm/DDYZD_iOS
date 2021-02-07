@@ -9,15 +9,22 @@ import UIKit
 
 class FeedTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var clubProfileImageView: UIImageView!
+    @IBOutlet weak var clubNameLable: UILabel!
+    @IBOutlet weak var uploadAtLable: UILabel!
+    @IBOutlet weak var conectLable: UILabel!
+    @IBOutlet weak var flagNumLable: UILabel!
+    @IBOutlet weak var MenuBtn: UIButton!
+    @IBOutlet weak var flagBtn: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        setUI()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func setUI() {
+        clubProfileImageView.layer.cornerRadius = 30
     }
 
 }
