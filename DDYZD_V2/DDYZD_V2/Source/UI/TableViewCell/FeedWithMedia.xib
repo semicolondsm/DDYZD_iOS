@@ -102,7 +102,7 @@
                                     <constraint firstItem="nqj-mL-9Db" firstAttribute="top" secondItem="V5g-4q-LPt" secondAttribute="top" id="gdc-uq-oDJ"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="conect" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIU-jP-OnD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIU-jP-OnD">
                                 <rect key="frame" x="10" y="55" width="394" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
@@ -148,13 +148,13 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="MenuBtn" destination="qoH-ii-UHs" id="9gP-Jk-Znd"/>
-                <outlet property="clubNameLable" destination="kme-kQ-GAK" id="Q0L-Rf-B5b"/>
+                <outlet property="clubName" destination="kme-kQ-GAK" id="30l-vu-MrM"/>
                 <outlet property="clubProfileImageView" destination="Ufa-gF-SP7" id="auS-4t-g2L"/>
-                <outlet property="conectLable" destination="uIU-jP-OnD" id="aQZ-fp-2OA"/>
+                <outlet property="content" destination="uIU-jP-OnD" id="sFF-3b-g8j"/>
                 <outlet property="flagBtn" destination="UuC-Q4-7eT" id="llc-0O-Esx"/>
-                <outlet property="flagNumLable" destination="hg4-9l-XkF" id="Boo-gT-dqz"/>
+                <outlet property="flagNum" destination="hg4-9l-XkF" id="0bg-9C-gEQ"/>
                 <outlet property="mediaWKView" destination="A9y-5W-g5O" id="7Ff-57-rVg"/>
-                <outlet property="uploadAtLable" destination="KTN-A1-aco" id="VKu-hJ-egn"/>
+                <outlet property="uploadAt" destination="KTN-A1-aco" id="rz1-Lf-RCc"/>
             </connections>
             <point key="canvasLocation" x="-568.1159420289855" y="19.419642857142858"/>
         </tableViewCell>

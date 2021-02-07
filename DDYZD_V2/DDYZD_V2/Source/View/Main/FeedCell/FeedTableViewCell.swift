@@ -10,10 +10,10 @@ import UIKit
 class FeedTableViewCell: UITableViewCell {
 
     @IBOutlet weak var clubProfileImageView: UIImageView!
-    @IBOutlet weak var clubNameLable: UILabel!
-    @IBOutlet weak var uploadAtLable: UILabel!
-    @IBOutlet weak var conectLable: UILabel!
-    @IBOutlet weak var flagNumLable: UILabel!
+    @IBOutlet weak var clubName: UILabel!
+    @IBOutlet weak var uploadAt: UILabel!
+    @IBOutlet weak var content: UILabel!
+    @IBOutlet weak var flagNum: NSLayoutConstraint!
     @IBOutlet weak var MenuBtn: UIButton!
     @IBOutlet weak var flagBtn: UIButton!
     

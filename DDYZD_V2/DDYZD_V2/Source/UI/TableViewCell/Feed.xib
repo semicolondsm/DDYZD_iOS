@@ -134,12 +134,12 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="MenuBtn" destination="hF3-lD-1Sl" id="U7h-ab-82b"/>
-                <outlet property="clubNameLable" destination="bkN-E1-uTX" id="wXV-Rg-5VI"/>
+                <outlet property="clubName" destination="bkN-E1-uTX" id="23O-Ks-tKI"/>
                 <outlet property="clubProfileImageView" destination="ZVJ-9m-XEB" id="2HH-G4-E85"/>
-                <outlet property="conectLable" destination="JUk-1u-uht" id="0bU-0Q-9cn"/>
+                <outlet property="content" destination="JUk-1u-uht" id="tg5-S7-zZq"/>
                 <outlet property="flagBtn" destination="847-BF-Gcv" id="mVk-yR-G9c"/>
-                <outlet property="flagNumLable" destination="9QV-K5-M9Q" id="zai-rb-JG3"/>
-                <outlet property="uploadAtLable" destination="BBp-kf-tRu" id="u2a-kS-kCz"/>
+                <outlet property="flagNum" destination="O9z-uf-hmW" id="y76-p4-4ka"/>
+                <outlet property="uploadAt" destination="BBp-kf-tRu" id="BHI-FN-f7r"/>
             </connections>
             <point key="canvasLocation" x="-568" y="-256"/>
         </tableViewCell>
