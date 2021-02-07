@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WebKit
 
 class FeedWithMediaTableViewCell: UITableViewCell {
 
@@ -16,6 +17,7 @@ class FeedWithMediaTableViewCell: UITableViewCell {
     @IBOutlet weak var flagNumLable: UILabel!
     @IBOutlet weak var MenuBtn: UIButton!
     @IBOutlet weak var flagBtn: UIButton!
+    @IBOutlet weak var mediaWKView: WKWebView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

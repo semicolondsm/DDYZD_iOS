@@ -286,6 +286,7 @@
                 <outlet property="conectLable" destination="SQN-CN-bES" id="hZm-VK-u2U"/>
                 <outlet property="flagBtn" destination="Rqm-rf-ALG" id="bjm-z4-UlB"/>
                 <outlet property="flagNumLable" destination="9gK-2f-ehn" id="qto-cC-Eot"/>
+                <outlet property="mediaWKView" destination="rRO-vN-99I" id="u9t-at-Awu"/>
                 <outlet property="uploadAtLable" destination="WXs-7E-wzZ" id="uGA-5a-a5K"/>
             </connections>
             <point key="canvasLocation" x="-568.1159420289855" y="19.419642857142858"/>
