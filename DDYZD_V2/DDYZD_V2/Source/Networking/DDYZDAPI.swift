@@ -70,9 +70,9 @@ enum DDYZDAPI {
         case .uploadFeed(let clubID):
             return "feed/\(clubID)"
         case .updateFeed(let feedID):
-            return "feed/\(feedID)"
+            return "/feed/\(feedID)"
         case .uploadFeedFile(let feedID):
-            return "feed/\(feedID)/medium"
+            return "/feed/\(feedID)/medium"
         case .clubList:
             return "/club/list"
         case .clubDetailInfo(let clubID):
