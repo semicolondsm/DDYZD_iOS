@@ -270,6 +270,15 @@
                     <constraint firstItem="aVY-X1-6W3" firstAttribute="leading" secondItem="IZ0-Dg-Pg4" secondAttribute="leading" id="q8y-hE-IrS"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="MenuBtn" destination="Xrz-BK-asn" id="kvO-XQ-tKJ"/>
+                <outlet property="clubNameLable" destination="geb-it-YfT" id="fd4-wu-Bpd"/>
+                <outlet property="clubProfileImageView" destination="wM4-7t-DHn" id="CRQ-Og-PK6"/>
+                <outlet property="conectLable" destination="SQN-CN-bES" id="hZm-VK-u2U"/>
+                <outlet property="flagBtn" destination="Rqm-rf-ALG" id="bjm-z4-UlB"/>
+                <outlet property="flagNumLable" destination="9gK-2f-ehn" id="qto-cC-Eot"/>
+                <outlet property="uploadAtLable" destination="WXs-7E-wzZ" id="uGA-5a-a5K"/>
+            </connections>
             <point key="canvasLocation" x="-568.1159420289855" y="19.419642857142858"/>
         </tableViewCell>
     </objects>
