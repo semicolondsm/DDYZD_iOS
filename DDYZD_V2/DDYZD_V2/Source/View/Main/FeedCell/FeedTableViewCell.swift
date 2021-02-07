@@ -13,7 +13,7 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var clubName: UILabel!
     @IBOutlet weak var uploadAt: UILabel!
     @IBOutlet weak var content: UILabel!
-    @IBOutlet weak var flagNum: NSLayoutConstraint!
+    @IBOutlet weak var flagNum: UILabel!
     @IBOutlet weak var MenuBtn: UIButton!
     @IBOutlet weak var flagBtn: UIButton!
     

@@ -138,7 +138,7 @@
                 <outlet property="clubProfileImageView" destination="ZVJ-9m-XEB" id="2HH-G4-E85"/>
                 <outlet property="content" destination="JUk-1u-uht" id="tg5-S7-zZq"/>
                 <outlet property="flagBtn" destination="847-BF-Gcv" id="mVk-yR-G9c"/>
-                <outlet property="flagNum" destination="O9z-uf-hmW" id="Woa-fJ-v4O"/>
+                <outlet property="flagNum" destination="9QV-K5-M9Q" id="NB1-1e-Y7F"/>
                 <outlet property="uploadAt" destination="BBp-kf-tRu" id="BHI-FN-f7r"/>
             </connections>
             <point key="canvasLocation" x="-568" y="-256"/>
