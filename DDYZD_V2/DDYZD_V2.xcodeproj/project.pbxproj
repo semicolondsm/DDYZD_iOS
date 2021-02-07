@@ -44,6 +44,7 @@
 		92D97F2825CEF1C0008456C8 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D97F2725CEF1C0008456C8 /* FeedModel.swift */; };
 		92D97F5125CFF509008456C8 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D97F5025CFF509008456C8 /* FeedTableViewCell.swift */; };
 		92D97F5425CFF527008456C8 /* FeedWithMediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D97F5325CFF527008456C8 /* FeedWithMediaTableViewCell.swift */; };
+		92D97F9325D06D4A008456C8 /* FeedWithMedia.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D97F9225D06D4A008456C8 /* FeedWithMedia.xib */; };
 		92FBA6A025B537320014FB8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92FBA69F25B537320014FB8B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,7 @@
 		92D97F2725CEF1C0008456C8 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 		92D97F5025CFF509008456C8 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		92D97F5325CFF527008456C8 /* FeedWithMediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedWithMediaTableViewCell.swift; sourceTree = "<group>"; };
+		92D97F9225D06D4A008456C8 /* FeedWithMedia.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedWithMedia.xib; sourceTree = "<group>"; };
 		92FBA69F25B537320014FB8B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				92D97F1925CEECAB008456C8 /* Feed.xib */,
+				92D97F9225D06D4A008456C8 /* FeedWithMedia.xib */,
 				9200D38F25BBE2C400461843 /* ClubListTableViewCell.xib */,
 				92BED6D425BD46E400526C33 /* ChatListTableViewCell.storyboard */,
 			);
@@ -406,6 +409,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92D97F9325D06D4A008456C8 /* FeedWithMedia.xib in Resources */,
 				925C9EB725B08BE9005A3694 /* LaunchScreen.storyboard in Resources */,
 				92D97F1A25CEECAB008456C8 /* Feed.xib in Resources */,
 				92FBA6A025B537320014FB8B /* GoogleService-Info.plist in Resources */,
