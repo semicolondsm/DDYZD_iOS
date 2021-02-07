@@ -62,9 +62,9 @@ enum DDYZDAPI {
         case .updateInfo:
             return "/users/profile"
         case .feedList(let page):
-            return "feed/list?page=\(page)"
+            return "feed/list?page=\(page)&"
         case .clubFeedList(let clubID, let page):
-            return "feed/\(clubID)/list?page=\(page)"
+            return "feed/\(clubID)/list?page=\(page)&"
         case .flagIt(let feedID):
             return "/feed/\(feedID)/flag"
         case .uploadFeed(let clubID):
