@@ -26,6 +26,7 @@ class MainPageViewController: UIViewController {
         super.viewDidLoad()
         
         setHeaderWKView()
+        setTableViewUI()
         bind()
         refreshToken()
     }
@@ -77,6 +78,9 @@ class MainPageViewController: UIViewController {
         headerWKView.scrollView.isScrollEnabled = false
     }
     
+    func setTableViewUI(){
+        feedTable.separatorStyle = .none
+    }
     
     
 }
