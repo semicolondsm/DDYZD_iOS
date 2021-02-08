@@ -29,7 +29,7 @@ class FeedWithMediaTableViewCell: UITableViewCell {
     }
     
     func setUI() {
-        clubProfileImageView.layer.cornerRadius = clubProfileImageView.frame.height/2
+        clubProfileImageView.circleImage()
     }
 
 }
