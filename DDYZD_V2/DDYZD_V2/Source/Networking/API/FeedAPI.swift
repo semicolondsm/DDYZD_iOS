@@ -25,4 +25,18 @@ class FeedAPI {
                 }
             }
     }
+    
+    func flagIt(feedID: Int) -> Observable<StatusCodes> {
+        httpClient.put(.flagIt(feedID), param: nil)
+            .map{ response, data -> StatusCodes in
+                switch response.statusCode {
+                case 200:
+                    return .success
+                case 401, 422:
+                    return .unauthorized
+                default:
+                    return .fault
+                }
+            }
+    }
 }
