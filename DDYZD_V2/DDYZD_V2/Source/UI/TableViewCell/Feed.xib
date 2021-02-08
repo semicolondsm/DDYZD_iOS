@@ -75,14 +75,14 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkN-E1-uTX">
-                                        <rect key="frame" x="44" y="3" width="61" height="15"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <rect key="frame" x="45" y="2" width="73.5" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="upload at" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBp-kf-tRu">
-                                        <rect key="frame" x="44" y="17" width="33" height="9"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                                        <rect key="frame" x="45" y="16" width="45.5" height="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" red="0.76863271" green="0.76861804720000004" blue="0.76862794160000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -98,15 +98,15 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="ZVJ-9m-XEB" firstAttribute="top" secondItem="nHq-aR-bgb" secondAttribute="top" id="KsA-VU-OfY"/>
-                                    <constraint firstAttribute="bottom" secondItem="BBp-kf-tRu" secondAttribute="bottom" constant="4" id="ODQ-Ar-IO9"/>
+                                    <constraint firstAttribute="bottom" secondItem="BBp-kf-tRu" secondAttribute="bottom" constant="2" id="ODQ-Ar-IO9"/>
                                     <constraint firstAttribute="bottom" secondItem="ZVJ-9m-XEB" secondAttribute="bottom" id="Pdn-Ve-9o0"/>
-                                    <constraint firstItem="BBp-kf-tRu" firstAttribute="leading" secondItem="ZVJ-9m-XEB" secondAttribute="trailing" constant="14" id="QUj-y3-aoz"/>
+                                    <constraint firstItem="BBp-kf-tRu" firstAttribute="leading" secondItem="ZVJ-9m-XEB" secondAttribute="trailing" constant="15" id="QUj-y3-aoz"/>
                                     <constraint firstItem="hF3-lD-1Sl" firstAttribute="centerY" secondItem="nHq-aR-bgb" secondAttribute="centerY" id="dku-xf-drT"/>
-                                    <constraint firstItem="bkN-E1-uTX" firstAttribute="top" secondItem="nHq-aR-bgb" secondAttribute="top" constant="3" id="eO3-ed-10Y"/>
+                                    <constraint firstItem="bkN-E1-uTX" firstAttribute="top" secondItem="nHq-aR-bgb" secondAttribute="top" constant="2" id="eO3-ed-10Y"/>
                                     <constraint firstAttribute="height" constant="30" id="q2X-c4-Cgv"/>
                                     <constraint firstAttribute="trailing" secondItem="hF3-lD-1Sl" secondAttribute="trailing" id="rMe-kT-VXB"/>
                                     <constraint firstItem="ZVJ-9m-XEB" firstAttribute="leading" secondItem="nHq-aR-bgb" secondAttribute="leading" id="sjw-Z1-BlO"/>
-                                    <constraint firstItem="bkN-E1-uTX" firstAttribute="leading" secondItem="ZVJ-9m-XEB" secondAttribute="trailing" constant="14" id="wvg-mi-QwM"/>
+                                    <constraint firstItem="bkN-E1-uTX" firstAttribute="leading" secondItem="ZVJ-9m-XEB" secondAttribute="trailing" constant="15" id="wvg-mi-QwM"/>
                                 </constraints>
                             </view>
                         </subviews>
