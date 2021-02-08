@@ -68,6 +68,12 @@ extension UIViewController {
     
 }
 
+extension UIImageView {
+    func circleImage() {
+        self.layer.cornerRadius = (self.frame.height + self.frame.width)/4
+    }
+}
+
 extension CALayer {
     func addBorder(_ arr_edge: [UIRectEdge], color: UIColor, width: CGFloat) {
         for edge in arr_edge {
