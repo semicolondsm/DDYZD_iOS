@@ -27,7 +27,7 @@ class FeedTableViewCell: UITableViewCell {
     }
     
     func setUI() {
-        clubProfileImageView.layer.cornerRadius = 30
+        clubProfileImageView.layer.cornerRadius = clubProfileImageView.frame.height/2
     }
 
 }
