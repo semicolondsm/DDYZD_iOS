@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import RxSwift
 import WebKit
 
 class FeedWithMediaTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var clubProfileImageView: UIImageView!
     @IBOutlet weak var clubName: UILabel!
     @IBOutlet weak var uploadAt: UILabel!
@@ -18,6 +19,8 @@ class FeedWithMediaTableViewCell: UITableViewCell {
     @IBOutlet weak var MenuBtn: UIButton!
     @IBOutlet weak var flagBtn: UIButton!
     @IBOutlet weak var mediaWKView: WKWebView!
+    
+    public var disposeBag = DisposeBag()
     
     override func awakeFromNib() {
         super.awakeFromNib()

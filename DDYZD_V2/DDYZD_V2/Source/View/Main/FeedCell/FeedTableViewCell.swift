@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import RxSwift
 
 class FeedTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var clubProfileImageView: UIImageView!
     @IBOutlet weak var clubName: UILabel!
     @IBOutlet weak var uploadAt: UILabel!
@@ -16,6 +17,8 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var flagNum: UILabel!
     @IBOutlet weak var MenuBtn: UIButton!
     @IBOutlet weak var flagBtn: UIButton!
+    
+    public var disposeBag = DisposeBag()
     
     override func awakeFromNib() {
         super.awakeFromNib()
