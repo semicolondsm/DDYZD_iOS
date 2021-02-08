@@ -30,6 +30,7 @@
                                             <constraint firstAttribute="height" constant="20" id="Hlx-ho-Gbq"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="flagdefault"/>
+                                        <state key="selected" image="flag"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLAG num" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9QV-K5-M9Q">
                                         <rect key="frame" x="28" y="3.5" width="71" height="18"/>
@@ -145,6 +146,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="flag" width="30" height="28"/>
         <image name="flagdefault" width="32" height="31.5"/>
         <image name="list" width="25" height="5"/>
         <systemColor name="systemBackgroundColor">
