@@ -14,8 +14,8 @@ struct FeedListModel: Codable {
     let uploadAt: String
     let content: String
     let media: [String]
-    let flags: Int
-    let flag: Bool
+    var flags: Int
+    var flag: Bool
     let follow: Bool
 }
 
