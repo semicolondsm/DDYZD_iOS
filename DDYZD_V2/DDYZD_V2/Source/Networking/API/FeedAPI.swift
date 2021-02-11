@@ -13,12 +13,12 @@ import RxSwift
 class FeedAPI {
     let httpClient = HTTPClient()
     
-    func getFeedList(page: Int) -> Observable<([FeedListModel]?, StatusCodes)> {
+    func getFeedList(page: Int) -> Observable<([FeedModel]?, StatusCodes)> {
         httpClient.get(.feedList(page), param: nil)
-            .map{ response, data -> ([FeedListModel]?, StatusCodes) in
+            .map{ response, data -> ([FeedModel]?, StatusCodes) in
                 switch response.statusCode {
                 case 200:
-                    guard let data = try? JSONDecoder().decode([FeedListModel].self, from: data) else { return (nil, .fault) }
+                    guard let data = try? JSONDecoder().decode([FeedModel].self, from: data) else { return (nil, .fault) }
                     return (data, .success)
                 default:
                     return (nil, .fault)

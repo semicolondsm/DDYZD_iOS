@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FeedListModel: Codable {
+struct FeedModel: Codable {
     let feedId: Int
     let clubName: String
     let profileImage: String
