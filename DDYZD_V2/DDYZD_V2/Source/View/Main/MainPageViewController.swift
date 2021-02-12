@@ -55,11 +55,7 @@ class MainPageViewController: UIViewController {
             if item.media.isEmpty {
                 let cell = self.feedTable.dequeueReusableCell(withIdentifier: "Feed") as! FeedTableViewCell
                 
-                cell.clubProfileImageView.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(item.profileImage)"))
-                cell.clubName.text = item.clubName
-                cell.content.text = item.content
-                cell.flagBtn.isSelected = item.flag
-                cell.flagNum.text = String(item.flags)
+                cell.bind(item: item)
                 cell.flagBtn.rx.tap.subscribe(onNext: {
                     self.flagIt.onNext(row)
                     output.flagItResult.subscribe(onNext: { err in
@@ -74,15 +70,7 @@ class MainPageViewController: UIViewController {
                
                 cell.clubProfileImageView.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(item.profileImage)"))
                 
-                let URL = "https://semicolondsm.xyz/mobile/feedslide?id=\(item.feedId)"
-                let request: URLRequest = URLRequest.init(url: NSURL.init(string: URL)! as URL, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 10)
-                cell.mediaWKView.load(request)
-                cell.mediaWKView.scrollView.isScrollEnabled = false
                 
-                cell.clubName.text = item.clubName
-                cell.content.text = item.content
-                cell.flagNum.text = String(item.flags)
-                cell.flagBtn.isSelected = item.flag
                 cell.flagBtn.rx.tap.subscribe(onNext: {
                     self.flagIt.onNext(row)
                     output.flagItResult.subscribe(onNext: { err in

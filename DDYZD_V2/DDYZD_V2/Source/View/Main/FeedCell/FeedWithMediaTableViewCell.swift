@@ -32,4 +32,13 @@ class FeedWithMediaTableViewCell: UITableViewCell {
         clubProfileImageView.circleImage()
     }
 
+    func bind(item: FeedModel){
+        let URL = "https://semicolondsm.xyz/mobile/feedslide?id=\(item.feedId)"
+        let request: URLRequest = URLRequest.init(url: NSURL.init(string: URL)! as URL, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 10)
+        mediaWKView.load(request)
+        mediaWKView.scrollView.isScrollEnabled = false
+        clubName.text = item.clubName
+        content.text = item.content
+        flagNum.text = String(item.flags)
+    }
 }

@@ -30,4 +30,11 @@ class FeedTableViewCell: UITableViewCell {
         clubProfileImageView.circleImage()
     }
 
+    func bind(item: FeedModel) {
+        clubProfileImageView.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(item.profileImage)"))
+        clubName.text = item.clubName
+        content.text = item.content
+        flagBtn.isSelected = item.flag
+        flagNum.text = String(item.flags)
+    }
 }
