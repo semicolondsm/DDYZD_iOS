@@ -39,14 +39,14 @@
                                         <state key="normal" title="Button" image="list"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kme-kQ-GAK">
-                                        <rect key="frame" x="45" y="2" width="73.5" height="18"/>
+                                        <rect key="frame" x="45" y="0.0" width="73.5" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="upload at" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTN-A1-aco">
-                                        <rect key="frame" x="45" y="16" width="45.5" height="12"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <rect key="frame" x="45" y="15.5" width="53" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.76863271" green="0.76861804720000004" blue="0.76862794160000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -58,9 +58,9 @@
                                     <constraint firstAttribute="trailing" secondItem="qoH-ii-UHs" secondAttribute="trailing" id="KwI-QH-kwi"/>
                                     <constraint firstItem="qoH-ii-UHs" firstAttribute="centerY" secondItem="7df-KX-ZK1" secondAttribute="centerY" id="OTD-Cl-r20"/>
                                     <constraint firstItem="KTN-A1-aco" firstAttribute="leading" secondItem="Ufa-gF-SP7" secondAttribute="trailing" constant="15" id="UGn-V3-d6h"/>
-                                    <constraint firstAttribute="bottom" secondItem="KTN-A1-aco" secondAttribute="bottom" constant="2" id="a0a-YN-cZb"/>
+                                    <constraint firstAttribute="bottom" secondItem="KTN-A1-aco" secondAttribute="bottom" id="a0a-YN-cZb"/>
                                     <constraint firstAttribute="bottom" secondItem="Ufa-gF-SP7" secondAttribute="bottom" id="dxA-CK-YyE"/>
-                                    <constraint firstItem="kme-kQ-GAK" firstAttribute="top" secondItem="7df-KX-ZK1" secondAttribute="top" constant="2" id="k23-Fh-RKP"/>
+                                    <constraint firstItem="kme-kQ-GAK" firstAttribute="top" secondItem="7df-KX-ZK1" secondAttribute="top" id="k23-Fh-RKP"/>
                                     <constraint firstItem="Ufa-gF-SP7" firstAttribute="leading" secondItem="7df-KX-ZK1" secondAttribute="leading" id="qw9-Ke-f5F"/>
                                     <constraint firstItem="Ufa-gF-SP7" firstAttribute="top" secondItem="7df-KX-ZK1" secondAttribute="top" id="wWF-Uh-CzU"/>
                                 </constraints>
