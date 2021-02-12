@@ -70,7 +70,7 @@ class MainPageViewController: UIViewController {
                
                 cell.clubProfileImageView.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(item.profileImage)"))
                 
-                
+                cell.bind(item: item)
                 cell.flagBtn.rx.tap.subscribe(onNext: {
                     self.flagIt.onNext(row)
                     output.flagItResult.subscribe(onNext: { err in
@@ -137,6 +137,7 @@ extension MainPageViewController: UITableViewDelegate {
         feedTable.separatorStyle = .none
         feedTable.allowsSelection = false
         feedTable.delegate = self
+        initRefresh()
     }
     
     func registerCell() {
@@ -163,5 +164,16 @@ extension MainPageViewController: UITableViewDelegate {
         if offsetY > contentHeight - scrollView.frame.height{
             print("end")
         }
+    }
+    
+    func initRefresh() {
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(refreshFeed(refresh:)), for: .valueChanged)
+        feedTable.refreshControl = refresh
+    }
+    
+    @objc func refreshFeed(refresh: UIRefreshControl) {
+        refresh.endRefreshing()
+        reloadFeeds()
     }
 }
