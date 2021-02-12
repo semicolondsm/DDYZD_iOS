@@ -20,6 +20,7 @@ class MainPageViewController: UIViewController {
     
     private let viewModel = MainPageViewModel()
     private let disposeBag = DisposeBag()
+    private var loadMore = false
     
     private let tokenRefresh = PublishSubject<Void>()
     private let getFeed = PublishSubject<LoadFeedAction>()
@@ -52,6 +53,7 @@ class MainPageViewController: UIViewController {
         .disposed(by: disposeBag)
         
         output.feedList.bind(to: feedTable.rx.items) { tableView, row, item -> UITableViewCell in
+            self.loadMore = false
             if item.media.isEmpty {
                 let cell = self.feedTable.dequeueReusableCell(withIdentifier: "Feed") as! FeedTableViewCell
                 
@@ -94,6 +96,7 @@ class MainPageViewController: UIViewController {
     }
     
     func loadMoreFeeds(){
+        loadMore = true
         getFeed.onNext(.loadMore)
     }
     
@@ -162,7 +165,9 @@ extension MainPageViewController: UITableViewDelegate {
         let contentHeight = scrollView.contentSize.height
                 
         if offsetY > contentHeight - scrollView.frame.height{
-            print("end")
+            if !loadMore {
+                loadMoreFeeds()
+            }
         }
     }
     
