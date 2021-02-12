@@ -10,6 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import WebKit
+import Kingfisher
 
 
 class MainPageViewController: UIViewController {
@@ -21,14 +22,18 @@ class MainPageViewController: UIViewController {
     private let disposeBag = DisposeBag()
     
     private let tokenRefresh = PublishSubject<Void>()
+    private let getFeed = PublishSubject<LoadFeedAction>()
+    private let flagIt = PublishSubject<Int>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setHeaderWKView()
-        setTableViewUI()
         bind()
         refreshToken()
+        setHeaderWKView()
+        setTableView()
+        registerCell()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,17 +41,72 @@ class MainPageViewController: UIViewController {
     }
     
     func bind() {
-        let input = MainPageViewModel.input.init(tokenRefresh: tokenRefresh.asDriver(onErrorJustReturn: ()))
+        let input = MainPageViewModel.input.init(tokenRefresh: tokenRefresh.asDriver(onErrorJustReturn: ()),
+                                                 getFeed: getFeed.asDriver(onErrorJustReturn: .reload),
+                                                 flagIt: flagIt.asDriver(onErrorJustReturn: 0))
         let output = viewModel.transform(input)
         
-        output.tokenRefreshResult.subscribe(onNext: { errorMessage in
-            print(errorMessage)
-        })
+        output.tokenRefreshResult.subscribe{ _ in
+            self.reloadFeeds()
+        }
+        .disposed(by: disposeBag)
+        
+        output.feedList.bind(to: feedTable.rx.items) { tableView, row, item -> UITableViewCell in
+            if item.media.isEmpty {
+                let cell = self.feedTable.dequeueReusableCell(withIdentifier: "Feed") as! FeedTableViewCell
+                
+                cell.clubProfileImageView.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(item.profileImage)"))
+                cell.clubName.text = item.clubName
+                cell.content.text = item.content
+                cell.flagBtn.isSelected = item.flag
+                cell.flagNum.text = String(item.flags)
+                cell.flagBtn.rx.tap.subscribe(onNext: {
+                    self.flagIt.onNext(row)
+                    output.flagItResult.subscribe(onNext: { err in
+                        self.moveLogin()
+                    })
+                    .disposed(by: cell.disposeBag)
+                }).disposed(by: cell.disposeBag)
+                
+                return cell
+            } else {
+                let cell = self.feedTable.dequeueReusableCell(withIdentifier: "FeedWithMedia") as! FeedWithMediaTableViewCell
+               
+                cell.clubProfileImageView.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(item.profileImage)"))
+                
+                let URL = "https://semicolondsm.xyz/mobile/feedslide?id=\(item.feedId)"
+                let request: URLRequest = URLRequest.init(url: NSURL.init(string: URL)! as URL, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 10)
+                cell.mediaWKView.load(request)
+                cell.mediaWKView.scrollView.isScrollEnabled = false
+                
+                cell.clubName.text = item.clubName
+                cell.content.text = item.content
+                cell.flagNum.text = String(item.flags)
+                cell.flagBtn.isSelected = item.flag
+                cell.flagBtn.rx.tap.subscribe(onNext: {
+                    self.flagIt.onNext(row)
+                    output.flagItResult.subscribe(onNext: { err in
+                        self.moveLogin()
+                    })
+                    .disposed(by: cell.disposeBag)
+                }).disposed(by: cell.disposeBag)
+                
+                return cell
+            }
+        }
         .disposed(by: disposeBag)
     }
     
     func refreshToken(){
         tokenRefresh.onNext(())
+    }
+    
+    func reloadFeeds(){
+        getFeed.onNext(.reload)
+    }
+    
+    func loadMoreFeeds(){
+        getFeed.onNext(.loadMore)
     }
     
     func setNavigationbar(){
@@ -70,17 +130,50 @@ class MainPageViewController: UIViewController {
         let leftButton = UIBarButtonItem(customView: customView)
         self.navigationItem.leftBarButtonItem = leftButton
     }
+
+}
+
+
+// MARK:- table view
+extension MainPageViewController: UITableViewDelegate {
     
     func setHeaderWKView() {
-        let URL = "https://semicolondsm.xyz/mobile/feed"
+        let URL = "https://semicolondsm.xyz/mobile/banner"
         let request: URLRequest = URLRequest.init(url: NSURL.init(string: URL)! as URL, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 10)
         headerWKView.load(request)
         headerWKView.scrollView.isScrollEnabled = false
+        feedTable.tableHeaderView?.frame.size.height = headerWKView.frame.height
     }
     
-    func setTableViewUI(){
+    func setTableView(){
         feedTable.separatorStyle = .none
+        feedTable.allowsSelection = false
+        feedTable.delegate = self
     }
     
+    func registerCell() {
+        let feedNib = UINib(nibName: "Feed", bundle: nil)
+        feedTable.register(feedNib, forCellReuseIdentifier: "Feed")
+        let feedWithMediadNib = UINib(nibName: "FeedWithMedia", bundle: nil)
+        feedTable.register(feedWithMediadNib, forCellReuseIdentifier: "FeedWithMedia")
+    }
     
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let cell = cell as? FeedTableViewCell {
+            cell.disposeBag = DisposeBag()
+            cell.flagBtn.isSelected = false
+        } else if let cell = cell as? FeedWithMediaTableViewCell {
+            cell.disposeBag = DisposeBag()
+            cell.flagBtn.isSelected = false
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+                
+        if offsetY > contentHeight - scrollView.frame.height{
+            print("end")
+        }
+    }
 }
