@@ -39,6 +39,7 @@ class FeedWithMediaTableViewCell: UITableViewCell {
         mediaWKView.scrollView.isScrollEnabled = false
         clubName.text = item.clubName
         content.text = item.content
+        flagBtn.isSelected = item.flag
         flagNum.text = String(item.flags)
     }
 }
