@@ -25,6 +25,7 @@ enum DDYZDAPI {
     case uploadFeed(_ clubID: Int)              // 피드 올리기
     case updateFeed(_ feedID: Int)              // 피드 수정
     case uploadFeedFile(_ feedID: Int)          // 피드 파일 업로드
+    case deleteFeed(_ feedID: Int)              // 피드 삭제
     
     //club
     case clubList                           // 동아리 리스트 반환
@@ -73,6 +74,8 @@ enum DDYZDAPI {
             return "/feed/\(feedID)"
         case .uploadFeedFile(let feedID):
             return "/feed/\(feedID)/medium"
+        case .deleteFeed(let feedID):
+            return "/feed/\(feedID)"
         case .clubList:
             return "/club/list"
         case .clubDetailInfo(let clubID):
