@@ -23,7 +23,7 @@ enum DDYZDAPI {
     case clubFeedList(_ clubID: Int, _ page: Int)   // 특정 동아리의 피드리스트
     case flagIt(_ feedID: Int)                  // 피드 flag달기
     case uploadFeed(_ clubID: Int)              // 피드 올리기
-    case updateFeed(_ feedID: Int)              // 피드 수정
+    case modifyFeed(_ feedID: Int)              // 피드 수정
     case uploadFeedFile(_ feedID: Int)          // 피드 파일 업로드
     case deleteFeed(_ feedID: Int)              // 피드 삭제
     
@@ -70,7 +70,7 @@ enum DDYZDAPI {
             return "/feed/\(feedID)/flag"
         case .uploadFeed(let clubID):
             return "/feed/\(clubID)"
-        case .updateFeed(let feedID):
+        case .modifyFeed(let feedID):
             return "/feed/\(feedID)"
         case .uploadFeedFile(let feedID):
             return "/feed/\(feedID)/medium"
