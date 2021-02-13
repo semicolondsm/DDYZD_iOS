@@ -119,30 +119,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9y-5W-g5O">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YJJ-ZO-DLt" customClass="ImageSlideshow" customModule="ImageSlideshow">
                                 <rect key="frame" x="15" y="70" width="384" height="414"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="A9y-5W-g5O" secondAttribute="height" multiplier="1:1" constant="-30" id="bNb-pT-lbD"/>
+                                    <constraint firstAttribute="width" secondItem="YJJ-ZO-DLt" secondAttribute="height" multiplier="1:1" constant="-30" id="X0E-wH-eni"/>
                                 </constraints>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="A9y-5W-g5O" firstAttribute="top" secondItem="uIU-jP-OnD" secondAttribute="bottom" constant="5" id="0U4-rj-4qo"/>
-                            <constraint firstItem="A9y-5W-g5O" firstAttribute="leading" secondItem="A56-Wq-3rf" secondAttribute="leading" constant="15" id="2gQ-uG-StZ"/>
+                            <constraint firstAttribute="trailing" secondItem="YJJ-ZO-DLt" secondAttribute="trailing" constant="15" id="5O9-9R-79g"/>
                             <constraint firstItem="V5g-4q-LPt" firstAttribute="leading" secondItem="A56-Wq-3rf" secondAttribute="leading" constant="15" id="JR6-ut-QN7"/>
                             <constraint firstAttribute="trailing" secondItem="uIU-jP-OnD" secondAttribute="trailing" constant="15" id="Jsq-Cd-roV"/>
                             <constraint firstItem="7df-KX-ZK1" firstAttribute="top" secondItem="A56-Wq-3rf" secondAttribute="top" constant="10" id="Kvt-Hp-bR8"/>
                             <constraint firstAttribute="bottom" secondItem="V5g-4q-LPt" secondAttribute="bottom" constant="10" id="Mtt-w6-x8z"/>
                             <constraint firstItem="uIU-jP-OnD" firstAttribute="top" secondItem="7df-KX-ZK1" secondAttribute="bottom" constant="15" id="P4T-Mh-di1"/>
                             <constraint firstItem="uIU-jP-OnD" firstAttribute="leading" secondItem="A56-Wq-3rf" secondAttribute="leading" constant="15" id="RQL-cT-qoN"/>
-                            <constraint firstItem="V5g-4q-LPt" firstAttribute="top" secondItem="A9y-5W-g5O" secondAttribute="bottom" constant="10" id="aEd-YE-cDs"/>
-                            <constraint firstAttribute="trailing" secondItem="A9y-5W-g5O" secondAttribute="trailing" constant="15" id="afV-6a-G7v"/>
+                            <constraint firstItem="V5g-4q-LPt" firstAttribute="top" secondItem="YJJ-ZO-DLt" secondAttribute="bottom" constant="10" id="US5-DD-I4o"/>
+                            <constraint firstItem="YJJ-ZO-DLt" firstAttribute="top" secondItem="uIU-jP-OnD" secondAttribute="bottom" constant="5" id="WoU-6l-eOg"/>
+                            <constraint firstItem="YJJ-ZO-DLt" firstAttribute="leading" secondItem="A56-Wq-3rf" secondAttribute="leading" constant="15" id="aTt-ko-jWG"/>
                             <constraint firstAttribute="trailing" secondItem="7df-KX-ZK1" secondAttribute="trailing" constant="15" id="cRM-Be-vT2"/>
                             <constraint firstItem="7df-KX-ZK1" firstAttribute="leading" secondItem="A56-Wq-3rf" secondAttribute="leading" constant="15" id="igr-0w-JMo"/>
                             <constraint firstAttribute="trailing" secondItem="V5g-4q-LPt" secondAttribute="trailing" constant="15" id="swk-uu-g5n"/>
@@ -164,7 +160,7 @@
                 <outlet property="content" destination="uIU-jP-OnD" id="sFF-3b-g8j"/>
                 <outlet property="flagBtn" destination="UuC-Q4-7eT" id="llc-0O-Esx"/>
                 <outlet property="flagNum" destination="hg4-9l-XkF" id="0bg-9C-gEQ"/>
-                <outlet property="mediaWKView" destination="A9y-5W-g5O" id="7Ff-57-rVg"/>
+                <outlet property="imageSlider" destination="YJJ-ZO-DLt" id="ng1-t8-k0L"/>
                 <outlet property="uploadAt" destination="KTN-A1-aco" id="rz1-Lf-RCc"/>
             </connections>
             <point key="canvasLocation" x="-568.1159420289855" y="9.0401785714285712"/>

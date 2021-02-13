@@ -6,8 +6,9 @@
 //
 
 import UIKit
+
+import ImageSlideshow
 import RxSwift
-import WebKit
 
 class FeedWithMediaTableViewCell: UITableViewCell {
     
@@ -15,10 +16,10 @@ class FeedWithMediaTableViewCell: UITableViewCell {
     @IBOutlet weak var clubName: UILabel!
     @IBOutlet weak var uploadAt: UILabel!
     @IBOutlet weak var content: UILabel!
+    @IBOutlet weak var imageSlider: ImageSlideshow!
     @IBOutlet weak var flagNum: UILabel!
     @IBOutlet weak var MenuBtn: UIButton!
     @IBOutlet weak var flagBtn: UIButton!
-    @IBOutlet weak var mediaWKView: WKWebView!
     
     public var disposeBag = DisposeBag()
     
@@ -34,14 +35,31 @@ class FeedWithMediaTableViewCell: UITableViewCell {
 
     func bind(item: FeedModel){
         clubProfileImageView.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(item.profileImage)"))
-        let URL = "https://semicolondsm.xyz/mobile/feedslide?id=\(item.feedId)"
-        let request: URLRequest = URLRequest.init(url: NSURL.init(string: URL)! as URL, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 10)
-        mediaWKView.load(request)
-        mediaWKView.scrollView.isScrollEnabled = false
         clubName.text = item.clubName
         uploadAt.dateLabel(item.uploadAt)
         content.text = item.content
         flagBtn.isSelected = item.flag
         flagNum.text = String(item.flags)
+        setImageSlider(images: item.media)
+    }
+    
+    func setImageSlider(images: [String]){
+        
+        var kingfisherSource = [KingfisherSource]()
+        
+        for image in images {
+            kingfisherSource.append(KingfisherSource(urlString: "https://api.semicolon.live/file/\(image)")!)
+        }
+        
+        let pageIndicator = UIPageControl()
+        pageIndicator.currentPageIndicatorTintColor = #colorLiteral(red: 0.4438792169, green: 0.2442141771, blue: 1, alpha: 1)
+        pageIndicator.pageIndicatorTintColor = UIColor.lightGray
+        imageSlider.pageIndicator = pageIndicator
+            
+        imageSlider.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
+        imageSlider.contentScaleMode = UIViewContentMode.scaleAspectFill
+
+        imageSlider.activityIndicator = DefaultActivityIndicator()
+        imageSlider.setImageInputs(kingfisherSource)
     }
 }
