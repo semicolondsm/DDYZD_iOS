@@ -74,6 +74,40 @@ extension UIImageView {
     }
 }
 
+extension UILabel {
+    func dateLabel(_ dateString: String) {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier:"ko_KR")
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSz"
+        
+        guard let temp = formatter.date(from: dateString) else {return self.text = "?"}
+        
+        let diff = (Date().millisecondsSince1970 - temp.millisecondsSince1970)/1000
+        print(diff)
+        let day_diff = diff / 86400
+        
+        if day_diff < 0 || day_diff >= 31 {
+            formatter.dateFormat = "yyyy년 MM월 dd일"
+            let current_time_string = formatter.string(from: temp)
+            self.text = current_time_string
+        } else {
+            self.text = day_diff == 0 ? (
+                diff < 60 ? "방금":
+                diff < 120 ? "1분 전":
+                diff < 3600 ? "\(diff/60)분 전":
+                diff < 7200 ? "1시간 전":
+                "\(diff/3600)시간 전"
+            ): (
+                day_diff == 1 ? "어제":
+                day_diff < 7 ? "\(day_diff)일 전":
+                "\(day_diff/7)주 전"
+            )
+        }
+        
+        
+    }
+}
+
 extension CALayer {
     func addBorder(_ arr_edge: [UIRectEdge], color: UIColor, width: CGFloat) {
         for edge in arr_edge {
@@ -99,3 +133,15 @@ extension CALayer {
         }
     }
 }
+
+extension Date {
+    var millisecondsSince1970:Int64 {
+        return Int64((self.timeIntervalSince1970 * 1000.0).rounded())
+    }
+
+    init(milliseconds:Int64) {
+        self = Date(timeIntervalSince1970: TimeInterval(milliseconds) / 1000)
+    }
+}
+
+
