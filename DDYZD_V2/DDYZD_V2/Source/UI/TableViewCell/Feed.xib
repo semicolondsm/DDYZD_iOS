@@ -74,14 +74,6 @@
                                             <constraint firstAttribute="height" constant="30" id="qks-ym-oDq"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hF3-lD-1Sl">
-                                        <rect key="frame" x="369" y="13.5" width="15" height="3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="15" id="FKc-Fg-lfR"/>
-                                            <constraint firstAttribute="height" constant="3" id="QTE-Sh-sIo"/>
-                                        </constraints>
-                                        <state key="normal" title="Button" image="list"/>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkN-E1-uTX">
                                         <rect key="frame" x="45" y="0.0" width="73.5" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -94,15 +86,34 @@
                                         <color key="textColor" red="0.76863271" green="0.76861804720000004" blue="0.76862794160000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list" translatesAutoresizingMaskIntoConstraints="NO" id="gvi-l2-G4c">
+                                        <rect key="frame" x="369" y="13.5" width="15" height="3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="15" id="J1F-VD-d9O"/>
+                                            <constraint firstAttribute="height" constant="3" id="nQ2-f9-PSo"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hF3-lD-1Sl">
+                                        <rect key="frame" x="369" y="0.0" width="15" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="15" id="FKc-Fg-lfR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="gvi-l2-G4c" secondAttribute="trailing" id="0eJ-lf-Qtj"/>
+                                    <constraint firstItem="gvi-l2-G4c" firstAttribute="centerY" secondItem="nHq-aR-bgb" secondAttribute="centerY" id="1Im-sK-e9H"/>
                                     <constraint firstAttribute="bottom" secondItem="BBp-kf-tRu" secondAttribute="bottom" id="FaK-Kg-sm8"/>
                                     <constraint firstItem="ZVJ-9m-XEB" firstAttribute="top" secondItem="nHq-aR-bgb" secondAttribute="top" id="KsA-VU-OfY"/>
                                     <constraint firstAttribute="bottom" secondItem="ZVJ-9m-XEB" secondAttribute="bottom" id="Pdn-Ve-9o0"/>
                                     <constraint firstItem="bkN-E1-uTX" firstAttribute="top" secondItem="nHq-aR-bgb" secondAttribute="top" id="Ph6-dQ-d95"/>
                                     <constraint firstItem="BBp-kf-tRu" firstAttribute="leading" secondItem="ZVJ-9m-XEB" secondAttribute="trailing" constant="15" id="QUj-y3-aoz"/>
                                     <constraint firstItem="hF3-lD-1Sl" firstAttribute="centerY" secondItem="nHq-aR-bgb" secondAttribute="centerY" id="dku-xf-drT"/>
+                                    <constraint firstItem="hF3-lD-1Sl" firstAttribute="top" secondItem="nHq-aR-bgb" secondAttribute="top" id="fBS-na-Rpg"/>
+                                    <constraint firstAttribute="bottom" secondItem="hF3-lD-1Sl" secondAttribute="bottom" id="gBy-t1-GUC"/>
                                     <constraint firstAttribute="height" constant="30" id="q2X-c4-Cgv"/>
                                     <constraint firstAttribute="trailing" secondItem="hF3-lD-1Sl" secondAttribute="trailing" id="rMe-kT-VXB"/>
                                     <constraint firstItem="ZVJ-9m-XEB" firstAttribute="leading" secondItem="nHq-aR-bgb" secondAttribute="leading" id="sjw-Z1-BlO"/>
@@ -142,7 +153,7 @@
                 <outlet property="flagNum" destination="9QV-K5-M9Q" id="NB1-1e-Y7F"/>
                 <outlet property="uploadAt" destination="BBp-kf-tRu" id="BHI-FN-f7r"/>
             </connections>
-            <point key="canvasLocation" x="-568" y="-256"/>
+            <point key="canvasLocation" x="-568.1159420289855" y="-256.13839285714283"/>
         </tableViewCell>
     </objects>
     <resources>
