@@ -155,6 +155,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="MenuBtn" destination="qoH-ii-UHs" id="9gP-Jk-Znd"/>
+                <outlet property="cellSuperView" destination="A56-Wq-3rf" id="vYe-Ya-dmH"/>
                 <outlet property="clubName" destination="kme-kQ-GAK" id="30l-vu-MrM"/>
                 <outlet property="clubProfileImageView" destination="Ufa-gF-SP7" id="auS-4t-g2L"/>
                 <outlet property="content" destination="uIU-jP-OnD" id="sFF-3b-g8j"/>

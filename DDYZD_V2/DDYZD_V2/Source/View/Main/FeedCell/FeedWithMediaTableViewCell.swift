@@ -12,6 +12,7 @@ import RxSwift
 
 class FeedWithMediaTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var cellSuperView: UIView!
     @IBOutlet weak var clubProfileImageView: UIImageView!
     @IBOutlet weak var clubName: UILabel!
     @IBOutlet weak var uploadAt: UILabel!
@@ -34,6 +35,10 @@ class FeedWithMediaTableViewCell: UITableViewCell {
     }
 
     func bind(item: FeedModel){
+        if item.pin ?? false {
+            cellSuperView.layer.borderWidth = 1
+            cellSuperView.layer.borderColor = #colorLiteral(red: 0.2078431373, green: 0.03484285995, blue: 0.4432567954, alpha: 1)
+        }
         clubProfileImageView.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(item.profileImage)"))
         clubName.text = item.clubName
         uploadAt.dateLabel(item.uploadAt)
