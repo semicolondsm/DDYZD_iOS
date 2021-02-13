@@ -25,17 +25,15 @@ class ClubListViewController: TabmanViewController {
     func setNavigationBar(){
         navigationController?.navigationBar.shadowImage = UIImage()
         
-        let label = UILabel()
-            
-        label.translatesAutoresizingMaskIntoConstraints = false
+        let customView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 44.0))
+        let label = UILabel(frame: CGRect(x: -15.0, y: 0.0, width: 150.0, height: 44.0))
         label.text = "동아리 리스트"
         label.font = UIFont.systemFont(ofSize: 25)
-        label.textAlignment = .left
-        navigationItem.titleView = label
-            
-        if let navigationBar = navigationController?.navigationBar{
-            label.widthAnchor.constraint(equalTo: navigationBar.widthAnchor, constant: -40).isActive = true
-        }
+        label.textAlignment = NSTextAlignment.right
+        customView.addSubview(label)
+        
+        let leftButton = UIBarButtonItem(customView: customView)
+        self.navigationItem.leftBarButtonItem = leftButton
     }
     
     func embeddViewControllers(){
