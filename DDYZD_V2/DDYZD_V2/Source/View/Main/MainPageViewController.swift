@@ -10,8 +10,6 @@ import UIKit
 import RxCocoa
 import RxSwift
 import WebKit
-import Kingfisher
-
 
 class MainPageViewController: UIViewController {
     
@@ -69,8 +67,6 @@ class MainPageViewController: UIViewController {
                 return cell
             } else {
                 let cell = self.feedTable.dequeueReusableCell(withIdentifier: "FeedWithMedia") as! FeedWithMediaTableViewCell
-               
-                cell.clubProfileImageView.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(item.profileImage)"))
                 
                 cell.bind(item: item)
                 cell.flagBtn.rx.tap.subscribe(onNext: {

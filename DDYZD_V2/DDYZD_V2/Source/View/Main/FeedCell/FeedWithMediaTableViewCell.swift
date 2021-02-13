@@ -33,6 +33,7 @@ class FeedWithMediaTableViewCell: UITableViewCell {
     }
 
     func bind(item: FeedModel){
+        clubProfileImageView.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(item.profileImage)"))
         let URL = "https://semicolondsm.xyz/mobile/feedslide?id=\(item.feedId)"
         let request: URLRequest = URLRequest.init(url: NSURL.init(string: URL)! as URL, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 10)
         mediaWKView.load(request)
