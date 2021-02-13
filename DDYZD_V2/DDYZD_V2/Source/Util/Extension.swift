@@ -83,7 +83,6 @@ extension UILabel {
         guard let temp = formatter.date(from: dateString) else {return self.text = "?"}
         
         let diff = (Date().millisecondsSince1970 - temp.millisecondsSince1970)/1000
-        print(diff)
         let day_diff = diff / 86400
         
         if day_diff < 0 || day_diff >= 31 {
