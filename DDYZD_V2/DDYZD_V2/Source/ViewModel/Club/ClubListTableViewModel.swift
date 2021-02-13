@@ -22,14 +22,14 @@ class ClubListTableViewModel: ViewModelProtocol {
     struct output {
         let result: Observable<String>
         let clubList: PublishRelay<[ClubListModel]>
-        let clubID: Signal<Int>
+        let selectedClubID: Signal<Int>
     }
     
     func transform(_ input: input) -> output {
         let api = ClubAPI()
         let result = PublishSubject<String>()
         let clubList = PublishRelay<[ClubListModel]>()
-        let clubID = PublishSubject<Int>()
+        let selectedClubID = PublishSubject<Int>()
         
         api.getClubList().subscribe(onNext:{ data, response in
             switch response {
@@ -58,10 +58,10 @@ class ClubListTableViewModel: ViewModelProtocol {
             .withLatestFrom(clubList){ indexPath, data in
                 data[indexPath.row].clubid
             }
-            .subscribe{ clubID.onNext($0)}
+            .subscribe{ selectedClubID.onNext($0)}
             .disposed(by: disposeBag)
         
-        return output(result: result, clubList: clubList, clubID: clubID.asSignal(onErrorJustReturn: 0))
+        return output(result: result, clubList: clubList, selectedClubID: selectedClubID.asSignal(onErrorJustReturn: 0))
     }
     
 }
