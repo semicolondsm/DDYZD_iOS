@@ -39,4 +39,16 @@ class FeedAPI {
                 }
             }
     }
+    
+    func deleteFeed(feedID: Int) -> Observable<StatusCodes> {
+        httpClient.delete(.deleteFeed(feedID), param: nil)
+            .map{ response, data -> StatusCodes in
+                switch response.statusCode {
+                case 200:
+                    return .success
+                default:
+                    return .fault
+                }
+            }
+    }
 }
