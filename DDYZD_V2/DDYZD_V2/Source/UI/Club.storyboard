@@ -77,7 +77,7 @@
         <!--Club Detail View Controller-->
         <scene sceneID="h83-Ss-khd">
             <objects>
-                <viewController id="tTr-ix-LZX" customClass="ClubDetailViewController" customModule="DDYZD_V2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ClubDetailViewController" id="tTr-ix-LZX" customClass="ClubDetailViewController" customModule="DDYZD_V2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jlO-W9-361">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

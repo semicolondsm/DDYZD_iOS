@@ -13,9 +13,10 @@ import Kingfisher
 
 class ClubListTableViewController: UIViewController {
 
+    public var clubTag: ClubListCategory = .all
+    
     @IBOutlet weak var ClubListTable: UITableView!
     
-    public var clubTag: ClubListCategory = .all
     private let viewModel = ClubListTableViewModel()
     private let disposeBag = DisposeBag()
     
@@ -44,6 +45,18 @@ class ClubListTableViewController: UIViewController {
             cell.clubProfileImageView.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(item.clubimage)"))
         }
         .disposed(by: disposeBag)
+        
+        output.selectedClubID.asObservable().subscribe(onNext: { clubID in
+            self.goClubDetailView(clubID)
+        })
+        .disposed(by: disposeBag)
+        
+    }
+    
+    func goClubDetailView(_ clubID: Int){
+        let vc = UIStoryboard.init(name: "Club", bundle: nil).instantiateViewController(withIdentifier: "ClubDetailViewController") as! ClubDetailViewController
+        vc.clubID = clubID
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     func registerCell() {
