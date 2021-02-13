@@ -23,6 +23,7 @@ class MainPageViewController: UIViewController {
     private let tokenRefresh = PublishSubject<Void>()
     private let getFeed = PublishSubject<LoadFeedAction>()
     private let flagIt = PublishSubject<Int>()
+    private let deleteFeed = PublishSubject<Int>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +43,8 @@ class MainPageViewController: UIViewController {
     func bind() {
         let input = MainPageViewModel.input.init(tokenRefresh: tokenRefresh.asDriver(onErrorJustReturn: ()),
                                                  getFeed: getFeed.asDriver(onErrorJustReturn: .reload),
-                                                 flagIt: flagIt.asDriver(onErrorJustReturn: 0))
+                                                 flagIt: flagIt.asDriver(onErrorJustReturn: 0),
+                                                 deleteFeed: deleteFeed.asDriver(onErrorJustReturn: -1))
         let output = viewModel.transform(input)
         
         output.tokenRefreshResult.subscribe{ _ in
@@ -52,10 +54,17 @@ class MainPageViewController: UIViewController {
         
         output.feedList.bind(to: feedTable.rx.items) { tableView, row, item -> UITableViewCell in
             self.loadMore = false
-            if item.media.isEmpty {
+            if item.media.isEmpty { 
                 let cell = self.feedTable.dequeueReusableCell(withIdentifier: "Feed") as! FeedTableViewCell
                 
                 cell.bind(item: item)
+                cell.MenuBtn.rx.tap.subscribe(onNext: {
+                    self.menuActionSheet(item: item){
+                        self.deleteFeed.onNext(row)
+                    }
+                })
+                .disposed(by: cell.disposeBag)
+                
                 cell.flagBtn.rx.tap.subscribe(onNext: {
                     self.flagIt.onNext(row)
                     output.flagItResult.subscribe(onNext: { err in
@@ -69,6 +78,13 @@ class MainPageViewController: UIViewController {
                 let cell = self.feedTable.dequeueReusableCell(withIdentifier: "FeedWithMedia") as! FeedWithMediaTableViewCell
                 
                 cell.bind(item: item)
+                cell.MenuBtn.rx.tap.subscribe(onNext: {
+                    self.menuActionSheet(item: item){
+                        self.deleteFeed.onNext(row)
+                    }
+                })
+                .disposed(by: cell.disposeBag)
+                
                 cell.flagBtn.rx.tap.subscribe(onNext: {
                     self.flagIt.onNext(row)
                     output.flagItResult.subscribe(onNext: { err in

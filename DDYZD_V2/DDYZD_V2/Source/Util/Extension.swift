@@ -66,6 +66,35 @@ extension UIViewController {
         self.present(loginVC, animated: true, completion: nil)
     }
     
+    func menuActionSheet(item: FeedModel, deleteCloser: @escaping (()->Void)){
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        if item.owner {
+            let deleteFeed = UIAlertAction(title: "삭제", style: .destructive){ _ in
+                let deleteAlert = UIAlertController(title: "개시물을 삭제하시겠어요?", message: nil, preferredStyle: .alert)
+                let delete = UIAlertAction(title: "삭제", style: .destructive){ _ in
+                    deleteCloser()
+                }
+                let cancle = UIAlertAction(title: "취소", style: .cancel)
+                deleteAlert.addAction(delete)
+                deleteAlert.addAction(cancle)
+                deleteAlert.view.tintColor = .black
+                self.present(deleteAlert, animated: true, completion: nil)
+                
+            }
+            let modifyFeed = UIAlertAction(title: "수정", style: .default){ _ in
+                // 게시물 수정 페이지로 이동
+            }
+            alert.addAction(deleteFeed)
+            alert.addAction(modifyFeed)
+        } else {
+            alert.message = "이 피드에대한 권한이 없습니다."
+        }
+        let cancle = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        alert.addAction(cancle)
+        alert.view.tintColor = .black
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 extension UIImageView {
