@@ -59,9 +59,11 @@ extension UIView {
 
 extension UIViewController {
     
-    func moveLogin() {
+    func moveLogin(didJustBrowsingBtnTaped: (()->Void)?, didSuccessLogin: (()->Void)? ) {
         let authView: UIStoryboard = UIStoryboard(name: "Auth", bundle: nil)
-        let loginVC = authView.instantiateViewController(identifier: "LoginViewController")
+        let loginVC = authView.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+        loginVC.didJustBrowsingBtnTaped = didJustBrowsingBtnTaped
+        loginVC.didSuccessLogin = didSuccessLogin
         loginVC.modalPresentationStyle = .fullScreen
         self.present(loginVC, animated: true, completion: nil)
     }

@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (5.4.1)
-  - DSMSDK (1.1.0):
+  - DSMSDK (1.1.1):
     - Alamofire (~> 5.2)
   - Firebase/CoreOnly (7.3.0):
     - FirebaseCore (= 7.3.0)
@@ -52,6 +52,12 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.1.1):
     - GoogleUtilities/Logger
+  - ImageSlideshow (1.9.2):
+    - ImageSlideshow/Core (= 1.9.2)
+  - ImageSlideshow/Core (1.9.2)
+  - ImageSlideshow/Kingfisher (1.9.2):
+    - ImageSlideshow/Core
+    - Kingfisher (> 3.0)
   - Kingfisher (6.0.1)
   - nanopb (2.30906.0):
     - nanopb/decode (= 2.30906.0)
@@ -71,17 +77,23 @@ PODS:
   - RxRelay (6.0.0):
     - RxSwift (= 6.0.0)
   - RxSwift (6.0.0)
+  - Socket.IO-Client-Swift (15.2.0):
+    - Starscream (~> 3.1)
+  - Starscream (3.1.1)
   - Tabman (2.9.1):
     - Pageboy (~> 3.6.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
-  - DSMSDK (~> 1.1)
+  - DSMSDK (~> 1.1.1)
   - Firebase/Messaging
+  - ImageSlideshow (~> 1.9.0)
+  - ImageSlideshow/Kingfisher (~> 1.9.0)
   - Kingfisher (~> 6.0)
   - RxAlamofire (~> 6.1)
   - RxCocoa (~> 6.0)
   - RxSwift (~> 6.0)
+  - Socket.IO-Client-Swift (~> 15.2.0)
   - Tabman (~> 2.9)
 
 SPEC REPOS:
@@ -96,6 +108,7 @@ SPEC REPOS:
     - FirebaseMessaging
     - GoogleDataTransport
     - GoogleUtilities
+    - ImageSlideshow
     - Kingfisher
     - nanopb
     - Pageboy
@@ -104,11 +117,13 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - Socket.IO-Client-Swift
+    - Starscream
     - Tabman
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
-  DSMSDK: 7f7bcd40ca2d09cec348dfee194c6bcea6215f10
+  DSMSDK: 066b0f8a5537e76695e40775cdabd0b9a338686f
   Firebase: 26223c695fe322633274198cb19dca8cb7e54416
   FirebaseCore: 4d3c72622ce0e2106aaa07bb4b2935ba2c370972
   FirebaseCoreDiagnostics: d50e11039e5984d92c8a512be2395f13df747350
@@ -117,6 +132,7 @@ SPEC CHECKSUMS:
   FirebaseMessaging: 68d1bcb14880189558a8ae57167abe0b7e417232
   GoogleDataTransport: 116c84c4bdeb76be2a7a46de51244368f9794eab
   GoogleUtilities: 3dc4ff0d5e4840e2fa8eef0889620e8c33d4218c
+  ImageSlideshow: be305b54eaf2b2cfc7a7141c7c734605d44dc07d
   Kingfisher: adde87a4f74f6a3845395769354efff593581740
   nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
   Pageboy: cf121b9dd48c63f3f281b2a9ec93d02e0f23879b
@@ -125,8 +141,10 @@ SPEC CHECKSUMS:
   RxCocoa: 3f79328fafa3645b34600f37c31e64c73ae3a80e
   RxRelay: 8d593be109c06ea850df027351beba614b012ffb
   RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
+  Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
+  Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   Tabman: 085d89c65be9e883629bdaf5b1453a6397e57846
 
-PODFILE CHECKSUM: b28dcb30a955a662ed586dea92b6ea893a603193
+PODFILE CHECKSUM: a8e40192b36e86f4ad83ea505cf612331b91e84b
 
 COCOAPODS: 1.10.1
