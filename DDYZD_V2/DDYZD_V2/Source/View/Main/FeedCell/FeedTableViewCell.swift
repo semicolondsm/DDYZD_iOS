@@ -33,6 +33,7 @@ class FeedTableViewCell: UITableViewCell {
     func bind(item: FeedModel) {
         clubProfileImageView.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(item.profileImage)"))
         clubName.text = item.clubName
+        uploadAt.dateLabel(item.uploadAt)
         content.text = item.content
         flagBtn.isSelected = item.flag
         flagNum.text = String(item.flags)
