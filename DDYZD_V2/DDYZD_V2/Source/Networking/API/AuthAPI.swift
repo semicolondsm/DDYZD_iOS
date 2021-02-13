@@ -14,18 +14,52 @@ class AuthAPI {
     let httpClient = HTTPClient()
     
     func signIn(_ DSMAuth_token: String) -> Observable<StatusCodes> {
-        httpClient.get(.getToken(DSMAuth_token), param: [:])
+        httpClient.get(.getToken(DSMAuth_token), param: nil)
             .map{response, data -> StatusCodes in
                 switch response.statusCode {
                 case 200:
                     guard let data = try? JSONDecoder().decode(TokenModel.self, from: data) else {
                         return .fault
                     }
-                    Token.accessToken = data.accessToken
+                    Token.access_token = data.access_token
+                    Token.refresh_token = data.refresh_token
+                    return .success
+                default:
+                    print(response.statusCode)
+                    return .fault
+                }
+            }
+    }
+    
+    func postDeviceToken(_ device_token: String) -> Observable<StatusCodes> {
+        httpClient.post(.postDeviceToken(device_token), param: nil)
+            .map{ response, _ -> StatusCodes in
+                switch response.statusCode {
+                case 200:
                     return .success
                 default:
                     return .fault
                 }
             }
     }
+    
+    func refreshToken() -> Observable<StatusCodes> {
+        httpClient.get(.refreshToken, param: nil)
+            .map{response, data -> StatusCodes in
+                switch response.statusCode {
+                case 200:
+                    guard let data = try? JSONDecoder().decode(RefreshedToken.self, from: data) else {
+                        return .fault
+                    }
+                    
+                    Token.access_token = data.access_token
+                    
+                    return .success
+                    
+                default:
+                    return .fault
+                }
+            }
+    }
+    
 }

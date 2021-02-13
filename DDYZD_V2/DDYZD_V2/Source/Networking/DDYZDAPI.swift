@@ -6,22 +6,26 @@
 //
 
 import Foundation
+
 import Alamofire
 
 enum DDYZDAPI {
     
     //Auth
-    case getToken(_ DSMAuthToken: String)   // 토큰 발급
-    case postDeviceToken                    // 디바이스 토큰 입력
-    case refreshToken                       // 토큰 재발급
-    case userInfo(_ gcn: String)            // 유저 정보
-    case updateInfo                         // 프로필 수정
+    case getToken(_ DSMAuthToken: String)       // 토큰 발급
+    case postDeviceToken(_ DeviceToken: String) // 디바이스 토큰 입력
+    case refreshToken                           // 토큰 재발급
+    case userInfo(_ gcn: String)                // 유저 정보
+    case updateInfo                             // 프로필 수정
     
     //feed
-    case flagIt(_ feedID: Int)              // 피드 flag달기
-    case uploadFeed(_ clubID: Int)          // 피드 올리기
-    case updateFeed(_ feedID: Int)          // 피드 수정
-    case uploadFeedFile(_ feedID: Int)      // 피드 파일 업로드
+    case feedList(_ page: Int)                  // 모든 동아리의 피드리스트
+    case clubFeedList(_ clubID: Int, _ page: Int)   // 특정 동아리의 피드리스트
+    case flagIt(_ feedID: Int)                  // 피드 flag달기
+    case uploadFeed(_ clubID: Int)              // 피드 올리기
+    case modifyFeed(_ feedID: Int)              // 피드 수정
+    case uploadFeedFile(_ feedID: Int)          // 피드 파일 업로드
+    case deleteFeed(_ feedID: Int)              // 피드 삭제
     
     //club
     case clubList                           // 동아리 리스트 반환
@@ -40,12 +44,17 @@ enum DDYZDAPI {
     case updateClubInfo(_ clibID: Int)      // 동아리 정보 수정
     case assignmentHead(_ clubID: Int)      // 동아리 헤드 양도
     
+    //Chat
+    case chatList                           // 채팅 리스트
+    case createChatRoom(_ clubID: Int)      // 채팅 룸 생성
+    case chatBreakdown(_ roomID: Int)       // 채팅 내역
+    
     
     func path() -> String {
         switch self {
         case .getToken(_):
             return "/users/token"
-        case .postDeviceToken:
+        case .postDeviceToken(_):
             return "/users/device_token"
         case .refreshToken:
             return "/users/refresh"
@@ -53,14 +62,20 @@ enum DDYZDAPI {
             return "/users/\(gcn)"
         case .updateInfo:
             return "/users/profile"
+        case .feedList(let page):
+            return "/feed/list?page=\(page)&"
+        case .clubFeedList(let clubID, let page):
+            return "/feed/\(clubID)/list?page=\(page)&"
         case .flagIt(let feedID):
             return "/feed/\(feedID)/flag"
         case .uploadFeed(let clubID):
-            return "feed/\(clubID)"
-        case .updateFeed(let feedID):
-            return "feed/\(feedID)"
+            return "/feed/\(clubID)"
+        case .modifyFeed(let feedID):
+            return "/feed/\(feedID)"
         case .uploadFeedFile(let feedID):
-            return "feed/\(feedID)/medium"
+            return "/feed/\(feedID)/medium"
+        case .deleteFeed(let feedID):
+            return "/feed/\(feedID)"
         case .clubList:
             return "/club/list"
         case .clubDetailInfo(let clubID):
@@ -87,6 +102,12 @@ enum DDYZDAPI {
             return "/club/\(clubID)"
         case .assignmentHead(let clubID):
             return "/club/\(clubID)/head"
+        case .chatList:
+            return "/chat/list"
+        case .createChatRoom(let clubID):
+            return "chat/\(clubID)/room"
+        case .chatBreakdown(let roomID):
+            return "/chat/\(roomID)/breakdown"
         }
     }
     
@@ -95,17 +116,17 @@ enum DDYZDAPI {
         case .clubList, .clubDetailInfo(_), .getRecruitment(_), .getClubMember(_):
             return nil
         case .getToken(let DSMAuthToken) :
-            return ["access_token": "Bearer \(DSMAuthToken)"]
+            return ["access-token": "Bearer \(DSMAuthToken)"]
         case .refreshToken :
-            guard let refreshToken = UserDefaults.standard.string(forKey: "refreshToken") else {
-                return nil
-            }
-            return ["refresh-token": "Bearer \(refreshToken)"]
+            guard let refresh_token = Token.refresh_token else { return nil }
+            return ["refresh-token": "Bearer \(refresh_token)"]
+        case .postDeviceToken(let DeviceToekn):
+            return ["device-token": "Bearer \(DeviceToekn)"]
         case .updateProfileImage(_), .updateHongboImage(_), .updateBannerImage(_), .uploadFeedFile(_):
-            return ["Authorization": "Bearer \(Token.accessToken)",
+            return ["Authorization": "Bearer \(Token.access_token)",
                     "Content-Type": "multipart/form-data"]
         default:
-            return ["Authorization": "Bearer \(Token.accessToken)"]
+            return ["Authorization": "Bearer \(Token.access_token)"]
         }
     }
 }
