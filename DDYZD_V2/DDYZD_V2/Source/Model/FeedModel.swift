@@ -15,6 +15,7 @@ struct FeedModel: Codable {
     let content: String
     let media: [String]
     var flags: Int
+    let owner: Bool
     var flag: Bool
     let follow: Bool
 }
