@@ -21,6 +21,9 @@ class ClubDetailViewController: UIViewController {
     
     private let viewModel = ClubDetailViewModel()
     private let disposeBag = DisposeBag()
+    private var loadMore = false
+    
+    private let getFeed = PublishSubject<LoadFeedAction>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +37,43 @@ class ClubDetailViewController: UIViewController {
     }
     
     func bind() {
+        viewModel.clubID = clubID
+        let input = ClubDetailViewModel.input(getFeed: getFeed.asDriver(onErrorJustReturn: .reload))
+        let output = viewModel.transform(input)
         
+        output.feedList.bind(to: feedTable.rx.items) { _, row, item -> UITableViewCell in
+            self.loadMore = false
+            if item.media.isEmpty {
+                let cell = self.feedTable.dequeueReusableCell(withIdentifier: "Feed") as! FeedTableViewCell
+                
+                cell.bind(item: item)
+                return cell
+            } else {
+                let cell = self.feedTable.dequeueReusableCell(withIdentifier: "FeedWithMedia") as! FeedWithMediaTableViewCell
+                
+                cell.bind(item: item)
+                return cell
+            }
+        }
+        .disposed(by: disposeBag)
     }
     
+    func reloadFeeds(){
+        getFeed.onNext(.reload)
+    }
+    
+    func loadMoreFeeds(){
+        loadMore = true
+        getFeed.onNext(.loadMore)
+    }
+    
+    
+
+}
+
+
+// MARK:- UI
+extension ClubDetailViewController {
     func setUI(){
         clubProfileImgae.circleImage()
     }
@@ -47,6 +84,55 @@ class ClubDetailViewController: UIViewController {
         navigationController?.navigationBar.topItem?.title = ""
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.4811326265, green: 0.1003668979, blue: 0.812384963, alpha: 1)
     }
-
 }
 
+
+// MARK:- table view
+extension ClubDetailViewController: UITableViewDelegate {
+    
+    func setTableView(){
+        feedTable.separatorStyle = .none
+        feedTable.allowsSelection = false
+        feedTable.delegate = self
+        initRefresh()
+    }
+    
+    func registerCell() {
+        let feedNib = UINib(nibName: "Feed", bundle: nil)
+        feedTable.register(feedNib, forCellReuseIdentifier: "Feed")
+        let feedWithMediadNib = UINib(nibName: "FeedWithMedia", bundle: nil)
+        feedTable.register(feedWithMediadNib, forCellReuseIdentifier: "FeedWithMedia")
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let cell = cell as? FeedTableViewCell {
+            cell.disposeBag = DisposeBag()
+            cell.flagBtn.isSelected = false
+        } else if let cell = cell as? FeedWithMediaTableViewCell {
+            cell.disposeBag = DisposeBag()
+            cell.flagBtn.isSelected = false
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+                
+        if offsetY > contentHeight - scrollView.frame.height{
+            if !loadMore {
+                loadMoreFeeds()
+            }
+        }
+    }
+    
+    func initRefresh() {
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(refreshFeed(refresh:)), for: .valueChanged)
+        feedTable.refreshControl = refresh
+    }
+    
+    @objc func refreshFeed(refresh: UIRefreshControl) {
+        refresh.endRefreshing()
+        reloadFeeds()
+    }
+}
