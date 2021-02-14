@@ -21,16 +21,19 @@ class ClubDetailViewModel: ViewModelProtocol {
     
     struct input {
         let getFeed: Driver<LoadFeedAction>
+        let flagIt: Driver<Int>
     }
     
     struct output {
         let feedList: PublishRelay<[FeedModel]>
+        let flagItResult: Observable<String>
     }
     
     func transform(_ input: input) -> output {
         
         let feedAPI = FeedAPI()
         let feedList = PublishRelay<[FeedModel]>()
+        let flagItResult = PublishSubject<String>()
         
         input.getFeed.asObservable().subscribe(onNext: { action in
             switch action {
@@ -64,6 +67,31 @@ class ClubDetailViewModel: ViewModelProtocol {
         })
         .disposed(by: disposeBag)
         
-        return output(feedList: feedList)
+        input.flagIt.asObservable().subscribe(onNext: { row in
+            
+            if self.feeds[row].flag {
+                self.feeds[row].flags -= 1
+            } else {
+                self.feeds[row].flags += 1
+            }
+            self.feeds[row].flag = !self.feeds[row].flag
+            
+            feedAPI.flagIt(feedID: self.feeds[row].feedId).subscribe(onNext: { res in
+                switch res {
+                case .success:
+                    flagItResult.onCompleted()
+                case .unauthorized:
+                    flagItResult.onNext("unauthorized")
+                default:
+                    flagItResult.onNext("API 'flagIt' ERROR")
+                }
+            })
+            .disposed(by: self.disposeBag)
+            
+            feedList.accept(self.feeds)
+        })
+        .disposed(by: disposeBag)
+        
+        return output(feedList: feedList, flagItResult: flagItResult)
     }
 }
