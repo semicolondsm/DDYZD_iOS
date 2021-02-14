@@ -7,3 +7,10 @@
 
 import UIKit
 
+class clubBackImage: UIImageView {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        self.roundCorners(corners: [.topLeft, .topRight], radius: 20)
+    }
+}
