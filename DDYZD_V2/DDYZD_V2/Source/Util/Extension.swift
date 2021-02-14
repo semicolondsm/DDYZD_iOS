@@ -68,7 +68,7 @@ extension UIViewController {
         self.present(loginVC, animated: true, completion: nil)
     }
     
-    func menuActionSheet(item: FeedModel, deleteCloser: @escaping (()->Void)){
+    func menuActionSheet(item: FeedModel, isHead: Bool?, pinCloser: (()->Void)?, deleteCloser: @escaping (()->Void)){
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         if item.owner {
             let deleteFeed = UIAlertAction(title: "삭제", style: .destructive){ _ in
@@ -86,8 +86,17 @@ extension UIViewController {
             let modifyFeed = UIAlertAction(title: "수정", style: .default){ _ in
                 // 게시물 수정 페이지로 이동
             }
+            
             alert.addAction(deleteFeed)
             alert.addAction(modifyFeed)
+            
+            if isHead ?? false {
+                let pinFeed = UIAlertAction(title: "고정", style: .default){ _ in
+                    pinCloser!()
+                }
+                alert.addAction(pinFeed)
+            }
+            
         } else {
             alert.message = "이 피드에대한 권한이 없습니다."
         }
