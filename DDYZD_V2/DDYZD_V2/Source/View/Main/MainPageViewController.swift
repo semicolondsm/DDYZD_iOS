@@ -59,7 +59,7 @@ class MainPageViewController: UIViewController {
                 
                 cell.bind(item: item)
                 cell.MenuBtn.rx.tap.subscribe(onNext: {
-                    self.menuActionSheet(item: item){
+                    self.menuActionSheet(item: item, isHead: nil, pinCloser: nil){
                         self.deleteFeed.onNext(row)
                     }
                 })
@@ -79,7 +79,7 @@ class MainPageViewController: UIViewController {
                 
                 cell.bind(item: item)
                 cell.MenuBtn.rx.tap.subscribe(onNext: {
-                    self.menuActionSheet(item: item){
+                    self.menuActionSheet(item: item, isHead: nil, pinCloser: nil){
                         self.deleteFeed.onNext(row)
                     }
                 })
