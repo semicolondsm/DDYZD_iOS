@@ -39,6 +39,11 @@ class ClubListTableViewController: UIViewController {
         )
         let output = viewModel.transform(input)
         
+        ClubListTable.rx.itemSelected.subscribe(onNext: { indexPath in
+            self.ClubListTable.cellForRow(at: indexPath)?.isSelected = false
+        })
+        .disposed(by: disposeBag)
+        
         output.clubList.bind(to: ClubListTable.rx.items(cellIdentifier: "ClubListTableViewCell", cellType: ClubListTableViewCell.self)){ row, item, cell in
             cell.clubNameLable.text = item.clubname
             cell.clubDescription.text = item.clubdescription
