@@ -171,8 +171,8 @@
 		9200D12625B88ED500461843 /* Club */ = {
 			isa = PBXGroup;
 			children = (
-				92BED6ED25BD536200526C33 /* ClubDetailViewModel.swift */,
 				9200D12B25B88F1A00461843 /* ClubListTableViewModel.swift */,
+				92BED6ED25BD536200526C33 /* ClubDetailViewModel.swift */,
 			);
 			path = Club;
 			sourceTree = "<group>";
