@@ -127,9 +127,11 @@ extension ClubDetailViewController: UITableViewDelegate {
         if let cell = cell as? FeedTableViewCell {
             cell.disposeBag = DisposeBag()
             cell.flagBtn.isSelected = false
+            cell.cellSuperView.layer.borderWidth = 0
         } else if let cell = cell as? FeedWithMediaTableViewCell {
             cell.disposeBag = DisposeBag()
             cell.flagBtn.isSelected = false
+            cell.cellSuperView.layer.borderWidth = 0
         }
     }
     
