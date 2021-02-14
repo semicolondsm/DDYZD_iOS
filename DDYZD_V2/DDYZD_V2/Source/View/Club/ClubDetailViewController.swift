@@ -30,6 +30,9 @@ class ClubDetailViewController: UIViewController {
         
         setUI()
         bind()
+        setTableView()
+        registerCell()
+        reloadFeeds()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,7 +69,6 @@ class ClubDetailViewController: UIViewController {
         loadMore = true
         getFeed.onNext(.loadMore)
     }
-    
     
 
 }
