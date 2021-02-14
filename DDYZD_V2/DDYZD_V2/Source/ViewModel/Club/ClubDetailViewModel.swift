@@ -7,7 +7,12 @@
 
 import Foundation
 
+import RxCocoa
+import RxSwift
+
 class ClubDetailViewModel: ViewModelProtocol {
+    
+    private let disposeBag = DisposeBag()
     
     struct input {
     }
