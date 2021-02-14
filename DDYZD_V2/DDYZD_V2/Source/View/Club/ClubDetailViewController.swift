@@ -24,6 +24,7 @@ class ClubDetailViewController: UIViewController {
     private var loadMore = false
     
     private let getFeed = PublishSubject<LoadFeedAction>()
+    private let flagIt = PublishSubject<Int>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +42,7 @@ class ClubDetailViewController: UIViewController {
     
     func bind() {
         viewModel.clubID = clubID
-        let input = ClubDetailViewModel.input(getFeed: getFeed.asDriver(onErrorJustReturn: .reload))
+        let input = ClubDetailViewModel.input(getFeed: getFeed.asDriver(onErrorJustReturn: .reload), flagIt: flagIt.asDriver(onErrorJustReturn: -1))
         let output = viewModel.transform(input)
         
         output.feedList.bind(to: feedTable.rx.items) { _, row, item -> UITableViewCell in
@@ -50,11 +51,27 @@ class ClubDetailViewController: UIViewController {
                 let cell = self.feedTable.dequeueReusableCell(withIdentifier: "Feed") as! FeedTableViewCell
                 
                 cell.bind(item: item)
+                cell.flagBtn.rx.tap.subscribe(onNext: {
+                    self.flagIt.onNext(row)
+                    output.flagItResult.subscribe(onNext: { err in
+                        self.moveLogin(didJustBrowsingBtnTaped: nil, didSuccessLogin: nil)
+                    })
+                    .disposed(by: cell.disposeBag)
+                }).disposed(by: cell.disposeBag)
+                
                 return cell
             } else {
                 let cell = self.feedTable.dequeueReusableCell(withIdentifier: "FeedWithMedia") as! FeedWithMediaTableViewCell
                 
                 cell.bind(item: item)
+                cell.flagBtn.rx.tap.subscribe(onNext: {
+                    self.flagIt.onNext(row)
+                    output.flagItResult.subscribe(onNext: { err in
+                        self.moveLogin(didJustBrowsingBtnTaped: nil, didSuccessLogin: nil)
+                    })
+                    .disposed(by: cell.disposeBag)
+                }).disposed(by: cell.disposeBag)
+                
                 return cell
             }
         }
