@@ -32,12 +32,12 @@ class FeedWithMediaTableViewCell: UITableViewCell {
     
     func setUI() {
         clubProfileImageView.circleImage()
+        cellSuperView.layer.borderColor = #colorLiteral(red: 0.2078431373, green: 0.03484285995, blue: 0.4432567954, alpha: 1)
     }
 
     func bind(item: FeedModel){
         if item.pin ?? false {
             cellSuperView.layer.borderWidth = 1
-            cellSuperView.layer.borderColor = #colorLiteral(red: 0.2078431373, green: 0.03484285995, blue: 0.4432567954, alpha: 1)
         }
         clubProfileImageView.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(item.profileImage)"))
         clubName.text = item.clubName
