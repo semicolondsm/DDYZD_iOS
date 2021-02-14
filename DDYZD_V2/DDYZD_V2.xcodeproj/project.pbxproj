@@ -159,8 +159,8 @@
 			children = (
 				9200D12725B88EF200461843 /* ClubListViewController.swift */,
 				9200D15C25B996C600461843 /* ClubListTableViewController.swift */,
-				9200D38B25BBD6AD00461843 /* ClubListTableViewCell.swift */,
 				92BED6EA25BD534B00526C33 /* ClubDetailViewController.swift */,
+				9200D38B25BBD6AD00461843 /* ClubListTableViewCell.swift */,
 			);
 			path = Club;
 			sourceTree = "<group>";
@@ -170,7 +170,6 @@
 			children = (
 				92BED6ED25BD536200526C33 /* ClubDetailViewModel.swift */,
 				9200D12B25B88F1A00461843 /* ClubListTableViewModel.swift */,
-				92D97E9225CC0821008456C8 /* ClubDetailViewModel.swift */,
 			);
 			path = Club;
 			sourceTree = "<group>";
@@ -490,7 +489,6 @@
 				926E86E725B4404F00E7F213 /* HTTPClient.swift in Sources */,
 				9200D04C25B7411100461843 /* ViewModelProtocol.swift in Sources */,
 				92C35F4225B5BD0700D30DDF /* DDYZDAPI.swift in Sources */,
-				92D97E9025CC0760008456C8 /* ClubDetailViewController.swift in Sources */,
 				9263697825B7335C00D2D107 /* AuthAPI.swift in Sources */,
 				9227C2E125C5D74900E6DF41 /* MainPageViewModel.swift in Sources */,
 				92D97F5425CFF527008456C8 /* FeedWithMediaTableViewCell.swift in Sources */,

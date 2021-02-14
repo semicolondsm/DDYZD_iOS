@@ -22,6 +22,7 @@ class ClubDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setNavigationBar()
         bind()
     }
     
@@ -29,5 +30,10 @@ class ClubDetailViewController: UIViewController {
         
     }
     
+    func setNavigationBar(){
+        navigationController?.navigationBar.standardAppearance.shadowColor = .gray
+        navigationController?.navigationBar.standardAppearance.backgroundColor = .white
+        self.title = String(clubID)
+    }
 
 }

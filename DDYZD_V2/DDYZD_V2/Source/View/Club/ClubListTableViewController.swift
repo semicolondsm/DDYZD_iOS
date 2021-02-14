@@ -44,7 +44,8 @@ class ClubListTableViewController: UIViewController {
         })
         .disposed(by: disposeBag)
         
-        output.clubList.bind(to: ClubListTable.rx.items(cellIdentifier: "ClubListTableViewCell", cellType: ClubListTableViewCell.self)){ row, item, cell in
+        output.clubList.bind(to: ClubListTable.rx.items(cellIdentifier:
+                                                            "ClubListTableViewCell", cellType: ClubListTableViewCell.self)){ row, item, cell in
             cell.clubNameLable.text = item.clubname
             cell.clubDescription.text = item.clubdescription
             cell.clubProfileImageView.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(item.clubimage)"))
@@ -59,6 +60,7 @@ class ClubListTableViewController: UIViewController {
     }
     
     func goClubDetailView(_ clubID: Int){
+        self.navigationController?.navigationBar.shadowImage = nil
         let vc = UIStoryboard.init(name: "Club", bundle: nil).instantiateViewController(withIdentifier: "ClubDetailViewController") as! ClubDetailViewController
         vc.clubID = clubID
         self.navigationController?.pushViewController(vc, animated: true)

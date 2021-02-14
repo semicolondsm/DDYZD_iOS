@@ -77,7 +77,7 @@
         <!--Club Detail View Controller-->
         <scene sceneID="h83-Ss-khd">
             <objects>
-                <viewController storyboardIdentifier="ClubDetailViewController" id="tTr-ix-LZX" customClass="ClubDetailViewController" customModule="DDYZD_V2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ClubDetailViewController" hidesBottomBarWhenPushed="YES" id="tTr-ix-LZX" customClass="ClubDetailViewController" customModule="DDYZD_V2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jlO-W9-361">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,6 +101,7 @@
                             <constraint firstItem="vlR-ID-1hv" firstAttribute="trailing" secondItem="fNT-Qt-8iI" secondAttribute="trailing" id="jS4-Eh-md3"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RVM-P5-8oe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

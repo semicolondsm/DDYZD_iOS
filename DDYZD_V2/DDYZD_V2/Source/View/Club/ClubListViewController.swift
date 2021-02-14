@@ -16,14 +16,18 @@ class ClubListViewController: TabmanViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setNavigationBar()
+        
         embeddViewControllers()
         setTopTabbar()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setNavigationBar()
+    }
+    
     func setNavigationBar(){
-        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.standardAppearance.shadowColor = .white
+        navigationController?.navigationBar.standardAppearance.backgroundColor = .white
         
         let customView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 44.0))
         let label = UILabel(frame: CGRect(x: -15.0, y: 0.0, width: 150.0, height: 44.0))
