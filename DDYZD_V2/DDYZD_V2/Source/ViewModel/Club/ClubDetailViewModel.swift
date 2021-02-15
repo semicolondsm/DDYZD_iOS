@@ -24,12 +24,14 @@ class ClubDetailViewModel: ViewModelProtocol {
         let getFeed: Driver<LoadFeedAction>
         let flagIt: Driver<Int>
         let deleteFeed: Driver<Int>
+        let pinFeed: Driver<Int>
     }
     
     struct output {
         let clubInfo: PublishRelay<ClubInfoModel>
         let feedList: PublishRelay<[FeedModel]>
         let flagItResult: Observable<String>
+        let pinFeedResult: Observable<String>
     }
     
     func transform(_ input: input) -> output {
@@ -39,6 +41,7 @@ class ClubDetailViewModel: ViewModelProtocol {
         let clubInfo = PublishRelay<ClubInfoModel>()
         let feedList = PublishRelay<[FeedModel]>()
         let flagItResult = PublishSubject<String>()
+        let pinFeedResult = PublishSubject<String>()
         
         input.getClubInfo.asObservable().subscribe(onNext: {
             clubAPI.getClubDetailInfo(clubID: self.clubID).subscribe(onNext: { data, res in
@@ -124,6 +127,19 @@ class ClubDetailViewModel: ViewModelProtocol {
         })
         .disposed(by: disposeBag)
         
-        return output(clubInfo: clubInfo ,feedList: feedList, flagItResult: flagItResult)
+        input.pinFeed.asObservable().subscribe(onNext: { row in
+            feedAPI.pinFeed(feedID: self.feeds[row].feedId).subscribe(onNext: { res in
+                switch res {
+                case .success:
+                    pinFeedResult.onCompleted()
+                default:
+                    pinFeedResult.onNext("feed pin error")
+                }
+            })
+            .disposed(by: self.disposeBag)
+        })
+        .disposed(by: disposeBag)
+        
+        return output(clubInfo: clubInfo ,feedList: feedList, flagItResult: flagItResult, pinFeedResult: pinFeedResult)
     }
 }
