@@ -27,5 +27,17 @@ class ClubAPI {
             }
     }
     
+    func getClubDetailInfo(clubID: Int) -> Observable<(ClubInfoModel?, StatusCodes)> {
+        httpClient.get(.clubDetailInfo(clubID), param: nil)
+            .map{ response, data -> (ClubInfoModel?, StatusCodes) in
+                switch response.statusCode {
+                case 200:
+                    guard let data = try? JSONDecoder().decode(ClubInfoModel.self, from: data) else { return (nil, .fault)}
+                    return (data, .success)
+                default:
+                    return (nil, .fault)
+                }
+            }
+    }
     
 }
