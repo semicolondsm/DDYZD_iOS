@@ -36,7 +36,7 @@ class ClubListTableViewController: UIViewController {
         let output = viewModel.transform(input)
         
         ClubListTable.rx.itemSelected.subscribe(onNext: { indexPath in
-            self.ClubListTable.cellForRow(at: indexPath)?.isSelected = false
+            self.ClubListTable.deselectRow(at: indexPath, animated: true)
         })
         .disposed(by: disposeBag)
         
