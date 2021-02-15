@@ -87,4 +87,5 @@ struct ClubInfo: Codable {
     let backimage: String
     let clubimage: String
     let clubtag: [String]
+    let owner: Bool
 }
