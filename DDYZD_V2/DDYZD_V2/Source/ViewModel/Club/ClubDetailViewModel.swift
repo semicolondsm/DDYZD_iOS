@@ -128,18 +128,23 @@ class ClubDetailViewModel: ViewModelProtocol {
         .disposed(by: disposeBag)
         
         input.pinFeed.asObservable().subscribe(onNext: { row in
-            feedAPI.pinFeed(feedID: 0).subscribe(onNext: { res in
+            feedAPI.pinFeed(feedID: self.feeds[0].feedId).subscribe(onNext: { res in
                 switch res {
                 case .success:
-                    feedAPI.pinFeed(feedID: self.feeds[row].feedId).subscribe(onNext: { res in
-                        switch res {
-                        case .success:
-                            pinFeedResult.onCompleted()
-                        default:
-                            pinFeedResult.onNext("feed pin error")
-                        }
-                    })
-                    .disposed(by: self.disposeBag)
+                    if row != 0 {
+                        feedAPI.pinFeed(feedID: self.feeds[row].feedId).subscribe(onNext: { res in
+                            switch res {
+                            case .success:
+                                pinFeedResult.onCompleted()
+                            default:
+                                pinFeedResult.onNext("feed pin error")
+                            }
+                        })
+                        .disposed(by: self.disposeBag)
+                    } else {
+                        pinFeedResult.onCompleted()
+                    }
+                    
                 default:
                     pinFeedResult.onNext("feed pin error")
                 }
