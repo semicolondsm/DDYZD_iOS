@@ -67,10 +67,6 @@ class MainPageViewController: UIViewController {
                 
                 cell.flagBtn.rx.tap.subscribe(onNext: {
                     self.flagIt.onNext(row)
-                    output.flagItResult.subscribe(onNext: { err in
-                        self.moveLogin(didJustBrowsingBtnTaped: nil, didSuccessLogin: nil)
-                    })
-                    .disposed(by: cell.disposeBag)
                 }).disposed(by: cell.disposeBag)
                 
                 return cell
@@ -87,15 +83,18 @@ class MainPageViewController: UIViewController {
                 
                 cell.flagBtn.rx.tap.subscribe(onNext: {
                     self.flagIt.onNext(row)
-                    output.flagItResult.subscribe(onNext: { err in
-                        self.moveLogin(didJustBrowsingBtnTaped: nil, didSuccessLogin: nil)
-                    })
-                    .disposed(by: cell.disposeBag)
                 }).disposed(by: cell.disposeBag)
                 
                 return cell
             }
         }
+        .disposed(by: disposeBag)
+        
+        output.flagItResult.subscribe(onNext: { isSuccess in
+            if !isSuccess{
+                self.moveLogin(didJustBrowsingBtnTaped: nil, didSuccessLogin: nil)
+            }
+        })
         .disposed(by: disposeBag)
     }
     
