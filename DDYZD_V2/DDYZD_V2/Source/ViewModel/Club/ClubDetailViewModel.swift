@@ -23,6 +23,7 @@ class ClubDetailViewModel: ViewModelProtocol {
         let getClubInfo: Driver<Void>
         let getFeed: Driver<LoadFeedAction>
         let flagIt: Driver<Int>
+        let deleteFeed: Driver<Int>
     }
     
     struct output {
@@ -106,6 +107,20 @@ class ClubDetailViewModel: ViewModelProtocol {
             .disposed(by: self.disposeBag)
             
             feedList.accept(self.feeds)
+        })
+        .disposed(by: disposeBag)
+        
+        input.deleteFeed.asObservable().subscribe(onNext: { row in
+            feedAPI.deleteFeed(feedID: self.feeds[row].feedId).subscribe(onNext: { res in
+                switch res {
+                case.success:
+                    self.feeds.remove(at: row)
+                    feedList.accept(self.feeds)
+                default:
+                    print("feed delete error")
+                }
+            })
+            .disposed(by: self.disposeBag)
         })
         .disposed(by: disposeBag)
         
