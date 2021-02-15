@@ -23,7 +23,7 @@ class ClubListTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUI()
+        setTableView()
         registerCell()
         bind()
     }
@@ -76,4 +76,5 @@ extension ClubListTableViewController: UITableViewDelegate {
         ClubListTable.register(nib, forCellReuseIdentifier: "ClubListTableViewCell")
         ClubListTable.rowHeight = 80
     }
+    
 }
