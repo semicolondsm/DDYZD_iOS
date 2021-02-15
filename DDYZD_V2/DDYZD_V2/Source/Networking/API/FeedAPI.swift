@@ -65,4 +65,16 @@ class FeedAPI {
                 }
             }
     }
+    
+    func pinFeed(feedID: Int) -> Observable<StatusCodes> {
+        httpClient.put(.pinFeed(feedID), param: nil)
+            .map{ response, data -> StatusCodes in
+                switch response.statusCode {
+                case 200:
+                    return .success
+                default:
+                    return .fault
+                }
+            }
+    }
 }
