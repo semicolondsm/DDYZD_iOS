@@ -29,6 +29,7 @@ class ClubDetailViewController: UIViewController {
     private let getFeed = PublishSubject<LoadFeedAction>()
     private let flagIt = PublishSubject<Int>()
     private let deleteFeed = PublishSubject<Int>()
+    private let pinFeed = PublishSubject<Int>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +51,8 @@ class ClubDetailViewController: UIViewController {
         let input = ClubDetailViewModel.input(getClubInfo: getClubInfo.asDriver(onErrorJustReturn: ()),
                                               getFeed: getFeed.asDriver(onErrorJustReturn: .reload),
                                               flagIt: flagIt.asDriver(onErrorJustReturn: -1),
-                                              deleteFeed: deleteFeed.asDriver(onErrorJustReturn: -1))
+                                              deleteFeed: deleteFeed.asDriver(onErrorJustReturn: -1),
+                                              pinFeed: pinFeed.asDriver(onErrorJustReturn: -1))
         let output = viewModel.transform(input)
         
         output.clubInfo.subscribe(onNext: { data in
@@ -69,7 +71,7 @@ class ClubDetailViewController: UIViewController {
                 cell.bind(item: item)
                 cell.MenuBtn.rx.tap.subscribe(onNext: {
                     self.menuActionSheet(item: item, isHead: self.isHead, pinCloser: {
-                        
+                        self.pinFeed.onNext(row)
                     }, deleteCloser: {
                         self.deleteFeed.onNext(row)
                     })
@@ -90,7 +92,7 @@ class ClubDetailViewController: UIViewController {
                 cell.bind(item: item)
                 cell.MenuBtn.rx.tap.subscribe(onNext: {
                     self.menuActionSheet(item: item, isHead: self.isHead, pinCloser: {
-                        
+                        self.pinFeed.onNext(row)
                     }, deleteCloser: {
                         self.deleteFeed.onNext(row)
                     })
@@ -107,6 +109,11 @@ class ClubDetailViewController: UIViewController {
                 return cell
             }
         }
+        .disposed(by: disposeBag)
+        
+        output.pinFeedResult.subscribe(onCompleted: {
+            self.reloadFeeds()
+        })
         .disposed(by: disposeBag)
     }
     
