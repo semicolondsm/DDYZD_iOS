@@ -22,6 +22,7 @@ class ClubDetailViewController: UIViewController {
     
     private let viewModel = ClubDetailViewModel()
     private let disposeBag = DisposeBag()
+    private var isHead = false
     private var loadMore = false
     
     private let getClubInfo = PublishSubject<Void>()
@@ -51,6 +52,7 @@ class ClubDetailViewController: UIViewController {
         let output = viewModel.transform(input)
         
         output.clubInfo.subscribe(onNext: { data in
+            self.isHead = data.owner
             self.clubNameLabel.text = data.clubname
             self.clubBackImage.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(data.backimage)"))
             self.clubProfileImgae.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(data.clubimage)"))
@@ -63,6 +65,14 @@ class ClubDetailViewController: UIViewController {
                 let cell = self.feedTable.dequeueReusableCell(withIdentifier: "Feed") as! FeedTableViewCell
                 
                 cell.bind(item: item)
+                cell.MenuBtn.rx.tap.subscribe(onNext: {
+                    self.menuActionSheet(item: item, isHead: self.isHead, pinCloser: {
+                        
+                    }, deleteCloser: {
+                        
+                    })
+                })
+                .disposed(by: cell.disposeBag)
                 cell.flagBtn.rx.tap.subscribe(onNext: {
                     self.flagIt.onNext(row)
                     output.flagItResult.subscribe(onNext: { err in
@@ -76,6 +86,14 @@ class ClubDetailViewController: UIViewController {
                 let cell = self.feedTable.dequeueReusableCell(withIdentifier: "FeedWithMedia") as! FeedWithMediaTableViewCell
                 
                 cell.bind(item: item)
+                cell.MenuBtn.rx.tap.subscribe(onNext: {
+                    self.menuActionSheet(item: item, isHead: self.isHead, pinCloser: {
+                        
+                    }, deleteCloser: {
+                        
+                    })
+                })
+                .disposed(by: cell.disposeBag)
                 cell.flagBtn.rx.tap.subscribe(onNext: {
                     self.flagIt.onNext(row)
                     output.flagItResult.subscribe(onNext: { err in
