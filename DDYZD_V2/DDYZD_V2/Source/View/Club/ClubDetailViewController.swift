@@ -28,6 +28,7 @@ class ClubDetailViewController: UIViewController {
     private let getClubInfo = PublishSubject<Void>()
     private let getFeed = PublishSubject<LoadFeedAction>()
     private let flagIt = PublishSubject<Int>()
+    private let deleteFeed = PublishSubject<Int>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +49,8 @@ class ClubDetailViewController: UIViewController {
         viewModel.clubID = clubID
         let input = ClubDetailViewModel.input(getClubInfo: getClubInfo.asDriver(onErrorJustReturn: ()),
                                               getFeed: getFeed.asDriver(onErrorJustReturn: .reload),
-                                              flagIt: flagIt.asDriver(onErrorJustReturn: -1))
+                                              flagIt: flagIt.asDriver(onErrorJustReturn: -1),
+                                              deleteFeed: deleteFeed.asDriver(onErrorJustReturn: -1))
         let output = viewModel.transform(input)
         
         output.clubInfo.subscribe(onNext: { data in
@@ -69,7 +71,7 @@ class ClubDetailViewController: UIViewController {
                     self.menuActionSheet(item: item, isHead: self.isHead, pinCloser: {
                         
                     }, deleteCloser: {
-                        
+                        self.deleteFeed.onNext(row)
                     })
                 })
                 .disposed(by: cell.disposeBag)
@@ -90,7 +92,7 @@ class ClubDetailViewController: UIViewController {
                     self.menuActionSheet(item: item, isHead: self.isHead, pinCloser: {
                         
                     }, deleteCloser: {
-                        
+                        self.deleteFeed.onNext(row)
                     })
                 })
                 .disposed(by: cell.disposeBag)
