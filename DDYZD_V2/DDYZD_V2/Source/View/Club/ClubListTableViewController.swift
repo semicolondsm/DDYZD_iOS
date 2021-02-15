@@ -69,6 +69,7 @@ extension ClubListTableViewController: UITableViewDelegate {
     
     func setTableView(){
         ClubListTable.separatorStyle = .none
+        ClubListTable.delegate = self
     }
     
     func registerCell() {
@@ -76,5 +77,7 @@ extension ClubListTableViewController: UITableViewDelegate {
         ClubListTable.register(nib, forCellReuseIdentifier: "ClubListTableViewCell")
         ClubListTable.rowHeight = 80
     }
+    
+    
     
 }
