@@ -9,6 +9,7 @@ import UIKit
 
 import RxCocoa
 import RxSwift
+import Kingfisher
 
 class ClubDetailViewController: UIViewController {
 
@@ -23,6 +24,7 @@ class ClubDetailViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private var loadMore = false
     
+    private let getClubInfo = PublishSubject<Void>()
     private let getFeed = PublishSubject<LoadFeedAction>()
     private let flagIt = PublishSubject<Int>()
     
@@ -31,6 +33,7 @@ class ClubDetailViewController: UIViewController {
         
         setUI()
         bind()
+        getClubDetailInfo()
         setTableView()
         registerCell()
         reloadFeeds()
@@ -42,8 +45,17 @@ class ClubDetailViewController: UIViewController {
     
     func bind() {
         viewModel.clubID = clubID
-        let input = ClubDetailViewModel.input(getFeed: getFeed.asDriver(onErrorJustReturn: .reload), flagIt: flagIt.asDriver(onErrorJustReturn: -1))
+        let input = ClubDetailViewModel.input(getClubInfo: getClubInfo.asDriver(onErrorJustReturn: ()),
+                                              getFeed: getFeed.asDriver(onErrorJustReturn: .reload),
+                                              flagIt: flagIt.asDriver(onErrorJustReturn: -1))
         let output = viewModel.transform(input)
+        
+        output.clubInfo.subscribe(onNext: { data in
+            self.clubNameLabel.text = data.clubname
+            self.clubBackImage.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(data.backimage)"))
+            self.clubProfileImgae.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(data.clubimage)"))
+        })
+        .disposed(by: disposeBag)
         
         output.feedList.bind(to: feedTable.rx.items) { _, row, item -> UITableViewCell in
             self.loadMore = false
@@ -76,6 +88,10 @@ class ClubDetailViewController: UIViewController {
             }
         }
         .disposed(by: disposeBag)
+    }
+    
+    func getClubDetailInfo(){
+        getClubInfo.onNext(())
     }
     
     func reloadFeeds(){
