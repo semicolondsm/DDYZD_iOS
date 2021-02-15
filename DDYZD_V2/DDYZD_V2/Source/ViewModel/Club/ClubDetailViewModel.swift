@@ -20,20 +20,37 @@ class ClubDetailViewModel: ViewModelProtocol {
     private var lastLoadPage = 0
     
     struct input {
+        let getClubInfo: Driver<Void>
         let getFeed: Driver<LoadFeedAction>
         let flagIt: Driver<Int>
     }
     
     struct output {
+        let clubInfo: PublishRelay<ClubInfoModel>
         let feedList: PublishRelay<[FeedModel]>
         let flagItResult: Observable<String>
     }
     
     func transform(_ input: input) -> output {
         
+        let clubAPI = ClubAPI()
         let feedAPI = FeedAPI()
+        let clubInfo = PublishRelay<ClubInfoModel>()
         let feedList = PublishRelay<[FeedModel]>()
         let flagItResult = PublishSubject<String>()
+        
+        input.getClubInfo.asObservable().subscribe(onNext: {
+            clubAPI.getClubDetailInfo(clubID: self.clubID).subscribe(onNext: { data, res in
+                switch res {
+                case .success:
+                    clubInfo.accept(data!)
+                default:
+                    print(res)
+                }
+            })
+            .disposed(by: self.disposeBag)
+        })
+        .disposed(by: disposeBag)
         
         input.getFeed.asObservable().subscribe(onNext: { action in
             switch action {
@@ -92,6 +109,6 @@ class ClubDetailViewModel: ViewModelProtocol {
         })
         .disposed(by: disposeBag)
         
-        return output(feedList: feedList, flagItResult: flagItResult)
+        return output(clubInfo: clubInfo ,feedList: feedList, flagItResult: flagItResult)
     }
 }
