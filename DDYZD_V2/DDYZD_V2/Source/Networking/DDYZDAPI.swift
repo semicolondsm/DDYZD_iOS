@@ -79,7 +79,7 @@ enum DDYZDAPI {
         case .clubList:
             return "/club/list"
         case .clubDetailInfo(let clubID):
-            return "/club/\(clubID)"
+            return "/club/\(clubID)/info"
         case .getRecruitment(let clubID):
             return "/club/\(clubID)/recruitment"
         case .getClubMember(let clubID):
