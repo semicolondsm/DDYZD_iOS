@@ -28,10 +28,6 @@ class ClubListTableViewController: UIViewController {
         bind()
     }
     
-    func setUI(){
-        ClubListTable.separatorStyle = .none
-    }
-    
     func bind(){
         let input = ClubListTableViewModel.input(
             clubTag: clubTag,
@@ -66,6 +62,15 @@ class ClubListTableViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
+}
+
+//MARK:- table view
+extension ClubListTableViewController: UITableViewDelegate {
+    
+    func setTableView(){
+        ClubListTable.separatorStyle = .none
+    }
+    
     func registerCell() {
         let nib = UINib(nibName: "ClubListTableViewCell", bundle: nil)
         ClubListTable.register(nib, forCellReuseIdentifier: "ClubListTableViewCell")
