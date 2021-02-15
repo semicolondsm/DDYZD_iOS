@@ -30,8 +30,8 @@ class ClubDetailViewModel: ViewModelProtocol {
     struct output {
         let clubInfo: PublishRelay<ClubInfoModel>
         let feedList: PublishRelay<[FeedModel]>
-        let flagItResult: Observable<Bool>
-        let pinFeedResult: Observable<Bool>
+        let flagItResult: PublishRelay<Bool>
+        let pinFeedResult: PublishRelay<Bool>
     }
     
     func transform(_ input: input) -> output {
@@ -40,8 +40,8 @@ class ClubDetailViewModel: ViewModelProtocol {
         let feedAPI = FeedAPI()
         let clubInfo = PublishRelay<ClubInfoModel>()
         let feedList = PublishRelay<[FeedModel]>()
-        let flagItResult = PublishSubject<Bool>()
-        let pinFeedResult = PublishSubject<Bool>()
+        let flagItResult = PublishRelay<Bool>()
+        let pinFeedResult = PublishRelay<Bool>()
         
         input.getClubInfo.asObservable().subscribe(onNext: {
             clubAPI.getClubDetailInfo(clubID: self.clubID).subscribe(onNext: { data, res in
@@ -100,9 +100,9 @@ class ClubDetailViewModel: ViewModelProtocol {
             feedAPI.flagIt(feedID: self.feeds[row].feedId).subscribe(onNext: { res in
                 switch res {
                 case .success:
-                    flagItResult.onNext(true)
+                    flagItResult.accept(true)
                 default:
-                    flagItResult.onNext(false)
+                    flagItResult.accept(false)
                 }
             })
             .disposed(by: self.disposeBag)
@@ -129,9 +129,9 @@ class ClubDetailViewModel: ViewModelProtocol {
             feedAPI.pinFeed(feedID: self.feeds[row].feedId).subscribe(onNext: { res in
                 switch res {
                 case .success:
-                    pinFeedResult.onNext(true)
+                    pinFeedResult.accept(true)
                 default:
-                    pinFeedResult.onNext(false)
+                    pinFeedResult.accept(false)
                 }
             })
             .disposed(by: self.disposeBag)
