@@ -95,6 +95,8 @@ class ClubDetailViewController: UIViewController {
 extension ClubDetailViewController {
     func setUI(){
         clubProfileImgae.circleImage()
+        clubProfileImgae.layer.borderWidth = 1
+        clubProfileImgae.layer.borderColor = #colorLiteral(red: 0.7685618401, green: 0.768670857, blue: 0.7685275674, alpha: 1)
     }
     
     func setNavigationBar(){
