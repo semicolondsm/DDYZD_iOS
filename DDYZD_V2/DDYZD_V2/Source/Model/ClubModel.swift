@@ -80,7 +80,7 @@ struct ClubListModel: Codable {
     let clubtag: [String]
 }
 
-struct ClubInfo: Codable {
+struct ClubInfoModel: Codable {
     let clubid: Int
     let clubname: String
     let description: String
