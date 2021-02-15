@@ -172,6 +172,7 @@ extension ClubDetailViewController: UITableViewDelegate {
     
     @objc func refreshFeed(refresh: UIRefreshControl) {
         refresh.endRefreshing()
+        getClubDetailInfo()
         reloadFeeds()
     }
 }
