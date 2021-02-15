@@ -30,8 +30,8 @@ class ClubDetailViewModel: ViewModelProtocol {
     struct output {
         let clubInfo: PublishRelay<ClubInfoModel>
         let feedList: PublishRelay<[FeedModel]>
-        let flagItResult: Observable<String>
-        let pinFeedResult: Observable<String>
+        let flagItResult: Observable<Bool>
+        let pinFeedResult: Observable<Bool>
     }
     
     func transform(_ input: input) -> output {
@@ -40,8 +40,8 @@ class ClubDetailViewModel: ViewModelProtocol {
         let feedAPI = FeedAPI()
         let clubInfo = PublishRelay<ClubInfoModel>()
         let feedList = PublishRelay<[FeedModel]>()
-        let flagItResult = PublishSubject<String>()
-        let pinFeedResult = PublishSubject<String>()
+        let flagItResult = PublishSubject<Bool>()
+        let pinFeedResult = PublishSubject<Bool>()
         
         input.getClubInfo.asObservable().subscribe(onNext: {
             clubAPI.getClubDetailInfo(clubID: self.clubID).subscribe(onNext: { data, res in
@@ -100,11 +100,9 @@ class ClubDetailViewModel: ViewModelProtocol {
             feedAPI.flagIt(feedID: self.feeds[row].feedId).subscribe(onNext: { res in
                 switch res {
                 case .success:
-                    flagItResult.onCompleted()
-                case .unauthorized:
-                    flagItResult.onNext("unauthorized")
+                    flagItResult.onNext(true)
                 default:
-                    flagItResult.onNext("API 'flagIt' ERROR")
+                    flagItResult.onNext(false)
                 }
             })
             .disposed(by: self.disposeBag)
@@ -128,25 +126,12 @@ class ClubDetailViewModel: ViewModelProtocol {
         .disposed(by: disposeBag)
         
         input.pinFeed.asObservable().subscribe(onNext: { row in
-            feedAPI.pinFeed(feedID: self.feeds[0].feedId).subscribe(onNext: { res in
+            feedAPI.pinFeed(feedID: self.feeds[row].feedId).subscribe(onNext: { res in
                 switch res {
                 case .success:
-                    if row != 0 {
-                        feedAPI.pinFeed(feedID: self.feeds[row].feedId).subscribe(onNext: { res in
-                            switch res {
-                            case .success:
-                                pinFeedResult.onCompleted()
-                            default:
-                                pinFeedResult.onNext("feed pin error")
-                            }
-                        })
-                        .disposed(by: self.disposeBag)
-                    } else {
-                        pinFeedResult.onCompleted()
-                    }
-                    
+                    pinFeedResult.onNext(true)
                 default:
-                    pinFeedResult.onNext("feed pin error")
+                    pinFeedResult.onNext(false)
                 }
             })
             .disposed(by: self.disposeBag)

@@ -79,10 +79,6 @@ class ClubDetailViewController: UIViewController {
                 .disposed(by: cell.disposeBag)
                 cell.flagBtn.rx.tap.subscribe(onNext: {
                     self.flagIt.onNext(row)
-                    output.flagItResult.subscribe(onNext: { err in
-                        self.moveLogin(didJustBrowsingBtnTaped: nil, didSuccessLogin: nil)
-                    })
-                    .disposed(by: cell.disposeBag)
                 }).disposed(by: cell.disposeBag)
                 
                 return cell
@@ -100,10 +96,6 @@ class ClubDetailViewController: UIViewController {
                 .disposed(by: cell.disposeBag)
                 cell.flagBtn.rx.tap.subscribe(onNext: {
                     self.flagIt.onNext(row)
-                    output.flagItResult.subscribe(onNext: { err in
-                        self.moveLogin(didJustBrowsingBtnTaped: nil, didSuccessLogin: nil)
-                    })
-                    .disposed(by: cell.disposeBag)
                 }).disposed(by: cell.disposeBag)
                 
                 return cell
@@ -111,8 +103,17 @@ class ClubDetailViewController: UIViewController {
         }
         .disposed(by: disposeBag)
         
-        output.pinFeedResult.subscribe(onCompleted: {
-            self.reloadFeeds()
+        output.flagItResult.subscribe(onNext: { isSuccess in
+            if !isSuccess {
+                self.moveLogin(didJustBrowsingBtnTaped: nil, didSuccessLogin: nil)
+            }
+        })
+        .disposed(by: disposeBag)
+        
+        output.pinFeedResult.subscribe(onNext: { isSuccess in
+            if isSuccess {
+                self.reloadFeeds()
+            }
         })
         .disposed(by: disposeBag)
     }
