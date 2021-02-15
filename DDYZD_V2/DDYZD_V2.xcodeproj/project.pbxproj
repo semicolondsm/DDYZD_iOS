@@ -41,6 +41,12 @@
 		92BED6EE25BD536200526C33 /* ClubDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BED6ED25BD536200526C33 /* ClubDetailViewModel.swift */; };
 		92C35F4225B5BD0700D30DDF /* DDYZDAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C35F4125B5BD0600D30DDF /* DDYZDAPI.swift */; };
 		92D1759D25BD696B00E6F2D6 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D1759C25BD696B00E6F2D6 /* MainPageViewController.swift */; };
+		92D97F1A25CEECAB008456C8 /* Feed.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D97F1925CEECAB008456C8 /* Feed.xib */; };
+		92D97F2525CEEE98008456C8 /* FeedAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D97F2425CEEE98008456C8 /* FeedAPI.swift */; };
+		92D97F2825CEF1C0008456C8 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D97F2725CEF1C0008456C8 /* FeedModel.swift */; };
+		92D97F5125CFF509008456C8 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D97F5025CFF509008456C8 /* FeedTableViewCell.swift */; };
+		92D97F5425CFF527008456C8 /* FeedWithMediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D97F5325CFF527008456C8 /* FeedWithMediaTableViewCell.swift */; };
+		92D97F9325D06D4A008456C8 /* FeedWithMedia.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D97F9225D06D4A008456C8 /* FeedWithMedia.xib */; };
 		92FBA6A025B537320014FB8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92FBA69F25B537320014FB8B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +90,12 @@
 		92BED6ED25BD536200526C33 /* ClubDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailViewModel.swift; sourceTree = "<group>"; };
 		92C35F4125B5BD0600D30DDF /* DDYZDAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDYZDAPI.swift; sourceTree = "<group>"; };
 		92D1759C25BD696B00E6F2D6 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
+		92D97F1925CEECAB008456C8 /* Feed.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Feed.xib; sourceTree = "<group>"; };
+		92D97F2425CEEE98008456C8 /* FeedAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAPI.swift; sourceTree = "<group>"; };
+		92D97F2725CEF1C0008456C8 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
+		92D97F5025CFF509008456C8 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		92D97F5325CFF527008456C8 /* FeedWithMediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedWithMediaTableViewCell.swift; sourceTree = "<group>"; };
+		92D97F9225D06D4A008456C8 /* FeedWithMedia.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedWithMedia.xib; sourceTree = "<group>"; };
 		92FBA69F25B537320014FB8B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +179,8 @@
 		9200D38A25BBD66200461843 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				92D97F1925CEECAB008456C8 /* Feed.xib */,
+				92D97F9225D06D4A008456C8 /* FeedWithMedia.xib */,
 				9200D38F25BBE2C400461843 /* ClubListTableViewCell.xib */,
 				9227C22B25C2F05300E6DF41 /* ChatListTableViewCell.xib */,
 			);
@@ -215,6 +229,7 @@
 				9200D0B825B751E700461843 /* Token.swift */,
 				9200D12225B88E7000461843 /* ClubModel.swift */,
 				92BED6E725BD4BA600526C33 /* ChatModel.swift */,
+				92D97F2725CEF1C0008456C8 /* FeedModel.swift */,
 			);
 			name = Model;
 			path = DDYZD_V2/Source/Model;
@@ -237,6 +252,7 @@
 				9263697725B7335C00D2D107 /* AuthAPI.swift */,
 				9200D13125B8903300461843 /* ClubAPI.swift */,
 				92BED6D925BD473100526C33 /* ChatAPI.swift */,
+				92D97F2425CEEE98008456C8 /* FeedAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -326,8 +342,18 @@
 			isa = PBXGroup;
 			children = (
 				92D1759C25BD696B00E6F2D6 /* MainPageViewController.swift */,
+				92D97F1C25CEECFD008456C8 /* FeedCell */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		92D97F1C25CEECFD008456C8 /* FeedCell */ = {
+			isa = PBXGroup;
+			children = (
+				92D97F5025CFF509008456C8 /* FeedTableViewCell.swift */,
+				92D97F5325CFF527008456C8 /* FeedWithMediaTableViewCell.swift */,
+			);
+			path = FeedCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,7 +415,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92D97F9325D06D4A008456C8 /* FeedWithMedia.xib in Resources */,
 				925C9EB725B08BE9005A3694 /* LaunchScreen.storyboard in Resources */,
+				92D97F1A25CEECAB008456C8 /* Feed.xib in Resources */,
 				92FBA6A025B537320014FB8B /* GoogleService-Info.plist in Resources */,
 				9200D39025BBE2C400461843 /* ClubListTableViewCell.xib in Resources */,
 				9200D12025B88DCF00461843 /* Club.storyboard in Resources */,
@@ -450,10 +478,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92D97F2525CEEE98008456C8 /* FeedAPI.swift in Sources */,
+				92D97F2825CEF1C0008456C8 /* FeedModel.swift in Sources */,
 				9200D12325B88E7000461843 /* ClubModel.swift in Sources */,
 				92BED6E525BD4B1C00526C33 /* ChatListTableViewCell.swift in Sources */,
 				9227C25725C559C200E6DF41 /* ChatListViewModel.swift in Sources */,
 				9263696025B684ED00D2D107 /* LoginViewController.swift in Sources */,
+				92D97F5125CFF509008456C8 /* FeedTableViewCell.swift in Sources */,
 				92BED6EB25BD534B00526C33 /* ClubDetailViewController.swift in Sources */,
 				9200D38C25BBD6AD00461843 /* ClubListTableViewCell.swift in Sources */,
 				92B9AE9B25BF03C900026892 /* ChatListViewController.swift in Sources */,
@@ -464,6 +495,7 @@
 				92C35F4225B5BD0700D30DDF /* DDYZDAPI.swift in Sources */,
 				9263697825B7335C00D2D107 /* AuthAPI.swift in Sources */,
 				9227C2E125C5D74900E6DF41 /* MainPageViewModel.swift in Sources */,
+				92D97F5425CFF527008456C8 /* FeedWithMediaTableViewCell.swift in Sources */,
 				92BED6DA25BD473100526C33 /* ChatAPI.swift in Sources */,
 				9200D19C25B99D0000461843 /* Extension.swift in Sources */,
 				925C9EAB25B08BE7005A3694 /* AppDelegate.swift in Sources */,

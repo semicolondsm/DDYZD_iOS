@@ -19,10 +19,13 @@ enum DDYZDAPI {
     case updateInfo                             // 프로필 수정
     
     //feed
-    case flagIt(_ feedID: Int)              // 피드 flag달기
-    case uploadFeed(_ clubID: Int)          // 피드 올리기
-    case updateFeed(_ feedID: Int)          // 피드 수정
-    case uploadFeedFile(_ feedID: Int)      // 피드 파일 업로드
+    case feedList(_ page: Int)                  // 모든 동아리의 피드리스트
+    case clubFeedList(_ clubID: Int, _ page: Int)   // 특정 동아리의 피드리스트
+    case flagIt(_ feedID: Int)                  // 피드 flag달기
+    case uploadFeed(_ clubID: Int)              // 피드 올리기
+    case modifyFeed(_ feedID: Int)              // 피드 수정
+    case uploadFeedFile(_ feedID: Int)          // 피드 파일 업로드
+    case deleteFeed(_ feedID: Int)              // 피드 삭제
     
     //club
     case clubList                           // 동아리 리스트 반환
@@ -59,14 +62,20 @@ enum DDYZDAPI {
             return "/users/\(gcn)"
         case .updateInfo:
             return "/users/profile"
+        case .feedList(let page):
+            return "/feed/list?page=\(page)&"
+        case .clubFeedList(let clubID, let page):
+            return "/feed/\(clubID)/list?page=\(page)&"
         case .flagIt(let feedID):
             return "/feed/\(feedID)/flag"
         case .uploadFeed(let clubID):
-            return "feed/\(clubID)"
-        case .updateFeed(let feedID):
-            return "feed/\(feedID)"
+            return "/feed/\(clubID)"
+        case .modifyFeed(let feedID):
+            return "/feed/\(feedID)"
         case .uploadFeedFile(let feedID):
-            return "feed/\(feedID)/medium"
+            return "/feed/\(feedID)/medium"
+        case .deleteFeed(let feedID):
+            return "/feed/\(feedID)"
         case .clubList:
             return "/club/list"
         case .clubDetailInfo(let clubID):

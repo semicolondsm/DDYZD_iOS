@@ -39,7 +39,6 @@ public class DSMAuth {
         vc.present(WKView, animated: true)
         
         WKView.getCode{ code in
-            print(code)
             let requstBody: [String : String] = [
                 "client_id": self._client_id,
                 "client_secret": self._client_secret,
