@@ -22,6 +22,7 @@ class ClubDetailViewController: UIViewController {
     
     private let viewModel = ClubDetailViewModel()
     private let disposeBag = DisposeBag()
+    private let navigationBarTitile = UILabel()
     private var isHead = false
     private var loadMore = false
     
@@ -56,6 +57,7 @@ class ClubDetailViewController: UIViewController {
         let output = viewModel.transform(input)
         
         output.clubInfo.subscribe(onNext: { data in
+            self.navigationBarTitile.text = data.clubname
             self.isHead = data.owner
             self.clubNameLabel.text = data.clubname
             self.clubBackImage.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(data.backimage)"))
@@ -148,6 +150,26 @@ extension ClubDetailViewController {
         navigationController?.navigationBar.standardAppearance.backgroundColor = .white
         navigationController?.navigationBar.topItem?.title = ""
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.4811326265, green: 0.1003668979, blue: 0.812384963, alpha: 1)
+        
+        let container = UIView(frame: CGRect(x: 0, y: 0, width: 1000, height: 22))
+
+        navigationBarTitile.font = navigationBarTitile.font.withSize(20)
+        navigationBarTitile.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(navigationBarTitile)
+
+        let leftButtonWidth: CGFloat = 35 // left padding
+        let rightButtonWidth: CGFloat = 75 // right padding
+        let width = view.frame.width - leftButtonWidth - rightButtonWidth
+        let offset = (rightButtonWidth - leftButtonWidth) / 2
+        
+        NSLayoutConstraint.activate([
+            navigationBarTitile.topAnchor.constraint(equalTo: container.topAnchor),
+            navigationBarTitile.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+            navigationBarTitile.centerXAnchor.constraint(equalTo: container.centerXAnchor, constant: -offset),
+            navigationBarTitile.widthAnchor.constraint(equalToConstant: width)
+        ])
+
+        self.navigationItem.titleView = container
     }
 }
 
