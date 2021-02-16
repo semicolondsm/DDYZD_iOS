@@ -39,7 +39,7 @@ class LoginViewModel: ViewModelProtocol {
                         case .success:
                             Messaging.messaging().token{ token, err in
                                 if err != nil { return } else {
-                                    api.postDeviceToken(token!)
+                                    api.postDeviceToken(token!).subscribe(onNext: nil).disposed(by: self.disposeBag)
                                 }
                             }
                             result.onCompleted()
