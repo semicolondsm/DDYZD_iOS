@@ -27,7 +27,7 @@ class ChatListViewController: UIViewController {
         
         registerCell()
         setUI()
-        bind()
+        //bind()
         
     }
 
@@ -37,16 +37,6 @@ class ChatListViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         socket.closeConnection()
-    }
-    
-    
-    func setNavigationBar(){
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.topItem?.title = ""        
-    }
-    
-    func setUI(){
-        ChatListTable.separatorStyle = .none
     }
     
     func bind(){
@@ -79,4 +69,18 @@ class ChatListViewController: UIViewController {
         ChatListTable.rowHeight = 80
     }
 
+}
+
+//MARK:- UI
+extension ChatListViewController {
+    func setNavigationBar(){
+        self.title = "채팅"
+        navigationController?.navigationBar.backgroundColor = .white
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.topItem?.title = ""
+    }
+    
+    func setUI(){
+        ChatListTable.separatorStyle = .none
+    }
 }
