@@ -111,9 +111,13 @@ class MainPageViewController: UIViewController {
         getFeed.onNext(.loadMore)
     }
     
+}
+
+// MARK:- UI
+extension MainPageViewController {
     func setNavigationbar(){
-        
-        self.navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.prefersLargeTitles = false
         
         let customView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 44.0))
 
@@ -130,11 +134,9 @@ class MainPageViewController: UIViewController {
         customView.addSubview(label)
 
         let leftButton = UIBarButtonItem(customView: customView)
-        self.navigationItem.leftBarButtonItem = leftButton
+        navigationItem.leftBarButtonItem = leftButton
     }
-
 }
-
 
 // MARK:- table view
 extension MainPageViewController: UITableViewDelegate {
