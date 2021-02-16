@@ -74,7 +74,6 @@ class ChatListViewController: UIViewController {
 //MARK:- UI
 extension ChatListViewController {
     func setNavigationBar(){
-        self.title = "채팅"
         navigationController?.navigationBar.backgroundColor = .white
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.topItem?.title = ""
