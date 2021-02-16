@@ -111,6 +111,10 @@ class MainPageViewController: UIViewController {
         getFeed.onNext(.loadMore)
     }
     
+}
+
+// MARK:- UI
+extension MainPageViewController {
     func setNavigationbar(){
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.prefersLargeTitles = false
@@ -132,9 +136,7 @@ class MainPageViewController: UIViewController {
         let leftButton = UIBarButtonItem(customView: customView)
         navigationItem.leftBarButtonItem = leftButton
     }
-
 }
-
 
 // MARK:- table view
 extension MainPageViewController: UITableViewDelegate {
