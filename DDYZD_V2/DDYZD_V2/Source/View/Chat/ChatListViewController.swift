@@ -27,7 +27,7 @@ class ChatListViewController: UIViewController {
         
         registerCell()
         setUI()
-        //bind()
+        bind()
         
     }
 
@@ -74,9 +74,11 @@ class ChatListViewController: UIViewController {
 //MARK:- UI
 extension ChatListViewController {
     func setNavigationBar(){
+        navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.backgroundColor = .white
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.topItem?.title = ""
+        navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.4811326265, green: 0.1003668979, blue: 0.812384963, alpha: 1)
     }
     
     func setUI(){
