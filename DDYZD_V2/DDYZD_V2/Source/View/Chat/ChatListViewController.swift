@@ -55,9 +55,7 @@ class ChatListViewController: UIViewController {
         .disposed(by: disposeBag)
         
         output.chatList.bind(to: ChatListTable.rx.items(cellIdentifier: "ChatListTableViewCell", cellType: ChatListTableViewCell.self)){ row, item, cell in
-            cell.clubProfileImageView.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(item.clubimage)"))
-            cell.clubNameLable.text = item.clubname
-            cell.lastMessageLable.text = item.lastmessage
+            cell.bind(item: item)
         }
         .disposed(by: disposeBag)
         

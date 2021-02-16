@@ -25,5 +25,11 @@ class ChatListTableViewCell: UITableViewCell {
         clubProfileImageView.layer.cornerRadius = clubProfileImageView.frame.height/2
         unwatchedSignView.layer.cornerRadius = unwatchedSignView.frame.height/2
     }
+    
+    func bind(item: ChatRoom){
+        clubProfileImageView.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(item.clubimage)"))
+        clubNameLable.text = item.clubname
+        lastMessageLable.text = item.lastmessage
+    }
 
 }
