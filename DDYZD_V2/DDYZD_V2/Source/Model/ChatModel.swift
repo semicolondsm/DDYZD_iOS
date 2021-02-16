@@ -12,5 +12,6 @@ struct ChatRoom: Codable {
     let clubid: Int
     let clubname: String
     let clubimage: String
+    let lastdate: String
     let lastmessage: String
 }

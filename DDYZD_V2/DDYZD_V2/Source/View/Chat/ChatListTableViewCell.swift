@@ -29,6 +29,7 @@ class ChatListTableViewCell: UITableViewCell {
     func bind(item: ChatRoom){
         clubProfileImageView.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(item.clubimage)"))
         clubNameLable.text = item.clubname
+        whenLable.dateLabel(item.lastdate)
         lastMessageLable.text = item.lastmessage
     }
 
