@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "140703411_824636008115307_1491735444849563580_n-2.png",
+      "filename" : "messenger.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "messenger2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "messenger3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
