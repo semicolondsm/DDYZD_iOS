@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+import Alamofire
+import RxSwift
+
+
+class PersonalAPI {
+    let httpClient = HTTPClient()
+    
+}
