@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -76,17 +75,7 @@
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
-                                        <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="MKu-2C-sw4">
-                                                <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TRS-Hh-S6C">
-                                                    <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </collectionViewCellContentView>
-                                                <size key="customSize" width="24" height="24"/>
-                                            </collectionViewCell>
-                                        </cells>
+                                        <cells/>
                                     </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -125,6 +114,16 @@
                     <navigationItem key="navigationItem" id="TIP-qz-Sls">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="hamburgerBtn" id="zud-3y-jC9"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="belongClubCollectionView" destination="bgc-lN-ZVi" id="xmf-CX-n2s"/>
+                        <outlet property="bioLabel" destination="FOl-C0-JAe" id="K2K-Uz-0pZ"/>
+                        <outlet property="emailLabel" destination="MLD-Vo-Okd" id="oaQ-du-CDx"/>
+                        <outlet property="gcnLabel" destination="PYI-Er-gkZ" id="iIf-CE-vZM"/>
+                        <outlet property="githubLinkBtn" destination="Xfn-hY-cgd" id="7Mh-Tl-Y1z"/>
+                        <outlet property="menuBtn" destination="zud-3y-jC9" id="tfR-8t-bFJ"/>
+                        <outlet property="nameLabel" destination="UT9-Ua-azY" id="0AF-Er-QA5"/>
+                        <outlet property="profileImage" destination="RXh-yg-zgv" id="P4F-y5-gpe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8sx-X5-xAf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
