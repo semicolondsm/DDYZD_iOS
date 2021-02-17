@@ -6,3 +6,20 @@
 //
 
 import Foundation
+
+import RxCocoa
+import RxSwift
+
+
+class MyPageViewModel: ViewModelProtocol {
+    
+    struct input {
+    }
+    
+    struct output {
+    }
+    
+    func transform(_ input: input) -> output {
+        return output()
+    }
+}
