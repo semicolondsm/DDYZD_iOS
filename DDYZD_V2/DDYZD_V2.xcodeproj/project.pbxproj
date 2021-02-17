@@ -260,11 +260,8 @@
 				9200D0B825B751E700461843 /* Token.swift */,
 				9200D12225B88E7000461843 /* ClubModel.swift */,
 				92BED6E725BD4BA600526C33 /* ChatModel.swift */,
-<<<<<<< HEAD
 				92D97F2725CEF1C0008456C8 /* FeedModel.swift */,
-=======
 				9228A21B25DD17F800C299E9 /* PersonalModel.swift */,
->>>>>>> feature/Setting
 			);
 			name = Model;
 			path = DDYZD_V2/Source/Model;
