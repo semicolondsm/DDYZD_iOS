@@ -60,12 +60,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jH-2j-Fkc">
                                 <rect key="frame" x="20" y="282.5" width="374" height="442.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="소속중인 동아리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ySM-8m-1nL">
-                                        <rect key="frame" x="8" y="8" width="95" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bgc-lN-ZVi">
                                         <rect key="frame" x="8" y="34" width="358" height="408.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -77,11 +71,17 @@
                                         </collectionViewFlowLayout>
                                         <cells/>
                                     </collectionView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="소속중인 동아리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ySM-8m-1nL">
+                                        <rect key="frame" x="0.0" y="8" width="95" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="bgc-lN-ZVi" secondAttribute="trailing" constant="8" id="0aL-Gf-kSC"/>
-                                    <constraint firstItem="ySM-8m-1nL" firstAttribute="leading" secondItem="3jH-2j-Fkc" secondAttribute="leading" constant="8" id="Ggf-S9-2zj"/>
+                                    <constraint firstItem="ySM-8m-1nL" firstAttribute="leading" secondItem="3jH-2j-Fkc" secondAttribute="leading" id="Ggf-S9-2zj"/>
                                     <constraint firstItem="bgc-lN-ZVi" firstAttribute="leading" secondItem="3jH-2j-Fkc" secondAttribute="leading" constant="8" id="iQC-q0-Lm9"/>
                                     <constraint firstItem="bgc-lN-ZVi" firstAttribute="top" secondItem="ySM-8m-1nL" secondAttribute="bottom" constant="8" symbolic="YES" id="iUr-fc-rqg"/>
                                     <constraint firstAttribute="bottom" secondItem="bgc-lN-ZVi" secondAttribute="bottom" id="ren-8y-6gN"/>
@@ -112,7 +112,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TIP-qz-Sls">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="hamburgerBtn" id="zud-3y-jC9"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="hamburgerBtn" id="zud-3y-jC9">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="belongClubCollectionView" destination="bgc-lN-ZVi" id="xmf-CX-n2s"/>
@@ -138,7 +140,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Uud-a0-l6G">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
                         <segue destination="eRz-mR-KSg" kind="relationship" relationship="rootViewController" id="fWU-V8-xW6"/>
