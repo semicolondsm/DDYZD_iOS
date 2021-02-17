@@ -14,4 +14,16 @@ import RxSwift
 class PersonalAPI {
     let httpClient = HTTPClient()
     
+    func getGCN() -> Observable<(GCN?, StatusCodes)> {
+        httpClient.get(.getGCN, param: nil)
+            .map{ response, data -> (GCN?, StatusCodes) in
+                switch response.statusCode {
+                case 200:
+                    guard let data = try? JSONDecoder().decode(GCN.self, from: data) else { return (nil, .fault) }
+                    return (data, .success)
+                default:
+                    return (nil, .fault)
+                }
+            }
+    }
 }
