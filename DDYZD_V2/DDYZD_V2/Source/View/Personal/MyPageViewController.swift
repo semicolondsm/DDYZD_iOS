@@ -18,12 +18,19 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var githubLinkBtn: UIButton!
     @IBOutlet weak var belongClubCollectionView: UICollectionView!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setUI()
     }
 
+}
+
+//MARK:- UI
+extension MyPageViewController {
+    
+    func setUI(){
+        profileImage.circleImage()
+    }
+    
 }
