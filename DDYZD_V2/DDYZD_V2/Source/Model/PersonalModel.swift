@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct GCN: Codable {
+    let gcn: String
+}
