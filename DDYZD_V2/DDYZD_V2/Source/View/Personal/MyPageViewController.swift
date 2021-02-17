@@ -7,6 +7,10 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+import Kingfisher
+
 class MyPageViewController: UIViewController {
 
     @IBOutlet weak var menuBtn: UIBarButtonItem!
