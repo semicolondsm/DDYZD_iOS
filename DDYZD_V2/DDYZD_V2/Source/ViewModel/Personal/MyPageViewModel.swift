@@ -13,7 +13,10 @@ import RxSwift
 
 class MyPageViewModel: ViewModelProtocol {
     
+    private let disposeBag = DisposeBag()
+    
     struct input {
+        let getMyInfo: Driver<Void>
     }
     
     struct output {
@@ -22,4 +25,5 @@ class MyPageViewModel: ViewModelProtocol {
     func transform(_ input: input) -> output {
         return output()
     }
+    
 }
