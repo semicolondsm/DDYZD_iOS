@@ -13,7 +13,7 @@ import SocketIO
 
 class SocketIOManager {
     
-    var manager = SocketManager(socketURL: URL(string: "ws://api.semicolon.live")!, config: [.log(false), .compress])
+    var manager = SocketManager(socketURL: URL(string: "http://api.semicolon.live")!, config: [.log(false), .compress])
     var socket: SocketIOClient!
     
     init(_ room: String) {
