@@ -35,12 +35,6 @@ class MyPageViewController: UIViewController {
         setUI()
         setNavigationBar()
     }
-    
-    func openInSafari(url: String) {
-        if let url = URL(string: url) {
-            UIApplication.shared.open(url, options: [:])
-        }
-    }
 
     func bind() {
         let input = MyPageViewModel.input.init(getMyInfo: getMyInfo.asDriver(onErrorJustReturn: ()))

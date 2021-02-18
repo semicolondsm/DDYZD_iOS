@@ -106,6 +106,12 @@ extension UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    func openInSafari(url: String) {
+        if let url = URL(string: url) {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
+    
 }
 
 extension UIImageView {
