@@ -19,6 +19,7 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        setMessageTextField()
         addKeyboardNotification()
     }
 
@@ -27,9 +28,6 @@ class ChatViewController: UIViewController {
 //MARK:- UI
 extension ChatViewController {
     func setUI(){
-        textInputView.layer.borderWidth = 1
-        textInputView.layer.borderColor = #colorLiteral(red: 0.874435842, green: 0.8745588064, blue: 0.8743970394, alpha: 1)
-        textInputView.layer.cornerRadius = 22
     }
 }
 
@@ -61,5 +59,24 @@ extension ChatViewController {
       
     @objc private func keyboardWillHide(_ notification: Notification) {
         movingView.transform = .identity
+    }
+}
+
+//MARK:- TextFiled
+extension ChatViewController: UITextFieldDelegate {
+    func setMessageTextField(){
+        messageTextField.delegate = self
+        textInputView.layer.borderWidth = 1
+        textInputView.layer.borderColor = #colorLiteral(red: 0.874435842, green: 0.8745588064, blue: 0.8743970394, alpha: 1)
+        textInputView.layer.cornerRadius = 22
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+        
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
