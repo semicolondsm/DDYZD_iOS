@@ -23,6 +23,6 @@ struct UserInfo: Codable {
 
 struct Club: Codable {
     let club_name: String
-    let club_id: String
+    let club_id: Int
     let club_image: String
 }
