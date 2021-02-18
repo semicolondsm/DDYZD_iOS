@@ -10,3 +10,16 @@ import Foundation
 struct GCN: Codable {
     let gcn: String
 }
+
+struct UserInfo: Codable {
+    let name: String
+    let gcn: String
+    let git: String
+    let email: String
+    let image: String
+    let bio: String
+    let clubs: [Club]
+}
+
+struct Club: Codable {
+}
