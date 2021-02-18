@@ -22,6 +22,7 @@ class ChatViewController: UIViewController {
         super.viewDidLoad()
         setUI()
         setMessageTextField()
+        setTableView()
         addKeyboardNotification()
     }
 
