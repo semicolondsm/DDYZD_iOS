@@ -13,6 +13,8 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var textInputView: UIView!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var sendBtn: UIButton!
+    @IBOutlet weak var chatTable: UITableView!
+    @IBOutlet weak var chatTableBottomConstraint: NSLayoutConstraint!
     
     private var keyboardHeight: CGFloat!
     
@@ -56,11 +58,13 @@ extension ChatViewController {
         let keybaordRectangle = keyboardFrame.cgRectValue
         let keyboardHeight = keybaordRectangle.height
         movingView.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight+bottomPadding)
+        chatTableBottomConstraint.constant = 60+keyboardHeight-bottomPadding
       }
     }
       
     @objc private func keyboardWillHide(_ notification: Notification) {
         movingView.transform = .identity
+        chatTableBottomConstraint.constant = 60
     }
 }
 
