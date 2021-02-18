@@ -22,9 +22,16 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var githubLinkBtn: UIButton!
     @IBOutlet weak var belongClubCollectionView: UICollectionView!
     
+    private let viewModel = MyPageViewModel()
+    private let disposeBag = DisposeBag()
+    
+    private let getMyInfo = PublishSubject<Void>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        bind()
+        getInfo()
         setUI()
         setNavigationBar()
     }
@@ -35,6 +42,25 @@ class MyPageViewController: UIViewController {
         }
     }
 
+    func bind() {
+        let input = MyPageViewModel.input.init(getMyInfo: getMyInfo.asDriver(onErrorJustReturn: ()))
+        let output = viewModel.transform(input)
+        
+        output.myInfo.subscribe(onNext: { userInfo in
+            self.profileImage.kf.setImage(with: URL(string: userInfo.image_path ?? "" ))
+            self.nameLabel.text = userInfo.name
+            self.gcnLabel.text = userInfo.gcn
+            self.emailLabel.text = userInfo.email
+            self.bioLabel.text = userInfo.bio
+            self.githubLinkBtn.setTitle(" "+(userInfo.github_url ?? "깃허브 아이디를 등록해주세요!"), for: .normal)
+        })
+        .disposed(by: disposeBag)
+    }
+    
+    func getInfo() {
+        getMyInfo.onNext(())
+    }
+    
 }
 
 //MARK:- UI

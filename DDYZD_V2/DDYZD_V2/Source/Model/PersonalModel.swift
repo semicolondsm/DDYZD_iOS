@@ -12,17 +12,18 @@ struct GCN: Codable {
 }
 
 struct UserInfo: Codable {
+    let user_id: Int
     let name: String
     let gcn: String
-    let git: String
+    let image_path: String?
+    let github_url: String?
     let email: String
-    let image: String
-    let bio: String
+    let bio: String?
     let clubs: [Club]
 }
 
 struct Club: Codable {
-    let club_name: String
     let club_id: Int
+    let club_name: String
     let club_image: String
 }

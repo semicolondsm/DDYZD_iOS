@@ -20,10 +20,35 @@ class MyPageViewModel: ViewModelProtocol {
     }
     
     struct output {
+        let myInfo: PublishRelay<UserInfo>
     }
     
     func transform(_ input: input) -> output {
-        return output()
+        let personalAPI = PersonalAPI()
+        let myInfo = PublishRelay<UserInfo>()
+        
+        input.getMyInfo.asObservable().subscribe(onNext: {
+            personalAPI.getGCN().subscribe(onNext: { gcn, res in
+                switch res {
+                case .success:
+                    personalAPI.getUserInfo(gcn: gcn!.gcn).asObservable().subscribe(onNext: { data, res in
+                        switch res {
+                        case .success:
+                            myInfo.accept(data!)
+                        default:
+                            print("get user info: \(res)")
+                        }
+                    })
+                    .disposed(by: self.disposeBag)
+                default:
+                    print("get gcn: \(res)")
+                }
+            })
+            .disposed(by: self.disposeBag)
+        })
+        .disposed(by: disposeBag)
+        
+        return output(myInfo: myInfo)
     }
     
 }
