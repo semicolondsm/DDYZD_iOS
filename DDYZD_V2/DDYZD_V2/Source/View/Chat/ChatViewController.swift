@@ -86,3 +86,11 @@ extension ChatViewController: UITextFieldDelegate {
         return true
     }
 }
+
+//MARK:- TableView
+extension ChatViewController: UITableViewDelegate {
+    func setTableView(){
+        chatTable.delegate = self
+        chatTable.separatorStyle = .none
+    }
+}
