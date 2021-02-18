@@ -9,21 +9,25 @@ import UIKit
 
 class ChatViewController: UIViewController {
 
+    @IBOutlet weak var movingView: UIView!
+    @IBOutlet weak var textInputView: UIView!
+    @IBOutlet weak var messageTextField: UITextField!
+    @IBOutlet weak var sendBtn: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setUI()
     }
-    
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+//MARK:- UI
+
+extension ChatViewController {
+    func setUI(){
+        textInputView.layer.borderWidth = 1
+        textInputView.layer.borderColor = #colorLiteral(red: 0.874435842, green: 0.8745588064, blue: 0.8743970394, alpha: 1)
+        textInputView.layer.cornerRadius = 22
     }
-    */
-
 }
