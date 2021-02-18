@@ -51,9 +51,11 @@ extension ChatViewController {
     
     @objc private func keyboardWillShow(_ notification: Notification) {
       if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+        let window = UIApplication.shared.windows[0]
+        let bottomPadding = window.safeAreaInsets.bottom
         let keybaordRectangle = keyboardFrame.cgRectValue
         let keyboardHeight = keybaordRectangle.height
-        movingView.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight)
+        movingView.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight+bottomPadding)
       }
     }
       
