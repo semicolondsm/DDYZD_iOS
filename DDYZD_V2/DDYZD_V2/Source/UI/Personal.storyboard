@@ -78,13 +78,21 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="소속중인 동아리가 없습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXY-tn-xJz">
+                                        <rect key="frame" x="8" y="34" width="113" height="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="bgc-lN-ZVi" secondAttribute="trailing" constant="8" id="0aL-Gf-kSC"/>
+                                    <constraint firstItem="CXY-tn-xJz" firstAttribute="top" secondItem="bgc-lN-ZVi" secondAttribute="top" id="5R7-uh-kID"/>
                                     <constraint firstItem="ySM-8m-1nL" firstAttribute="leading" secondItem="3jH-2j-Fkc" secondAttribute="leading" id="Ggf-S9-2zj"/>
                                     <constraint firstItem="bgc-lN-ZVi" firstAttribute="leading" secondItem="3jH-2j-Fkc" secondAttribute="leading" constant="8" id="iQC-q0-Lm9"/>
                                     <constraint firstItem="bgc-lN-ZVi" firstAttribute="top" secondItem="ySM-8m-1nL" secondAttribute="bottom" constant="8" symbolic="YES" id="iUr-fc-rqg"/>
+                                    <constraint firstItem="CXY-tn-xJz" firstAttribute="leading" secondItem="bgc-lN-ZVi" secondAttribute="leading" id="js3-P0-wSf"/>
                                     <constraint firstAttribute="bottom" secondItem="bgc-lN-ZVi" secondAttribute="bottom" id="ren-8y-6gN"/>
                                     <constraint firstItem="ySM-8m-1nL" firstAttribute="top" secondItem="3jH-2j-Fkc" secondAttribute="top" constant="8" id="tB5-BH-dvS"/>
                                 </constraints>
@@ -125,6 +133,7 @@
                         <outlet property="githubLinkBtn" destination="Xfn-hY-cgd" id="7Mh-Tl-Y1z"/>
                         <outlet property="menuBtn" destination="zud-3y-jC9" id="tfR-8t-bFJ"/>
                         <outlet property="nameLabel" destination="UT9-Ua-azY" id="0AF-Er-QA5"/>
+                        <outlet property="noClubNotice" destination="CXY-tn-xJz" id="cRy-TV-ZIl"/>
                         <outlet property="profileImage" destination="RXh-yg-zgv" id="P4F-y5-gpe"/>
                     </connections>
                 </viewController>

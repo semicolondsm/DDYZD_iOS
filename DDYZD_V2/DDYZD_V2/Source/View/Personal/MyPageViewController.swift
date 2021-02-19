@@ -20,6 +20,7 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet weak var githubLinkBtn: UIButton!
+    @IBOutlet weak var noClubNotice: UILabel!
     @IBOutlet weak var belongClubCollectionView: UICollectionView!
     
     private let viewModel = MyPageViewModel()
@@ -48,13 +49,16 @@ class MyPageViewController: UIViewController {
             self.emailLabel.text = userInfo.email
             self.bioLabel.text = userInfo.bio
             self.githubLinkBtn.setTitle(" "+(userInfo.github_url ?? "깃허브 아이디를 등록해주세요!"), for: .normal)
-            if let githubID = userInfo.github_url {
-                self.githubLinkBtn.rx.tap.subscribe(onNext: {
+            self.githubLinkBtn.rx.tap.subscribe(onNext: {
+                if let githubID = userInfo.github_url {
                     self.openInSafari(url: "https://github.com/"+githubID)
-                })
-                .disposed(by: self.disposeBag)
-            } else {
-                // 깃허브 아이디 등록 alret
+                } else {
+                    // 깃허브 아이디 등록 alret
+                }
+            })
+            .disposed(by: self.disposeBag)
+            if userInfo.clubs.count >= 1 {
+                self.noClubNotice.isHidden = true
             }
             
         })
