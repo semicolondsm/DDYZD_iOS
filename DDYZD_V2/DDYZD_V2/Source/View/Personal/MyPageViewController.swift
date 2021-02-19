@@ -13,7 +13,6 @@ import Kingfisher
 
 class MyPageViewController: UIViewController {
 
-    @IBOutlet weak var menuBtn: UIBarButtonItem!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var gcnLabel: UILabel!
@@ -22,6 +21,7 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var githubLinkBtn: UIButton!
     @IBOutlet weak var noClubNotice: UILabel!
     @IBOutlet weak var belongClubCollectionView: UICollectionView!
+    @IBAction func menuBtn(_ sender: Any) { openMenu() }
     
     private let viewModel = MyPageViewModel()
     private let disposeBag = DisposeBag()
@@ -41,6 +41,8 @@ class MyPageViewController: UIViewController {
     func bind() {
         let input = MyPageViewModel.input.init(getMyInfo: getMyInfo.asDriver(onErrorJustReturn: ()))
         let output = viewModel.transform(input)
+        
+        
         
         output.myInfo.subscribe(onNext: { userInfo in
             self.profileImage.kf.setImage(with: URL(string: userInfo.image_path ?? "" ))
@@ -72,6 +74,33 @@ class MyPageViewController: UIViewController {
     
     func getInfo() {
         getMyInfo.onNext(())
+    }
+    
+    func openMenu(){
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let changeGithubID = UIAlertAction(title: "Github 계정 변경", style: .default) { _ in
+            let alert = UIAlertController(title: "Github 계정 변경", message: nil, preferredStyle: .alert)
+            alert.addTextField(){ textField in
+                textField.placeholder = "Github id"
+            }
+            let ok = UIAlertAction(title: "OK", style: .default) { _ in
+                print(alert.textFields![0].text!)
+            }
+            let cancel = UIAlertAction(title: "cancel", style: .cancel)
+            alert.addAction(cancel)
+            alert.addAction(ok)
+            alert.view.tintColor = .black
+            self.present(alert, animated: true, completion: nil)
+        }
+        let logout = UIAlertAction(title: "로그아웃", style: .destructive) { _ in
+            print("logout")
+        }
+        let cancle = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        alert.addAction(changeGithubID)
+        alert.addAction(logout)
+        alert.addAction(cancle)
+        alert.view.tintColor = .black
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
@@ -114,7 +143,7 @@ extension MyPageViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let collectionViewCellWithd = belongClubCollectionView.frame.width / 6
+        let collectionViewCellWithd = belongClubCollectionView.frame.width / 5
         return CGSize(width: collectionViewCellWithd, height: 90)
     }
     
