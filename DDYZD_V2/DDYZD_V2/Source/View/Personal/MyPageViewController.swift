@@ -60,8 +60,8 @@ class MyPageViewController: UIViewController {
         })
         .disposed(by: disposeBag)
         
-        output.belongClub.bind(to: belongClubCollectionView.rx.items(cellIdentifier: "")) { index, data, cell in
-            
+        output.belongClub.bind(to: belongClubCollectionView.rx.items(cellIdentifier: "BelongClubCollectionViewCell", cellType: BelongClubCollectionViewCell.self)) { index, item, cell in
+            cell.bind(item)
         }
         .disposed(by: disposeBag)
     }
@@ -97,7 +97,7 @@ extension MyPageViewController {
 }
 
 //MARK:- CollectionView
-extension MyPageViewController: UICollectionViewDelegate {
+extension MyPageViewController: UICollectionViewDelegateFlowLayout {
     
     func setCollectionView(){
         belongClubCollectionView.delegate = self
@@ -108,4 +108,10 @@ extension MyPageViewController: UICollectionViewDelegate {
         let belongClubNib = UINib(nibName: "BelongClubCollectionViewCell", bundle: nil)
         belongClubCollectionView.register(belongClubNib, forCellWithReuseIdentifier: "BelongClubCollectionViewCell")
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let collectionViewCellWithd = belongClubCollectionView.frame.width / 6
+        return CGSize(width: collectionViewCellWithd, height: 90)
+    }
+    
 }
