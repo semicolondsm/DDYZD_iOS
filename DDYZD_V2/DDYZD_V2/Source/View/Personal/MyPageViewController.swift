@@ -34,6 +34,7 @@ class MyPageViewController: UIViewController {
         getInfo()
         setUI()
         setNavigationBar()
+        setCollectionView()
     }
 
     func bind() {
@@ -93,4 +94,18 @@ extension MyPageViewController {
         navigationItem.leftBarButtonItem = leftButton
     }
     
+}
+
+//MARK:- CollectionView
+extension MyPageViewController: UICollectionViewDelegate {
+    
+    func setCollectionView(){
+        belongClubCollectionView.delegate = self
+        registerCell()
+    }
+    
+    func registerCell() {
+        let belongClubNib = UINib(nibName: "BelongClubCollectionViewCell", bundle: nil)
+        belongClubCollectionView.register(belongClubNib, forCellWithReuseIdentifier: "BelongClubCollectionViewCell")
+    }
 }
