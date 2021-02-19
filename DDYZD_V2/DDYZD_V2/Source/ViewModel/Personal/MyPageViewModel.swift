@@ -17,17 +17,20 @@ class MyPageViewModel: ViewModelProtocol {
     
     struct input {
         let getMyInfo: Driver<Void>
+        let modifyGitID: Driver<String>
     }
     
     struct output {
         let myInfo: PublishRelay<UserInfo>
         let belongClub: PublishRelay<[Club]>
+        let modifyResult: PublishRelay<Bool>
     }
     
     func transform(_ input: input) -> output {
         let personalAPI = PersonalAPI()
         let myInfo = PublishRelay<UserInfo>()
         let belongClub = PublishRelay<[Club]>()
+        let modifyResult = PublishRelay<Bool>()
         
         input.getMyInfo.asObservable().subscribe(onNext: {
             personalAPI.getGCN().subscribe(onNext: { gcn, res in
@@ -55,7 +58,20 @@ class MyPageViewModel: ViewModelProtocol {
         })
         .disposed(by: disposeBag)
         
-        return output(myInfo: myInfo, belongClub: belongClub)
+        input.modifyGitID.asObservable().subscribe(onNext: { githubID in
+            personalAPI.modifyGithubID(githubID: githubID).subscribe(onNext: { res in
+                switch res {
+                case .success:
+                    modifyResult.accept(true)
+                default:
+                    modifyResult.accept(false)
+                }
+            })
+            .disposed(by: self.disposeBag)
+        })
+        .disposed(by: disposeBag)
+        
+        return output(myInfo: myInfo, belongClub: belongClub, modifyResult: modifyResult)
     }
     
 }
