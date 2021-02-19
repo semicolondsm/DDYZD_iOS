@@ -84,7 +84,7 @@ class MyPageViewController: UIViewController {
                 textField.placeholder = "Github id"
             }
             let ok = UIAlertAction(title: "OK", style: .default) { _ in
-                print(alert.textFields![0].text!)
+                self.showToast(message: alert.textFields![0].text!)
             }
             let cancel = UIAlertAction(title: "cancel", style: .cancel)
             alert.addAction(cancel)
@@ -93,7 +93,7 @@ class MyPageViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         let logout = UIAlertAction(title: "로그아웃", style: .destructive) { _ in
-            print("logout")
+            //로그아웃
         }
         let cancle = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         alert.addAction(changeGithubID)
