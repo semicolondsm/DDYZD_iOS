@@ -39,4 +39,28 @@ class PersonalAPI {
                 }
             }
     }
+    
+    func modifyGithubID(githubID: String) -> Observable<StatusCodes> {
+        httpClient.put(.modifyGithubID, param: ["git":githubID])
+            .map{ response, data -> StatusCodes in
+                switch response.statusCode {
+                case 200:
+                    return .success
+                default:
+                    return .fault
+                }
+            }
+    }
+    
+    func modifyBio(bio: String) -> Observable<StatusCodes> {
+        httpClient.put(.modifyBio, param: ["bio":bio])
+            .map{ response, data -> StatusCodes in
+                switch response.statusCode {
+                case 200:
+                    return .success
+                default:
+                    return .fault
+                }
+            }
+    }
 }
