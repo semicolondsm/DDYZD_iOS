@@ -14,7 +14,7 @@ import SocketIO
 class SocketIOManager {
     
     var manager = SocketManager(socketURL: URL(string: "http://api.semicolon.live")!,
-                                config: [.log(true), .compress, .forceWebsockets(true), .extraHeaders(["Authorization": "Bearer \(Token.access_token)"]) ])
+                                config: [.log(true), .compress, .forceWebsockets(true), .reconnects(false), .extraHeaders(["Authorization": "Bearer \(Token.access_token)"]) ])
     var socket: SocketIOClient!
     
     init() {
