@@ -13,11 +13,20 @@ import SocketIO
 
 class SocketIOManager {
     
-    var manager = SocketManager(socketURL: URL(string: "http://api.semicolon.live")!, config: [.log(false), .compress])
+    var manager = SocketManager(socketURL: URL(string: "http://api.semicolon.live")!,
+                                config: [.log(true), .compress, .forceWebsockets(true), .extraHeaders(["Authorization": "Bearer \(Token.access_token)"]) ])
     var socket: SocketIOClient!
     
-    init(_ room: String) {
-        socket = self.manager.socket(forNamespace: "/"+room)
+    init() {
+        socket = self.manager.socket(forNamespace: "/chat")
+        socket.on(clientEvent: .connect) {
+            print($0)
+            print($1)
+        }
+        socket.on(clientEvent: .error) {
+            print($0)
+            print($1)
+        }
     }
     
     func establishConnection() {
