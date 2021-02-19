@@ -27,6 +27,7 @@ class MyPageViewController: UIViewController {
     private let disposeBag = DisposeBag()
     
     private let getMyInfo = PublishSubject<Void>()
+    private let modifyGithubID = PublishSubject<String>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,8 @@ class MyPageViewController: UIViewController {
     }
 
     func bind() {
-        let input = MyPageViewModel.input.init(getMyInfo: getMyInfo.asDriver(onErrorJustReturn: ()))
+        let input = MyPageViewModel.input.init(getMyInfo: getMyInfo.asDriver(onErrorJustReturn: ()),
+                                               modifyGitID: modifyGithubID.asDriver(onErrorJustReturn: ""))
         let output = viewModel.transform(input)
         
         
@@ -70,6 +72,13 @@ class MyPageViewController: UIViewController {
             cell.bind(item)
         }
         .disposed(by: disposeBag)
+        
+        output.modifyResult.subscribe(onNext: { res in
+            if res {
+                self.getInfo()
+            }
+        })
+        .disposed(by: disposeBag)
     }
     
     func getInfo() {
@@ -77,14 +86,27 @@ class MyPageViewController: UIViewController {
     }
     
     func openMenu(){
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let changeGithubID = UIAlertAction(title: "Github 계정 변경", style: .default) { _ in
             let alert = UIAlertController(title: "Github 계정 변경", message: nil, preferredStyle: .alert)
+            let label = UILabel(frame: CGRect(x: 0, y: 40, width: 270, height:18))
+            label.textAlignment = .center
+            label.textColor = .red
+            label.font = label.font.withSize(12)
+            alert.view.addSubview(label)
+            label.isHidden = true
             alert.addTextField(){ textField in
                 textField.placeholder = "Github id"
             }
             let ok = UIAlertAction(title: "OK", style: .default) { _ in
-                self.showToast(message: alert.textFields![0].text!)
+                if alert.textFields![0].text! == "" {
+                    label.text = ""
+                    label.text = "Github 아이디를 입력해 주세요!"
+                    label.isHidden = false
+                    self.present(alert, animated: true, completion: nil)
+                } else {
+                    self.modifyGithubID.onNext(alert.textFields![0].text!)
+                }
             }
             let cancel = UIAlertAction(title: "cancel", style: .cancel)
             alert.addAction(cancel)
@@ -96,11 +118,11 @@ class MyPageViewController: UIViewController {
             //로그아웃
         }
         let cancle = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-        alert.addAction(changeGithubID)
-        alert.addAction(logout)
-        alert.addAction(cancle)
-        alert.view.tintColor = .black
-        self.present(alert, animated: true, completion: nil)
+        actionSheet.addAction(changeGithubID)
+        actionSheet.addAction(logout)
+        actionSheet.addAction(cancle)
+        actionSheet.view.tintColor = .black
+        self.present(actionSheet, animated: true, completion: nil)
     }
     
 }
