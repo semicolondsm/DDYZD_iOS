@@ -53,16 +53,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xfn-hY-cgd">
-                                <rect key="frame" x="20" y="215.5" width="94" height="22"/>
+                                <rect key="frame" x="20" y="220.5" width="71" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title=" github ID" image="githubIcon">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jH-2j-Fkc">
-                                <rect key="frame" x="20" y="287.5" width="374" height="437.5"/>
+                                <rect key="frame" x="20" y="286.5" width="374" height="438.5"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bgc-lN-ZVi">
-                                        <rect key="frame" x="8" y="34" width="358" height="403.5"/>
+                                        <rect key="frame" x="8" y="34" width="358" height="404.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="J9e-nD-fvG">
                                             <size key="itemSize" width="70" height="80"/>
@@ -116,13 +117,16 @@
                             <constraint firstItem="3jH-2j-Fkc" firstAttribute="top" secondItem="Xfn-hY-cgd" secondAttribute="bottom" constant="50" id="i9r-rR-zNg"/>
                             <constraint firstItem="RXh-yg-zgv" firstAttribute="top" secondItem="dfe-DY-7eR" secondAttribute="top" constant="30" id="ksh-lU-wjK"/>
                             <constraint firstItem="FOl-C0-JAe" firstAttribute="top" secondItem="MLD-Vo-Okd" secondAttribute="bottom" constant="20" id="m9B-qT-voV"/>
-                            <constraint firstItem="Xfn-hY-cgd" firstAttribute="top" secondItem="FOl-C0-JAe" secondAttribute="bottom" constant="15" id="oLQ-7W-TvR"/>
+                            <constraint firstItem="Xfn-hY-cgd" firstAttribute="top" secondItem="FOl-C0-JAe" secondAttribute="bottom" constant="20" id="oLQ-7W-TvR"/>
                             <constraint firstItem="dfe-DY-7eR" firstAttribute="trailing" secondItem="FOl-C0-JAe" secondAttribute="trailing" constant="20" id="xy4-RN-wI9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TIP-qz-Sls">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="hamburgerBtn" id="zud-3y-jC9">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="menuBtn:" destination="eRz-mR-KSg" id="GHL-9b-Olm"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -131,7 +135,6 @@
                         <outlet property="emailLabel" destination="MLD-Vo-Okd" id="oaQ-du-CDx"/>
                         <outlet property="gcnLabel" destination="PYI-Er-gkZ" id="iIf-CE-vZM"/>
                         <outlet property="githubLinkBtn" destination="Xfn-hY-cgd" id="7Mh-Tl-Y1z"/>
-                        <outlet property="menuBtn" destination="zud-3y-jC9" id="tfR-8t-bFJ"/>
                         <outlet property="nameLabel" destination="UT9-Ua-azY" id="0AF-Er-QA5"/>
                         <outlet property="noClubNotice" destination="CXY-tn-xJz" id="cRy-TV-ZIl"/>
                         <outlet property="profileImage" destination="RXh-yg-zgv" id="P4F-y5-gpe"/>
