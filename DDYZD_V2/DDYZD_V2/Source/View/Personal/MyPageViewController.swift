@@ -115,7 +115,10 @@ class MyPageViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         let logout = UIAlertAction(title: "로그아웃", style: .destructive) { _ in
-            //로그아웃
+            Token.access_token = ""
+            Token.refresh_token = ""
+            self.tabBarController?.selectedIndex = 0
+            self.moveLogin(didJustBrowsingBtnTaped: nil, didSuccessLogin: nil)
         }
         let cancle = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         actionSheet.addAction(changeGithubID)
