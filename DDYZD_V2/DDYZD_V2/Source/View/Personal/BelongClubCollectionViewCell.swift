@@ -8,7 +8,15 @@
 import UIKit
 
 class BelongClubCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var clubProfileImage: UIImageView!
+    @IBOutlet weak var clubNameLabel: UILabel!
+    
     override func awakeFromNib() {
         
+    }
+    
+    func setUI(){
+        clubProfileImage.circleImage()
     }
 }
