@@ -58,6 +58,11 @@ class MyPageViewController: UIViewController {
             
         })
         .disposed(by: disposeBag)
+        
+        output.belongClub.bind(to: belongClubCollectionView.rx.items(cellIdentifier: "")) { index, data, cell in
+            
+        }
+        .disposed(by: disposeBag)
     }
     
     func getInfo() {
