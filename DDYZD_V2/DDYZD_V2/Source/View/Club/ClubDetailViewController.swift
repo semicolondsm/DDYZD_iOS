@@ -66,8 +66,17 @@ class ClubDetailViewController: UIViewController {
             self.navigationBarTitile.text = data.clubname
             self.isHead = data.owner
             self.clubNameLabel.text = data.clubname
+            self.clubDescriptionLabel.text = data.description
             self.clubBackImage.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(data.backimage)"))
             self.clubProfileImgae.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(data.clubimage)"))
+            
+            for field in data.clubtag {
+                if field == data.clubtag.last {
+                    self.fieldLabel.text! += field
+                } else {
+                    self.fieldLabel.text! += "\(field), "
+                }
+            }
         })
         .disposed(by: disposeBag)
         
