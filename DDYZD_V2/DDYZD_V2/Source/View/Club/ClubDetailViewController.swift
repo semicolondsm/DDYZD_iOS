@@ -183,6 +183,12 @@ extension ClubDetailViewController {
     }
 }
 
+// MARK:- collection view
+extension ClubDetailViewController {
+    func setCollectionView(){
+        
+    }
+}
 
 // MARK:- table view
 extension ClubDetailViewController: UITableViewDelegate {
