@@ -30,6 +30,7 @@ class ClubDetailViewModel: ViewModelProtocol {
     struct output {
         let clubInfo: PublishRelay<ClubInfoModel>
         let clubMembers: PublishRelay<[ClubMember]>
+        let clubMemberNum: PublishRelay<Int>
         let feedList: PublishRelay<[FeedModel]>
         let flagItResult: PublishRelay<Bool>
         let pinFeedResult: PublishRelay<Bool>
@@ -41,6 +42,7 @@ class ClubDetailViewModel: ViewModelProtocol {
         let feedAPI = FeedAPI()
         let clubInfo = PublishRelay<ClubInfoModel>()
         let clubMembers = PublishRelay<[ClubMember]>()
+        let clubMemberNum = PublishRelay<Int>()
         let feedList = PublishRelay<[FeedModel]>()
         let flagItResult = PublishRelay<Bool>()
         let pinFeedResult = PublishRelay<Bool>()
@@ -60,6 +62,7 @@ class ClubDetailViewModel: ViewModelProtocol {
                 switch res {
                 case .success:
                     clubMembers.accept(data!)
+                    clubMemberNum.accept(data!.count)
                 default:
                     print("get club member err")
                 }
@@ -152,6 +155,7 @@ class ClubDetailViewModel: ViewModelProtocol {
         
         return output(clubInfo: clubInfo,
                       clubMembers: clubMembers,
+                      clubMemberNum: clubMemberNum,
                       feedList: feedList,
                       flagItResult: flagItResult,
                       pinFeedResult: pinFeedResult)
