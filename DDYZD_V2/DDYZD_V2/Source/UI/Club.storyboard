@@ -260,6 +260,7 @@
                         <outlet property="clubBackImage" destination="BFY-G5-4or" id="BGv-qn-kIN"/>
                         <outlet property="clubDescriptionLabel" destination="LYK-RD-6Yq" id="K5k-aI-vVb"/>
                         <outlet property="clubMemberCollectionView" destination="CZ1-L2-2yh" id="ciU-cN-0Ev"/>
+                        <outlet property="clubMemberNumLabel" destination="pjb-jC-0Gr" id="AD5-dF-k2j"/>
                         <outlet property="clubNameLabel" destination="Hpu-Vp-pcW" id="uAf-cz-lUy"/>
                         <outlet property="clubProfileImgae" destination="3Nk-AM-Kef" id="ZZA-oR-vZj"/>
                         <outlet property="feedTable" destination="fNT-Qt-8iI" id="Uhd-Wu-2uL"/>

@@ -25,6 +25,7 @@ class ClubDetailViewController: UIViewController {
     @IBOutlet weak var chatBtn: UIButton!
     @IBOutlet weak var followGuideanceLabel: UILabel!
     @IBOutlet weak var chatGuideanceLabel: UILabel!
+    @IBOutlet weak var clubMemberNumLabel: UILabel!
     @IBOutlet weak var clubMemberCollectionView: UICollectionView!
     
     private let viewModel = ClubDetailViewModel()
@@ -72,6 +73,11 @@ class ClubDetailViewController: UIViewController {
             self.clubDescriptionLabel.text = data.description
             self.clubBackImage.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(data.backimage)"))
             self.clubProfileImgae.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(data.clubimage)"))
+        })
+        .disposed(by: disposeBag)
+        
+        output.clubMemberNum.subscribe(onNext: { num in
+            self.clubMemberNumLabel.text = String(num)
         })
         .disposed(by: disposeBag)
         
