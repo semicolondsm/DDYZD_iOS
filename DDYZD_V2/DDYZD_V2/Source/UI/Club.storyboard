@@ -205,10 +205,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CZ1-L2-2yh">
-                                                    <rect key="frame" x="8" y="40" width="398" height="90"/>
+                                                    <rect key="frame" x="8" y="40" width="398" height="80"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="80" id="EV8-8Y-Fiq"/>
+                                                    </constraints>
                                                     <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7cB-ZF-nOm">
-                                                        <size key="itemSize" width="128" height="128"/>
+                                                        <size key="itemSize" width="128" height="80"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -219,7 +222,6 @@
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="pjb-jC-0Gr" secondAttribute="trailing" constant="8" id="Fjm-bF-4KA"/>
-                                                <constraint firstAttribute="bottom" secondItem="CZ1-L2-2yh" secondAttribute="bottom" id="QB3-fO-EgD"/>
                                                 <constraint firstItem="CZ1-L2-2yh" firstAttribute="leading" secondItem="iUe-bf-FWN" secondAttribute="leading" constant="8" id="SUL-S1-zEg"/>
                                                 <constraint firstItem="CZ1-L2-2yh" firstAttribute="top" secondItem="dqH-Fc-r63" secondAttribute="bottom" constant="8" symbolic="YES" id="XIk-Ki-GpL"/>
                                                 <constraint firstAttribute="height" constant="130" id="eal-wx-3TZ"/>
