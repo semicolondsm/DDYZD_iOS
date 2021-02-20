@@ -30,6 +30,7 @@
 		9228A23D25DD1DC600C299E9 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9228A23C25DD1DC600C299E9 /* MyPageViewModel.swift */; };
 		9228A24025DD1DCC00C299E9 /* OtherUserPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9228A23F25DD1DCC00C299E9 /* OtherUserPageViewModel.swift */; };
 		922EBECD25E15E5300AE5697 /* ClubMemberCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 922EBECC25E15E5300AE5697 /* ClubMemberCollectionViewCell.xib */; };
+		922EBED025E160B700AE5697 /* ClubMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922EBECF25E160B700AE5697 /* ClubMemberCollectionViewCell.swift */; };
 		924CD78C25DF70E5009C9824 /* BelongClubCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924CD78B25DF70E5009C9824 /* BelongClubCollectionViewCell.xib */; };
 		924CD78F25DF7F06009C9824 /* BelongClubCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CD78E25DF7F06009C9824 /* BelongClubCollectionViewCell.swift */; };
 		925C9EAB25B08BE7005A3694 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C9EAA25B08BE7005A3694 /* AppDelegate.swift */; };
@@ -86,6 +87,7 @@
 		9228A23C25DD1DC600C299E9 /* MyPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
 		9228A23F25DD1DCC00C299E9 /* OtherUserPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherUserPageViewModel.swift; sourceTree = "<group>"; };
 		922EBECC25E15E5300AE5697 /* ClubMemberCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClubMemberCollectionViewCell.xib; sourceTree = "<group>"; };
+		922EBECF25E160B700AE5697 /* ClubMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubMemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		924CD78B25DF70E5009C9824 /* BelongClubCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BelongClubCollectionViewCell.xib; sourceTree = "<group>"; };
 		924CD78E25DF7F06009C9824 /* BelongClubCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BelongClubCollectionViewCell.swift; sourceTree = "<group>"; };
 		925C9EA725B08BE7005A3694 /* DDYZD_V2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDYZD_V2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,6 +187,7 @@
 				9200D15C25B996C600461843 /* ClubListTableViewController.swift */,
 				92BED6EA25BD534B00526C33 /* ClubDetailViewController.swift */,
 				9200D38B25BBD6AD00461843 /* ClubListTableViewCell.swift */,
+				922EBECF25E160B700AE5697 /* ClubMemberCollectionViewCell.swift */,
 			);
 			path = Club;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				92BED6EE25BD536200526C33 /* ClubDetailViewModel.swift in Sources */,
 				9200D13225B8903300461843 /* ClubAPI.swift in Sources */,
 				926E86E725B4404F00E7F213 /* HTTPClient.swift in Sources */,
+				922EBED025E160B700AE5697 /* ClubMemberCollectionViewCell.swift in Sources */,
 				9200D04C25B7411100461843 /* ViewModelProtocol.swift in Sources */,
 				92C35F4225B5BD0700D30DDF /* DDYZDAPI.swift in Sources */,
 				9263697825B7335C00D2D107 /* AuthAPI.swift in Sources */,
