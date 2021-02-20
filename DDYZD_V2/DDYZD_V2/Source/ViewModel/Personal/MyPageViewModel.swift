@@ -21,6 +21,7 @@ class MyPageViewModel: ViewModelProtocol {
     }
     
     struct output {
+        let getInfoResult: PublishRelay<Bool>
         let myInfo: PublishRelay<UserInfo>
         let belongClub: PublishRelay<[Club]>
         let modifyResult: PublishRelay<Bool>
@@ -28,6 +29,7 @@ class MyPageViewModel: ViewModelProtocol {
     
     func transform(_ input: input) -> output {
         let personalAPI = PersonalAPI()
+        let getInfoResult = PublishRelay<Bool>()
         let myInfo = PublishRelay<UserInfo>()
         let belongClub = PublishRelay<[Club]>()
         let modifyResult = PublishRelay<Bool>()
@@ -39,6 +41,7 @@ class MyPageViewModel: ViewModelProtocol {
                     personalAPI.getUserInfo(gcn: gcn!.gcn).asObservable().subscribe(onNext: { data, res in
                         switch res {
                         case .success:
+                            getInfoResult.accept(true)
                             myInfo.accept(data!)
                             if data!.clubs.count == 1 {
                                 belongClub.accept(data!.clubs+[Club(club_id: -1, club_name: "", club_image: "")])
@@ -46,11 +49,13 @@ class MyPageViewModel: ViewModelProtocol {
                                 belongClub.accept(data!.clubs)
                             }
                         default:
+                            getInfoResult.accept(false)
                             print("get user info: \(res)")
                         }
                     })
                     .disposed(by: self.disposeBag)
                 default:
+                    getInfoResult.accept(false)
                     print("get gcn: \(res)")
                 }
             })
@@ -71,7 +76,7 @@ class MyPageViewModel: ViewModelProtocol {
         })
         .disposed(by: disposeBag)
         
-        return output(myInfo: myInfo, belongClub: belongClub, modifyResult: modifyResult)
+        return output(getInfoResult: getInfoResult, myInfo: myInfo, belongClub: belongClub, modifyResult: modifyResult)
     }
     
 }

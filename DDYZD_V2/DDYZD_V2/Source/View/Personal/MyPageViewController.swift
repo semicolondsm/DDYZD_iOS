@@ -38,13 +38,26 @@ class MyPageViewController: UIViewController {
         setNavigationBar()
         setCollectionView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getInfo()
+    }
 
     func bind() {
         let input = MyPageViewModel.input.init(getMyInfo: getMyInfo.asDriver(onErrorJustReturn: ()),
                                                modifyGitID: modifyGithubID.asDriver(onErrorJustReturn: ""))
         let output = viewModel.transform(input)
         
-        
+        output.getInfoResult.subscribe(onNext: { isSuccess in
+            if !isSuccess {
+                self.moveLogin(didJustBrowsingBtnTaped: {
+                    self.tabBarController?.selectedIndex = 0
+                }, didSuccessLogin: {
+                    self.getInfo()
+                })
+            }
+        })
+        .disposed(by: disposeBag)
         
         output.myInfo.subscribe(onNext: { userInfo in
             self.profileImage.kf.setImage(with: URL(string: userInfo.image_path ?? "" ))
@@ -57,7 +70,7 @@ class MyPageViewController: UIViewController {
                 if let githubID = userInfo.github_url {
                     self.openInSafari(url: "https://github.com/"+githubID)
                 } else {
-                    // 깃허브 아이디 등록 alret
+                    self.changeGithubIDAlert()
                 }
             })
             .disposed(by: self.disposeBag)
@@ -88,31 +101,7 @@ class MyPageViewController: UIViewController {
     func openMenu(){
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let changeGithubID = UIAlertAction(title: "Github 계정 변경", style: .default) { _ in
-            let alert = UIAlertController(title: "Github 계정 변경", message: nil, preferredStyle: .alert)
-            let label = UILabel(frame: CGRect(x: 0, y: 40, width: 270, height:18))
-            label.textAlignment = .center
-            label.textColor = .red
-            label.font = label.font.withSize(12)
-            alert.view.addSubview(label)
-            label.isHidden = true
-            alert.addTextField(){ textField in
-                textField.placeholder = "Github id"
-            }
-            let ok = UIAlertAction(title: "OK", style: .default) { _ in
-                if alert.textFields![0].text! == "" {
-                    label.text = ""
-                    label.text = "Github 아이디를 입력해 주세요!"
-                    label.isHidden = false
-                    self.present(alert, animated: true, completion: nil)
-                } else {
-                    self.modifyGithubID.onNext(alert.textFields![0].text!)
-                }
-            }
-            let cancel = UIAlertAction(title: "cancel", style: .cancel)
-            alert.addAction(cancel)
-            alert.addAction(ok)
-            alert.view.tintColor = .black
-            self.present(alert, animated: true, completion: nil)
+            self.changeGithubIDAlert()
         }
         let logout = UIAlertAction(title: "로그아웃", style: .destructive) { _ in
             Token.access_token = ""
@@ -126,6 +115,34 @@ class MyPageViewController: UIViewController {
         actionSheet.addAction(cancle)
         actionSheet.view.tintColor = .black
         self.present(actionSheet, animated: true, completion: nil)
+    }
+    
+    func changeGithubIDAlert(){
+        let alert = UIAlertController(title: "Github 계정 변경", message: nil, preferredStyle: .alert)
+        let label = UILabel(frame: CGRect(x: 0, y: 40, width: 270, height:18))
+        label.textAlignment = .center
+        label.textColor = .red
+        label.font = label.font.withSize(12)
+        alert.view.addSubview(label)
+        label.isHidden = true
+        alert.addTextField(){ textField in
+            textField.placeholder = "Github id"
+        }
+        let ok = UIAlertAction(title: "OK", style: .default) { _ in
+            if alert.textFields![0].text! == "" {
+                label.text = ""
+                label.text = "Github 아이디를 입력해 주세요!"
+                label.isHidden = false
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                self.modifyGithubID.onNext(alert.textFields![0].text!)
+            }
+        }
+        let cancel = UIAlertAction(title: "cancel", style: .cancel)
+        alert.addAction(cancel)
+        alert.addAction(ok)
+        alert.view.tintColor = .black
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
