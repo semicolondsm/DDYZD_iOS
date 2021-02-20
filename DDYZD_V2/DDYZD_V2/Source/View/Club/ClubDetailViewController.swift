@@ -25,6 +25,7 @@ class ClubDetailViewController: UIViewController {
     @IBOutlet weak var chatBtn: UIButton!
     @IBOutlet weak var followGuideanceLabel: UILabel!
     @IBOutlet weak var chatGuideanceLabel: UILabel!
+    @IBOutlet weak var clubMemberCollectionView: UICollectionView!
     
     private let viewModel = ClubDetailViewModel()
     private let disposeBag = DisposeBag()
@@ -44,6 +45,7 @@ class ClubDetailViewController: UIViewController {
         setUI()
         bind()
         getClubDetailInfo()
+        setCollectionView()
         setTableView()
         registerCell()
         reloadFeeds()
@@ -71,6 +73,11 @@ class ClubDetailViewController: UIViewController {
             self.clubBackImage.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(data.backimage)"))
             self.clubProfileImgae.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(data.clubimage)"))
         })
+        .disposed(by: disposeBag)
+        
+        output.clubMembers.bind(to: clubMemberCollectionView.rx.items(cellIdentifier: "ClubMemberCollectionViewCell", cellType: ClubMemberCollectionViewCell.self)) { index, item, cell in
+            cell.bind(index: index, item: item)
+        }
         .disposed(by: disposeBag)
         
         output.feedList.bind(to: feedTable.rx.items) { _, row, item -> UITableViewCell in
@@ -204,9 +211,19 @@ extension ClubDetailViewController {
 }
 
 // MARK:- collection view
-extension ClubDetailViewController {
+extension ClubDetailViewController: UICollectionViewDelegateFlowLayout {
     func setCollectionView(){
-        
+        clubMemberCollectionView.delegate = self
+        registerCollectionViewCell()
+    }
+    
+    func registerCollectionViewCell() {
+        let clubMemberNib = UINib(nibName: "ClubMemberCollectionViewCell", bundle: nil)
+        clubMemberCollectionView.register(clubMemberNib, forCellWithReuseIdentifier: "ClubMemberCollectionViewCell")
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 50, height: 80)
     }
 }
 

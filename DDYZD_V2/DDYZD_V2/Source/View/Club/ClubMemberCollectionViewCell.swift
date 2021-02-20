@@ -24,4 +24,12 @@ class ClubMemberCollectionViewCell: UICollectionViewCell {
         isHeaderLabel.isHidden = true
         memberProfileImage.circleImage()
     }
+    
+    func bind(index: Int, item: ClubMember){
+        memberProfileImage.kf.setImage(with: URL(string: item.profile_image))
+        memberNameLabel.text = item.user_name
+        if index == 0 {
+            isHeaderLabel.isHidden = false
+        }
+    }
 }
