@@ -6,3 +6,24 @@
 //
 
 import Foundation
+
+struct GCN: Codable {
+    let gcn: String
+}
+
+struct UserInfo: Codable {
+    let user_id: Int
+    let name: String
+    let gcn: String
+    let image_path: String?
+    let github_url: String?
+    let email: String
+    let bio: String?
+    let clubs: [Club]
+}
+
+struct Club: Codable {
+    let club_id: Int
+    let club_name: String
+    let club_image: String
+}

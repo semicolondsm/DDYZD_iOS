@@ -14,9 +14,12 @@ enum DDYZDAPI {
     //Auth
     case getToken(_ DSMAuthToken: String)       // 토큰 발급
     case postDeviceToken(_ DeviceToken: String) // 디바이스 토큰 입력
+    case getGCN                                 // 학번 발급
     case refreshToken                           // 토큰 재발급
     case userInfo(_ gcn: String)                // 유저 정보
-    case updateInfo                             // 프로필 수정
+    case modifyGithubID                         // 깃허브 아이디 변경
+    case modifyBio                              // 유저 소개 변경
+    
     
     //feed
     case feedList(_ page: Int)                  // 모든 동아리의 피드리스트
@@ -56,12 +59,16 @@ enum DDYZDAPI {
             return "/users/token"
         case .postDeviceToken(_):
             return "/users/device_token"
+        case .getGCN:
+            return "/users/profile"
         case .refreshToken:
             return "/users/refresh"
         case .userInfo(let gcn):
             return "/users/\(gcn)"
-        case .updateInfo:
-            return "/users/profile"
+        case .modifyGithubID:
+            return "/users/profile/git"
+        case .modifyBio:
+            return "/users/profile/bio"
         case .feedList(let page):
             return "/feed/list?page=\(page)&"
         case .clubFeedList(let clubID, let page):
