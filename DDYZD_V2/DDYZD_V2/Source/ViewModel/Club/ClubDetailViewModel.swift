@@ -29,6 +29,7 @@ class ClubDetailViewModel: ViewModelProtocol {
     
     struct output {
         let clubInfo: PublishRelay<ClubInfoModel>
+        let clubMembers: PublishRelay<ClubMember>
         let feedList: PublishRelay<[FeedModel]>
         let flagItResult: PublishRelay<Bool>
         let pinFeedResult: PublishRelay<Bool>
@@ -39,6 +40,7 @@ class ClubDetailViewModel: ViewModelProtocol {
         let clubAPI = ClubAPI()
         let feedAPI = FeedAPI()
         let clubInfo = PublishRelay<ClubInfoModel>()
+        let clubMembers = PublishRelay<ClubMember>()
         let feedList = PublishRelay<[FeedModel]>()
         let flagItResult = PublishRelay<Bool>()
         let pinFeedResult = PublishRelay<Bool>()
@@ -50,6 +52,16 @@ class ClubDetailViewModel: ViewModelProtocol {
                     clubInfo.accept(data!)
                 default:
                     print(res)
+                }
+            })
+            .disposed(by: self.disposeBag)
+            
+            clubAPI.getClubMembers(clubID: self.clubID).asObservable().subscribe(onNext: { data, res in
+                switch res {
+                case .success:
+                    clubMembers.accept(data!)
+                default:
+                    print("get club member err")
                 }
             })
             .disposed(by: self.disposeBag)
@@ -138,6 +150,10 @@ class ClubDetailViewModel: ViewModelProtocol {
         })
         .disposed(by: disposeBag)
         
-        return output(clubInfo: clubInfo ,feedList: feedList, flagItResult: flagItResult, pinFeedResult: pinFeedResult)
+        return output(clubInfo: clubInfo,
+                      clubMembers: clubMembers,
+                      feedList: feedList,
+                      flagItResult: flagItResult,
+                      pinFeedResult: pinFeedResult)
     }
 }
