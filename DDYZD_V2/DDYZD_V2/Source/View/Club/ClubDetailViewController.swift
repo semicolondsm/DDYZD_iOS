@@ -151,8 +151,11 @@ extension ClubDetailViewController {
         clubProfileImgae.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         followBtn.layer.cornerRadius = 5
         followBtn.layer.borderWidth = 0.5
+        followBtn.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
         chatBtn.layer.cornerRadius = 5
         chatBtn.layer.borderWidth = 0.5
+        chatBtn.layer.borderColor = #colorLiteral(red: 0.4504163861, green: 0.4470926523, blue: 0.4469521046, alpha: 1)
+        chatGuideanceLabel.isHidden = true
     }
     
     func setNavigationBar(){
