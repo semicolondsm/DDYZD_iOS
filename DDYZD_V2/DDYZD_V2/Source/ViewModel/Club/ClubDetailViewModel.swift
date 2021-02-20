@@ -29,7 +29,7 @@ class ClubDetailViewModel: ViewModelProtocol {
     
     struct output {
         let clubInfo: PublishRelay<ClubInfoModel>
-        let clubMembers: PublishRelay<ClubMember>
+        let clubMembers: PublishRelay<[ClubMember]>
         let feedList: PublishRelay<[FeedModel]>
         let flagItResult: PublishRelay<Bool>
         let pinFeedResult: PublishRelay<Bool>
@@ -40,7 +40,7 @@ class ClubDetailViewModel: ViewModelProtocol {
         let clubAPI = ClubAPI()
         let feedAPI = FeedAPI()
         let clubInfo = PublishRelay<ClubInfoModel>()
-        let clubMembers = PublishRelay<ClubMember>()
+        let clubMembers = PublishRelay<[ClubMember]>()
         let feedList = PublishRelay<[FeedModel]>()
         let flagItResult = PublishRelay<Bool>()
         let pinFeedResult = PublishRelay<Bool>()

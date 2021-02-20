@@ -40,12 +40,12 @@ class ClubAPI {
             }
     }
     
-    func getClubMembers(clubID: Int)  -> Observable<(ClubMember?, StatusCodes)> {
+    func getClubMembers(clubID: Int)  -> Observable<([ClubMember]?, StatusCodes)> {
         httpClient.get(.getClubMember(clubID), param: nil)
-            .map{ response, data -> (ClubMember?, StatusCodes) in
+            .map{ response, data -> ([ClubMember]?, StatusCodes) in
                 switch response.statusCode {
                 case 200:
-                    guard let data = try? JSONDecoder().decode(ClubMember.self, from: data) else { return (nil, .fault) }
+                    guard let data = try? JSONDecoder().decode([ClubMember].self, from: data) else { return (nil, .fault) }
                     return (data, .success)
                 default:
                     return (nil, .fault)
