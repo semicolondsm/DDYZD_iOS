@@ -47,6 +47,11 @@
                     <constraint firstItem="cef-fb-iRF" firstAttribute="top" secondItem="aRu-vm-Orz" secondAttribute="top" id="moR-wt-OlD"/>
                 </constraints>
             </collectionViewCellContentView>
+            <connections>
+                <outlet property="isHeaderLabel" destination="zwE-72-nzH" id="hIB-eN-FRY"/>
+                <outlet property="memberNameLabel" destination="xnh-Xc-BDa" id="XlM-QK-F3h"/>
+                <outlet property="memberProfileImage" destination="cef-fb-iRF" id="DM9-Gw-Nz6"/>
+            </connections>
             <point key="canvasLocation" x="-913.04347826086962" y="82.366071428571431"/>
         </collectionViewCell>
     </objects>
