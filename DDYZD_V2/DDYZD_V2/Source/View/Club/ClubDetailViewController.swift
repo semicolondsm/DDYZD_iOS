@@ -77,7 +77,7 @@ class ClubDetailViewController: UIViewController {
         .disposed(by: disposeBag)
         
         output.clubMemberNum.subscribe(onNext: { num in
-            self.clubMemberNumLabel.text = String(num)
+            self.clubMemberNumLabel.text = "\(num)명"
         })
         .disposed(by: disposeBag)
         
