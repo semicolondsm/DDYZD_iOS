@@ -21,6 +21,7 @@
                     <connections>
                         <segue destination="DcC-W2-OsD" kind="relationship" relationship="viewControllers" id="IQl-7h-gVS"/>
                         <segue destination="Rah-hz-uLA" kind="relationship" relationship="viewControllers" id="sv1-I0-8tr"/>
+                        <segue destination="698-A0-XTU" kind="relationship" relationship="viewControllers" id="Ay2-HJ-phF"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8N3-ae-5ug" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -32,9 +33,10 @@
             <objects>
                 <navigationController id="DcC-W2-OsD" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="GjO-AJ-81U"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="3Fb-2p-CFD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Fb-2p-CFD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
                         <segue destination="NUV-NE-xN2" kind="relationship" relationship="rootViewController" id="v6s-LH-XwC"/>
@@ -49,11 +51,11 @@
             <objects>
                 <viewController id="NUV-NE-xN2" customClass="MainPageViewController" customModule="DDYZD_V2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zZS-HO-DGJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bRd-Do-EJ1">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" red="0.97255545850000003" green="0.97253733870000003" blue="0.97254973649999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" id="H6l-Ur-EOM">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
@@ -123,7 +125,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DtT-YK-afy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="33" y="282"/>
+            <point key="canvasLocation" x="274" y="282"/>
+        </scene>
+        <!--Personal-->
+        <scene sceneID="vaL-sK-J7I">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Personal" id="698-A0-XTU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="SQZ-sq-vwa"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NxN-qZ-CEl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="482" y="282"/>
         </scene>
     </scenes>
     <resources>

@@ -8,6 +8,7 @@
 import Foundation
 
 import DSMSDK
+import FirebaseMessaging
 import RxCocoa
 import RxSwift
 
@@ -36,6 +37,11 @@ class LoginViewModel: ViewModelProtocol {
                     api.signIn(token!.Access_Token).subscribe(onNext: { res in
                         switch res {
                         case .success:
+                            Messaging.messaging().token{ token, err in
+                                if err != nil { return } else {
+                                    api.postDeviceToken(token!).subscribe(onNext: nil).disposed(by: self.disposeBag)
+                                }
+                            }
                             result.onCompleted()
                         default:
                             result.onNext("로그인 실패")
