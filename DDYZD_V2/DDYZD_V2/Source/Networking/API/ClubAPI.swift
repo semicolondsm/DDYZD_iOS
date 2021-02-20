@@ -53,4 +53,28 @@ class ClubAPI {
             }
     }
     
+    func followClub(clubID: Int) -> Observable<StatusCodes>{
+        httpClient.put(.followClub(clubID), param: nil)
+            .map{ response, data -> StatusCodes in
+                switch response.statusCode {
+                case 200:
+                    return .success
+                default:
+                    return .fault
+                }
+            }
+    }
+    
+    func unfollowClub(clubID: Int) -> Observable<StatusCodes>{
+        httpClient.delete(.followClub(clubID), param: nil)
+            .map{ response, data -> StatusCodes in
+                switch response.statusCode {
+                case 200:
+                    return .success
+                default:
+                    return .fault
+                }
+            }
+    }
+    
 }

@@ -38,7 +38,7 @@ enum DDYZDAPI {
     case getClubMember(_ clubID: Int)       // 동아리 멤버
     case cancelFollow(_ clubID: Int)        // 동아리 팔로우 취소
     case exitClub(_ clubID: Int)            // 소속 동아리 나가기
-    case followClub(_ clubID: Int)          // 동아리 팔로우
+    case followClub(_ clubID: Int)          // 동아리 팔로우/ 팔로우 취소
     
     //only head authority
     case makeRecruitment(_ clubID: Int)     // 동아리 모집 공고 생성
