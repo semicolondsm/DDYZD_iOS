@@ -107,21 +107,20 @@
                                                         <constraint firstAttribute="width" constant="80" id="sSA-6L-9A4"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="club name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hpu-Vp-pcW">
-                                                    <rect key="frame" x="109" y="196" width="91" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hpu-Vp-pcW">
+                                                    <rect key="frame" x="109" y="196" width="0.0" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iF2-zz-64U">
-                                                    <rect key="frame" x="208" y="205" width="31" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iF2-zz-64U">
+                                                    <rect key="frame" x="117" y="196" width="0.0" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.45098039215686275" green="0.4470926523" blue="0.44695210460000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYK-RD-6Yq">
-                                                    <rect key="frame" x="21" y="236" width="372" height="43"/>
-                                                    <string key="text">Description, Description, Description, Description, Description, Description, Description, Description, Description, Description,Description,Description,</string>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYK-RD-6Yq">
+                                                    <rect key="frame" x="21" y="236" width="372" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.34898746009999998" green="0.34904092549999999" blue="0.34897059200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -163,7 +162,6 @@
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstItem="9Vo-2n-V5k" firstAttribute="leading" secondItem="ID5-H8-9NN" secondAttribute="trailing" id="1ak-5H-veJ"/>
-                                                <constraint firstItem="ID5-H8-9NN" firstAttribute="top" secondItem="LYK-RD-6Yq" secondAttribute="bottom" constant="20" id="3QE-KH-ZaQ"/>
                                                 <constraint firstItem="iF2-zz-64U" firstAttribute="leading" secondItem="Hpu-Vp-pcW" secondAttribute="trailing" constant="8" symbolic="YES" id="5ck-JO-UFC"/>
                                                 <constraint firstItem="BFY-G5-4or" firstAttribute="top" secondItem="Mne-51-2ML" secondAttribute="top" constant="8" id="7Rj-ur-CTX"/>
                                                 <constraint firstItem="LYK-RD-6Yq" firstAttribute="top" secondItem="3Nk-AM-Kef" secondAttribute="bottom" constant="8" symbolic="YES" id="8Xn-cm-Rqf"/>
@@ -180,12 +178,13 @@
                                                 <constraint firstItem="iF2-zz-64U" firstAttribute="bottom" secondItem="Hpu-Vp-pcW" secondAttribute="bottom" id="Ysk-3a-lNU"/>
                                                 <constraint firstItem="ppp-xs-mNR" firstAttribute="top" secondItem="9Vo-2n-V5k" secondAttribute="bottom" constant="2" id="bOH-YB-83Z"/>
                                                 <constraint firstItem="LYK-RD-6Yq" firstAttribute="centerX" secondItem="Mne-51-2ML" secondAttribute="centerX" id="f2j-3k-Efw"/>
+                                                <constraint firstAttribute="bottom" secondItem="ppp-xs-mNR" secondAttribute="bottom" constant="9" id="fJE-tc-yM6"/>
                                                 <constraint firstItem="ID5-H8-9NN" firstAttribute="centerX" secondItem="Mne-51-2ML" secondAttribute="centerX" id="hd8-rx-s7y"/>
                                                 <constraint firstItem="ID5-H8-9NN" firstAttribute="leading" secondItem="pj0-HK-uXC" secondAttribute="trailing" id="ifE-ex-wU7"/>
-                                                <constraint firstItem="pj0-HK-uXC" firstAttribute="top" secondItem="LYK-RD-6Yq" secondAttribute="bottom" constant="20" id="jro-fc-20S"/>
+                                                <constraint firstAttribute="bottom" secondItem="ID5-H8-9NN" secondAttribute="bottom" constant="20" symbolic="YES" id="lWj-Yl-XAX"/>
                                                 <constraint firstItem="g8a-ez-bos" firstAttribute="centerX" secondItem="pj0-HK-uXC" secondAttribute="centerX" id="nSM-65-8Gg"/>
+                                                <constraint firstAttribute="bottom" secondItem="g8a-ez-bos" secondAttribute="bottom" constant="9" id="r3P-Ze-poQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="BFY-G5-4or" secondAttribute="trailing" constant="8" id="tJz-G6-swm"/>
-                                                <constraint firstItem="9Vo-2n-V5k" firstAttribute="top" secondItem="LYK-RD-6Yq" secondAttribute="bottom" constant="20" id="vUN-QZ-Ysk"/>
                                                 <constraint firstItem="pj0-HK-uXC" firstAttribute="leading" secondItem="Mne-51-2ML" secondAttribute="leading" constant="21" id="zXD-gz-yrj"/>
                                             </constraints>
                                         </view>
