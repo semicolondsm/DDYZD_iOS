@@ -19,6 +19,12 @@ class ClubDetailViewController: UIViewController {
     @IBOutlet weak var clubBackImage: UIImageView!
     @IBOutlet weak var clubProfileImgae: UIImageView!
     @IBOutlet weak var clubNameLabel: UILabel!
+    @IBOutlet weak var fieldLabel: UILabel!
+    @IBOutlet weak var clubDescriptionLabel: UILabel!
+    @IBOutlet weak var followBtn: UIButton!
+    @IBOutlet weak var chatBtn: UIButton!
+    @IBOutlet weak var followGuideanceLabel: UILabel!
+    @IBOutlet weak var chatGuideanceLabel: UILabel!
     
     private let viewModel = ClubDetailViewModel()
     private let disposeBag = DisposeBag()
@@ -143,6 +149,10 @@ extension ClubDetailViewController {
         clubProfileImgae.circleImage()
         clubProfileImgae.layer.borderWidth = 3
         clubProfileImgae.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        followBtn.layer.cornerRadius = 5
+        followBtn.layer.borderWidth = 0.5
+        chatBtn.layer.cornerRadius = 5
+        chatBtn.layer.borderWidth = 0.5
     }
     
     func setNavigationBar(){
