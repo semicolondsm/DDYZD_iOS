@@ -21,6 +21,7 @@ class ClubDetailViewModel: ViewModelProtocol {
     
     struct input {
         let getClubInfo: Driver<Void>
+        let followClub: Driver<Bool>
         let getFeed: Driver<LoadFeedAction>
         let flagIt: Driver<Int>
         let deleteFeed: Driver<Int>
@@ -31,6 +32,7 @@ class ClubDetailViewModel: ViewModelProtocol {
         let clubInfo: PublishRelay<ClubInfoModel>
         let clubMembers: PublishRelay<[ClubMember]>
         let clubMemberNum: PublishRelay<Int>
+        let followClubResult: PublishRelay<Bool>
         let feedList: PublishRelay<[FeedModel]>
         let flagItResult: PublishRelay<Bool>
         let pinFeedResult: PublishRelay<Bool>
@@ -43,6 +45,7 @@ class ClubDetailViewModel: ViewModelProtocol {
         let clubInfo = PublishRelay<ClubInfoModel>()
         let clubMembers = PublishRelay<[ClubMember]>()
         let clubMemberNum = PublishRelay<Int>()
+        let followClubResult = PublishRelay<Bool>()
         let feedList = PublishRelay<[FeedModel]>()
         let flagItResult = PublishRelay<Bool>()
         let pinFeedResult = PublishRelay<Bool>()
@@ -68,6 +71,31 @@ class ClubDetailViewModel: ViewModelProtocol {
                 }
             })
             .disposed(by: self.disposeBag)
+        })
+        .disposed(by: disposeBag)
+        
+        input.followClub.asObservable().subscribe(onNext: { isFollowing in
+            if isFollowing {
+                clubAPI.unfollowClub(clubID: self.clubID).subscribe(onNext: { res in
+                    switch res {
+                    case .success:
+                        followClubResult.accept(true)
+                    default:
+                        followClubResult.accept(false)
+                    }
+                })
+                .disposed(by: self.disposeBag)
+            } else {
+                clubAPI.followClub(clubID: self.clubID).subscribe(onNext: { res in
+                    switch res {
+                    case .success:
+                        followClubResult.accept(true)
+                    default:
+                        followClubResult.accept(false)
+                    }
+                })
+                .disposed(by: self.disposeBag)
+            }
         })
         .disposed(by: disposeBag)
         
@@ -156,6 +184,7 @@ class ClubDetailViewModel: ViewModelProtocol {
         return output(clubInfo: clubInfo,
                       clubMembers: clubMembers,
                       clubMemberNum: clubMemberNum,
+                      followClubResult: followClubResult,
                       feedList: feedList,
                       flagItResult: flagItResult,
                       pinFeedResult: pinFeedResult)
