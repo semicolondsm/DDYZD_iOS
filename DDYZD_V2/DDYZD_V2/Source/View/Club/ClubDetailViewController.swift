@@ -60,6 +60,7 @@ class ClubDetailViewController: UIViewController {
     func bind() {
         viewModel.clubID = clubID
         let input = ClubDetailViewModel.input(getClubInfo: getClubInfo.asDriver(onErrorJustReturn: ()),
+                                              selectIndexPath: clubMemberCollectionView.rx.itemSelected.asDriver(),
                                               followClub: followBtn.rx.tap.asDriver(),
                                               getFeed: getFeed.asDriver(onErrorJustReturn: .reload),
                                               flagIt: flagIt.asDriver(onErrorJustReturn: -1),
@@ -94,6 +95,16 @@ class ClubDetailViewController: UIViewController {
         })
         .disposed(by: disposeBag)
         
+        output.clubMemberNum.subscribe(onNext: { num in
+            self.clubMemberNumLabel.text = "\(num)명"
+        })
+        .disposed(by: disposeBag)
+        
+        output.clubMembers.bind(to: clubMemberCollectionView.rx.items(cellIdentifier: "ClubMemberCollectionViewCell", cellType: ClubMemberCollectionViewCell.self)) { index, item, cell in
+            cell.bind(index: index, item: item)
+        }
+        .disposed(by: disposeBag)
+        
         followBtn.rx.tap.subscribe(onNext: {
             if self.isFollowing {
                 self.isFollowing = false
@@ -112,16 +123,6 @@ class ClubDetailViewController: UIViewController {
                 self.moveLogin(didJustBrowsingBtnTaped: { self.getClubDetailInfo() }, didSuccessLogin: nil)
             }
         })
-        .disposed(by: disposeBag)
-        
-        output.clubMemberNum.subscribe(onNext: { num in
-            self.clubMemberNumLabel.text = "\(num)명"
-        })
-        .disposed(by: disposeBag)
-        
-        output.clubMembers.bind(to: clubMemberCollectionView.rx.items(cellIdentifier: "ClubMemberCollectionViewCell", cellType: ClubMemberCollectionViewCell.self)) { index, item, cell in
-            cell.bind(index: index, item: item)
-        }
         .disposed(by: disposeBag)
         
         output.feedList.bind(to: feedTable.rx.items) { _, row, item -> UITableViewCell in
