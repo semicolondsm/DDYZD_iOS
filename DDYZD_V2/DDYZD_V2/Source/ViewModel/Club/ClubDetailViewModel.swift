@@ -24,6 +24,7 @@ class ClubDetailViewModel: ViewModelProtocol {
         let getClubInfo: Driver<Void>
         let selectIndexPath: Driver<IndexPath>
         let followClub: Driver<Void>
+        let chatWithClub: Driver<Void>
         let getFeed: Driver<LoadFeedAction>
         let flagIt: Driver<Int>
         let deleteFeed: Driver<Int>
@@ -36,6 +37,7 @@ class ClubDetailViewModel: ViewModelProtocol {
         let clubMemberNum: PublishRelay<Int>
         let selectedMemberGCN: PublishRelay<String>
         let followClubResult: PublishRelay<Bool>
+        let clubChatRoomID: PublishRelay<Int>
         let feedList: PublishRelay<[FeedModel]>
         let flagItResult: PublishRelay<Bool>
         let pinFeedResult: PublishRelay<Bool>
@@ -50,6 +52,7 @@ class ClubDetailViewModel: ViewModelProtocol {
         let clubMemberNum = PublishRelay<Int>()
         let selectedMemberGCN = PublishRelay<String>()
         let followClubResult = PublishRelay<Bool>()
+        let clubChatRoomID = PublishRelay<Int>()
         let feedList = PublishRelay<[FeedModel]>()
         let flagItResult = PublishRelay<Bool>()
         let pinFeedResult = PublishRelay<Bool>()
@@ -103,6 +106,19 @@ class ClubDetailViewModel: ViewModelProtocol {
                 })
                 .disposed(by: self.disposeBag)
             }
+        })
+        .disposed(by: disposeBag)
+        
+        input.chatWithClub.asObservable().subscribe(onNext: {
+            clubAPI.createRoom(clubID: self.clubID).subscribe(onNext: { data, res in
+                switch res {
+                case .success:
+                    clubChatRoomID.accept(data!.room_id)
+                default:
+                    clubChatRoomID.accept(-1)
+                }
+            })
+            .disposed(by: self.disposeBag)
         })
         .disposed(by: disposeBag)
         
@@ -200,6 +216,7 @@ class ClubDetailViewModel: ViewModelProtocol {
                       clubMemberNum: clubMemberNum,
                       selectedMemberGCN: selectedMemberGCN,
                       followClubResult: followClubResult,
+                      clubChatRoomID: clubChatRoomID,
                       feedList: feedList,
                       flagItResult: flagItResult,
                       pinFeedResult: pinFeedResult)
