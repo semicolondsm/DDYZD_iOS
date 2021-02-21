@@ -59,6 +59,7 @@ class ClubDetailViewController: UIViewController {
     func bind() {
         viewModel.clubID = clubID
         let input = ClubDetailViewModel.input(getClubInfo: getClubInfo.asDriver(onErrorJustReturn: ()),
+                                              followClub: followBtn.rx.tap.asDriver(),
                                               getFeed: getFeed.asDriver(onErrorJustReturn: .reload),
                                               flagIt: flagIt.asDriver(onErrorJustReturn: -1),
                                               deleteFeed: deleteFeed.asDriver(onErrorJustReturn: -1),
@@ -75,6 +76,8 @@ class ClubDetailViewController: UIViewController {
             self.clubProfileImgae.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(data.clubimage)"))
         })
         .disposed(by: disposeBag)
+        
+        
         
         output.clubMemberNum.subscribe(onNext: { num in
             self.clubMemberNumLabel.text = "\(num)명"
@@ -164,12 +167,8 @@ extension ClubDetailViewController {
         clubProfileImgae.circleImage()
         clubProfileImgae.layer.borderWidth = 3
         clubProfileImgae.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        followBtn.layer.cornerRadius = 5
-        followBtn.layer.borderWidth = 0.5
-        followBtn.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
-        chatBtn.layer.cornerRadius = 5
-        chatBtn.layer.borderWidth = 0.5
-        chatBtn.layer.borderColor = #colorLiteral(red: 0.4504163861, green: 0.4470926523, blue: 0.4469521046, alpha: 1)
+        followBtn.setBtnInClubDetail(type: .follow)
+        chatBtn.setBtnInClubDetail(type: .chat)
         chatGuideanceLabel.isHidden = true
     }
     
