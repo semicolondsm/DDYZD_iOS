@@ -97,6 +97,6 @@ struct ClubMember: Codable {
     let user_id: Int?
     let user_name: String
     let gcn: String
-    let profile_image: String
-    let git: String
+    let profile_image: String?
+    let git: String?
 }
