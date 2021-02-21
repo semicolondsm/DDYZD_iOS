@@ -16,12 +16,13 @@ class ClubDetailViewModel: ViewModelProtocol {
     
     private let disposeBag = DisposeBag()
     
+    private var isFollowing = false
     private var feeds = [FeedModel]()
     private var lastLoadPage = 0
     
     struct input {
         let getClubInfo: Driver<Void>
-        let followClub: Driver<Bool>
+        let followClub: Driver<Void>
         let getFeed: Driver<LoadFeedAction>
         let flagIt: Driver<Int>
         let deleteFeed: Driver<Int>
@@ -74,8 +75,8 @@ class ClubDetailViewModel: ViewModelProtocol {
         })
         .disposed(by: disposeBag)
         
-        input.followClub.asObservable().subscribe(onNext: { isFollowing in
-            if isFollowing {
+        input.followClub.asObservable().subscribe(onNext: {
+            if self.isFollowing {
                 clubAPI.unfollowClub(clubID: self.clubID).subscribe(onNext: { res in
                     switch res {
                     case .success:
