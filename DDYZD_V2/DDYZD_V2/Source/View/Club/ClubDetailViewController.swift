@@ -78,7 +78,7 @@ class ClubDetailViewController: UIViewController {
                 self.followBtn.setBtnInClubDetail(type: .unfollow)
                 self.followGuideanceLabel.isHidden = true
             } else {
-                self.followBtn.setBtnInClubDetail(type: .unfollow)
+                self.followBtn.setBtnInClubDetail(type: .follow)
                 self.followGuideanceLabel.isHidden = false
             }
             if data.recruitment {
@@ -91,7 +91,12 @@ class ClubDetailViewController: UIViewController {
         })
         .disposed(by: disposeBag)
         
-        
+        output.followClubResult.subscribe(onNext: { res in
+            if !res {
+                self.moveLogin(didJustBrowsingBtnTaped: { self.getClubDetailInfo() }, didSuccessLogin: nil)
+            }
+        })
+        .disposed(by: disposeBag)
         
         output.clubMemberNum.subscribe(onNext: { num in
             self.clubMemberNumLabel.text = "\(num)명"
