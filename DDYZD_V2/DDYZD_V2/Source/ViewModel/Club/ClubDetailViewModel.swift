@@ -22,6 +22,7 @@ class ClubDetailViewModel: ViewModelProtocol {
     
     struct input {
         let getClubInfo: Driver<Void>
+        let selectIndexPath: Driver<IndexPath>
         let followClub: Driver<Void>
         let getFeed: Driver<LoadFeedAction>
         let flagIt: Driver<Int>
@@ -33,6 +34,7 @@ class ClubDetailViewModel: ViewModelProtocol {
         let clubInfo: PublishRelay<ClubInfoModel>
         let clubMembers: PublishRelay<[ClubMember]>
         let clubMemberNum: PublishRelay<Int>
+        let selectedMemberGCN: PublishRelay<String>
         let followClubResult: PublishRelay<Bool>
         let feedList: PublishRelay<[FeedModel]>
         let flagItResult: PublishRelay<Bool>
@@ -46,6 +48,7 @@ class ClubDetailViewModel: ViewModelProtocol {
         let clubInfo = PublishRelay<ClubInfoModel>()
         let clubMembers = PublishRelay<[ClubMember]>()
         let clubMemberNum = PublishRelay<Int>()
+        let selectedMemberGCN = PublishRelay<String>()
         let followClubResult = PublishRelay<Bool>()
         let feedList = PublishRelay<[FeedModel]>()
         let flagItResult = PublishRelay<Bool>()
@@ -135,6 +138,13 @@ class ClubDetailViewModel: ViewModelProtocol {
         })
         .disposed(by: disposeBag)
         
+        input.selectIndexPath.asObservable()
+            .withLatestFrom(clubMembers){ IndexPath, data in
+                data[IndexPath.row].gcn
+            }
+            .subscribe{ selectedMemberGCN.accept($0) }
+            .disposed(by: disposeBag)
+        
         input.flagIt.asObservable().subscribe(onNext: { row in
             
             if self.feeds[row].flag {
@@ -188,6 +198,7 @@ class ClubDetailViewModel: ViewModelProtocol {
         return output(clubInfo: clubInfo,
                       clubMembers: clubMembers,
                       clubMemberNum: clubMemberNum,
+                      selectedMemberGCN: selectedMemberGCN,
                       followClubResult: followClubResult,
                       feedList: feedList,
                       flagItResult: flagItResult,
