@@ -31,6 +31,7 @@ class ClubDetailViewController: UIViewController {
     private let viewModel = ClubDetailViewModel()
     private let disposeBag = DisposeBag()
     private let navigationBarTitile = UILabel()
+    private var isFollowing = false
     private var isHead = false
     private var loadMore = false
     
@@ -75,9 +76,11 @@ class ClubDetailViewController: UIViewController {
             self.clubBackImage.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(data.backimage)"))
             self.clubProfileImgae.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(data.clubimage)"))
             if data.follow {
+                self.isFollowing = true
                 self.followBtn.setBtnInClubDetail(type: .unfollow)
                 self.followGuideanceLabel.isHidden = true
             } else {
+                self.isFollowing = false
                 self.followBtn.setBtnInClubDetail(type: .follow)
                 self.followGuideanceLabel.isHidden = false
             }
@@ -87,6 +90,19 @@ class ClubDetailViewController: UIViewController {
             } else {
                 self.chatBtn.setBtnInClubDetail(type: .chat)
                 self.chatGuideanceLabel.isHidden = true
+            }
+        })
+        .disposed(by: disposeBag)
+        
+        followBtn.rx.tap.subscribe(onNext: {
+            if self.isFollowing {
+                self.isFollowing = false
+                self.followBtn.setBtnInClubDetail(type: .follow)
+                self.followGuideanceLabel.isHidden = false
+            } else {
+                self.isFollowing = true
+                self.followBtn.setBtnInClubDetail(type: .unfollow)
+                self.followGuideanceLabel.isHidden = true
             }
         })
         .disposed(by: disposeBag)

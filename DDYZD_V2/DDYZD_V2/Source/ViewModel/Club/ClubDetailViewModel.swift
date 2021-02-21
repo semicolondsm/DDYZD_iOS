@@ -82,6 +82,7 @@ class ClubDetailViewModel: ViewModelProtocol {
                     switch res {
                     case .success:
                         followClubResult.accept(true)
+                        self.isFollowing = false
                     default:
                         followClubResult.accept(false)
                     }
@@ -92,6 +93,7 @@ class ClubDetailViewModel: ViewModelProtocol {
                     switch res {
                     case .success:
                         followClubResult.accept(true)
+                        self.isFollowing = true
                     default:
                         followClubResult.accept(false)
                     }
