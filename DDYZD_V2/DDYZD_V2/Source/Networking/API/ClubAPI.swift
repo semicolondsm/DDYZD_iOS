@@ -77,4 +77,17 @@ class ClubAPI {
             }
     }
     
+    func createRoom(clubID: Int) -> Observable<(ChatRoom?, StatusCodes)>{
+        httpClient.post(.createChatRoom(clubID), param: nil)
+            .map{ res, data -> (ChatRoom?, StatusCodes) in
+                switch res.statusCode {
+                case 200:
+                    guard let data = try? JSONDecoder().decode(ChatRoom.self, from: data) else { return (nil, .fault) }
+                    return (data, .success)
+                default:
+                    return (nil, .fault)
+                }
+            }
+    }
+    
 }
