@@ -45,9 +45,9 @@ class ClubDetailViewController: UIViewController {
         super.viewDidLoad()
         
         setUI()
+        setCollectionView()
         bind()
         getClubDetailInfo()
-        setCollectionView()
         setTableView()
         registerCell()
         reloadFeeds()
@@ -163,6 +163,12 @@ class ClubDetailViewController: UIViewController {
                 return cell
             }
         }
+        .disposed(by: disposeBag)
+        
+        output.selectedMemberGCN.subscribe(onNext: { GCN in
+            // 유저 프로필 페이지 이동
+            print(GCN)
+        })
         .disposed(by: disposeBag)
         
         output.flagItResult.subscribe(onNext: { isSuccess in
