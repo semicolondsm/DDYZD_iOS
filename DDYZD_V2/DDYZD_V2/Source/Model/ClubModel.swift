@@ -100,3 +100,7 @@ struct ClubMember: Codable {
     let profile_image: String?
     let git: String?
 }
+
+struct ChatRoom: Codable {
+    let room_id: String
+}
