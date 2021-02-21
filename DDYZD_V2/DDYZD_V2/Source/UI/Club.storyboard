@@ -127,14 +127,13 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pj0-HK-uXC">
                                                     <rect key="frame" x="21" y="299" width="184" height="30"/>
-                                                    <color key="backgroundColor" red="0.88249504570000004" green="0.83998757599999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <state key="normal" title="팔로우">
+                                                    <state key="normal">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Vo-2n-V5k">
                                                     <rect key="frame" x="209" y="299" width="184" height="30"/>
-                                                    <state key="normal" title="채팅 보내기">
+                                                    <state key="normal">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                 </button>
