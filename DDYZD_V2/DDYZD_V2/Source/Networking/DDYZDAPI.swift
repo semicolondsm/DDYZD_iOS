@@ -136,6 +136,9 @@ enum DDYZDAPI {
         case .updateProfileImage(_), .updateHongboImage(_), .updateBannerImage(_), .uploadFeedFile(_):
             return ["Authorization": "Bearer \(Token.access_token)",
                     "Content-Type": "multipart/form-data"]
+        case .clubDetailInfo(_):
+            if Token.access_token == "" { return nil }
+            return ["Authorization": "Bearer \(Token.access_token)"]
         default:
             return ["Authorization": "Bearer \(Token.access_token)"]
         }
