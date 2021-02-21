@@ -74,6 +74,20 @@ class ClubDetailViewController: UIViewController {
             self.clubDescriptionLabel.text = data.description
             self.clubBackImage.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(data.backimage)"))
             self.clubProfileImgae.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(data.clubimage)"))
+            if data.follow {
+                self.followBtn.setBtnInClubDetail(type: .unfollow)
+                self.followGuideanceLabel.isHidden = true
+            } else {
+                self.followBtn.setBtnInClubDetail(type: .unfollow)
+                self.followGuideanceLabel.isHidden = false
+            }
+            if data.recruitment {
+                self.chatBtn.setBtnInClubDetail(type: .apply(deadline: data.recruitment_close!))
+                self.chatGuideanceLabel.isHidden = false
+            } else {
+                self.chatBtn.setBtnInClubDetail(type: .chat)
+                self.chatGuideanceLabel.isHidden = true
+            }
         })
         .disposed(by: disposeBag)
         
