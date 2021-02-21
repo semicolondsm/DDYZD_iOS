@@ -54,7 +54,7 @@ class ClubAPI {
     }
     
     func followClub(clubID: Int) -> Observable<StatusCodes>{
-        httpClient.put(.followClub(clubID), param: nil)
+        httpClient.post(.followClub(clubID), param: nil)
             .map{ response, data -> StatusCodes in
                 switch response.statusCode {
                 case 200:
