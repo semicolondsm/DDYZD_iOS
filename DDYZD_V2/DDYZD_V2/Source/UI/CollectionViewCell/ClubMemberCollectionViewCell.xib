@@ -36,7 +36,6 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="xnh-Xc-BDa" firstAttribute="centerX" secondItem="aRu-vm-Orz" secondAttribute="centerX" id="9sD-50-jt3"/>
                     <constraint firstItem="zwE-72-nzH" firstAttribute="top" secondItem="xnh-Xc-BDa" secondAttribute="bottom" id="MiM-iA-5E1"/>
@@ -47,6 +46,7 @@
                     <constraint firstItem="cef-fb-iRF" firstAttribute="top" secondItem="aRu-vm-Orz" secondAttribute="top" id="moR-wt-OlD"/>
                 </constraints>
             </collectionViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="isHeaderLabel" destination="zwE-72-nzH" id="hIB-eN-FRY"/>
                 <outlet property="memberNameLabel" destination="xnh-Xc-BDa" id="XlM-QK-F3h"/>
