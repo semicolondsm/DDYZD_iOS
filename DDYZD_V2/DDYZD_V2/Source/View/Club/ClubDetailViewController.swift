@@ -62,6 +62,7 @@ class ClubDetailViewController: UIViewController {
         let input = ClubDetailViewModel.input(getClubInfo: getClubInfo.asDriver(onErrorJustReturn: ()),
                                               selectIndexPath: clubMemberCollectionView.rx.itemSelected.asDriver(),
                                               followClub: followBtn.rx.tap.asDriver(),
+                                              chatWithClub: chatBtn.rx.tap.asDriver(),
                                               getFeed: getFeed.asDriver(onErrorJustReturn: .reload),
                                               flagIt: flagIt.asDriver(onErrorJustReturn: -1),
                                               deleteFeed: deleteFeed.asDriver(onErrorJustReturn: -1),
@@ -168,6 +169,12 @@ class ClubDetailViewController: UIViewController {
         output.selectedMemberGCN.subscribe(onNext: { GCN in
             // 유저 프로필 페이지 이동
             print(GCN)
+        })
+        .disposed(by: disposeBag)
+        
+        output.clubChatRoomID.subscribe(onNext: { roomID in
+            // 채팅 페이지로 이동
+            print(roomID)
         })
         .disposed(by: disposeBag)
         
