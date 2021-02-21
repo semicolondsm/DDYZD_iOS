@@ -155,8 +155,19 @@ extension UILabel {
                 "\(day_diff/7)주 전"
             )
         }
+    }
+    
+    func fieldLabel(clubTag: [String]){
         
+        self.text = ""
         
+        for field in clubTag {
+            if field == clubTag.last {
+                self.text! += field
+            } else {
+                self.text! += "\(field), "
+            }
+        }
     }
 }
 

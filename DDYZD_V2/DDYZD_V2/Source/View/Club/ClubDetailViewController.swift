@@ -72,7 +72,7 @@ class ClubDetailViewController: UIViewController {
             self.navigationBarTitile.text = data.clubname
             self.isHead = data.owner
             self.clubNameLabel.text = data.clubname
-            self.fieldLabel.text = self.fieldString(clubTag: data.clubtag)
+            self.fieldLabel.fieldLabel(clubTag: data.clubtag)
             self.clubDescriptionLabel.text = data.description
             self.clubBackImage.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(data.backimage)"))
             self.clubProfileImgae.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(data.clubimage)"))
@@ -235,20 +235,6 @@ extension ClubDetailViewController {
         self.navigationItem.titleView = container
     }
     
-    func fieldString(clubTag: [String]) -> String{
-        
-        var fieldText = ""
-        
-        for field in clubTag {
-            if field == clubTag.last {
-                fieldText += field
-            } else {
-                fieldText += "\(field), "
-            }
-        }
-        
-        return fieldText
-    }
 }
 
 // MARK:- collection view
