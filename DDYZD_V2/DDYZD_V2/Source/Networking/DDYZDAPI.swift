@@ -115,7 +115,7 @@ enum DDYZDAPI {
         case .chatList:
             return "/chat/list"
         case .createChatRoom(let clubID):
-            return "/chat/\(clubID)/room"
+            return "/club/\(clubID)/room"
         case .chatBreakdown(let roomID):
             return "/chat/\(roomID)/breakdown"
         }
