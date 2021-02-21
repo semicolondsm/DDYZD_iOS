@@ -102,5 +102,5 @@ struct ClubMember: Codable {
 }
 
 struct ChatRoom: Codable {
-    let room_id: String
+    let room_id: Int
 }
