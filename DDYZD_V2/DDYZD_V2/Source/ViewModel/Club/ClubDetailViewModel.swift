@@ -55,6 +55,7 @@ class ClubDetailViewModel: ViewModelProtocol {
             clubAPI.getClubDetailInfo(clubID: self.clubID).subscribe(onNext: { data, res in
                 switch res {
                 case .success:
+                    self.isFollowing = data!.follow
                     clubInfo.accept(data!)
                 default:
                     print(res)
