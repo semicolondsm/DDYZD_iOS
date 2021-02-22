@@ -30,10 +30,10 @@ class HTTPClient {
                            headers: api.header())
     }
     
-    func put(_ api: DDYZDAPI, param: Parameters?) -> httpResult {
+    func put(_ api: DDYZDAPI, param: Parameters?, encoding: ParameterEncoding = JSONEncoding.default) -> httpResult {
         return requestData(.put, baseURL + api.path(),
                            parameters: param,
-                           encoding: JSONEncoding.prettyPrinted,
+                           encoding: encoding,
                            headers: api.header())
     }
     
