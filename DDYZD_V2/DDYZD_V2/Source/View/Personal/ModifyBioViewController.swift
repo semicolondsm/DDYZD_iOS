@@ -15,7 +15,13 @@ class ModifyBioViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUI()
     }
 
-    
+    func setUI(){
+        bioTextView.layer.borderWidth = 0.5
+        bioTextView.layer.borderColor = #colorLiteral(red: 0.7960784314, green: 0.79220891, blue: 0.7920084596, alpha: 1)
+        bioTextView.layer.cornerRadius = 20
+        confirmBtn.layer.cornerRadius = 20
+    }
 }
