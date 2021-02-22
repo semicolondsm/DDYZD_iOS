@@ -146,7 +146,7 @@
         <!--Modify Bio View Controller-->
         <scene sceneID="vwU-kg-kRn">
             <objects>
-                <viewController id="X45-D4-3v0" customClass="ModifyBioViewController" customModule="DDYZD_V2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ModifyBioViewController" id="X45-D4-3v0" customClass="ModifyBioViewController" customModule="DDYZD_V2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RBC-e5-A1r">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
