@@ -18,6 +18,7 @@ class MyPageViewModel: ViewModelProtocol {
     struct input {
         let getMyInfo: Driver<Void>
         let modifyGitID: Driver<String>
+        let modifyBio: Driver<String>
     }
     
     struct output {
@@ -61,6 +62,19 @@ class MyPageViewModel: ViewModelProtocol {
         
         input.modifyGitID.asObservable().subscribe(onNext: { githubID in
             personalAPI.modifyGithubID(githubID: githubID).subscribe(onNext: { res in
+                switch res {
+                case .success:
+                    modifyResult.accept(true)
+                default:
+                    modifyResult.accept(false)
+                }
+            })
+            .disposed(by: self.disposeBag)
+        })
+        .disposed(by: disposeBag)
+        
+        input.modifyBio.asObservable().subscribe(onNext: { bio in
+            personalAPI.modifyBio(bio: bio).subscribe(onNext: { res in
                 switch res {
                 case .success:
                     modifyResult.accept(true)
