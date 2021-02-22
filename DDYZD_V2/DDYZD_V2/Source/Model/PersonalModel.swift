@@ -8,7 +8,7 @@
 import Foundation
 
 struct GCN: Codable {
-    let gcn: String
+    var gcn: String
 }
 
 struct UserInfo: Codable {
