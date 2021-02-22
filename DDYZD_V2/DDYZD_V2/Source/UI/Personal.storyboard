@@ -173,7 +173,6 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pMY-uL-lrg">
                                 <rect key="frame" x="20" y="74" width="80" height="80"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="Pjp-aB-LEr"/>
                                     <constraint firstAttribute="height" constant="80" id="QtG-Tg-RFZ"/>
@@ -219,7 +218,7 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4la-t5-8zs">
                                         <rect key="frame" x="8" y="34" width="358" height="497.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="bMJ-hp-gHw">
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="bMJ-hp-gHw">
                                             <size key="itemSize" width="70" height="80"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -283,6 +282,16 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="belongClubCollectionView" destination="4la-t5-8zs" id="Vas-c1-1qn"/>
+                        <outlet property="bioLabel" destination="dXV-Tj-G5S" id="nPv-3K-wJB"/>
+                        <outlet property="emailLabel" destination="sfU-Nw-msq" id="arS-1u-H6T"/>
+                        <outlet property="gcnLabel" destination="MuB-pu-E2t" id="Byg-fg-9DB"/>
+                        <outlet property="githubLinkBtn" destination="LZR-El-Mov" id="q1O-hz-joa"/>
+                        <outlet property="nameLabel" destination="Rna-L1-yCs" id="GfA-UE-nzf"/>
+                        <outlet property="noClubNotice" destination="Ki0-F9-MgB" id="NDp-SX-ZuK"/>
+                        <outlet property="profileImage" destination="pMY-uL-lrg" id="KfK-ig-wuw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5yx-25-zHi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
