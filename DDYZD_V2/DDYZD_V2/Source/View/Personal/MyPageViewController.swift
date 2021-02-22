@@ -28,6 +28,7 @@ class MyPageViewController: UIViewController {
     
     private let getMyInfo = PublishSubject<Void>()
     private let modifyGithubID = PublishSubject<String>()
+    private let modifyBio = PublishSubject<String>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +46,8 @@ class MyPageViewController: UIViewController {
 
     func bind() {
         let input = MyPageViewModel.input.init(getMyInfo: getMyInfo.asDriver(onErrorJustReturn: ()),
-                                               modifyGitID: modifyGithubID.asDriver(onErrorJustReturn: ""))
+                                               modifyGitID: modifyGithubID.asDriver(onErrorJustReturn: ""),
+                                               modifyBio: modifyBio.asDriver(onErrorJustReturn: ""))
         let output = viewModel.transform(input)
         
         output.getInfoResult.subscribe(onNext: { isSuccess in
@@ -100,6 +102,9 @@ class MyPageViewController: UIViewController {
     
     func openMenu(){
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let modifyBio = UIAlertAction(title: "소개 수정", style: .default) { _ in
+            self.processModifyBio()
+        }
         let changeGithubID = UIAlertAction(title: "Github 계정 변경", style: .default) { _ in
             self.changeGithubIDAlert()
         }
@@ -110,6 +115,7 @@ class MyPageViewController: UIViewController {
             self.moveLogin(didJustBrowsingBtnTaped: nil, didSuccessLogin: nil)
         }
         let cancle = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        actionSheet.addAction(modifyBio)
         actionSheet.addAction(changeGithubID)
         actionSheet.addAction(logout)
         actionSheet.addAction(cancle)
@@ -143,6 +149,16 @@ class MyPageViewController: UIViewController {
         alert.addAction(ok)
         alert.view.tintColor = .black
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func processModifyBio() {
+        let personalSB: UIStoryboard = UIStoryboard(name: "Personal", bundle: nil)
+        let modifyBioVC = personalSB.instantiateViewController(identifier: "ModifyBioViewController") as! ModifyBioViewController
+        modifyBioVC.existingBio = bioLabel.text
+        modifyBioVC.complitionHandler = { bio in
+            self.modifyBio.onNext(bio)
+        }
+        self.present(modifyBioVC, animated: true, completion: nil)
     }
     
 }
