@@ -9,6 +9,8 @@ import UIKit
 
 class ChatViewController: UIViewController {
 
+    public var roomID: Int!
+    
     @IBOutlet weak var movingView: UIView!
     @IBOutlet weak var textInputView: UIView!
     @IBOutlet weak var messageTextField: UITextField!
@@ -17,6 +19,8 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var chatTableBottomConstraint: NSLayoutConstraint!
     
     private var keyboardHeight: CGFloat!
+    private let navigationBarTitile = UILabel()
+    private let navigationBarImage = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +29,50 @@ class ChatViewController: UIViewController {
         setTableView()
         addKeyboardNotification()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setNavigationBar()
+    }
 
 }
 
 //MARK:- UI
 extension ChatViewController {
     func setUI(){
+    }
+    
+    func setNavigationBar(){
+        navigationController?.navigationBar.topItem?.title = ""
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
+        let container = UIView(frame: CGRect(x: 0, y: 0, width: 1000, height: 35))
+        
+        navigationBarImage.translatesAutoresizingMaskIntoConstraints = false
+        navigationBarImage.layer.cornerRadius = 17.5
+        container.addSubview(navigationBarImage)
+        
+        navigationBarTitile.font = navigationBarTitile.font.withSize(20)
+        navigationBarTitile.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(navigationBarTitile)
+
+        let leftButtonWidth: CGFloat = 35 // left padding
+        let rightButtonWidth: CGFloat = 75 // right padding
+        let width = view.frame.width - leftButtonWidth - rightButtonWidth
+        let offset = (rightButtonWidth - leftButtonWidth) / 2
+        
+        NSLayoutConstraint.activate([
+            navigationBarImage.topAnchor.constraint(equalTo: container.topAnchor),
+            navigationBarImage.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+            navigationBarImage.widthAnchor.constraint(equalToConstant: container.frame.height),
+            navigationBarImage.heightAnchor.constraint(equalToConstant: container.frame.height),
+            navigationBarImage.centerXAnchor.constraint(equalTo: container.centerXAnchor, constant: -(width/2)),
+            navigationBarTitile.topAnchor.constraint(equalTo: container.topAnchor),
+            navigationBarTitile.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+            navigationBarTitile.centerXAnchor.constraint(equalTo: container.centerXAnchor, constant: -offset+35+8),
+            navigationBarTitile.widthAnchor.constraint(equalToConstant: width)
+        ])
+        self.navigationItem.titleView = container
     }
 }
 
