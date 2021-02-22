@@ -30,6 +30,7 @@ class ModifyBioViewController: UIViewController {
     func bind() {
         confirmBtn.rx.tap.subscribe(onNext: {
             self.complitionHandler(self.bioTextView.text!)
+            self.dismiss(animated: true)
         })
         .disposed(by: disposeBag)
     }
