@@ -34,7 +34,6 @@ class MyPageViewController: UIViewController {
         super.viewDidLoad()
 
         bind()
-        getInfo()
         setUI()
         setNavigationBar()
         setCollectionView()
