@@ -9,10 +9,13 @@ import UIKit
 
 class ModifyBioViewController: UIViewController {
 
+    @IBOutlet weak var bioTextView: UITextView!
+    @IBOutlet weak var confirmBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
 
-
+    
 }
