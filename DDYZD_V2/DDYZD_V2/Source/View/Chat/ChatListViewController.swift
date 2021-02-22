@@ -20,12 +20,9 @@ class ChatListViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private let loadList = BehaviorRelay<Void>(value: ())
     
-    let socket = SocketIOManager()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        socket.establishConnection()
         registerCell()
         setUI()
         bind()
@@ -34,10 +31,11 @@ class ChatListViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         setNavigationBar()
+        SocketIOManager.shared.establishConnection()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        socket.closeConnection()
+        SocketIOManager.shared.closeConnection()
     }
     
     func bind(){
