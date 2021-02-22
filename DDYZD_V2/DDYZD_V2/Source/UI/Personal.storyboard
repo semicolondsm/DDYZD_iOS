@@ -278,7 +278,7 @@
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4la-t5-8zs">
                                         <rect key="frame" x="8" y="34" width="358" height="453.5"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="bMJ-hp-gHw">
                                             <size key="itemSize" width="70" height="80"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -300,7 +300,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="rp7-gz-7h5" firstAttribute="top" secondItem="ICs-DM-YZr" secondAttribute="top" constant="8" id="RGX-Po-LMf"/>
                                     <constraint firstItem="4la-t5-8zs" firstAttribute="top" secondItem="rp7-gz-7h5" secondAttribute="bottom" constant="8" symbolic="YES" id="ZB0-3U-M2f"/>
@@ -314,7 +314,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DzA-YB-PHq"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.98298209910000001" green="0.97972828150000002" blue="0.9998813272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="LZR-El-Mov" firstAttribute="top" secondItem="dXV-Tj-G5S" secondAttribute="bottom" constant="20" id="22D-I8-VIi"/>
                             <constraint firstItem="Rna-L1-yCs" firstAttribute="leading" secondItem="DzA-YB-PHq" secondAttribute="leading" constant="20" id="6w3-nt-AbV"/>
