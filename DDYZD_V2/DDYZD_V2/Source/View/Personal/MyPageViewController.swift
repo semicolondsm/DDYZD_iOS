@@ -33,10 +33,10 @@ class MyPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        bind()
         setUI()
         setNavigationBar()
         setCollectionView()
+        bind()
     }
     
     override func viewWillAppear(_ animated: Bool) {

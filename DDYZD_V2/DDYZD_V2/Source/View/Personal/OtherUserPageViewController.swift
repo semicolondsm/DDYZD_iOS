@@ -33,9 +33,9 @@ class OtherUserPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        bind()
         setUI()
         setCollectionView()
+        bind()
     }
     
     override func viewWillAppear(_ animated: Bool) {
