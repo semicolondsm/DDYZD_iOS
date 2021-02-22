@@ -226,7 +226,7 @@
         <!--Other User Page View Controller-->
         <scene sceneID="tYJ-JS-cFJ">
             <objects>
-                <viewController id="Lia-ge-th6" customClass="OtherUserPageViewController" customModule="DDYZD_V2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OtherUserPageViewController" id="Lia-ge-th6" customClass="OtherUserPageViewController" customModule="DDYZD_V2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Qj-wf-Mph">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
