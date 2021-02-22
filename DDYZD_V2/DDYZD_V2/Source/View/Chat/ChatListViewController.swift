@@ -42,9 +42,15 @@ class ChatListViewController: UIViewController {
     
     func bind(){
         let input = ChatListViewModel.input(
-            loadList: loadList.asSignal(onErrorJustReturn: ())
+            loadList: loadList.asSignal(onErrorJustReturn: ()),
+            selectIndexPath: ChatListTable.rx.itemSelected.asSignal()
         )
         let output = viewModel.transform(input)
+        
+        ChatListTable.rx.itemSelected.subscribe(onNext: { indexPath in
+            self.ChatListTable.deselectRow(at: indexPath, animated: true)
+        })
+        .disposed(by: disposeBag)
         
         output.result.subscribe(onNext: { errorMessage in
             self.moveLogin(didJustBrowsingBtnTaped: {
@@ -60,12 +66,24 @@ class ChatListViewController: UIViewController {
         }
         .disposed(by: disposeBag)
         
+        output.roomID.asObservable().subscribe(onNext: { roomID in
+            self.goChatPage(roomID: roomID)
+        })
+        .disposed(by: disposeBag)
+        
     }
     
     func registerCell() {
         let nib = UINib(nibName: "ChatListTableViewCell", bundle: nil)
         ChatListTable.register(nib, forCellReuseIdentifier: "ChatListTableViewCell")
         ChatListTable.rowHeight = 80
+    }
+    
+    func goChatPage(roomID: Int){
+        let chatSB: UIStoryboard = UIStoryboard(name: "Chat", bundle: nil)
+        let chatVC = chatSB.instantiateViewController(identifier: "ChatViewController") as! ChatViewController
+        chatVC.roomID = roomID
+        self.navigationController?.pushViewController(chatVC, animated: true)
     }
 
 }
