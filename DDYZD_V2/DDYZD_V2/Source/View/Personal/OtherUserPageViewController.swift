@@ -97,6 +97,8 @@ extension OtherUserPageViewController {
     
     func setNavigationBar() {
         navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.topItem?.title = ""
+        navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.4811326265, green: 0.1003668979, blue: 0.812384963, alpha: 1)
     }
     
 }
