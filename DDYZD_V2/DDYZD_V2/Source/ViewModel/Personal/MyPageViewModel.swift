@@ -43,11 +43,7 @@ class MyPageViewModel: ViewModelProtocol {
                         case .success:
                             getInfoResult.accept(true)
                             myInfo.accept(data!)
-                            if data!.clubs.count == 1 {
-                                belongClub.accept(data!.clubs+[Club(club_id: -1, club_name: "", club_image: "")])
-                            } else {
-                                belongClub.accept(data!.clubs)
-                            }
+                            belongClub.accept(data!.clubs)
                         default:
                             getInfoResult.accept(false)
                             print("get user info: \(res)")
