@@ -167,8 +167,7 @@ class ClubDetailViewController: UIViewController {
         .disposed(by: disposeBag)
         
         output.selectedMemberGCN.subscribe(onNext: { GCN in
-            // 유저 프로필 페이지 이동
-            print(GCN)
+            self.goUserPageView(GCN)
         })
         .disposed(by: disposeBag)
         
@@ -206,7 +205,13 @@ class ClubDetailViewController: UIViewController {
         getFeed.onNext(.loadMore)
     }
     
-
+    func goUserPageView(_ gcn: String){
+        self.navigationController?.navigationBar.shadowImage = nil
+        let personalSB: UIStoryboard = UIStoryboard(name: "Personal", bundle: nil)
+        let userPageVC = personalSB.instantiateViewController(identifier: "OtherUserPageViewController") as! OtherUserPageViewController
+        userPageVC.gcn = gcn
+        self.navigationController?.pushViewController(userPageVC, animated: true)
+    }
 }
 
 
