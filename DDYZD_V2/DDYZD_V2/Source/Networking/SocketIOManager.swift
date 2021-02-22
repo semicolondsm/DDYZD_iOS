@@ -13,7 +13,7 @@ import SocketIO
 
 class SocketIOManager {
     
-    var manager = SocketManager(socketURL: URL(string: "http://api.semicolon.live")!,
+    var manager = SocketManager(socketURL: URL(string: "https://api.semicolon.live")!,
                                 config: [.log(true), .compress, .forceWebsockets(true), .reconnects(false), .extraHeaders(["Authorization": "Bearer \(Token.access_token)"]) ])
     var socket: SocketIOClient!
     
@@ -22,10 +22,18 @@ class SocketIOManager {
         socket.on(clientEvent: .connect) {
             print($0)
             print($1)
+            print("connect")
         }
         socket.on(clientEvent: .error) {
             print($0)
             print($1)
+            print("error")
+        }
+        
+        socket.on(clientEvent: .disconnect) {
+            print($0)
+            print($1)
+            print("disconnect")
         }
     }
     
