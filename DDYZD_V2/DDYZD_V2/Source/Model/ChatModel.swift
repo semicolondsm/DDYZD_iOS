@@ -36,3 +36,8 @@ enum ChatType: String, Codable{
     case Schedule = "H2"
     case Result = "H3"
 }
+
+enum UserType: String {
+    case Volunteer = "U"
+    case ClubHead = "C"
+}
