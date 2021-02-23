@@ -28,16 +28,17 @@ class ChatListViewController: UIViewController {
         registerCell()
         setUI()
         bind()
+        getChatList()
         
     }
 
     override func viewWillAppear(_ animated: Bool) {
         setNavigationBar()
-        SocketIOManager.shared.establishConnection()
+        //SocketIOManager.shared.establishConnection()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        SocketIOManager.shared.closeConnection()
+        //SocketIOManager.shared.closeConnection()
     }
     
     func bind(){
@@ -72,6 +73,10 @@ class ChatListViewController: UIViewController {
         })
         .disposed(by: disposeBag)
         
+    }
+    
+    func getChatList() {
+        loadList.onNext(0)
     }
     
     func registerCell() {

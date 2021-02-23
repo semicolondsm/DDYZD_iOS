@@ -19,5 +19,5 @@ struct Room: Codable {
     let image: String
     let lastdate: String?
     let lastmessage: String?
-    let autherity: Int
+    let index: Int
 }
