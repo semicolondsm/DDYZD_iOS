@@ -14,12 +14,17 @@ import SocketIO
 class SocketIOManager: NSObject {
     static let shared = SocketIOManager()
     let manager = SocketManager(socketURL: URL(string: "https://api.semicolon.live")!,
-                                config: [.log(false), .compress, .forceWebsockets(true), .reconnects(false), .extraHeaders(["Authorization": "Bearer \(Token.access_token)"]) ])
+                                config: [.log(true), .compress, .forceWebsockets(true), .reconnects(false), .extraHeaders(["Authorization": "Bearer \(Token.access_token)"]) ])
     var socket: SocketIOClient!
     
     override init() {
         super.init()
         socket = manager.socket(forNamespace: "/chat")
+        
+        socket.on("response") {
+            print($0)
+            print($1)
+        }
         
         socket.on(clientEvent: .connect) {
             print($0)
@@ -38,11 +43,6 @@ class SocketIOManager: NSObject {
             print("disconnect")
         }
         
-        socket.on("response?09") {
-            print($0)
-            print($1)
-            print("tlqkf")
-        }
     }
     
     func establishConnection() {
