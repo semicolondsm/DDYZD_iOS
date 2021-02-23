@@ -7,9 +7,13 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+
 class ChatViewController: UIViewController {
 
     public var roomID: Int!
+    public var userType: UserType!
     
     @IBOutlet weak var movingView: UIView!
     @IBOutlet weak var textInputView: UIView!
@@ -18,6 +22,9 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var chatTable: UITableView!
     @IBOutlet weak var chatTableBottomConstraint: NSLayoutConstraint!
     
+    private let  getBreakdown = PublishSubject<Void>()
+    
+    private let viewModel = ChatViewModel()
     private var keyboardHeight: CGFloat!
     private let navigationBarTitile = UILabel()
     private let navigationBarImage = UIImageView()
@@ -28,10 +35,22 @@ class ChatViewController: UIViewController {
         setMessageTextField()
         setTableView()
         addKeyboardNotification()
+        bind()
+        getChatBreakdown()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setNavigationBar()
+    }
+    
+    func bind() {
+        viewModel.roomID = self.roomID
+        let input = ChatViewModel.input(getBreakdown: getBreakdown.asDriver(onErrorJustReturn: ()))
+        let output = viewModel.transform(input)
+    }
+    
+    func getChatBreakdown() {
+        getBreakdown.onNext(())
     }
 
 }
