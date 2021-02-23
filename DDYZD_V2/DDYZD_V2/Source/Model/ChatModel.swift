@@ -7,14 +7,17 @@
 
 import Foundation
 
-struct ChatRoom: Codable {
+struct ChatList: Codable {
+    let club_section: [String]
+    let rooms: [Room]
+}
+
+struct Room: Codable {
     let roomid: Int
-    let clubid: Int
-    let clubname: String
-    let clubimage: String
-    let userid: Int
-    let username: String
-    let userimage: String
+    let id: Int
+    let name: String
+    let image: String
     let lastdate: String?
     let lastmessage: String?
+    let autherity: Int
 }
