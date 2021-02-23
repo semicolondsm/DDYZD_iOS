@@ -12,12 +12,35 @@ import SocketIO
 
 
 class SocketIOManager {
-    
-    var manager = SocketManager(socketURL: URL(string: "https://api.semicolon.live")!, config: [.log(false), .compress])
+    static let shared = SocketIOManager()
+    var manager = SocketManager(socketURL: URL(string: "https://api.semicolon.live")!,
+                                config: [.log(true), .compress, .forceWebsockets(true), .reconnects(false), .extraHeaders(["Authorization": "Bearer \(Token.access_token)"]) ])
     var socket: SocketIOClient!
     
-    init(_ room: String) {
-        socket = self.manager.socket(forNamespace: "/"+room)
+    init() {
+        socket = self.manager.socket(forNamespace: "/chat")
+        
+        socket.on("response") {
+            print($0)
+            print($1)
+            print("res")
+        }
+        socket.on(clientEvent: .connect) {
+            print($0)
+            print($1)
+            print("connect")
+        }
+        socket.on(clientEvent: .error) {
+            print($0)
+            print($1)
+            print("error")
+        }
+        
+        socket.on(clientEvent: .disconnect) {
+            print($0)
+            print($1)
+            print("disconnect")
+        }
     }
     
     func establishConnection() {
