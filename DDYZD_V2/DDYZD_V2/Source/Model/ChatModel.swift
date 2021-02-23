@@ -13,8 +13,8 @@ struct ChatList: Codable {
 }
 
 struct Room: Codable {
-    let roomid: Int
-    let id: Int
+    let roomid: String
+    let id: String
     let name: String
     let image: String
     let lastdate: String?

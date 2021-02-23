@@ -15,33 +15,57 @@ class ChatListViewModel: ViewModelProtocol {
     let disposeBag = DisposeBag()
     
     struct input {
-        let loadSection: Driver<Void>
+        let loadSections: Driver<()>
         let loadList: Driver<Int>
         let selectIndexPath: Signal<IndexPath>
     }
     
     struct output {
-        let result: Observable<String>
+        let result: PublishRelay<Bool>
+        let sectionList: PublishRelay<[String]>
         let chatList: PublishRelay<[Room]>
         let roomID: Signal<Int>
     }
     
     func transform(_ input: input) -> output {
         let api = ChatAPI()
-        let result = PublishSubject<String>()
+        let result = PublishRelay<Bool>()
+        let sectionList = PublishRelay<[String]>()
         let chatList = PublishRelay<[Room]>()
         let roomID = PublishRelay<Int>()
         
-        input.loadList.asObservable().subscribe(onNext: { sctionIndex in
+        input.loadSections.asObservable().subscribe(onNext: {
             api.getChatList().subscribe(onNext: { data, response in
                 switch response {
                 case .success:
-                    chatList.accept(data!.rooms)
-                    result.onCompleted()
+                    sectionList.accept(data!.club_section)
+                    result.accept(true)
                 case .unauthorized:
-                    result.onNext("Incorrect Token")
+                    result.accept(false)
                 default:
-                    result.onNext("API 'getChatList' ERROR")
+                    result.accept(false)
+                }
+            })
+            .disposed(by: self.disposeBag)
+        })
+        .disposed(by: disposeBag)
+        
+        input.loadList.asObservable().subscribe(onNext: { sectionIndex in
+            api.getChatList().subscribe(onNext: { data, response in
+                switch response {
+                case .success:
+                    var roomsInSection = [Room]()
+                    for room in data!.rooms {
+                        if room.index == sectionIndex {
+                            roomsInSection.append(room)
+                        }
+                    }
+                    chatList.accept(roomsInSection)
+                    result.accept(true)
+                case .unauthorized:
+                    result.accept(false)
+                default:
+                    result.accept(false)
                 }
             })
             .disposed(by: self.disposeBag)
@@ -51,12 +75,13 @@ class ChatListViewModel: ViewModelProtocol {
         
         input.selectIndexPath.asObservable()
             .withLatestFrom(chatList){ indexPath, data in
-                data[indexPath.row].roomid
+                Int(data[indexPath.row].roomid)!
             }
             .subscribe{ roomID.accept($0) }
             .disposed(by: disposeBag)
         
         return output(result: result,
+                      sectionList: sectionList,
                       chatList: chatList,
                       roomID: roomID.asSignal())
     }

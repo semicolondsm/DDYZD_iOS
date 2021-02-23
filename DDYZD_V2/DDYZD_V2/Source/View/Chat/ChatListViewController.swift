@@ -15,12 +15,13 @@ import Kingfisher
 class ChatListViewController: UIViewController {
 
     @IBOutlet weak var ChatListTable: UITableView!
+        
+    private let loadSections = PublishSubject<Void>()
+    private let loadList = PublishSubject<Int>()
     
     private let viewModel = ChatListViewModel()
     private let disposeBag = DisposeBag()
-    
-    private let loadSection = PublishSubject<Void>()
-    private let loadList = PublishSubject<Int>()
+    private var chatSections = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,22 +29,22 @@ class ChatListViewController: UIViewController {
         registerCell()
         setUI()
         bind()
-        getChatList()
-        
+        getChatSections()
+        getChatList(section: 0)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         setNavigationBar()
-        //SocketIOManager.shared.establishConnection()
+        SocketIOManager.shared.establishConnection()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        //SocketIOManager.shared.closeConnection()
+        SocketIOManager.shared.closeConnection()
     }
     
     func bind(){
         let input = ChatListViewModel.input(
-            loadSection: loadSection.asDriver(onErrorJustReturn: ()),
+            loadSections: loadSections.asDriver(onErrorJustReturn: ()),
             loadList: loadList.asDriver(onErrorJustReturn: 0),
             selectIndexPath: ChatListTable.rx.itemSelected.asSignal()
         )
@@ -54,12 +55,21 @@ class ChatListViewController: UIViewController {
         })
         .disposed(by: disposeBag)
         
-        output.result.subscribe(onNext: { errorMessage in
-            self.moveLogin(didJustBrowsingBtnTaped: {
-                self.navigationController?.popViewController(animated: true)
-            }, didSuccessLogin: {
-                self.loadList.onNext(0)
-            })
+        
+        output.result.subscribe(onNext: { isSuccess in
+            if !isSuccess {
+                self.moveLogin(didJustBrowsingBtnTaped: {
+                    self.navigationController?.popViewController(animated: true)
+                }, didSuccessLogin: {
+                    self.loadList.onNext(0)
+                })
+            }
+        })
+        .disposed(by: disposeBag)
+        
+        output.sectionList.subscribe(onNext: { sections in
+            self.chatSections = sections
+            self.setSelectSectionBarItem()
         })
         .disposed(by: disposeBag)
         
@@ -75,8 +85,12 @@ class ChatListViewController: UIViewController {
         
     }
     
-    func getChatList() {
-        loadList.onNext(0)
+    func getChatSections() {
+        loadSections.onNext(())
+    }
+    
+    func getChatList(section: Int) {
+        loadList.onNext(section)
     }
     
     func registerCell() {
@@ -91,6 +105,24 @@ class ChatListViewController: UIViewController {
         chatVC.roomID = roomID
         self.navigationController?.pushViewController(chatVC, animated: true)
     }
+    
+    func setSelectSectionBarItem() {
+        self.navigationItem.rightBarButtonItem?.title = chatSections[0]+" ▾"
+        self.navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 0.4509803922, green: 0.4470926523, blue: 0.4469521046, alpha: 1)
+    }
+    
+    @objc func openSelectSectionActionSheet() {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        actionSheet.view.tintColor = .black
+        for section in self.chatSections {
+            let action = UIAlertAction(title: section, style: .default, handler: { _ in
+                self.navigationItem.rightBarButtonItem?.title = section+" ▾"
+                self.getChatList(section: self.chatSections.firstIndex(of: section)!)
+            })
+            actionSheet.addAction(action)
+        }
+        self.present(actionSheet, animated: true, completion: nil)
+    }
 
 }
 
@@ -103,8 +135,8 @@ extension ChatListViewController {
         navigationController?.navigationBar.topItem?.title = ""
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.4811326265, green: 0.1003668979, blue: 0.812384963, alpha: 1)
         navigationItem.title = "채팅"
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: nil)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "▾", style: .plain, target: self, action: #selector(openSelectSectionActionSheet))
+        self.navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 0.4509803922, green: 0.4470926523, blue: 0.4469521046, alpha: 1)
     }
     
     func setUI(){
