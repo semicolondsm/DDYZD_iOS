@@ -103,11 +103,11 @@ class ChatListViewController: UIViewController {
         let chatSB: UIStoryboard = UIStoryboard(name: "Chat", bundle: nil)
         let chatVC = chatSB.instantiateViewController(identifier: "ChatViewController") as! ChatViewController
         chatVC.roomID = roomID
-        self.navigationController?.pushViewController(chatVC, animated: true)
+        navigationController?.pushViewController(chatVC, animated: true)
     }
     
     func setSelectSectionBarItem() {
-        self.navigationItem.rightBarButtonItem?.title = chatSections[0]+" ▾"
+        navigationItem.rightBarButtonItem?.title = chatSections[0]+" ▾"
     }
     
     @objc func openSelectSectionActionSheet() {
@@ -134,8 +134,8 @@ extension ChatListViewController {
         navigationController?.navigationBar.topItem?.title = ""
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.4811326265, green: 0.1003668979, blue: 0.812384963, alpha: 1)
         navigationItem.title = "채팅"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: self.navigationItem.rightBarButtonItem?.title, style: .plain, target: self, action: #selector(openSelectSectionActionSheet))
-        self.navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 0.4509803922, green: 0.4470926523, blue: 0.4469521046, alpha: 1)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: navigationItem.rightBarButtonItem?.title, style: .plain, target: self, action: #selector(openSelectSectionActionSheet))
+        navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 0.4509803922, green: 0.4470926523, blue: 0.4469521046, alpha: 1)
     }
     
     func setUI(){
