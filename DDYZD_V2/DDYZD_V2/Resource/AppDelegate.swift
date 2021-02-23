@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        window?.backgroundColor = .white
+        
         DSMSDKCommon.initSDK(clientID: "e20961403e0b43009c5dc070a8245e2e",
                              clientSecret: "b1336493014a4cef8a480712c2be4bcf",
                              redirectURL: "https://semicolondsm.xyz/")

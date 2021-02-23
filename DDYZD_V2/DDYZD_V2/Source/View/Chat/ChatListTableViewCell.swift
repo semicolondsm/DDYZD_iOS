@@ -9,15 +9,28 @@ import UIKit
 
 class ChatListTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var clubProfileImageView: UIImageView!
+    @IBOutlet weak var clubNameLable: UILabel!
+    @IBOutlet weak var lastMessageLable: UILabel!
+    @IBOutlet weak var whenLable: UILabel!
+    @IBOutlet weak var unwatchedSignView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        setUI()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func setUI(){
+        clubProfileImageView.layer.cornerRadius = clubProfileImageView.frame.height/2
+        unwatchedSignView.layer.cornerRadius = unwatchedSignView.frame.height/2
+    }
+    
+    func bind(item: Room){
+        clubProfileImageView.kf.setImage(with: URL(string: item.image))
+        clubNameLable.text = item.name
+        whenLable.dateLabel(item.lastdate ?? "")
+        lastMessageLable.text = item.lastmessage
     }
 
 }

@@ -133,7 +133,7 @@ extension UILabel {
         formatter.locale = Locale(identifier:"ko_KR")
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSz"
         
-        guard let temp = formatter.date(from: dateString) else {return self.text = "?"}
+        guard let temp = formatter.date(from: dateString) else {return self.text = ""}
         
         let diff = (Date().millisecondsSince1970 - temp.millisecondsSince1970)/1000
         let day_diff = diff / 86400
