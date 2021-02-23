@@ -21,3 +21,18 @@ struct Room: Codable {
     let lastmessage: String?
     let index: Int
 }
+
+struct Chat: Codable {
+    let title: String?
+    let msg: String
+    let user_type: ChatType
+    let create_at: String
+}
+
+enum ChatType: String, Codable{
+    case user = "U"
+    case Club = "C"
+    case Apply = "H1"
+    case Schedule = "H2"
+    case Result = "H3"
+}
