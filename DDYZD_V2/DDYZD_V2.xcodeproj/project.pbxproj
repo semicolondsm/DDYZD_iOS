@@ -33,6 +33,8 @@
 		9228A23A25DD1D8100C299E9 /* OtherUserPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9228A23925DD1D8100C299E9 /* OtherUserPageViewController.swift */; };
 		9228A23D25DD1DC600C299E9 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9228A23C25DD1DC600C299E9 /* MyPageViewModel.swift */; };
 		9228A24025DD1DCC00C299E9 /* OtherUserPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9228A23F25DD1DCC00C299E9 /* OtherUserPageViewModel.swift */; };
+		922EBECD25E15E5300AE5697 /* ClubMemberCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 922EBECC25E15E5300AE5697 /* ClubMemberCollectionViewCell.xib */; };
+		922EBED025E160B700AE5697 /* ClubMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922EBECF25E160B700AE5697 /* ClubMemberCollectionViewCell.swift */; };
 		922EBED425E3A1D100AE5697 /* ModifyBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922EBED325E3A1D100AE5697 /* ModifyBioViewController.swift */; };
 		924CD78C25DF70E5009C9824 /* BelongClubCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924CD78B25DF70E5009C9824 /* BelongClubCollectionViewCell.xib */; };
 		924CD78F25DF7F06009C9824 /* BelongClubCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CD78E25DF7F06009C9824 /* BelongClubCollectionViewCell.swift */; };
@@ -44,6 +46,7 @@
 		9263696025B684ED00D2D107 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263695F25B684ED00D2D107 /* LoginViewController.swift */; };
 		9263697825B7335C00D2D107 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263697725B7335C00D2D107 /* AuthAPI.swift */; };
 		926E86E725B4404F00E7F213 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926E86E625B4404F00E7F213 /* HTTPClient.swift */; };
+		92B6377325D9667600FFE785 /* SubClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6377225D9667500FFE785 /* SubClass.swift */; };
 		92B9AE9B25BF03C900026892 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9AE9A25BF03C900026892 /* ChatListViewController.swift */; };
 		92BED6D225BD46C900526C33 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BED6D125BD46C900526C33 /* Chat.storyboard */; };
 		92BED6DA25BD473100526C33 /* ChatAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BED6D925BD473100526C33 /* ChatAPI.swift */; };
@@ -91,6 +94,8 @@
 		9228A23925DD1D8100C299E9 /* OtherUserPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherUserPageViewController.swift; sourceTree = "<group>"; };
 		9228A23C25DD1DC600C299E9 /* MyPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
 		9228A23F25DD1DCC00C299E9 /* OtherUserPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherUserPageViewModel.swift; sourceTree = "<group>"; };
+		922EBECC25E15E5300AE5697 /* ClubMemberCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClubMemberCollectionViewCell.xib; sourceTree = "<group>"; };
+		922EBECF25E160B700AE5697 /* ClubMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubMemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		922EBED325E3A1D100AE5697 /* ModifyBioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyBioViewController.swift; sourceTree = "<group>"; };
 		924CD78B25DF70E5009C9824 /* BelongClubCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BelongClubCollectionViewCell.xib; sourceTree = "<group>"; };
 		924CD78E25DF7F06009C9824 /* BelongClubCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BelongClubCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -105,6 +110,7 @@
 		9263696425B6EE0E00D2D107 /* DDYZD_V2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = DDYZD_V2.entitlements; path = "DDYZD_V2/Surpporting Files/DDYZD_V2.entitlements"; sourceTree = SOURCE_ROOT; };
 		9263697725B7335C00D2D107 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		926E86E625B4404F00E7F213 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		92B6377225D9667500FFE785 /* SubClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubClass.swift; sourceTree = "<group>"; };
 		92B9AE9A25BF03C900026892 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
 		92BED6D125BD46C900526C33 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		92BED6D925BD473100526C33 /* ChatAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAPI.swift; sourceTree = "<group>"; };
@@ -177,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				9200D19B25B99D0000461843 /* Extension.swift */,
+				92B6377225D9667500FFE785 /* SubClass.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -186,8 +193,9 @@
 			children = (
 				9200D12725B88EF200461843 /* ClubListViewController.swift */,
 				9200D15C25B996C600461843 /* ClubListTableViewController.swift */,
-				9200D38B25BBD6AD00461843 /* ClubListTableViewCell.swift */,
 				92BED6EA25BD534B00526C33 /* ClubDetailViewController.swift */,
+				9200D38B25BBD6AD00461843 /* ClubListTableViewCell.swift */,
+				922EBECF25E160B700AE5697 /* ClubMemberCollectionViewCell.swift */,
 			);
 			path = Club;
 			sourceTree = "<group>";
@@ -195,8 +203,8 @@
 		9200D12625B88ED500461843 /* Club */ = {
 			isa = PBXGroup;
 			children = (
-				92BED6ED25BD536200526C33 /* ClubDetailViewModel.swift */,
 				9200D12B25B88F1A00461843 /* ClubListTableViewModel.swift */,
+				92BED6ED25BD536200526C33 /* ClubDetailViewModel.swift */,
 			);
 			path = Club;
 			sourceTree = "<group>";
@@ -244,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				924CD78B25DF70E5009C9824 /* BelongClubCollectionViewCell.xib */,
+				922EBECC25E15E5300AE5697 /* ClubMemberCollectionViewCell.xib */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -477,6 +486,7 @@
 			files = (
 				92D97F9325D06D4A008456C8 /* FeedWithMedia.xib in Resources */,
 				925C9EB725B08BE9005A3694 /* LaunchScreen.storyboard in Resources */,
+				922EBECD25E15E5300AE5697 /* ClubMemberCollectionViewCell.xib in Resources */,
 				92D97F1A25CEECAB008456C8 /* Feed.xib in Resources */,
 				92FBA6A025B537320014FB8B /* GoogleService-Info.plist in Resources */,
 				9200D39025BBE2C400461843 /* ClubListTableViewCell.xib in Resources */,
@@ -554,6 +564,7 @@
 				92BED6EE25BD536200526C33 /* ClubDetailViewModel.swift in Sources */,
 				9200D13225B8903300461843 /* ClubAPI.swift in Sources */,
 				926E86E725B4404F00E7F213 /* HTTPClient.swift in Sources */,
+				922EBED025E160B700AE5697 /* ClubMemberCollectionViewCell.swift in Sources */,
 				9200D04C25B7411100461843 /* ViewModelProtocol.swift in Sources */,
 				92C35F4225B5BD0700D30DDF /* DDYZDAPI.swift in Sources */,
 				9263697825B7335C00D2D107 /* AuthAPI.swift in Sources */,
@@ -568,6 +579,7 @@
 				9228A22725DD193B00C299E9 /* PersonalAPI.swift in Sources */,
 				92D1759D25BD696B00E6F2D6 /* MainPageViewController.swift in Sources */,
 				9200D12825B88EF200461843 /* ClubListViewController.swift in Sources */,
+				92B6377325D9667600FFE785 /* SubClass.swift in Sources */,
 				9200D0B425B74DAA00461843 /* LoginViewModel.swift in Sources */,
 				9228A21C25DD17F800C299E9 /* PersonalModel.swift in Sources */,
 				92BED6E825BD4BA600526C33 /* ChatModel.swift in Sources */,

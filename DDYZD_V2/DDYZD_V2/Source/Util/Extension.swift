@@ -118,6 +118,13 @@ extension UIImageView {
     func circleImage() {
         self.layer.cornerRadius = (self.frame.height + self.frame.width)/4
     }
+    
+    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        self.layer.mask = mask
+    }
 }
 
 extension UILabel {
@@ -148,8 +155,19 @@ extension UILabel {
                 "\(day_diff/7)주 전"
             )
         }
+    }
+    
+    func fieldLabel(clubTag: [String]){
         
+        self.text = ""
         
+        for field in clubTag {
+            if field == clubTag.last {
+                self.text! += field
+            } else {
+                self.text! += "\(field), "
+            }
+        }
     }
 }
 
@@ -190,3 +208,46 @@ extension Date {
 }
 
 
+extension UIButton {
+    enum ClubInfoBtnType {
+        case follow
+        case unfollow
+        case chat
+        case apply(deadline: String)
+    }
+    
+    func setBtnInClubDetail(type: ClubInfoBtnType) {
+        self.layer.cornerRadius = 5
+        self.layer.borderWidth = 0.5
+        switch type {
+        case .follow:
+            self.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+            self.layer.backgroundColor = #colorLiteral(red: 0.8824950457, green: 0.839987576, blue: 1, alpha: 1)
+            self.setTitle("팔로우", for: .normal)
+        case .unfollow:
+            self.layer.borderColor = #colorLiteral(red: 0.4504163861, green: 0.4470926523, blue: 0.4469521046, alpha: 1)
+            self.layer.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            self.setTitle("팔로우 취소", for: .normal)
+        case .chat:
+            self.layer.borderColor = #colorLiteral(red: 0.4504163861, green: 0.4470926523, blue: 0.4469521046, alpha: 1)
+            self.layer.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            self.setTitle("채팅 보내기", for: .normal)
+        case .apply(let deadline):
+            self.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+            self.layer.backgroundColor = #colorLiteral(red: 0.8824950457, green: 0.839987576, blue: 1, alpha: 1)
+            
+            let formatter = DateFormatter()
+            formatter.locale = Locale(identifier:"ko_KR")
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSz"
+            
+            guard let temp = formatter.date(from: deadline) else {return self.setTitle("지원하기", for: .normal)}
+            
+            let diff = (temp.millisecondsSince1970 - Date().millisecondsSince1970)/1000
+            let d_day = diff / 86400
+            
+            let attributedStr = NSMutableAttributedString(string: "D-\(d_day) 지원하기")
+            attributedStr.addAttribute(.foregroundColor, value: UIColor.red, range: NSString(string: "D-\(d_day) 지원하기").range(of: "D-\(d_day)"))
+            self.setAttributedTitle(attributedStr, for: .normal)
+        }
+    }
+}

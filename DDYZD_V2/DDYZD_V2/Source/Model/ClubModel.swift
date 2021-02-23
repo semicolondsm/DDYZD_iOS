@@ -79,3 +79,28 @@ struct ClubListModel: Codable {
     let clubimage: String
     let clubtag: [String]
 }
+
+struct ClubInfoModel: Codable {
+    let clubid: Int
+    let clubname: String
+    let clubtag: [String]
+    let clubimage: String
+    let backimage: String
+    let description: String
+    let recruitment: Bool
+    let recruitment_close: String?
+    let owner: Bool
+    let follow: Bool
+}
+
+struct ClubMember: Codable {
+    let user_id: Int?
+    let user_name: String
+    let gcn: String
+    let profile_image: String?
+    let git: String?
+}
+
+struct ChatRoom: Codable {
+    let room_id: Int
+}

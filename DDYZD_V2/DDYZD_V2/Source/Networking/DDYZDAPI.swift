@@ -29,6 +29,7 @@ enum DDYZDAPI {
     case modifyFeed(_ feedID: Int)              // 피드 수정
     case uploadFeedFile(_ feedID: Int)          // 피드 파일 업로드
     case deleteFeed(_ feedID: Int)              // 피드 삭제
+    case pinFeed(_ feedID: Int)                 // 피드 고정
     
     //club
     case clubList                           // 동아리 리스트 반환
@@ -37,7 +38,7 @@ enum DDYZDAPI {
     case getClubMember(_ clubID: Int)       // 동아리 멤버
     case cancelFollow(_ clubID: Int)        // 동아리 팔로우 취소
     case exitClub(_ clubID: Int)            // 소속 동아리 나가기
-    case followClub(_ clubID: Int)          // 동아리 팔로우
+    case followClub(_ clubID: Int)          // 동아리 팔로우/ 팔로우 취소
     
     //only head authority
     case makeRecruitment(_ clubID: Int)     // 동아리 모집 공고 생성
@@ -83,10 +84,12 @@ enum DDYZDAPI {
             return "/feed/\(feedID)/medium"
         case .deleteFeed(let feedID):
             return "/feed/\(feedID)"
+        case .pinFeed(let feedID):
+            return "/feed/\(feedID)/pin"
         case .clubList:
             return "/club/list"
         case .clubDetailInfo(let clubID):
-            return "/club/\(clubID)"
+            return "/club/\(clubID)/info"
         case .getRecruitment(let clubID):
             return "/club/\(clubID)/recruitment"
         case .getClubMember(let clubID):
@@ -112,7 +115,7 @@ enum DDYZDAPI {
         case .chatList:
             return "/chat/list"
         case .createChatRoom(let clubID):
-            return "chat/\(clubID)/room"
+            return "/chat/\(clubID)/room"
         case .chatBreakdown(let roomID):
             return "/chat/\(roomID)/breakdown"
         }
@@ -120,7 +123,7 @@ enum DDYZDAPI {
     
     func header() -> HTTPHeaders? {
         switch self {
-        case .clubList, .clubDetailInfo(_), .getRecruitment(_), .getClubMember(_):
+        case .clubList, .getRecruitment(_), .getClubMember(_):
             return nil
         case .getToken(let DSMAuthToken) :
             return ["access-token": "Bearer \(DSMAuthToken)"]
@@ -133,6 +136,9 @@ enum DDYZDAPI {
         case .updateProfileImage(_), .updateHongboImage(_), .updateBannerImage(_), .uploadFeedFile(_):
             return ["Authorization": "Bearer \(Token.access_token)",
                     "Content-Type": "multipart/form-data"]
+        case .clubDetailInfo(_):
+            if Token.access_token == "" { return nil }
+            return ["Authorization": "Bearer \(Token.access_token)"]
         default:
             return ["Authorization": "Bearer \(Token.access_token)"]
         }

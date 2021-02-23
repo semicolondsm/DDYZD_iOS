@@ -26,6 +26,20 @@ class FeedAPI {
             }
     }
     
+    func getClubFeedList(clubID: Int, page: Int) -> Observable<([FeedModel]?, StatusCodes)> {
+        httpClient.get(.clubFeedList(clubID, page), param: nil)
+            .map{ response, data -> ([FeedModel]?, StatusCodes) in
+                switch response.statusCode {
+                case 200:
+                    guard let data = try? JSONDecoder().decode([FeedModel].self, from: data) else { return (nil, .fault) }
+                    return (data, .success)
+                default:
+                    return (nil, .fault)
+                }
+                
+            }
+    }
+    
     func flagIt(feedID: Int) -> Observable<StatusCodes> {
         httpClient.put(.flagIt(feedID), param: nil)
             .map{ response, data -> StatusCodes in
@@ -42,6 +56,18 @@ class FeedAPI {
     
     func deleteFeed(feedID: Int) -> Observable<StatusCodes> {
         httpClient.delete(.deleteFeed(feedID), param: nil)
+            .map{ response, data -> StatusCodes in
+                switch response.statusCode {
+                case 200:
+                    return .success
+                default:
+                    return .fault
+                }
+            }
+    }
+    
+    func pinFeed(feedID: Int) -> Observable<StatusCodes> {
+        httpClient.put(.pinFeed(feedID), param: nil)
             .map{ response, data -> StatusCodes in
                 switch response.statusCode {
                 case 200:
