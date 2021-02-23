@@ -26,7 +26,7 @@ struct Chat: Codable {
     let title: String?
     let msg: String
     let user_type: ChatType
-    let create_at: String
+    let created_at: String
 }
 
 enum ChatType: String, Codable{
