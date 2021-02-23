@@ -52,7 +52,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o2Y-z2-alu">
                                 <rect key="frame" x="0.0" y="88" width="414" height="714"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7KE-l3-Snb">
                                 <rect key="frame" x="0.0" y="802" width="414" height="60"/>
@@ -100,7 +100,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6RV-Br-Pc7"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.98105853799999998" green="0.97547656299999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="7KE-l3-Snb" firstAttribute="trailing" secondItem="6RV-Br-Pc7" secondAttribute="trailing" id="B51-yU-8ck"/>
                             <constraint firstItem="o2Y-z2-alu" firstAttribute="leading" secondItem="6RV-Br-Pc7" secondAttribute="leading" id="IUy-eD-Uuy"/>
