@@ -18,7 +18,9 @@ class ChatListViewController: UIViewController {
     
     private let viewModel = ChatListViewModel()
     private let disposeBag = DisposeBag()
-    private let loadList = BehaviorRelay<Void>(value: ())
+    
+    private let loadSection = PublishSubject<Void>()
+    private let loadList = PublishSubject<Int>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +42,8 @@ class ChatListViewController: UIViewController {
     
     func bind(){
         let input = ChatListViewModel.input(
-            loadList: loadList.asSignal(onErrorJustReturn: ()),
+            loadSection: loadSection.asDriver(onErrorJustReturn: ()),
+            loadList: loadList.asDriver(onErrorJustReturn: 0),
             selectIndexPath: ChatListTable.rx.itemSelected.asSignal()
         )
         let output = viewModel.transform(input)
@@ -54,7 +57,7 @@ class ChatListViewController: UIViewController {
             self.moveLogin(didJustBrowsingBtnTaped: {
                 self.navigationController?.popViewController(animated: true)
             }, didSuccessLogin: {
-                self.loadList.accept(())
+                self.loadList.onNext(0)
             })
         })
         .disposed(by: disposeBag)
@@ -95,6 +98,8 @@ extension ChatListViewController {
         navigationController?.navigationBar.topItem?.title = ""
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.4811326265, green: 0.1003668979, blue: 0.812384963, alpha: 1)
         navigationItem.title = "채팅"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: nil)
     }
     
     func setUI(){

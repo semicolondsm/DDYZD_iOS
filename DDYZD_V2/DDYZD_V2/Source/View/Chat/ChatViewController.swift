@@ -39,6 +39,7 @@ class ChatViewController: UIViewController {
 //MARK:- UI
 extension ChatViewController {
     func setUI(){
+        
     }
     
     func setNavigationBar(){

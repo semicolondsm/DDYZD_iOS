@@ -15,27 +15,28 @@ class ChatListViewModel: ViewModelProtocol {
     let disposeBag = DisposeBag()
     
     struct input {
-        let loadList: Signal<Void>
+        let loadSection: Driver<Void>
+        let loadList: Driver<Int>
         let selectIndexPath: Signal<IndexPath>
     }
     
     struct output {
         let result: Observable<String>
-        let chatList: PublishRelay<[ChatRoom]>
+        let chatList: PublishRelay<[Room]>
         let roomID: Signal<Int>
     }
     
     func transform(_ input: input) -> output {
         let api = ChatAPI()
         let result = PublishSubject<String>()
-        let chatList = PublishRelay<[ChatRoom]>()
+        let chatList = PublishRelay<[Room]>()
         let roomID = PublishRelay<Int>()
         
-        input.loadList.asObservable().subscribe(onNext: {
+        input.loadList.asObservable().subscribe(onNext: { sctionIndex in
             api.getChatList().subscribe(onNext: { data, response in
                 switch response {
                 case .success:
-                    chatList.accept(data!)
+                    chatList.accept(data!.rooms)
                     result.onCompleted()
                 case .unauthorized:
                     result.onNext("Incorrect Token")
@@ -46,6 +47,7 @@ class ChatListViewModel: ViewModelProtocol {
             .disposed(by: self.disposeBag)
         })
         .disposed(by: disposeBag)
+        
         
         input.selectIndexPath.asObservable()
             .withLatestFrom(chatList){ indexPath, data in
