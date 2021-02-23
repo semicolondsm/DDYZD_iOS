@@ -24,8 +24,6 @@
 		9227C25725C559C200E6DF41 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227C25625C559C200E6DF41 /* ChatListViewModel.swift */; };
 		9227C2E125C5D74900E6DF41 /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227C2E025C5D74900E6DF41 /* MainPageViewModel.swift */; };
 		9227C34825C6FE7900E6DF41 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227C34725C6FE7900E6DF41 /* SocketIOManager.swift */; };
-		924CD78225DEC276009C9824 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CD78125DEC276009C9824 /* ChatViewController.swift */; };
-		924CD78525DEC353009C9824 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CD78425DEC353009C9824 /* ChatViewModel.swift */; };
 		9228A21925DD17C300C299E9 /* Personal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9228A21825DD17C300C299E9 /* Personal.storyboard */; };
 		9228A21C25DD17F800C299E9 /* PersonalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9228A21B25DD17F800C299E9 /* PersonalModel.swift */; };
 		9228A22725DD193B00C299E9 /* PersonalAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9228A22625DD193B00C299E9 /* PersonalAPI.swift */; };
@@ -36,6 +34,8 @@
 		922EBECD25E15E5300AE5697 /* ClubMemberCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 922EBECC25E15E5300AE5697 /* ClubMemberCollectionViewCell.xib */; };
 		922EBED025E160B700AE5697 /* ClubMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922EBECF25E160B700AE5697 /* ClubMemberCollectionViewCell.swift */; };
 		922EBED425E3A1D100AE5697 /* ModifyBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922EBED325E3A1D100AE5697 /* ModifyBioViewController.swift */; };
+		924CD78225DEC276009C9824 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CD78125DEC276009C9824 /* ChatViewController.swift */; };
+		924CD78525DEC353009C9824 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CD78425DEC353009C9824 /* ChatViewModel.swift */; };
 		924CD78C25DF70E5009C9824 /* BelongClubCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924CD78B25DF70E5009C9824 /* BelongClubCollectionViewCell.xib */; };
 		924CD78F25DF7F06009C9824 /* BelongClubCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924CD78E25DF7F06009C9824 /* BelongClubCollectionViewCell.swift */; };
 		925C9EAB25B08BE7005A3694 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C9EAA25B08BE7005A3694 /* AppDelegate.swift */; };
@@ -62,6 +62,11 @@
 		92D97F5125CFF509008456C8 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D97F5025CFF509008456C8 /* FeedTableViewCell.swift */; };
 		92D97F5425CFF527008456C8 /* FeedWithMediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D97F5325CFF527008456C8 /* FeedWithMediaTableViewCell.swift */; };
 		92D97F9325D06D4A008456C8 /* FeedWithMedia.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D97F9225D06D4A008456C8 /* FeedWithMedia.xib */; };
+		92E3A7F525E59487000E3654 /* MyChat.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E3A7F425E59487000E3654 /* MyChat.xib */; };
+		92E3A7F825E594B3000E3654 /* OthersChat.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E3A7F725E594B3000E3654 /* OthersChat.xib */; };
+		92E3A7FB25E59560000E3654 /* ApplyChatHelper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E3A7FA25E59560000E3654 /* ApplyChatHelper.xib */; };
+		92E3A7FE25E5957C000E3654 /* ScheduleChatHelper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E3A7FD25E5957C000E3654 /* ScheduleChatHelper.xib */; };
+		92E3A80125E59592000E3654 /* ResultChatHelper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E3A80025E59592000E3654 /* ResultChatHelper.xib */; };
 		92FBA6A025B537320014FB8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92FBA69F25B537320014FB8B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -85,8 +90,6 @@
 		9227C25625C559C200E6DF41 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
 		9227C2E025C5D74900E6DF41 /* MainPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainPageViewModel.swift; path = ../../../../../../../../Documents/MainPageViewModel.swift; sourceTree = "<group>"; };
 		9227C34725C6FE7900E6DF41 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
-		924CD78125DEC276009C9824 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		924CD78425DEC353009C9824 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatViewModel.swift; path = ../../../../../../../../Downloads/ChatViewModel.swift; sourceTree = "<group>"; };
 		9228A21825DD17C300C299E9 /* Personal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Personal.storyboard; sourceTree = "<group>"; };
 		9228A21B25DD17F800C299E9 /* PersonalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalModel.swift; sourceTree = "<group>"; };
 		9228A22625DD193B00C299E9 /* PersonalAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAPI.swift; sourceTree = "<group>"; };
@@ -97,6 +100,8 @@
 		922EBECC25E15E5300AE5697 /* ClubMemberCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClubMemberCollectionViewCell.xib; sourceTree = "<group>"; };
 		922EBECF25E160B700AE5697 /* ClubMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubMemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		922EBED325E3A1D100AE5697 /* ModifyBioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyBioViewController.swift; sourceTree = "<group>"; };
+		924CD78125DEC276009C9824 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		924CD78425DEC353009C9824 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatViewModel.swift; path = ../../../../../../../../Downloads/ChatViewModel.swift; sourceTree = "<group>"; };
 		924CD78B25DF70E5009C9824 /* BelongClubCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BelongClubCollectionViewCell.xib; sourceTree = "<group>"; };
 		924CD78E25DF7F06009C9824 /* BelongClubCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BelongClubCollectionViewCell.swift; sourceTree = "<group>"; };
 		925C9EA725B08BE7005A3694 /* DDYZD_V2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDYZD_V2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +131,11 @@
 		92D97F5025CFF509008456C8 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		92D97F5325CFF527008456C8 /* FeedWithMediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedWithMediaTableViewCell.swift; sourceTree = "<group>"; };
 		92D97F9225D06D4A008456C8 /* FeedWithMedia.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedWithMedia.xib; sourceTree = "<group>"; };
+		92E3A7F425E59487000E3654 /* MyChat.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyChat.xib; sourceTree = "<group>"; };
+		92E3A7F725E594B3000E3654 /* OthersChat.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OthersChat.xib; sourceTree = "<group>"; };
+		92E3A7FA25E59560000E3654 /* ApplyChatHelper.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplyChatHelper.xib; sourceTree = "<group>"; };
+		92E3A7FD25E5957C000E3654 /* ScheduleChatHelper.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduleChatHelper.xib; sourceTree = "<group>"; };
+		92E3A80025E59592000E3654 /* ResultChatHelper.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultChatHelper.xib; sourceTree = "<group>"; };
 		92FBA69F25B537320014FB8B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -216,6 +226,11 @@
 				92D97F9225D06D4A008456C8 /* FeedWithMedia.xib */,
 				9200D38F25BBE2C400461843 /* ClubListTableViewCell.xib */,
 				9227C22B25C2F05300E6DF41 /* ChatListTableViewCell.xib */,
+				92E3A7F425E59487000E3654 /* MyChat.xib */,
+				92E3A7F725E594B3000E3654 /* OthersChat.xib */,
+				92E3A7FA25E59560000E3654 /* ApplyChatHelper.xib */,
+				92E3A7FD25E5957C000E3654 /* ScheduleChatHelper.xib */,
+				92E3A80025E59592000E3654 /* ResultChatHelper.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -484,17 +499,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92E3A7FE25E5957C000E3654 /* ScheduleChatHelper.xib in Resources */,
+				92E3A7FB25E59560000E3654 /* ApplyChatHelper.xib in Resources */,
 				92D97F9325D06D4A008456C8 /* FeedWithMedia.xib in Resources */,
 				925C9EB725B08BE9005A3694 /* LaunchScreen.storyboard in Resources */,
 				922EBECD25E15E5300AE5697 /* ClubMemberCollectionViewCell.xib in Resources */,
 				92D97F1A25CEECAB008456C8 /* Feed.xib in Resources */,
+				92E3A7F825E594B3000E3654 /* OthersChat.xib in Resources */,
 				92FBA6A025B537320014FB8B /* GoogleService-Info.plist in Resources */,
 				9200D39025BBE2C400461843 /* ClubListTableViewCell.xib in Resources */,
 				9200D12025B88DCF00461843 /* Club.storyboard in Resources */,
 				924CD78C25DF70E5009C9824 /* BelongClubCollectionViewCell.xib in Resources */,
 				925C9EB425B08BE9005A3694 /* Assets.xcassets in Resources */,
+				92E3A7F525E59487000E3654 /* MyChat.xib in Resources */,
 				9227C22C25C2F05300E6DF41 /* ChatListTableViewCell.xib in Resources */,
 				9228A21925DD17C300C299E9 /* Personal.storyboard in Resources */,
+				92E3A80125E59592000E3654 /* ResultChatHelper.xib in Resources */,
 				9263695C25B6824200D2D107 /* Auth.storyboard in Resources */,
 				92BED6D225BD46C900526C33 /* Chat.storyboard in Resources */,
 				925C9EB225B08BE7005A3694 /* Main.storyboard in Resources */,
