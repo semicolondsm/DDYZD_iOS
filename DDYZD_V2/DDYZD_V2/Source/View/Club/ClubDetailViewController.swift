@@ -172,8 +172,7 @@ class ClubDetailViewController: UIViewController {
         .disposed(by: disposeBag)
         
         output.clubChatRoomID.subscribe(onNext: { roomID in
-            // 채팅 페이지로 이동
-            print(roomID)
+            self.goChatPage(roomID: roomID)
         })
         .disposed(by: disposeBag)
         
@@ -211,6 +210,13 @@ class ClubDetailViewController: UIViewController {
         let userPageVC = personalSB.instantiateViewController(identifier: "OtherUserPageViewController") as! OtherUserPageViewController
         userPageVC.gcn = gcn
         self.navigationController?.pushViewController(userPageVC, animated: true)
+    }
+    
+    func goChatPage(roomID: Int){
+        let chatSB: UIStoryboard = UIStoryboard(name: "Chat", bundle: nil)
+        let chatVC = chatSB.instantiateViewController(identifier: "ChatViewController") as! ChatViewController
+        chatVC.roomID = roomID
+        self.navigationController?.pushViewController(chatVC, animated: true)
     }
 }
 
