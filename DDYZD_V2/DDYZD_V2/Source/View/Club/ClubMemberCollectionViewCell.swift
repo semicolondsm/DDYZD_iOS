@@ -30,6 +30,8 @@ class ClubMemberCollectionViewCell: UICollectionViewCell {
         memberNameLabel.text = item.user_name
         if index == 0 {
             isHeaderLabel.isHidden = false
+        } else {
+            isHeaderLabel.isHidden = true
         }
     }
 }
