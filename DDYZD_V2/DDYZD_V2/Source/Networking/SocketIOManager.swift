@@ -19,6 +19,12 @@ class SocketIOManager {
     
     init() {
         socket = self.manager.socket(forNamespace: "/chat")
+        
+        socket.on("response") {
+            print($0)
+            print($1)
+            print("res")
+        }
         socket.on(clientEvent: .connect) {
             print($0)
             print($1)
