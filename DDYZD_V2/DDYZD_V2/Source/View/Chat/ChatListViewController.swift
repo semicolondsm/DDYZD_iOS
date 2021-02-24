@@ -22,6 +22,7 @@ class ChatListViewController: UIViewController {
     private let viewModel = ChatListViewModel()
     private let disposeBag = DisposeBag()
     private var chatSections = [String]()
+    private var selectedChatSection = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,6 +104,7 @@ class ChatListViewController: UIViewController {
         let chatSB: UIStoryboard = UIStoryboard(name: "Chat", bundle: nil)
         let chatVC = chatSB.instantiateViewController(identifier: "ChatViewController") as! ChatViewController
         chatVC.roomID = roomID
+        chatVC.userType = selectedChatSection == 0 ? .Volunteer : .ClubHead
         navigationController?.pushViewController(chatVC, animated: true)
     }
     
@@ -116,7 +118,8 @@ class ChatListViewController: UIViewController {
         for section in self.chatSections {
             let action = UIAlertAction(title: section, style: .default, handler: { _ in
                 self.navigationItem.rightBarButtonItem?.title = section+" ▾"
-                self.getChatList(section: self.chatSections.firstIndex(of: section)!)
+                self.selectedChatSection = self.chatSections.firstIndex(of: section)!
+                self.getChatList(section: self.selectedChatSection)
             })
             actionSheet.addAction(action)
         }

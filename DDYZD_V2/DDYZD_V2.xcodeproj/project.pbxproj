@@ -67,6 +67,11 @@
 		92E3A7FB25E59560000E3654 /* ApplyChatHelper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E3A7FA25E59560000E3654 /* ApplyChatHelper.xib */; };
 		92E3A7FE25E5957C000E3654 /* ScheduleChatHelper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E3A7FD25E5957C000E3654 /* ScheduleChatHelper.xib */; };
 		92E3A80125E59592000E3654 /* ResultChatHelper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E3A80025E59592000E3654 /* ResultChatHelper.xib */; };
+		92E3A80525E63154000E3654 /* MyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3A80425E63154000E3654 /* MyChatTableViewCell.swift */; };
+		92E3A80925E63168000E3654 /* OthersChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3A80825E63168000E3654 /* OthersChatTableViewCell.swift */; };
+		92E3A80C25E6317A000E3654 /* ApplyChatHelperTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3A80B25E6317A000E3654 /* ApplyChatHelperTableViewCell.swift */; };
+		92E3A80F25E63197000E3654 /* ScheduleChatHelperTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3A80E25E63197000E3654 /* ScheduleChatHelperTableViewCell.swift */; };
+		92E3A81225E631A8000E3654 /* ResultChatHelperTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3A81125E631A8000E3654 /* ResultChatHelperTableViewCell.swift */; };
 		92FBA6A025B537320014FB8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92FBA69F25B537320014FB8B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -136,6 +141,11 @@
 		92E3A7FA25E59560000E3654 /* ApplyChatHelper.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplyChatHelper.xib; sourceTree = "<group>"; };
 		92E3A7FD25E5957C000E3654 /* ScheduleChatHelper.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduleChatHelper.xib; sourceTree = "<group>"; };
 		92E3A80025E59592000E3654 /* ResultChatHelper.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultChatHelper.xib; sourceTree = "<group>"; };
+		92E3A80425E63154000E3654 /* MyChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatTableViewCell.swift; sourceTree = "<group>"; };
+		92E3A80825E63168000E3654 /* OthersChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersChatTableViewCell.swift; sourceTree = "<group>"; };
+		92E3A80B25E6317A000E3654 /* ApplyChatHelperTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyChatHelperTableViewCell.swift; sourceTree = "<group>"; };
+		92E3A80E25E63197000E3654 /* ScheduleChatHelperTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleChatHelperTableViewCell.swift; sourceTree = "<group>"; };
+		92E3A81125E631A8000E3654 /* ResultChatHelperTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultChatHelperTableViewCell.swift; sourceTree = "<group>"; };
 		92FBA69F25B537320014FB8B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -409,6 +419,7 @@
 				92B9AE9A25BF03C900026892 /* ChatListViewController.swift */,
 				92BED6E425BD4B1C00526C33 /* ChatListTableViewCell.swift */,
 				924CD78125DEC276009C9824 /* ChatViewController.swift */,
+				92E3A80325E63122000E3654 /* ChatCell */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -438,6 +449,18 @@
 				92D97F5325CFF527008456C8 /* FeedWithMediaTableViewCell.swift */,
 			);
 			path = FeedCell;
+			sourceTree = "<group>";
+		};
+		92E3A80325E63122000E3654 /* ChatCell */ = {
+			isa = PBXGroup;
+			children = (
+				92E3A80425E63154000E3654 /* MyChatTableViewCell.swift */,
+				92E3A80825E63168000E3654 /* OthersChatTableViewCell.swift */,
+				92E3A80B25E6317A000E3654 /* ApplyChatHelperTableViewCell.swift */,
+				92E3A80E25E63197000E3654 /* ScheduleChatHelperTableViewCell.swift */,
+				92E3A81125E631A8000E3654 /* ResultChatHelperTableViewCell.swift */,
+			);
+			path = ChatCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -576,6 +599,7 @@
 				92BED6E525BD4B1C00526C33 /* ChatListTableViewCell.swift in Sources */,
 				9227C25725C559C200E6DF41 /* ChatListViewModel.swift in Sources */,
 				9263696025B684ED00D2D107 /* LoginViewController.swift in Sources */,
+				92E3A80C25E6317A000E3654 /* ApplyChatHelperTableViewCell.swift in Sources */,
 				924CD78525DEC353009C9824 /* ChatViewModel.swift in Sources */,
 				92D97F5125CFF509008456C8 /* FeedTableViewCell.swift in Sources */,
 				92BED6EB25BD534B00526C33 /* ClubDetailViewController.swift in Sources */,
@@ -583,11 +607,14 @@
 				92B9AE9B25BF03C900026892 /* ChatListViewController.swift in Sources */,
 				92BED6EE25BD536200526C33 /* ClubDetailViewModel.swift in Sources */,
 				9200D13225B8903300461843 /* ClubAPI.swift in Sources */,
+				92E3A80525E63154000E3654 /* MyChatTableViewCell.swift in Sources */,
 				926E86E725B4404F00E7F213 /* HTTPClient.swift in Sources */,
+				92E3A81225E631A8000E3654 /* ResultChatHelperTableViewCell.swift in Sources */,
 				922EBED025E160B700AE5697 /* ClubMemberCollectionViewCell.swift in Sources */,
 				9200D04C25B7411100461843 /* ViewModelProtocol.swift in Sources */,
 				92C35F4225B5BD0700D30DDF /* DDYZDAPI.swift in Sources */,
 				9263697825B7335C00D2D107 /* AuthAPI.swift in Sources */,
+				92E3A80925E63168000E3654 /* OthersChatTableViewCell.swift in Sources */,
 				9227C2E125C5D74900E6DF41 /* MainPageViewModel.swift in Sources */,
 				9228A23D25DD1DC600C299E9 /* MyPageViewModel.swift in Sources */,
 				92D97F5425CFF527008456C8 /* FeedWithMediaTableViewCell.swift in Sources */,
@@ -606,6 +633,7 @@
 				9228A24025DD1DCC00C299E9 /* OtherUserPageViewModel.swift in Sources */,
 				9200D0B925B751E700461843 /* Token.swift in Sources */,
 				924CD78F25DF7F06009C9824 /* BelongClubCollectionViewCell.swift in Sources */,
+				92E3A80F25E63197000E3654 /* ScheduleChatHelperTableViewCell.swift in Sources */,
 				9228A23625DD1D7700C299E9 /* MyPageViewController.swift in Sources */,
 				9200D12C25B88F1A00461843 /* ClubListTableViewModel.swift in Sources */,
 				9200D15D25B996C600461843 /* ClubListTableViewController.swift in Sources */,
