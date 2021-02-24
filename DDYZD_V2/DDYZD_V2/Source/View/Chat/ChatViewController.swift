@@ -72,6 +72,7 @@ class ChatViewController: UIViewController {
                 } else {
                     let cell = self.chatTable.dequeueReusableCell(withIdentifier: "OthersChat") as! OthersChatTableViewCell
                     
+                    cell.othersProfileImage.image = self.navigationBarImage.image
                     cell.contentLabel.text = item.msg
                     cell.chatAtLabel.dateLabel(item.created_at)
                     
