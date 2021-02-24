@@ -9,9 +9,16 @@ import UIKit
 
 class MyChatTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var chatCellView: UIView!
+    @IBOutlet weak var contentLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        setUI()
     }
 
+    func setUI() {
+        chatCellView.layer.cornerRadius = 20
+    }
 }

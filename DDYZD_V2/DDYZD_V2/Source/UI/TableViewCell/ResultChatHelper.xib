@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="110" id="bHa-Wn-KKc">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="110" id="bHa-Wn-KKc" customClass="ResultChatHelperTableViewCell" customModule="DDYZD_V2" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bHa-Wn-KKc" id="YRw-Nt-SvL">
@@ -71,6 +71,13 @@
                     <constraint firstItem="3fS-SJ-voH" firstAttribute="leading" secondItem="YRw-Nt-SvL" secondAttribute="leading" constant="45" id="y9b-SN-zPT"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="confirmationBtn" destination="4d4-H1-iu8" id="J2e-6L-39M"/>
+                <outlet property="contentLabel" destination="7rj-cc-0Um" id="yto-Be-nga"/>
+                <outlet property="helperCellView" destination="3fS-SJ-voH" id="gui-Yq-pwM"/>
+                <outlet property="titileLabel" destination="G1c-La-BT9" id="FL8-lB-gxJ"/>
+                <outlet property="whenLabel" destination="bXL-z4-qrr" id="vYt-kg-Ony"/>
+            </connections>
             <point key="canvasLocation" x="86.956521739130437" y="187.5"/>
         </tableViewCell>
     </objects>
