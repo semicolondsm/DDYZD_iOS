@@ -216,6 +216,7 @@ class ClubDetailViewController: UIViewController {
         let chatSB: UIStoryboard = UIStoryboard(name: "Chat", bundle: nil)
         let chatVC = chatSB.instantiateViewController(identifier: "ChatViewController") as! ChatViewController
         chatVC.roomID = roomID
+        chatVC.userType = .Volunteer
         self.navigationController?.pushViewController(chatVC, animated: true)
     }
 }

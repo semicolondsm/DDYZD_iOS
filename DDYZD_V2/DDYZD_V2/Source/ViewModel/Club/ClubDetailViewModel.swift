@@ -113,7 +113,7 @@ class ClubDetailViewModel: ViewModelProtocol {
             clubAPI.createRoom(clubID: self.clubID).subscribe(onNext: { data, res in
                 switch res {
                 case .success:
-                    clubChatRoomID.accept(data!.room_id)
+                    clubChatRoomID.accept(Int(data!.room_id) ?? -1)
                 default:
                     clubChatRoomID.accept(-1)
                 }
