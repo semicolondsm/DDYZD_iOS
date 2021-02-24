@@ -220,6 +220,7 @@ extension ChatViewController: UITableViewDelegate {
         registerCell()
         chatTable.delegate = self
         chatTable.separatorStyle = .none
+        chatTable.allowsSelection = false
         chatTable.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi))
         chatTable.scrollIndicatorInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: chatTable.bounds.size.width - 8.0)
     }
