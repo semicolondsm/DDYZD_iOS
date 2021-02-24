@@ -19,6 +19,7 @@ class MyChatTableViewCell: UITableViewCell {
     }
 
     func setUI() {
+        self.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
         chatCellView.layer.cornerRadius = 20
     }
 }

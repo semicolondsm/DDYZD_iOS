@@ -215,9 +215,11 @@ extension ChatViewController: UITextFieldDelegate {
 //MARK:- TableView
 extension ChatViewController: UITableViewDelegate {
     func setTableView(){
+        registerCell()
         chatTable.delegate = self
         chatTable.separatorStyle = .none
-        registerCell()
+        chatTable.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi))
+        chatTable.scrollIndicatorInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: chatTable.bounds.size.width - 8.0)
     }
     
     func registerCell() {
