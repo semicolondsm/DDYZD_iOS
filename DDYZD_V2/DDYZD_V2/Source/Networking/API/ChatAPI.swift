@@ -28,6 +28,19 @@ class ChatAPI {
             }
     }
     
+    func getRoomInfo(roomID: Int) -> Observable<(RoomInfo?, StatusCodes)> {
+        httpClient.get(.chatRoomInfo(roomID), param: nil)
+            .map{ response, data -> (RoomInfo? ,StatusCodes) in
+                switch response.statusCode {
+                case 200:
+                    guard let data = try? JSONDecoder().decode(RoomInfo.self, from: data) else { return (nil, .fault) }
+                    return (data, .success)
+                default:
+                    return (nil, .fault)
+                }
+            }
+    }
+    
     func getBreakdown(roomID: Int) -> Observable<([Chat]?, StatusCodes)> {
         httpClient.get(.chatBreakdown(roomID), param: nil)
             .map{ response, data -> ([Chat]?, StatusCodes) in

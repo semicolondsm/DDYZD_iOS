@@ -23,6 +23,7 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var chatTable: UITableView!
     @IBOutlet weak var chatTableBottomConstraint: NSLayoutConstraint!
     
+    private let  getRoomInfo = PublishSubject<Void>()
     private let  getBreakdown = PublishSubject<Void>()
     
     private let viewModel = ChatViewModel()
@@ -38,6 +39,7 @@ class ChatViewController: UIViewController {
         setTableView()
         addKeyboardNotification()
         bind()
+        getChatRoomInfo()
         getChatBreakdown()
     }
     
@@ -47,8 +49,15 @@ class ChatViewController: UIViewController {
     
     func bind() {
         viewModel.roomID = self.roomID
-        let input = ChatViewModel.input(getBreakdown: getBreakdown.asDriver(onErrorJustReturn: ()))
+        let input = ChatViewModel.input(getRoomInfo: getRoomInfo.asDriver(onErrorJustReturn: ()),
+                                        getBreakdown: getBreakdown.asDriver(onErrorJustReturn: ()))
         let output = viewModel.transform(input)
+        
+        output.roomInfo.subscribe(onNext: { roomInfo in
+            self.navigationBarImage.kf.setImage(with: URL(string: roomInfo.image))
+            self.navigationBarTitile.text = roomInfo.name
+        })
+        .disposed(by: disposeBag)
         
         output.breakdown.bind(to: chatTable.rx.items) { tableView, row, item -> UITableViewCell in
             switch item.user_type {
@@ -96,6 +105,10 @@ class ChatViewController: UIViewController {
             }
         }
         .disposed(by: disposeBag)
+    }
+    
+    func getChatRoomInfo() {
+        getRoomInfo.onNext(())
     }
     
     func getChatBreakdown() {
