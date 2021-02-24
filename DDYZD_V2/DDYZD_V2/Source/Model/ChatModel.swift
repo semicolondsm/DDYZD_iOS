@@ -22,6 +22,12 @@ struct Room: Codable {
     let index: Int
 }
 
+struct RoomInfo: Codable {
+    let id: String
+    let name: String
+    let image: String
+}
+
 struct Chat: Codable {
     let title: String?
     let msg: String
