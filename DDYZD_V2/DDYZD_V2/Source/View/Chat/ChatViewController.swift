@@ -155,5 +155,19 @@ extension ChatViewController: UITableViewDelegate {
     func setTableView(){
         chatTable.delegate = self
         chatTable.separatorStyle = .none
+        registerCell()
+    }
+    
+    func registerCell() {
+        let myChat = UINib(nibName: "MyChat", bundle: nil)
+        chatTable.register(myChat, forCellReuseIdentifier: "MyChat")
+        let othersChat = UINib(nibName: "OthersChat", bundle: nil)
+        chatTable.register(othersChat, forCellReuseIdentifier: "OthersChat")
+        let applyChatHelper = UINib(nibName: "ApplyChatHelper", bundle: nil)
+        chatTable.register(applyChatHelper, forCellReuseIdentifier: "ApplyChatHelper")
+        let scheduleChatHelper = UINib(nibName: "ScheduleChatHelper", bundle: nil)
+        chatTable.register(scheduleChatHelper, forCellReuseIdentifier: "ScheduleChatHelper")
+        let resultChatHelper = UINib(nibName: "ResultChatHelper", bundle: nil)
+        chatTable.register(resultChatHelper, forCellReuseIdentifier: "ResultChatHelper")
     }
 }
