@@ -7,9 +7,14 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+import Kingfisher
+
 class ChatViewController: UIViewController {
 
     public var roomID: Int!
+    public var userType: UserType!
     
     @IBOutlet weak var movingView: UIView!
     @IBOutlet weak var textInputView: UIView!
@@ -18,6 +23,11 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var chatTable: UITableView!
     @IBOutlet weak var chatTableBottomConstraint: NSLayoutConstraint!
     
+    private let  getRoomInfo = PublishSubject<Void>()
+    private let  getBreakdown = PublishSubject<Void>()
+    
+    private let viewModel = ChatViewModel()
+    private let disposeBag = DisposeBag()
     private var keyboardHeight: CGFloat!
     private let navigationBarTitile = UILabel()
     private let navigationBarImage = UIImageView()
@@ -25,13 +35,86 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        setNavigationBar()
         setMessageTextField()
         setTableView()
         addKeyboardNotification()
+        bind()
+        getChatRoomInfo()
+        getChatBreakdown()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setNavigationBar()
+    }
+    
+    func bind() {
+        viewModel.roomID = self.roomID
+        let input = ChatViewModel.input(getRoomInfo: getRoomInfo.asDriver(onErrorJustReturn: ()),
+                                        getBreakdown: getBreakdown.asDriver(onErrorJustReturn: ()))
+        let output = viewModel.transform(input)
+        
+        output.roomInfo.subscribe(onNext: { roomInfo in
+            self.navigationBarImage.kf.setImage(with: URL(string: roomInfo.image))
+            self.navigationBarTitile.text = roomInfo.name
+        })
+        .disposed(by: disposeBag)
+        
+        output.breakdown.bind(to: chatTable.rx.items) { tableView, row, item -> UITableViewCell in
+            switch item.user_type {
+            case .Club, .user:
+                if item.user_type.rawValue == self.userType!.rawValue {
+                    let cell = self.chatTable.dequeueReusableCell(withIdentifier: "MyChat") as! MyChatTableViewCell
+                    
+                    cell.contentLabel.text = item.msg
+                    
+                    return cell
+                } else {
+                    let cell = self.chatTable.dequeueReusableCell(withIdentifier: "OthersChat") as! OthersChatTableViewCell
+                    
+                    cell.othersProfileImage.image = self.navigationBarImage.image
+                    cell.contentLabel.text = item.msg
+                    cell.chatAtLabel.dateLabel(item.created_at)
+                    
+                    return cell
+                }
+            case .Apply:
+                let cell = self.chatTable.dequeueReusableCell(withIdentifier: "ApplyChatHelper") as! ApplyChatHelperTableViewCell
+                
+                cell.titleLabel.text = item.title
+                cell.contentLabel.text = item.msg
+                cell.whenLabel.dateLabel(item.created_at)
+                cell.sendScheduleBtn.isHidden = self.userType! == .ClubHead ? false : true
+                
+                return cell
+            case .Schedule:
+                let cell = self.chatTable.dequeueReusableCell(withIdentifier: "ScheduleChatHelper") as! ScheduleChatHelperTableViewCell
+                
+                cell.titleLabel.text = item.title
+                cell.contentLabel.text = item.msg
+                cell.whenLabel.dateLabel(item.created_at)
+                
+                return cell
+            case .Result:
+                let cell = self.chatTable.dequeueReusableCell(withIdentifier: "ResultChatHelper") as! ResultChatHelperTableViewCell
+                
+                cell.titileLabel.text = item.title
+                cell.contentLabel.text = item.msg
+                cell.whenLabel.dateLabel(item.created_at)
+                cell.confirmationBtn.isHidden = self.userType! == .Volunteer ? false : true
+                
+                return cell
+            }
+        }
+        .disposed(by: disposeBag)
+    }
+    
+    func getChatRoomInfo() {
+        getRoomInfo.onNext(())
+    }
+    
+    func getChatBreakdown() {
+        getBreakdown.onNext(())
     }
 
 }
@@ -50,6 +133,7 @@ extension ChatViewController {
         let container = UIView(frame: CGRect(x: 0, y: 0, width: 1000, height: 35))
         
         navigationBarImage.translatesAutoresizingMaskIntoConstraints = false
+        navigationBarImage.layer.masksToBounds = true
         navigationBarImage.layer.cornerRadius = 17.5
         container.addSubview(navigationBarImage)
         
@@ -134,7 +218,24 @@ extension ChatViewController: UITextFieldDelegate {
 //MARK:- TableView
 extension ChatViewController: UITableViewDelegate {
     func setTableView(){
+        registerCell()
         chatTable.delegate = self
         chatTable.separatorStyle = .none
+        chatTable.allowsSelection = false
+        chatTable.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi))
+        chatTable.scrollIndicatorInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: chatTable.bounds.size.width - 8.0)
+    }
+    
+    func registerCell() {
+        let myChat = UINib(nibName: "MyChat", bundle: nil)
+        chatTable.register(myChat, forCellReuseIdentifier: "MyChat")
+        let othersChat = UINib(nibName: "OthersChat", bundle: nil)
+        chatTable.register(othersChat, forCellReuseIdentifier: "OthersChat")
+        let applyChatHelper = UINib(nibName: "ApplyChatHelper", bundle: nil)
+        chatTable.register(applyChatHelper, forCellReuseIdentifier: "ApplyChatHelper")
+        let scheduleChatHelper = UINib(nibName: "ScheduleChatHelper", bundle: nil)
+        chatTable.register(scheduleChatHelper, forCellReuseIdentifier: "ScheduleChatHelper")
+        let resultChatHelper = UINib(nibName: "ResultChatHelper", bundle: nil)
+        chatTable.register(resultChatHelper, forCellReuseIdentifier: "ResultChatHelper")
     }
 }

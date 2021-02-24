@@ -11,20 +11,21 @@ import RxCocoa
 import SocketIO
 
 
-class SocketIOManager {
+class SocketIOManager: NSObject {
     static let shared = SocketIOManager()
-    var manager = SocketManager(socketURL: URL(string: "https://api.semicolon.live")!,
+    let manager = SocketManager(socketURL: URL(string: "https://api.semicolon.live")!,
                                 config: [.log(true), .compress, .forceWebsockets(true), .reconnects(false), .extraHeaders(["Authorization": "Bearer \(Token.access_token)"]) ])
     var socket: SocketIOClient!
     
-    init() {
-        socket = self.manager.socket(forNamespace: "/chat")
+    override init() {
+        super.init()
+        socket = manager.socket(forNamespace: "/chat")
         
         socket.on("response") {
             print($0)
             print($1)
-            print("res")
         }
+        
         socket.on(clientEvent: .connect) {
             print($0)
             print($1)
@@ -41,6 +42,7 @@ class SocketIOManager {
             print($1)
             print("disconnect")
         }
+        
     }
     
     func establishConnection() {

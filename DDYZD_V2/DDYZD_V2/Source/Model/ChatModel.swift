@@ -13,11 +13,37 @@ struct ChatList: Codable {
 }
 
 struct Room: Codable {
-    let roomid: Int
-    let id: Int
+    let roomid: String
+    let id: String
     let name: String
     let image: String
     let lastdate: String?
     let lastmessage: String?
-    let autherity: Int
+    let index: Int
+}
+
+struct RoomInfo: Codable {
+    let id: String
+    let name: String
+    let image: String
+}
+
+struct Chat: Codable {
+    let title: String?
+    let msg: String
+    let user_type: ChatType
+    let created_at: String
+}
+
+enum ChatType: String, Codable{
+    case user = "U"
+    case Club = "C"
+    case Apply = "H1"
+    case Schedule = "H2"
+    case Result = "H3"
+}
+
+enum UserType: String {
+    case Volunteer = "U"
+    case ClubHead = "C"
 }
