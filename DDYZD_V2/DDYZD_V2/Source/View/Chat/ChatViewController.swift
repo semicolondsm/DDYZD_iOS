@@ -9,6 +9,7 @@ import UIKit
 
 import RxCocoa
 import RxSwift
+import Kingfisher
 
 class ChatViewController: UIViewController {
 
@@ -25,6 +26,7 @@ class ChatViewController: UIViewController {
     private let  getBreakdown = PublishSubject<Void>()
     
     private let viewModel = ChatViewModel()
+    private let disposeBag = DisposeBag()
     private var keyboardHeight: CGFloat!
     private let navigationBarTitile = UILabel()
     private let navigationBarImage = UIImageView()
@@ -47,6 +49,53 @@ class ChatViewController: UIViewController {
         viewModel.roomID = self.roomID
         let input = ChatViewModel.input(getBreakdown: getBreakdown.asDriver(onErrorJustReturn: ()))
         let output = viewModel.transform(input)
+        
+        output.breakdown.bind(to: chatTable.rx.items) { tableView, row, item -> UITableViewCell in
+            switch item.user_type {
+            case .Club, .user:
+                if item.user_type.rawValue == self.userType!.rawValue {
+                    let cell = self.chatTable.dequeueReusableCell(withIdentifier: "MyChat") as! MyChatTableViewCell
+                    
+                    cell.contentLabel.text = item.msg
+                    
+                    return cell
+                } else {
+                    let cell = self.chatTable.dequeueReusableCell(withIdentifier: "OthersChat") as! OthersChatTableViewCell
+                    
+                    cell.contentLabel.text = item.msg
+                    cell.chatAtLabel.dateLabel(item.created_at)
+                    
+                    return cell
+                }
+            case .Apply:
+                let cell = self.chatTable.dequeueReusableCell(withIdentifier: "ApplyChatHelper") as! ApplyChatHelperTableViewCell
+                
+                cell.titleLabel.text = item.title
+                cell.contentLabel.text = item.msg
+                cell.whenLabel.dateLabel(item.created_at)
+                cell.sendScheduleBtn.isHidden = self.userType! == .ClubHead ? false : true
+                
+                return cell
+            case .Schedule:
+                let cell = self.chatTable.dequeueReusableCell(withIdentifier: "ScheduleChatHelper") as! ScheduleChatHelperTableViewCell
+                
+                cell.titleLabel.text = item.title
+                cell.contentLabel.text = item.msg
+                cell.whenLabel.dateLabel(item.created_at)
+                
+                return cell
+            case .Result:
+                let cell = self.chatTable.dequeueReusableCell(withIdentifier: "ResultChatHelper") as! ResultChatHelperTableViewCell
+                
+                cell.titileLabel.text = item.title
+                cell.contentLabel.text = item.msg
+                cell.whenLabel.dateLabel(item.created_at)
+                cell.confirmationBtn.isHidden = self.userType! == .Volunteer ? false : true
+                
+                return cell
+            }
+        }
+        .disposed(by: disposeBag)
     }
     
     func getChatBreakdown() {
