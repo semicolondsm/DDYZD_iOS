@@ -107,6 +107,15 @@ class ChatViewController: UIViewController {
             }
         }
         .disposed(by: disposeBag)
+        
+        messageTextField.rx.text.orEmpty
+            .map{
+                $0 == "" ? false : true
+            }
+            .subscribe(onNext: {
+                self.sendBtn.isEnabled = $0
+            })
+            .disposed(by: disposeBag)
     }
     
     func getChatRoomInfo() {
