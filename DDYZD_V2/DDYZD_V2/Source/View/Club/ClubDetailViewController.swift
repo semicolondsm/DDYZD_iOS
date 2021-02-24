@@ -36,6 +36,7 @@ class ClubDetailViewController: UIViewController {
     private var loadMore = false
     
     private let getClubInfo = PublishSubject<Void>()
+    private let makeRoomID = PublishSubject<Void>()
     private let getFeed = PublishSubject<LoadFeedAction>()
     private let flagIt = PublishSubject<Int>()
     private let deleteFeed = PublishSubject<Int>()
@@ -61,7 +62,7 @@ class ClubDetailViewController: UIViewController {
         viewModel.clubID = clubID
         let input = ClubDetailViewModel.input(getClubInfo: getClubInfo.asDriver(onErrorJustReturn: ()),
                                               selectIndexPath: clubMemberCollectionView.rx.itemSelected.asDriver(),
-                                              followClub: followBtn.rx.tap.asDriver(),
+                                              followClub: makeRoomID.asDriver(onErrorJustReturn: ()),
                                               chatWithClub: chatBtn.rx.tap.asDriver(),
                                               getFeed: getFeed.asDriver(onErrorJustReturn: .reload),
                                               flagIt: flagIt.asDriver(onErrorJustReturn: -1),
@@ -93,6 +94,11 @@ class ClubDetailViewController: UIViewController {
                 self.chatBtn.setBtnInClubDetail(type: .chat)
                 self.chatGuideanceLabel.isHidden = true
             }
+        })
+        .disposed(by: disposeBag)
+        
+        chatBtn.rx.tap.bind(onNext: {
+            self.makeRoomID.onNext(())
         })
         .disposed(by: disposeBag)
         
@@ -172,7 +178,11 @@ class ClubDetailViewController: UIViewController {
         .disposed(by: disposeBag)
         
         output.clubChatRoomID.subscribe(onNext: { roomID in
-            self.goChatPage(roomID: roomID)
+            if roomID == -1 {
+                self.moveLogin(didJustBrowsingBtnTaped: nil, didSuccessLogin: { self.makeRoomID.onNext(()) })
+            } else {
+                self.goChatPage(roomID: roomID)
+            }
         })
         .disposed(by: disposeBag)
         
