@@ -28,6 +28,19 @@ class ChatAPI {
             }
     }
     
+    func getRoomToken(roomID: Int) -> Observable<(SocketToken?, StatusCodes)> {
+        httpClient.get(.getRoomToken(roomID), param: nil)
+            .map{ response, data -> (SocketToken?, StatusCodes) in
+                switch response.statusCode {
+                case 200:
+                    guard let data = try? JSONDecoder().decode(SocketToken.self, from: data) else { return (nil, .fault) }
+                    return (data, .success)
+                default:
+                    return (nil, .fault)
+                }
+            }
+    }
+    
     func getRoomInfo(roomID: Int) -> Observable<(RoomInfo?, StatusCodes)> {
         httpClient.get(.chatRoomInfo(roomID), param: nil)
             .map{ response, data -> (RoomInfo? ,StatusCodes) in

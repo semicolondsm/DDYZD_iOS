@@ -16,6 +16,10 @@ struct RefreshedToken: Codable {
     let access_token: String
 }
 
+struct SocketToken: Codable {
+    let room_token: String
+}
+
 struct Token {
     static var access_token: String = ""
     static var refresh_token: String? {
