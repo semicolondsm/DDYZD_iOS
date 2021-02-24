@@ -35,6 +35,7 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        setNavigationBar()
         setMessageTextField()
         setTableView()
         addKeyboardNotification()
@@ -131,6 +132,7 @@ extension ChatViewController {
         let container = UIView(frame: CGRect(x: 0, y: 0, width: 1000, height: 35))
         
         navigationBarImage.translatesAutoresizingMaskIntoConstraints = false
+        navigationBarImage.layer.masksToBounds = true
         navigationBarImage.layer.cornerRadius = 17.5
         container.addSubview(navigationBarImage)
         
