@@ -53,7 +53,23 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o2Y-z2-alu">
                                 <rect key="frame" x="0.0" y="88" width="414" height="714"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="wAJ-J7-Gaz">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kon-DF-S25">
+                                <rect key="frame" x="152" y="759" width="110" height="35"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="1lX-us-Iu9"/>
+                                    <constraint firstAttribute="height" constant="35" id="5RL-sw-M5J"/>
+                                </constraints>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7KE-l3-Snb">
                                 <rect key="frame" x="0.0" y="802" width="414" height="60"/>
                                 <subviews>
@@ -105,17 +121,20 @@
                         <viewLayoutGuide key="safeArea" id="6RV-Br-Pc7"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="kon-DF-S25" firstAttribute="centerX" secondItem="6RV-Br-Pc7" secondAttribute="centerX" id="AxI-3U-AUD"/>
                             <constraint firstItem="7KE-l3-Snb" firstAttribute="trailing" secondItem="6RV-Br-Pc7" secondAttribute="trailing" id="B51-yU-8ck"/>
                             <constraint firstItem="o2Y-z2-alu" firstAttribute="leading" secondItem="6RV-Br-Pc7" secondAttribute="leading" id="IUy-eD-Uuy"/>
                             <constraint firstItem="7KE-l3-Snb" firstAttribute="leading" secondItem="6RV-Br-Pc7" secondAttribute="leading" id="PUn-Ga-jAJ"/>
                             <constraint firstItem="7KE-l3-Snb" firstAttribute="bottom" secondItem="6RV-Br-Pc7" secondAttribute="bottom" id="nnp-MY-YOr"/>
                             <constraint firstItem="6RV-Br-Pc7" firstAttribute="trailing" secondItem="o2Y-z2-alu" secondAttribute="trailing" id="oo4-JG-h0F"/>
                             <constraint firstItem="6RV-Br-Pc7" firstAttribute="bottom" secondItem="o2Y-z2-alu" secondAttribute="bottom" constant="60" id="uBF-Hl-fFH"/>
+                            <constraint firstItem="7KE-l3-Snb" firstAttribute="top" secondItem="kon-DF-S25" secondAttribute="bottom" constant="8" symbolic="YES" id="wmh-gT-jHZ"/>
                             <constraint firstItem="o2Y-z2-alu" firstAttribute="top" secondItem="6RV-Br-Pc7" secondAttribute="top" id="yz2-m9-KwG"/>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="actionBtn" destination="kon-DF-S25" id="1FM-FU-vIh"/>
                         <outlet property="chatTable" destination="o2Y-z2-alu" id="GH4-ag-74T"/>
                         <outlet property="chatTableBottomConstraint" destination="uBF-Hl-fFH" id="XhD-rx-XXJ"/>
                         <outlet property="messageTextField" destination="q0c-qH-Jpd" id="QqI-Wf-USI"/>
