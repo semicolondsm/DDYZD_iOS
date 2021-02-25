@@ -19,12 +19,14 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var movingView: UIView!
     @IBOutlet weak var textInputView: UIView!
     @IBOutlet weak var messageTextField: UITextField!
+    @IBOutlet weak var actionBtn: UIButton!
     @IBOutlet weak var sendBtn: UIButton!
     @IBOutlet weak var chatTable: UITableView!
     @IBOutlet weak var chatTableBottomConstraint: NSLayoutConstraint!
     
-    private let  getRoomInfo = PublishSubject<Void>()
-    private let  getBreakdown = PublishSubject<Void>()
+    private let enterRoom = PublishSubject<Void>()
+    private let exitRoom = PublishSubject<Void>()
+    private let sendMessage = PublishSubject<String>()
     
     private let viewModel = ChatViewModel()
     private let disposeBag = DisposeBag()
@@ -40,18 +42,22 @@ class ChatViewController: UIViewController {
         setTableView()
         addKeyboardNotification()
         bind()
-        getChatRoomInfo()
-        getChatBreakdown()
+        enterChatRoom()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setNavigationBar()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        exitChatRoom()
+    }
+    
     func bind() {
         viewModel.roomID = self.roomID
-        let input = ChatViewModel.input(getRoomInfo: getRoomInfo.asDriver(onErrorJustReturn: ()),
-                                        getBreakdown: getBreakdown.asDriver(onErrorJustReturn: ()))
+        let input = ChatViewModel.input(enterRoom: enterRoom.asDriver(onErrorJustReturn: ()),
+                                        exitRoom: exitRoom.asDriver(onErrorJustReturn: ()),
+                                        sendMessage: sendMessage.asDriver(onErrorJustReturn: ""))
         let output = viewModel.transform(input)
         
         output.roomInfo.subscribe(onNext: { roomInfo in
@@ -60,7 +66,9 @@ class ChatViewController: UIViewController {
         })
         .disposed(by: disposeBag)
         
-        output.breakdown.bind(to: chatTable.rx.items) { tableView, row, item -> UITableViewCell in
+        output.breakdown
+            .scan([], accumulator: {$1 + $00})
+            .bind(to: chatTable.rx.items) { tableView, row, item -> UITableViewCell in
             switch item.user_type {
             case .Club, .user:
                 if item.user_type.rawValue == self.userType!.rawValue {
@@ -108,6 +116,13 @@ class ChatViewController: UIViewController {
         }
         .disposed(by: disposeBag)
         
+        sendBtn.rx.tap.subscribe(onNext: {
+            self.sendMessage.onNext(self.messageTextField.text!)
+            self.messageTextField.text = ""
+            self.sendBtn.isEnabled = false
+        })
+        .disposed(by: disposeBag)
+        
         messageTextField.rx.text.orEmpty
             .map{
                 $0 == "" ? false : true
@@ -118,12 +133,12 @@ class ChatViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    func getChatRoomInfo() {
-        getRoomInfo.onNext(())
+    func enterChatRoom() {
+        enterRoom.onNext(())
     }
     
-    func getChatBreakdown() {
-        getBreakdown.onNext(())
+    func exitChatRoom() {
+        exitRoom.onNext(())
     }
 
 }
@@ -131,7 +146,17 @@ class ChatViewController: UIViewController {
 //MARK:- UI
 extension ChatViewController {
     func setUI(){
-        
+        actionBtn.layer.cornerRadius = 17.5
+        actionBtn.layer.shadowColor = UIColor.black.cgColor
+        actionBtn.layer.masksToBounds = false
+        actionBtn.layer.shadowOffset = CGSize(width: 0, height: 4)
+        actionBtn.layer.shadowRadius = 5
+        actionBtn.layer.shadowOpacity = 0.3
+        switch userType {
+        case .Volunteer: actionBtn.setTitle("지원하기", for: .normal)
+        case .ClubHead: actionBtn.setTitle("결과 보내기", for: .normal)
+        default: break
+        }
     }
     
     func setNavigationBar(){
@@ -195,12 +220,14 @@ extension ChatViewController {
         let keybaordRectangle = keyboardFrame.cgRectValue
         let keyboardHeight = keybaordRectangle.height
         movingView.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight+bottomPadding)
+        actionBtn.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight+bottomPadding)
         chatTableBottomConstraint.constant = 60+keyboardHeight-bottomPadding
       }
     }
       
     @objc private func keyboardWillHide(_ notification: Notification) {
         movingView.transform = .identity
+        actionBtn.transform = .identity
         chatTableBottomConstraint.constant = 60
     }
 }

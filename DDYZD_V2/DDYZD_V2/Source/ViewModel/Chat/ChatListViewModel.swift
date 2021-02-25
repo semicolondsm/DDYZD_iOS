@@ -12,7 +12,8 @@ import RxSwift
 
 class ChatListViewModel: ViewModelProtocol {
     
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
+    private var selectedChatSection = 0
     
     struct input {
         let loadSections: Driver<()>
@@ -35,6 +36,7 @@ class ChatListViewModel: ViewModelProtocol {
         let roomID = PublishRelay<Int>()
         
         input.loadSections.asObservable().subscribe(onNext: {
+            SocketIOManager.shared.establishConnection()
             api.getChatList().subscribe(onNext: { data, response in
                 switch response {
                 case .success:
@@ -51,6 +53,7 @@ class ChatListViewModel: ViewModelProtocol {
         .disposed(by: disposeBag)
         
         input.loadList.asObservable().subscribe(onNext: { sectionIndex in
+            self.selectedChatSection = sectionIndex
             api.getChatList().subscribe(onNext: { data, response in
                 switch response {
                 case .success:
@@ -71,6 +74,27 @@ class ChatListViewModel: ViewModelProtocol {
             .disposed(by: self.disposeBag)
         })
         .disposed(by: disposeBag)
+        
+        SocketIOManager.shared.on(.listChangeAlarm) { _, _ in
+            api.getChatList().subscribe(onNext: { data, response in
+                switch response {
+                case .success:
+                    var roomsInSection = [Room]()
+                    for room in data!.rooms {
+                        if room.index == self.selectedChatSection {
+                            roomsInSection.append(room)
+                        }
+                    }
+                    chatList.accept(roomsInSection)
+                    result.accept(true)
+                case .unauthorized:
+                    result.accept(false)
+                default:
+                    result.accept(false)
+                }
+            })
+            .disposed(by: self.disposeBag)
+        }
         
         
         input.selectIndexPath.asObservable()
