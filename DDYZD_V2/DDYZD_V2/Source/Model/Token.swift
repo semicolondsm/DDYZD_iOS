@@ -22,6 +22,7 @@ struct SocketToken: Codable {
 
 struct Token {
     static var access_token: String = ""
+    static var room_token: String?
     static var refresh_token: String? {
         get {
             return UserDefaults.standard.string(forKey: "refresh_token")
