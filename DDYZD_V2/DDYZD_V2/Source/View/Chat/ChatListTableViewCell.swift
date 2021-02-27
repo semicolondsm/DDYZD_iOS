@@ -31,6 +31,12 @@ class ChatListTableViewCell: UITableViewCell {
         clubNameLable.text = item.name
         whenLable.dateLabel(item.lastdate ?? "")
         lastMessageLable.text = item.lastmessage
+        unwatchedSignView.isHidden = item.isread
+        if item.isread {
+            lastMessageLable.textColor = #colorLiteral(red: 0.7215067744, green: 0.7216095924, blue: 0.7214744687, alpha: 1)
+        } else {
+            lastMessageLable.textColor = .black
+        }
     }
 
 }

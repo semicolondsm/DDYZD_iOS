@@ -51,6 +51,7 @@ enum DDYZDAPI {
     //Chat
     case chatList                           // 채팅 리스트
     case createChatRoom(_ clubID: Int)      // 채팅 룸 생성
+    case getRoomToken(_ roomID: Int)        // 채팅방 토큰 발급
     case chatRoomInfo(_ roomID: Int)        // 채팅 룸 정보
     case chatBreakdown(_ roomID: Int)       // 채팅 내역
     
@@ -117,6 +118,8 @@ enum DDYZDAPI {
             return "/chat/list"
         case .createChatRoom(let clubID):
             return "/chat/\(clubID)/room"
+        case .getRoomToken(let roomID):
+            return "/room/\(roomID)/token"
         case .chatRoomInfo(let roomID):
             return "/room/\(roomID)/info"
         case .chatBreakdown(let roomID):
@@ -126,7 +129,7 @@ enum DDYZDAPI {
     
     func header() -> HTTPHeaders? {
         switch self {
-        case .clubList, .getRecruitment(_), .getClubMember(_):
+        case .clubList, .getClubMember(_):
             return nil
         case .getToken(let DSMAuthToken) :
             return ["access-token": "Bearer \(DSMAuthToken)"]

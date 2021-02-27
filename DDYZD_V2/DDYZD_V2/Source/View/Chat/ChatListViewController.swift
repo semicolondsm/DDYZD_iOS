@@ -31,16 +31,11 @@ class ChatListViewController: UIViewController {
         setUI()
         bind()
         getChatSections()
-        getChatList(section: 0)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         setNavigationBar()
-        SocketIOManager.shared.establishConnection()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        SocketIOManager.shared.closeConnection()
+        getChatList(section: selectedChatSection)
     }
     
     func bind(){

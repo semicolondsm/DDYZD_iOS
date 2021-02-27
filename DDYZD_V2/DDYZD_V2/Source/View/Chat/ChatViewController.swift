@@ -19,18 +19,25 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var movingView: UIView!
     @IBOutlet weak var textInputView: UIView!
     @IBOutlet weak var messageTextField: UITextField!
+    @IBOutlet weak var actionBtn: UIButton!
     @IBOutlet weak var sendBtn: UIButton!
     @IBOutlet weak var chatTable: UITableView!
     @IBOutlet weak var chatTableBottomConstraint: NSLayoutConstraint!
     
-    private let  getRoomInfo = PublishSubject<Void>()
-    private let  getBreakdown = PublishSubject<Void>()
+    private let enterRoom = PublishSubject<Void>()
+    private let exitRoom = PublishSubject<Void>()
+    private let sendMessage = PublishSubject<String>()
+    private let sendApply = PublishSubject<String>()
+    private let sendSchedule = PublishSubject<(String, String)>()
+    private let sendResult = PublishSubject<Bool>()
+    private let sendAnswer = PublishSubject<Bool>()
     
     private let viewModel = ChatViewModel()
     private let disposeBag = DisposeBag()
     private var keyboardHeight: CGFloat!
     private let navigationBarTitile = UILabel()
     private let navigationBarImage = UIImageView()
+    private var majorBeingRecruited = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,18 +47,26 @@ class ChatViewController: UIViewController {
         setTableView()
         addKeyboardNotification()
         bind()
-        getChatRoomInfo()
-        getChatBreakdown()
+        enterChatRoom()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setNavigationBar()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        exitChatRoom()
+    }
+    
     func bind() {
         viewModel.roomID = self.roomID
-        let input = ChatViewModel.input(getRoomInfo: getRoomInfo.asDriver(onErrorJustReturn: ()),
-                                        getBreakdown: getBreakdown.asDriver(onErrorJustReturn: ()))
+        let input = ChatViewModel.input(enterRoom: enterRoom.asDriver(onErrorJustReturn: ()),
+                                        exitRoom: exitRoom.asDriver(onErrorJustReturn: ()),
+                                        sendMessage: sendMessage.asDriver(onErrorJustReturn: ""),
+                                        sendApply: sendApply.asDriver(onErrorJustReturn: ""),
+                                        sendSchedule: sendSchedule.asDriver(onErrorJustReturn: ("","")),
+                                        sendResult: sendResult.asDriver(onErrorJustReturn: false),
+                                        sendAnswer: sendAnswer.asDriver(onErrorJustReturn: true))
         let output = viewModel.transform(input)
         
         output.roomInfo.subscribe(onNext: { roomInfo in
@@ -60,7 +75,9 @@ class ChatViewController: UIViewController {
         })
         .disposed(by: disposeBag)
         
-        output.breakdown.bind(to: chatTable.rx.items) { tableView, row, item -> UITableViewCell in
+        output.breakdown
+            .scan([], accumulator: {$1 + $0 })
+            .bind(to: chatTable.rx.items) { tableView, row, item -> UITableViewCell in
             switch item.user_type {
             case .Club, .user:
                 if item.user_type.rawValue == self.userType!.rawValue {
@@ -85,6 +102,10 @@ class ChatViewController: UIViewController {
                 cell.contentLabel.text = item.msg
                 cell.whenLabel.dateLabel(item.created_at)
                 cell.sendScheduleBtn.isHidden = self.userType! == .ClubHead ? false : true
+                cell.sendScheduleBtn.rx.tap.subscribe(onNext: {
+                    self.presentScheduleAlert()
+                })
+                .disposed(by: cell.disposeBag)
                 
                 return cell
             case .Schedule:
@@ -101,20 +122,78 @@ class ChatViewController: UIViewController {
                 cell.titileLabel.text = item.title
                 cell.contentLabel.text = item.msg
                 cell.whenLabel.dateLabel(item.created_at)
-                cell.confirmationBtn.isHidden = self.userType! == .Volunteer ? false : true
+                cell.confirmationBtn.isHidden = item.result ?? true && self.userType! != .Volunteer
+                cell.confirmationBtn.rx.tap.subscribe(onNext: {
+                    self.presentAnswerAlert()
+                })
+                .disposed(by: cell.disposeBag)
                 
                 return cell
             }
         }
         .disposed(by: disposeBag)
+        
+        output.chatProgress.subscribe(onNext: { progress in
+            switch progress {
+            case .Apply:
+                self.actionBtn.isHidden = true
+                self.chatTable.tableHeaderView?.frame.size.height = 0
+            case .Schedule:
+                self.actionBtn.isHidden = self.userType! == .ClubHead ? false : true
+                self.chatTable.tableHeaderView?.frame.size.height = self.userType! == .ClubHead ? 44 : 0
+            case .Result:
+                self.actionBtn.isHidden = true
+                self.chatTable.tableHeaderView?.frame.size.height = 0
+            default :
+                if self.userType == .Volunteer {
+                    self.actionBtn.isHidden = false
+                    self.chatTable.tableHeaderView?.frame.size.height = 44
+                }
+            }
+            self.chatTable.reloadData()
+        })
+        .disposed(by: disposeBag)
+        
+        output.majorBeingRecruited.subscribe(onNext: { majors in
+            self.majorBeingRecruited = majors
+        })
+        .disposed(by: disposeBag)
+        
+        self.actionBtn.rx.tap.subscribe(onNext: {
+            switch self.userType {
+            case .Volunteer:
+                self.presentApplyAlert()
+            case .ClubHead:
+                break
+            default:
+                break
+            }
+        })
+        .disposed(by: self.disposeBag)
+        
+        sendBtn.rx.tap.subscribe(onNext: {
+            self.sendMessage.onNext(self.messageTextField.text!)
+            self.messageTextField.text = ""
+            self.sendBtn.isEnabled = false
+        })
+        .disposed(by: disposeBag)
+        
+        messageTextField.rx.text.orEmpty
+            .map{
+                $0 == "" ? false : true
+            }
+            .subscribe(onNext: {
+                self.sendBtn.isEnabled = $0
+            })
+            .disposed(by: disposeBag)
     }
     
-    func getChatRoomInfo() {
-        getRoomInfo.onNext(())
+    func enterChatRoom() {
+        enterRoom.onNext(())
     }
     
-    func getChatBreakdown() {
-        getBreakdown.onNext(())
+    func exitChatRoom() {
+        exitRoom.onNext(())
     }
 
 }
@@ -122,7 +201,18 @@ class ChatViewController: UIViewController {
 //MARK:- UI
 extension ChatViewController {
     func setUI(){
-        
+        actionBtn.isHidden = true
+        actionBtn.layer.cornerRadius = 17.5
+        actionBtn.layer.shadowColor = UIColor.black.cgColor
+        actionBtn.layer.masksToBounds = false
+        actionBtn.layer.shadowOffset = CGSize(width: 0, height: 4)
+        actionBtn.layer.shadowRadius = 5
+        actionBtn.layer.shadowOpacity = 0.3
+        switch userType {
+        case .Volunteer: actionBtn.setTitle("지원하기", for: .normal)
+        case .ClubHead: actionBtn.setTitle("결과 보내기", for: .normal)
+        default: break
+        }
     }
     
     func setNavigationBar(){
@@ -186,12 +276,14 @@ extension ChatViewController {
         let keybaordRectangle = keyboardFrame.cgRectValue
         let keyboardHeight = keybaordRectangle.height
         movingView.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight+bottomPadding)
+        actionBtn.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight+bottomPadding)
         chatTableBottomConstraint.constant = 60+keyboardHeight-bottomPadding
       }
     }
       
     @objc private func keyboardWillHide(_ notification: Notification) {
         movingView.transform = .identity
+        actionBtn.transform = .identity
         chatTableBottomConstraint.constant = 60
     }
 }
@@ -226,6 +318,12 @@ extension ChatViewController: UITableViewDelegate {
         chatTable.scrollIndicatorInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: chatTable.bounds.size.width - 8.0)
     }
     
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let cell = cell as? ApplyChatHelperTableViewCell {
+            cell.disposeBag = DisposeBag()
+        }
+    }
+    
     func registerCell() {
         let myChat = UINib(nibName: "MyChat", bundle: nil)
         chatTable.register(myChat, forCellReuseIdentifier: "MyChat")
@@ -237,5 +335,87 @@ extension ChatViewController: UITableViewDelegate {
         chatTable.register(scheduleChatHelper, forCellReuseIdentifier: "ScheduleChatHelper")
         let resultChatHelper = UINib(nibName: "ResultChatHelper", bundle: nil)
         chatTable.register(resultChatHelper, forCellReuseIdentifier: "ResultChatHelper")
+    }
+}
+
+//MARK:- Alert
+extension ChatViewController {
+    func presentApplyAlert() {
+        let vc = UIViewController()
+        vc.preferredContentSize = CGSize(width: 250,height: 300)
+        let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: 250, height: 300))
+        Observable.just(self.majorBeingRecruited).bind(to: pickerView.rx.itemTitles) { row, major in
+            return major
+        }.disposed(by: self.disposeBag)
+        vc.view.addSubview(pickerView)
+        let applyAlert = UIAlertController.init(title: "지원하기", message: "분야를 선택해주세요.", preferredStyle: .alert)
+        applyAlert.setValue(vc, forKey: "contentViewController")
+        let confirm = UIAlertAction(title: "확인", style: .default) { _ in
+            self.sendApply.onNext(self.majorBeingRecruited[pickerView.selectedRow(inComponent: 0)])
+        }
+        let cancle = UIAlertAction(title: "취소", style: .cancel)
+        applyAlert.addAction(confirm)
+        applyAlert.addAction(cancle)
+        applyAlert.view.tintColor = .black
+        self.present(applyAlert, animated: true, completion: nil)
+    }
+    
+    func presentScheduleAlert() {
+        let vc = UIViewController()
+        vc.preferredContentSize = CGSize(width: 250,height: 50)
+        let datePickerView = UIDatePicker(frame: CGRect(x: 0, y: 0, width: 250, height: 50))
+        datePickerView.datePickerMode = .dateAndTime
+        vc.view.addSubview(datePickerView)
+        let scheduleAlert = UIAlertController.init(title: "면접 일정", message: "면접 일시와 장소를 선택해주세요.", preferredStyle: .alert)
+        scheduleAlert.setValue(vc, forKey: "contentViewController")
+        let confirm = UIAlertAction(title: "확인", style: .default) { _ in
+            let formatter = DateFormatter()
+            formatter.locale = Locale(identifier: "ko")
+            formatter.dateFormat = "M월 d일 a h시 m분"
+            self.sendSchedule.onNext((formatter.string(from: datePickerView.date),
+                                      scheduleAlert.textFields![0].text!)) // (일시, 장소)
+        }
+        scheduleAlert.addTextField(){ textField in
+            textField.placeholder = "면접 장소"
+            textField.rx.text.orEmpty
+                .map{ $0 == "" ? false : true }
+                .subscribe(onNext: {
+                    confirm.isEnabled = $0
+                })
+                .disposed(by: self.disposeBag)
+        }
+        let cancle = UIAlertAction(title: "취소", style: .cancel)
+        scheduleAlert.addAction(confirm)
+        scheduleAlert.addAction(cancle)
+        scheduleAlert.view.tintColor = .black
+        self.present(scheduleAlert, animated: true, completion: nil)
+    }
+    
+    func presentResultActionSheet() {
+        let resultActionSheet = UIAlertController.init(title: "면접 결과", message: "면접 결과를 선택해주세요.", preferredStyle: .actionSheet)
+        let pass = UIAlertAction(title: "합격", style: .default) { _ in
+            self.sendResult.onNext(true)
+        }
+        let fail = UIAlertAction(title: "불합격", style: .destructive) { _ in
+            self.sendResult.onNext(false)
+        }
+        let cancle = UIAlertAction(title: "취소", style: .cancel)
+        resultActionSheet.addAction(pass)
+        resultActionSheet.addAction(fail)
+        resultActionSheet.addAction(cancle)
+        resultActionSheet.view.tintColor = .black
+        self.present(resultActionSheet, animated: true, completion: nil)
+    }
+    
+    func presentAnswerAlert() {
+        let answerAlert = UIAlertController(title: "확정", message: "이 동아리에 ", preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "확인", style: .default) { _ in
+            self.sendAnswer.onNext(true)
+        }
+        let cancle = UIAlertAction(title: "취소", style: .cancel)
+        answerAlert.addAction(cancle)
+        answerAlert.addAction(confirm)
+        answerAlert.view.tintColor = .black
+        self.present(answerAlert, animated: true)
     }
 }

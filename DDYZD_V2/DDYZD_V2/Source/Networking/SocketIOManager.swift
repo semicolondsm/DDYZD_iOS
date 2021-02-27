@@ -10,39 +10,20 @@ import Foundation
 import RxCocoa
 import SocketIO
 
-
-class SocketIOManager: NSObject {
+class SocketIOManager {
     static let shared = SocketIOManager()
     let manager = SocketManager(socketURL: URL(string: "https://api.semicolon.live")!,
                                 config: [.log(true), .compress, .forceWebsockets(true), .reconnects(false), .extraHeaders(["Authorization": "Bearer \(Token.access_token)"]) ])
     var socket: SocketIOClient!
     
-    override init() {
-        super.init()
+    init() {
         socket = manager.socket(forNamespace: "/chat")
-        
-        socket.on("response") {
+        socket.on("error", callback: {
+            print("====== ERROR: Socket ======")
             print($0)
             print($1)
-        }
-        
-        socket.on(clientEvent: .connect) {
-            print($0)
-            print($1)
-            print("connect")
-        }
-        socket.on(clientEvent: .error) {
-            print($0)
-            print($1)
-            print("error")
-        }
-        
-        socket.on(clientEvent: .disconnect) {
-            print($0)
-            print($1)
-            print("disconnect")
-        }
-        
+            print("...........................")
+        })
     }
     
     func establishConnection() {
@@ -51,5 +32,13 @@ class SocketIOManager: NSObject {
     
     func closeConnection() {
         socket.disconnect()
+    }
+    
+    func on(_ api: DDYZDSocket, callback: @escaping (([Any], SocketAckEmitter)->Void)) {
+        socket.on(api.event(), callback: callback)
+    }
+    
+    func emit(_ api: DDYZDSocket) {
+        socket.emit(api.event(), api.items()!)
     }
 }

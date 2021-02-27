@@ -19,6 +19,7 @@ struct Room: Codable {
     let image: String
     let lastdate: String?
     let lastmessage: String?
+    let isread: Bool
     let index: Int
 }
 
@@ -28,11 +29,18 @@ struct RoomInfo: Codable {
     let image: String
 }
 
+struct RecruitmentInfo: Codable {
+    let major: [String]
+    let startat: String
+    let closeat: String
+}
+
 struct Chat: Codable {
     let title: String?
     let msg: String
     let user_type: ChatType
     let created_at: String
+    let result: Bool?
 }
 
 enum ChatType: String, Codable{
