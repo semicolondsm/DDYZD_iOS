@@ -56,6 +56,7 @@ class ClubDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setNavigationBar()
+        SocketIOManager.shared.closeConnection()
     }
     
     func bind() {
