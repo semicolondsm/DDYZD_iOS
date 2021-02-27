@@ -27,12 +27,15 @@ class ChatViewController: UIViewController {
     private let enterRoom = PublishSubject<Void>()
     private let exitRoom = PublishSubject<Void>()
     private let sendMessage = PublishSubject<String>()
+    private let sendApply = PublishSubject<String>()
+    private let sendSchedule = PublishSubject<(String, String)>()
     
     private let viewModel = ChatViewModel()
     private let disposeBag = DisposeBag()
     private var keyboardHeight: CGFloat!
     private let navigationBarTitile = UILabel()
     private let navigationBarImage = UIImageView()
+    private var majorBeingRecruited = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +60,9 @@ class ChatViewController: UIViewController {
         viewModel.roomID = self.roomID
         let input = ChatViewModel.input(enterRoom: enterRoom.asDriver(onErrorJustReturn: ()),
                                         exitRoom: exitRoom.asDriver(onErrorJustReturn: ()),
-                                        sendMessage: sendMessage.asDriver(onErrorJustReturn: ""))
+                                        sendMessage: sendMessage.asDriver(onErrorJustReturn: ""),
+                                        sendApply: sendApply.asDriver(onErrorJustReturn: ""),
+                                        sendSchedule: sendSchedule.asDriver(onErrorJustReturn: ("","")))
         let output = viewModel.transform(input)
         
         output.roomInfo.subscribe(onNext: { roomInfo in
@@ -67,7 +72,7 @@ class ChatViewController: UIViewController {
         .disposed(by: disposeBag)
         
         output.breakdown
-            .scan([], accumulator: {$1 + $00})
+            .scan([], accumulator: {$1 + $0 })
             .bind(to: chatTable.rx.items) { tableView, row, item -> UITableViewCell in
             switch item.user_type {
             case .Club, .user:
@@ -93,6 +98,10 @@ class ChatViewController: UIViewController {
                 cell.contentLabel.text = item.msg
                 cell.whenLabel.dateLabel(item.created_at)
                 cell.sendScheduleBtn.isHidden = self.userType! == .ClubHead ? false : true
+                cell.sendScheduleBtn.rx.tap.subscribe(onNext: {
+                    self.presentScheduleAlert()
+                })
+                .disposed(by: cell.disposeBag)
                 
                 return cell
             case .Schedule:
@@ -115,6 +124,44 @@ class ChatViewController: UIViewController {
             }
         }
         .disposed(by: disposeBag)
+        
+        output.chatProgress.subscribe(onNext: { progress in
+            switch progress {
+            case .Apply:
+                self.actionBtn.isHidden = true
+                self.chatTable.tableHeaderView?.frame.size.height = 0
+            case .Schedule:
+                self.actionBtn.isHidden = self.userType! == .ClubHead ? false : true
+                self.chatTable.tableHeaderView?.frame.size.height = self.userType! == .ClubHead ? 44 : 0
+            case .Result:
+                self.actionBtn.isHidden = true
+                self.chatTable.tableHeaderView?.frame.size.height = 0
+            default :
+                if self.userType == .Volunteer {
+                    self.actionBtn.isHidden = false
+                    self.chatTable.tableHeaderView?.frame.size.height = 44
+                }
+            }
+            self.chatTable.reloadData()
+        })
+        .disposed(by: disposeBag)
+        
+        output.majorBeingRecruited.subscribe(onNext: { majors in
+            self.majorBeingRecruited = majors
+        })
+        .disposed(by: disposeBag)
+        
+        self.actionBtn.rx.tap.subscribe(onNext: {
+            switch self.userType {
+            case .Volunteer:
+                self.presentApplyAlert()
+            case .ClubHead:
+                break
+            default:
+                break
+            }
+        })
+        .disposed(by: self.disposeBag)
         
         sendBtn.rx.tap.subscribe(onNext: {
             self.sendMessage.onNext(self.messageTextField.text!)
@@ -146,6 +193,7 @@ class ChatViewController: UIViewController {
 //MARK:- UI
 extension ChatViewController {
     func setUI(){
+        actionBtn.isHidden = true
         actionBtn.layer.cornerRadius = 17.5
         actionBtn.layer.shadowColor = UIColor.black.cgColor
         actionBtn.layer.masksToBounds = false
@@ -262,6 +310,12 @@ extension ChatViewController: UITableViewDelegate {
         chatTable.scrollIndicatorInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: chatTable.bounds.size.width - 8.0)
     }
     
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let cell = cell as? ApplyChatHelperTableViewCell {
+            cell.disposeBag = DisposeBag()
+        }
+    }
+    
     func registerCell() {
         let myChat = UINib(nibName: "MyChat", bundle: nil)
         chatTable.register(myChat, forCellReuseIdentifier: "MyChat")
@@ -273,5 +327,60 @@ extension ChatViewController: UITableViewDelegate {
         chatTable.register(scheduleChatHelper, forCellReuseIdentifier: "ScheduleChatHelper")
         let resultChatHelper = UINib(nibName: "ResultChatHelper", bundle: nil)
         chatTable.register(resultChatHelper, forCellReuseIdentifier: "ResultChatHelper")
+    }
+}
+
+//MARK:- Alert
+extension ChatViewController {
+    func presentApplyAlert() {
+        let vc = UIViewController()
+        vc.preferredContentSize = CGSize(width: 250,height: 300)
+        let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: 250, height: 300))
+        var selectedMajor = self.majorBeingRecruited[0]
+        Observable.just(self.majorBeingRecruited).bind(to: pickerView.rx.itemTitles) { row, major in
+            return major
+        }.disposed(by: self.disposeBag)
+        pickerView.rx.itemSelected.subscribe(onNext: { selectedIndex in
+            selectedMajor = self.majorBeingRecruited[selectedIndex.row]
+        }).disposed(by: self.disposeBag)
+        vc.view.addSubview(pickerView)
+        let applyAlert = UIAlertController.init(title: "지원하기", message: "분야를 선택해주세요.", preferredStyle: .alert)
+        applyAlert.setValue(vc, forKey: "contentViewController")
+        let confirm = UIAlertAction(title: "확인", style: .default) { _ in
+            self.sendApply.onNext(selectedMajor)
+        }
+        let cancle = UIAlertAction(title: "취소", style: .cancel)
+        applyAlert.addAction(confirm)
+        applyAlert.addAction(cancle)
+        applyAlert.view.tintColor = .black
+        self.present(applyAlert, animated: true, completion: nil)
+    }
+    
+    func presentScheduleAlert() {
+        let vc = UIViewController()
+        vc.preferredContentSize = CGSize(width: 250,height: 50)
+        let datePickerView = UIDatePicker(frame: CGRect(x: 0, y: 0, width: 250, height: 50))
+        datePickerView.datePickerMode = .dateAndTime
+        //데이트 피커 이벤트
+        vc.view.addSubview(datePickerView)
+        let scheduleAlert = UIAlertController.init(title: "면접 일정", message: "면접 일시와 장소를 선택해주세요.", preferredStyle: .alert)
+        scheduleAlert.setValue(vc, forKey: "contentViewController")
+        let confirm = UIAlertAction(title: "확인", style: .default) { _ in
+            self.sendSchedule.onNext(("", "")) // (일시, 장소)
+        }
+        scheduleAlert.addTextField(){ textField in
+            textField.placeholder = "면접 장소"
+            textField.rx.text.orEmpty
+                .map{ $0 == "" ? false : true }
+                .subscribe(onNext: {
+                    confirm.isEnabled = $0
+                })
+                .disposed(by: self.disposeBag)
+        }
+        let cancle = UIAlertAction(title: "취소", style: .cancel)
+        scheduleAlert.addAction(confirm)
+        scheduleAlert.addAction(cancle)
+        scheduleAlert.view.tintColor = .black
+        self.present(scheduleAlert, animated: true, completion: nil)
     }
 }

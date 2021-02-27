@@ -13,6 +13,8 @@ enum DDYZDSocket {
     case joinRoom                   // 채팅방 입장
     case leaveRoom                  // 채팅방 나가기
     case sendChat(message: String)  // 채팅 보내기
+    case sendApply(major: String)   // 지원하기
+    case sendSchdule(date: String, loaction: String)
     
     // on
     case listChangeAlarm             // 채팅리스트 변동 알림 받기
@@ -26,6 +28,10 @@ enum DDYZDSocket {
             return "leave_room"
         case .sendChat:
             return "send_chat"
+        case .sendApply:
+            return "helper_apply"
+        case .sendSchdule:
+            return "helper_schedule"
         case .listChangeAlarm:
             return "alarm"
         case .receiveChat:
@@ -39,6 +45,10 @@ enum DDYZDSocket {
             return ["room_token": Token.room_token ?? ""]
         case .sendChat(let msg):
             return ["room_token": Token.room_token ?? "", "msg": msg]
+        case .sendApply(let major):
+            return ["room_token": Token.room_token ?? "", "major": major]
+        case .sendSchdule(let date, let location):
+            return ["room_token": Token.room_token ?? "", "date": date, "location": location]
         default:
             return nil
         }

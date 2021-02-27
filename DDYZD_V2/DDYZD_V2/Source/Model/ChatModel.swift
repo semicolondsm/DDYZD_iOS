@@ -29,6 +29,12 @@ struct RoomInfo: Codable {
     let image: String
 }
 
+struct RecruitmentInfo: Codable {
+    let major: [String]
+    let startat: String
+    let closeat: String
+}
+
 struct Chat: Codable {
     let title: String?
     let msg: String

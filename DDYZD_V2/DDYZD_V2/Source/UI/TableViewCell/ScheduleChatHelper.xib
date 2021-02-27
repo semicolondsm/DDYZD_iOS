@@ -9,30 +9,30 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScheduleChatHelper" rowHeight="110" id="soL-Al-buS" customClass="ScheduleChatHelperTableViewCell" customModule="DDYZD_V2" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScheduleChatHelper" rowHeight="114" id="soL-Al-buS" customClass="ScheduleChatHelperTableViewCell" customModule="DDYZD_V2" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="114"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="soL-Al-buS" id="HZ4-f8-nZZ">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="114"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6bI-yA-UEE">
-                        <rect key="frame" x="45" y="5" width="354" height="100"/>
+                        <rect key="frame" x="45" y="5" width="354" height="104"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nId-Ng-Tm5">
-                                <rect key="frame" x="8" y="8" width="38" height="18"/>
+                                <rect key="frame" x="10" y="10" width="38" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srL-w8-Cve">
-                                <rect key="frame" x="8" y="36" width="338" height="61"/>
+                                <rect key="frame" x="10" y="38" width="336" height="61"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Okv-sC-Sgl">
-                                <rect key="frame" x="54" y="14" width="27" height="12"/>
+                                <rect key="frame" x="56" y="16" width="27" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.58426284790000005" green="0.58434748650000001" blue="0.58423620460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -40,11 +40,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="srL-w8-Cve" firstAttribute="leading" secondItem="6bI-yA-UEE" secondAttribute="leading" constant="8" id="6fG-ij-kPy"/>
-                            <constraint firstItem="nId-Ng-Tm5" firstAttribute="top" secondItem="6bI-yA-UEE" secondAttribute="top" constant="8" id="AeB-L7-Z9d"/>
+                            <constraint firstItem="srL-w8-Cve" firstAttribute="leading" secondItem="6bI-yA-UEE" secondAttribute="leading" constant="10" id="6fG-ij-kPy"/>
+                            <constraint firstItem="nId-Ng-Tm5" firstAttribute="top" secondItem="6bI-yA-UEE" secondAttribute="top" constant="10" id="AeB-L7-Z9d"/>
                             <constraint firstItem="Okv-sC-Sgl" firstAttribute="leading" secondItem="nId-Ng-Tm5" secondAttribute="trailing" constant="8" symbolic="YES" id="K9h-Oa-zKt"/>
                             <constraint firstItem="srL-w8-Cve" firstAttribute="top" secondItem="nId-Ng-Tm5" secondAttribute="bottom" constant="10" id="dWk-do-Vxb"/>
-                            <constraint firstItem="nId-Ng-Tm5" firstAttribute="leading" secondItem="6bI-yA-UEE" secondAttribute="leading" constant="8" id="dtB-9E-vmB"/>
+                            <constraint firstItem="nId-Ng-Tm5" firstAttribute="leading" secondItem="6bI-yA-UEE" secondAttribute="leading" constant="10" id="dtB-9E-vmB"/>
                             <constraint firstAttribute="trailing" secondItem="srL-w8-Cve" secondAttribute="trailing" constant="8" id="uFT-cF-2qs"/>
                             <constraint firstItem="Okv-sC-Sgl" firstAttribute="bottom" secondItem="nId-Ng-Tm5" secondAttribute="bottom" id="xL7-9Y-MdT"/>
                         </constraints>
@@ -52,7 +52,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="6bI-yA-UEE" firstAttribute="top" secondItem="HZ4-f8-nZZ" secondAttribute="top" constant="5" id="PBs-rj-cHL"/>
-                    <constraint firstAttribute="bottom" secondItem="srL-w8-Cve" secondAttribute="bottom" constant="8" id="Z2J-xh-yAd"/>
+                    <constraint firstAttribute="bottom" secondItem="srL-w8-Cve" secondAttribute="bottom" constant="10" id="Z2J-xh-yAd"/>
                     <constraint firstItem="6bI-yA-UEE" firstAttribute="leading" secondItem="HZ4-f8-nZZ" secondAttribute="leading" constant="45" id="d9c-rW-VHT"/>
                     <constraint firstAttribute="trailing" secondItem="6bI-yA-UEE" secondAttribute="trailing" constant="15" id="rca-HX-mcA"/>
                     <constraint firstAttribute="bottom" secondItem="6bI-yA-UEE" secondAttribute="bottom" constant="5" id="v6e-k8-CXT"/>
@@ -64,7 +64,7 @@
                 <outlet property="titleLabel" destination="nId-Ng-Tm5" id="jPm-0F-Mq8"/>
                 <outlet property="whenLabel" destination="Okv-sC-Sgl" id="WCN-AS-c6g"/>
             </connections>
-            <point key="canvasLocation" x="86.956521739130437" y="187.5"/>
+            <point key="canvasLocation" x="86.956521739130437" y="188.83928571428569"/>
         </tableViewCell>
     </objects>
 </document>
