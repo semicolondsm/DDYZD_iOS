@@ -23,6 +23,7 @@ class ChatViewModel: ViewModelProtocol {
         let sendMessage: Driver<String>
         let sendApply: Driver<String>
         let sendSchedule: Driver<(String, String)>
+        let sendResult: Driver<Bool>
     }
     
     struct output {
@@ -114,7 +115,8 @@ class ChatViewModel: ViewModelProtocol {
                         let chat = Chat(title: dataIndex["title"] as? String ?? nil,
                                         msg: dataIndex["msg"] as! String,
                                         user_type: ChatType(rawValue: dataIndex["user_type"] as! String)!,
-                                        created_at: dataIndex["date"] as? String ?? "")
+                                        created_at: dataIndex["date"] as? String ?? "",
+                                        result: dataIndex["result"] as? Bool ?? false)
                         breakdown.accept([chat])
                         switch chat.user_type {
                         case .user, .Club:
@@ -145,6 +147,11 @@ class ChatViewModel: ViewModelProtocol {
         
         input.sendSchedule.asObservable().subscribe(onNext: { (date, location) in
             SocketIOManager.shared.emit(.sendSchdule(date: date, loaction: location))
+        })
+        .disposed(by: disposeBag)
+        
+        input.sendResult.asObservable().subscribe(onNext: { result in
+            SocketIOManager.shared.emit(.sendResult(result: result))
         })
         .disposed(by: disposeBag)
             

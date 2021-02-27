@@ -29,6 +29,7 @@ class ChatViewController: UIViewController {
     private let sendMessage = PublishSubject<String>()
     private let sendApply = PublishSubject<String>()
     private let sendSchedule = PublishSubject<(String, String)>()
+    private let sendResult = PublishSubject<Bool>()
     
     private let viewModel = ChatViewModel()
     private let disposeBag = DisposeBag()
@@ -62,7 +63,8 @@ class ChatViewController: UIViewController {
                                         exitRoom: exitRoom.asDriver(onErrorJustReturn: ()),
                                         sendMessage: sendMessage.asDriver(onErrorJustReturn: ""),
                                         sendApply: sendApply.asDriver(onErrorJustReturn: ""),
-                                        sendSchedule: sendSchedule.asDriver(onErrorJustReturn: ("","")))
+                                        sendSchedule: sendSchedule.asDriver(onErrorJustReturn: ("","")),
+                                        sendResult: sendResult.asDriver(onErrorJustReturn: false))
         let output = viewModel.transform(input)
         
         output.roomInfo.subscribe(onNext: { roomInfo in
@@ -118,7 +120,11 @@ class ChatViewController: UIViewController {
                 cell.titileLabel.text = item.title
                 cell.contentLabel.text = item.msg
                 cell.whenLabel.dateLabel(item.created_at)
-                cell.confirmationBtn.isHidden = self.userType! == .Volunteer ? false : true
+                cell.confirmationBtn.isHidden = item.result ?? true && self.userType! != .Volunteer
+                cell.confirmationBtn.rx.tap.subscribe(onNext: {
+                    
+                })
+                .disposed(by: cell.disposeBag)
                 
                 return cell
             }
@@ -381,5 +387,21 @@ extension ChatViewController {
         scheduleAlert.addAction(cancle)
         scheduleAlert.view.tintColor = .black
         self.present(scheduleAlert, animated: true, completion: nil)
+    }
+    
+    func presentResultActionSheet() {
+        let resultActionSheet = UIAlertController.init(title: "면접 결과", message: "면접 결과를 선택해주세요.", preferredStyle: .actionSheet)
+        let pass = UIAlertAction(title: "합격", style: .default) { _ in
+            self.sendResult.onNext(true)
+        }
+        let fail = UIAlertAction(title: "불합격", style: .destructive) { _ in
+            self.sendResult.onNext(false)
+        }
+        let cancle = UIAlertAction(title: "취소", style: .cancel)
+        resultActionSheet.addAction(pass)
+        resultActionSheet.addAction(fail)
+        resultActionSheet.addAction(cancle)
+        resultActionSheet.view.tintColor = .black
+        self.present(resultActionSheet, animated: true, completion: nil)
     }
 }

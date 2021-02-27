@@ -7,8 +7,12 @@
 
 import UIKit
 
+import RxSwift
+
 class ResultChatHelperTableViewCell: UITableViewCell {
 
+    public var disposeBag = DisposeBag()
+    
     @IBOutlet weak var helperCellView: UIView!
     @IBOutlet weak var titileLabel: UILabel!
     @IBOutlet weak var whenLabel: UILabel!

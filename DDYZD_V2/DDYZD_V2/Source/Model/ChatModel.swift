@@ -40,6 +40,7 @@ struct Chat: Codable {
     let msg: String
     let user_type: ChatType
     let created_at: String
+    let result: Bool?
 }
 
 enum ChatType: String, Codable{
