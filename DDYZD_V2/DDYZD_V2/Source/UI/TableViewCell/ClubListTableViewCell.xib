@@ -58,8 +58,8 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="clubDescription" destination="aQO-e1-zUQ" id="spT-JR-dOu"/>
-                <outlet property="clubNameLable" destination="keE-1T-oY5" id="Ptt-pd-D1X"/>
+                <outlet property="clubDescription" destination="aQO-e1-zUQ" id="iyw-t6-ijj"/>
+                <outlet property="clubNameLabel" destination="keE-1T-oY5" id="JhF-sy-Omr"/>
                 <outlet property="clubProfileImageView" destination="zPb-lj-lex" id="xYy-2S-Bax"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="202.90178571428569"/>

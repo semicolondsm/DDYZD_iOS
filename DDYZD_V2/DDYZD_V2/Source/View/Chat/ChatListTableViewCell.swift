@@ -10,9 +10,9 @@ import UIKit
 class ChatListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var clubProfileImageView: UIImageView!
-    @IBOutlet weak var clubNameLable: UILabel!
-    @IBOutlet weak var lastMessageLable: UILabel!
-    @IBOutlet weak var whenLable: UILabel!
+    @IBOutlet weak var clubNameLabel: UILabel!
+    @IBOutlet weak var lastMessageLabel: UILabel!
+    @IBOutlet weak var whenLabel: UILabel!
     @IBOutlet weak var unwatchedSignView: UIView!
     
     override func awakeFromNib() {
@@ -28,14 +28,14 @@ class ChatListTableViewCell: UITableViewCell {
     
     func bind(item: Room){
         clubProfileImageView.kf.setImage(with: URL(string: item.image))
-        clubNameLable.text = item.name
-        whenLable.dateLabel(item.lastdate ?? "")
-        lastMessageLable.text = item.lastmessage
+        clubNameLabel.text = item.name
+        whenLabel.dateLabel(item.lastdate ?? "")
+        lastMessageLabel.text = "• " + (item.lastmessage ?? "")
         unwatchedSignView.isHidden = item.isread
         if item.isread {
-            lastMessageLable.textColor = #colorLiteral(red: 0.7215067744, green: 0.7216095924, blue: 0.7214744687, alpha: 1)
+            lastMessageLabel.textColor = #colorLiteral(red: 0.7215067744, green: 0.7216095924, blue: 0.7214744687, alpha: 1)
         } else {
-            lastMessageLable.textColor = .black
+            lastMessageLabel.textColor = .black
         }
     }
 
