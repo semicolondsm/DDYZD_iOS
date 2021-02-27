@@ -83,12 +83,8 @@ extension UIViewController {
                 self.present(deleteAlert, animated: true, completion: nil)
                 
             }
-            let modifyFeed = UIAlertAction(title: "수정", style: .default){ _ in
-                // 게시물 수정 페이지로 이동
-            }
             
             alert.addAction(deleteFeed)
-            alert.addAction(modifyFeed)
             
             if isHead ?? false {
                 let pinFeed = UIAlertAction(title: "고정", style: .default){ _ in
