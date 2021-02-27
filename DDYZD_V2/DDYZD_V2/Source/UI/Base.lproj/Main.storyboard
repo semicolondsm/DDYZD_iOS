@@ -16,7 +16,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="cPQ-cp-QYA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.48113262649999999" green="0.1003668979" blue="0.81238496299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="DcC-W2-OsD" kind="relationship" relationship="viewControllers" id="IQl-7h-gVS"/>
@@ -28,11 +28,11 @@
             </objects>
             <point key="canvasLocation" x="275" y="-152"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="jHc-LS-sSw">
             <objects>
                 <navigationController id="DcC-W2-OsD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="GjO-AJ-81U"/>
+                    <tabBarItem key="tabBarItem" title="" image="home" id="GjO-AJ-81U"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Fb-2p-CFD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -140,6 +140,7 @@
     </scenes>
     <resources>
         <image name="ChatIcon" width="25" height="25"/>
+        <image name="home" width="32" height="32.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

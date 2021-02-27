@@ -203,11 +203,11 @@
             </objects>
             <point key="canvasLocation" x="1536" y="274"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="ed9-Pp-o5d">
             <objects>
                 <navigationController id="rmM-3B-KJb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="UJN-vR-uiI"/>
+                    <tabBarItem key="tabBarItem" title="" image="user-profile" id="UJN-vR-uiI"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Uud-a0-l6G">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -356,6 +356,7 @@
     <resources>
         <image name="githubIcon" width="16" height="16"/>
         <image name="hamburgerBtn" width="24" height="24"/>
+        <image name="user-profile" width="32" height="38"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

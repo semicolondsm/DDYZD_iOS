@@ -9,11 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="5Ke-ep-pEC">
             <objects>
                 <navigationController storyboardIdentifier="ClubNC" id="ivx-M9-aYT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="JzV-MC-LsI"/>
+                    <tabBarItem key="tabBarItem" title="" image="clubList" id="JzV-MC-LsI"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="KAR-98-ZzI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -274,6 +274,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="clubList" width="32" height="24.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
