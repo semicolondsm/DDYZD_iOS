@@ -336,18 +336,14 @@ extension ChatViewController {
         let vc = UIViewController()
         vc.preferredContentSize = CGSize(width: 250,height: 300)
         let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: 250, height: 300))
-        var selectedMajor = self.majorBeingRecruited[0]
         Observable.just(self.majorBeingRecruited).bind(to: pickerView.rx.itemTitles) { row, major in
             return major
         }.disposed(by: self.disposeBag)
-        pickerView.rx.itemSelected.subscribe(onNext: { selectedIndex in
-            selectedMajor = self.majorBeingRecruited[selectedIndex.row]
-        }).disposed(by: self.disposeBag)
         vc.view.addSubview(pickerView)
         let applyAlert = UIAlertController.init(title: "지원하기", message: "분야를 선택해주세요.", preferredStyle: .alert)
         applyAlert.setValue(vc, forKey: "contentViewController")
         let confirm = UIAlertAction(title: "확인", style: .default) { _ in
-            self.sendApply.onNext(selectedMajor)
+            self.sendApply.onNext(self.majorBeingRecruited[pickerView.selectedRow(inComponent: 0)])
         }
         let cancle = UIAlertAction(title: "취소", style: .cancel)
         applyAlert.addAction(confirm)
@@ -361,12 +357,15 @@ extension ChatViewController {
         vc.preferredContentSize = CGSize(width: 250,height: 50)
         let datePickerView = UIDatePicker(frame: CGRect(x: 0, y: 0, width: 250, height: 50))
         datePickerView.datePickerMode = .dateAndTime
-        //데이트 피커 이벤트
         vc.view.addSubview(datePickerView)
         let scheduleAlert = UIAlertController.init(title: "면접 일정", message: "면접 일시와 장소를 선택해주세요.", preferredStyle: .alert)
         scheduleAlert.setValue(vc, forKey: "contentViewController")
         let confirm = UIAlertAction(title: "확인", style: .default) { _ in
-            self.sendSchedule.onNext(("", "")) // (일시, 장소)
+            let formatter = DateFormatter()
+            formatter.locale = Locale(identifier: "ko")
+            formatter.dateFormat = "M월 d일 a h시 m분"
+            self.sendSchedule.onNext((formatter.string(from: datePickerView.date),
+                                      scheduleAlert.textFields![0].text!)) // (일시, 장소)
         }
         scheduleAlert.addTextField(){ textField in
             textField.placeholder = "면접 장소"
