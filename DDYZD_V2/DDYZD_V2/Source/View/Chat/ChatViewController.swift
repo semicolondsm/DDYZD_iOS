@@ -30,6 +30,7 @@ class ChatViewController: UIViewController {
     private let sendApply = PublishSubject<String>()
     private let sendSchedule = PublishSubject<(String, String)>()
     private let sendResult = PublishSubject<Bool>()
+    private let sendAnswer = PublishSubject<Bool>()
     
     private let viewModel = ChatViewModel()
     private let disposeBag = DisposeBag()
@@ -64,7 +65,8 @@ class ChatViewController: UIViewController {
                                         sendMessage: sendMessage.asDriver(onErrorJustReturn: ""),
                                         sendApply: sendApply.asDriver(onErrorJustReturn: ""),
                                         sendSchedule: sendSchedule.asDriver(onErrorJustReturn: ("","")),
-                                        sendResult: sendResult.asDriver(onErrorJustReturn: false))
+                                        sendResult: sendResult.asDriver(onErrorJustReturn: false),
+                                        sendAnswer: sendAnswer.asDriver(onErrorJustReturn: true))
         let output = viewModel.transform(input)
         
         output.roomInfo.subscribe(onNext: { roomInfo in
@@ -403,5 +405,17 @@ extension ChatViewController {
         resultActionSheet.addAction(cancle)
         resultActionSheet.view.tintColor = .black
         self.present(resultActionSheet, animated: true, completion: nil)
+    }
+    
+    func presentAnswerAlert() {
+        let answerAlert = UIAlertController(title: "확정", message: "이 동아리에 ", preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "확인", style: .default) { _ in
+            self.sendAnswer.onNext(true)
+        }
+        let cancle = UIAlertAction(title: "취소", style: .cancel)
+        answerAlert.addAction(cancle)
+        answerAlert.addAction(confirm)
+        answerAlert.view.tintColor = .black
+        self.present(answerAlert, animated: true)
     }
 }

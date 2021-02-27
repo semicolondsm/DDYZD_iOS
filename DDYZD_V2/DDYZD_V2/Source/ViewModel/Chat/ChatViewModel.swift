@@ -24,6 +24,7 @@ class ChatViewModel: ViewModelProtocol {
         let sendApply: Driver<String>
         let sendSchedule: Driver<(String, String)>
         let sendResult: Driver<Bool>
+        let sendAnswer: Driver<Bool>
     }
     
     struct output {
@@ -152,6 +153,11 @@ class ChatViewModel: ViewModelProtocol {
         
         input.sendResult.asObservable().subscribe(onNext: { result in
             SocketIOManager.shared.emit(.sendResult(result: result))
+        })
+        .disposed(by: disposeBag)
+        
+        input.sendAnswer.asObservable().subscribe(onNext: { answer in
+            SocketIOManager.shared.emit(.senfAnswer(answer: answer))
         })
         .disposed(by: disposeBag)
             
