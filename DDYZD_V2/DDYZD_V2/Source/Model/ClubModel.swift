@@ -72,7 +72,7 @@ enum ClubListCategory {
     static let allItems = [all,web,app,embedded,ect,CA]
 }
 
-struct ClubListModel: Codable {
+struct ClubList: Codable {
     let clubid: Int
     let clubname: String
     let clubdescription: String
@@ -80,7 +80,7 @@ struct ClubListModel: Codable {
     let clubtag: [String]
 }
 
-struct ClubInfoModel: Codable {
+struct ClubInfo: Codable {
     let clubid: Int
     let clubname: String
     let clubtag: [String]

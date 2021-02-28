@@ -32,7 +32,7 @@ class FeedTableViewCell: UITableViewCell {
         cellSuperView.layer.borderColor = #colorLiteral(red: 0.2078431373, green: 0.03484285995, blue: 0.4432567954, alpha: 1)
     }
 
-    func bind(item: FeedModel) {
+    func bind(item: Feed) {
         if item.pin ?? false {
             cellSuperView.layer.borderWidth = 1
         }

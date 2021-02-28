@@ -14,12 +14,12 @@ import RxSwift
 class ClubAPI {
     let httpClient = HTTPClient()
     
-    func getClubList() -> Observable<([ClubListModel]? ,StatusCodes)> {
+    func getClubList() -> Observable<([ClubList]? ,StatusCodes)> {
         httpClient.get(.clubList, param: nil)
-            .map{ response, data -> ([ClubListModel]?, StatusCodes) in
+            .map{ response, data -> ([ClubList]?, StatusCodes) in
                 switch response.statusCode {
                 case 200:
-                    guard let data = try? JSONDecoder().decode([ClubListModel].self, from: data) else { return (nil, .fault)}
+                    guard let data = try? JSONDecoder().decode([ClubList].self, from: data) else { return (nil, .fault)}
                     return(data, .success)
                 default:
                     return (nil, .fault)
@@ -27,12 +27,12 @@ class ClubAPI {
             }
     }
     
-    func getClubDetailInfo(clubID: Int) -> Observable<(ClubInfoModel?, StatusCodes)> {
+    func getClubDetailInfo(clubID: Int) -> Observable<(ClubInfo?, StatusCodes)> {
         httpClient.get(.clubDetailInfo(clubID), param: nil)
-            .map{ response, data -> (ClubInfoModel?, StatusCodes) in
+            .map{ response, data -> (ClubInfo?, StatusCodes) in
                 switch response.statusCode {
                 case 200:
-                    guard let data = try? JSONDecoder().decode(ClubInfoModel.self, from: data) else { return (nil, .fault)}
+                    guard let data = try? JSONDecoder().decode(ClubInfo.self, from: data) else { return (nil, .fault)}
                     return (data, .success)
                 default:
                     return (nil, .fault)

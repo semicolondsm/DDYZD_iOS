@@ -21,20 +21,20 @@ class ClubListTableViewModel: ViewModelProtocol {
     
     struct output {
         let result: Observable<String>
-        let clubList: PublishRelay<[ClubListModel]>
+        let clubList: PublishRelay<[ClubList]>
         let selectedClubID: Signal<Int>
     }
     
     func transform(_ input: input) -> output {
         let api = ClubAPI()
         let result = PublishSubject<String>()
-        let clubList = PublishRelay<[ClubListModel]>()
+        let clubList = PublishRelay<[ClubList]>()
         let selectedClubID = PublishSubject<Int>()
         
         api.getClubList().subscribe(onNext:{ data, response in
             switch response {
             case .success:
-                var returnClubList = [ClubListModel]()
+                var returnClubList = [ClubList]()
                 
                 for club in data! {
                     for tag in club.clubtag {

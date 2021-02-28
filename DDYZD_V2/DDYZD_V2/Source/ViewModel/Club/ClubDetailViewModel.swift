@@ -17,7 +17,7 @@ class ClubDetailViewModel: ViewModelProtocol {
     private let disposeBag = DisposeBag()
     
     private var isFollowing = false
-    private var feeds = [FeedModel]()
+    private var feeds = [Feed]()
     private var lastLoadPage = 0
     
     struct input {
@@ -32,13 +32,13 @@ class ClubDetailViewModel: ViewModelProtocol {
     }
     
     struct output {
-        let clubInfo: PublishRelay<ClubInfoModel>
+        let clubInfo: PublishRelay<ClubInfo>
         let clubMembers: PublishRelay<[ClubMember]>
         let clubMemberNum: PublishRelay<Int>
         let selectedMemberGCN: PublishRelay<String>
         let followClubResult: PublishRelay<Bool>
         let clubChatRoomID: PublishRelay<Int>
-        let feedList: PublishRelay<[FeedModel]>
+        let feedList: PublishRelay<[Feed]>
         let flagItResult: PublishRelay<Bool>
         let pinFeedResult: PublishRelay<Bool>
     }
@@ -47,13 +47,13 @@ class ClubDetailViewModel: ViewModelProtocol {
         
         let clubAPI = ClubAPI()
         let feedAPI = FeedAPI()
-        let clubInfo = PublishRelay<ClubInfoModel>()
+        let clubInfo = PublishRelay<ClubInfo>()
         let clubMembers = PublishRelay<[ClubMember]>()
         let clubMemberNum = PublishRelay<Int>()
         let selectedMemberGCN = PublishRelay<String>()
         let followClubResult = PublishRelay<Bool>()
         let clubChatRoomID = PublishRelay<Int>()
-        let feedList = PublishRelay<[FeedModel]>()
+        let feedList = PublishRelay<[Feed]>()
         let flagItResult = PublishRelay<Bool>()
         let pinFeedResult = PublishRelay<Bool>()
         

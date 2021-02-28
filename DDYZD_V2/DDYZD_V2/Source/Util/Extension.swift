@@ -68,7 +68,7 @@ extension UIViewController {
         self.present(loginVC, animated: true, completion: nil)
     }
     
-    func menuActionSheet(item: FeedModel, isHead: Bool?, pinCloser: (()->Void)?, deleteCloser: @escaping (()->Void)){
+    func menuActionSheet(item: Feed, isHead: Bool?, pinCloser: (()->Void)?, deleteCloser: @escaping (()->Void)){
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         if item.owner {
             let deleteFeed = UIAlertAction(title: "삭제", style: .destructive){ _ in

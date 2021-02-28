@@ -13,12 +13,12 @@ import RxSwift
 class FeedAPI {
     let httpClient = HTTPClient()
     
-    func getFeedList(page: Int) -> Observable<([FeedModel]?, StatusCodes)> {
+    func getFeedList(page: Int) -> Observable<([Feed]?, StatusCodes)> {
         httpClient.get(.feedList(page), param: nil)
-            .map{ response, data -> ([FeedModel]?, StatusCodes) in
+            .map{ response, data -> ([Feed]?, StatusCodes) in
                 switch response.statusCode {
                 case 200:
-                    guard let data = try? JSONDecoder().decode([FeedModel].self, from: data) else { return (nil, .fault) }
+                    guard let data = try? JSONDecoder().decode([Feed].self, from: data) else { return (nil, .fault) }
                     return (data, .success)
                 default:
                     return (nil, .fault)
@@ -26,12 +26,12 @@ class FeedAPI {
             }
     }
     
-    func getClubFeedList(clubID: Int, page: Int) -> Observable<([FeedModel]?, StatusCodes)> {
+    func getClubFeedList(clubID: Int, page: Int) -> Observable<([Feed]?, StatusCodes)> {
         httpClient.get(.clubFeedList(clubID, page), param: nil)
-            .map{ response, data -> ([FeedModel]?, StatusCodes) in
+            .map{ response, data -> ([Feed]?, StatusCodes) in
                 switch response.statusCode {
                 case 200:
-                    guard let data = try? JSONDecoder().decode([FeedModel].self, from: data) else { return (nil, .fault) }
+                    guard let data = try? JSONDecoder().decode([Feed].self, from: data) else { return (nil, .fault) }
                     return (data, .success)
                 default:
                     return (nil, .fault)
