@@ -63,7 +63,7 @@ class ClubDetailViewController: UIViewController {
         viewModel.clubID = clubID
         let input = ClubDetailViewModel.input(getClubInfo: getClubInfo.asDriver(onErrorJustReturn: ()),
                                               selectIndexPath: clubMemberCollectionView.rx.itemSelected.asDriver(),
-                                              followClub: makeRoomID.asDriver(onErrorJustReturn: ()),
+                                              followClub: followBtn.rx.tap.asDriver(),
                                               chatWithClub: chatBtn.rx.tap.asDriver(),
                                               getFeed: getFeed.asDriver(onErrorJustReturn: .reload),
                                               flagIt: flagIt.asDriver(onErrorJustReturn: -1),

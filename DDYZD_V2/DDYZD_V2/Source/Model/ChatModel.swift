@@ -20,6 +20,7 @@ struct Room: Codable {
     let lastdate: String?
     let lastmessage: String?
     let isread: Bool
+    let status: ChatStatus
     let index: Int
 }
 
@@ -54,4 +55,11 @@ enum ChatType: String, Codable{
 enum UserType: String {
     case Volunteer = "U"
     case ClubHead = "C"
+}
+
+enum ChatStatus: String, Codable {
+    case Common = "C"
+    case Applicant = "A"
+    case Scheduled = "S"
+    case Resulted = "R"
 }

@@ -35,8 +35,9 @@ class ChatListViewModel: ViewModelProtocol {
         let chatList = PublishRelay<[Room]>()
         let roomID = PublishRelay<Int>()
         
+        SocketIOManager.shared.establishConnection()
+        
         input.loadSections.asObservable().subscribe(onNext: {
-            SocketIOManager.shared.establishConnection()
             api.getChatList().subscribe(onNext: { data, response in
                 switch response {
                 case .success:

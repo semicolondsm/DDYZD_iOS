@@ -75,7 +75,7 @@ enum ClubListCategory {
 struct ClubList: Codable {
     let clubid: Int
     let clubname: String
-    let clubdescription: String
+    let clubdescription: String?
     let clubimage: String
     let clubtag: [String]
 }
@@ -86,7 +86,7 @@ struct ClubInfo: Codable {
     let clubtag: [String]
     let clubimage: String
     let backimage: String
-    let description: String
+    let description: String?
     let recruitment: Bool
     let recruitment_close: String?
     let owner: Bool

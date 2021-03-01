@@ -12,7 +12,7 @@ struct GCN: Codable {
 }
 
 struct UserInfo: Codable {
-    let user_id: Int
+    let id: Int
     let name: String
     let gcn: String
     let image_path: String?

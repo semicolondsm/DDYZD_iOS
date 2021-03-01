@@ -18,12 +18,18 @@ class SocketIOManager {
     
     init() {
         socket = manager.socket(forNamespace: "/chat")
+        
         socket.on("error", callback: {
             print("====== ERROR: Socket ======")
             print($0)
             print($1)
             print("...........................")
         })
+        
+        socket.on(clientEvent: .connect) {
+            print($0)
+            print($1)
+        }
     }
     
     func establishConnection() {
