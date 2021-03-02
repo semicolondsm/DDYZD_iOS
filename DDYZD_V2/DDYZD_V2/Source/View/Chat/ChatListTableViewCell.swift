@@ -30,7 +30,8 @@ class ChatListTableViewCell: UITableViewCell {
         clubProfileImageView.kf.setImage(with: URL(string: item.image))
         clubNameLabel.text = item.name
         whenLabel.dateLabel(item.lastdate ?? "")
-        lastMessageLabel.text = "• " + (item.lastmessage ?? "")
+        whenLabel.text = "• " + whenLabel.text!
+        lastMessageLabel.text = (item.lastmessage ?? "")
         unwatchedSignView.isHidden = item.isread
         if item.isread {
             lastMessageLabel.textColor = #colorLiteral(red: 0.7215067744, green: 0.7216095924, blue: 0.7214744687, alpha: 1)
