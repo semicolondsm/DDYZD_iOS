@@ -13,15 +13,15 @@ struct ChatList: Codable {
 }
 
 struct Room: Codable {
-    let roomid: String
     let id: String
-    let name: String
     let image: String
+    let index: Int
+    let isread: Bool
     let lastdate: String?
     let lastmessage: String?
-    let isread: Bool
+    let name: String
+    let roomid: String
     let status: ChatStatus
-    let index: Int
 }
 
 struct RoomInfo: Codable {
