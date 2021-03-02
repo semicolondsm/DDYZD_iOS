@@ -408,7 +408,7 @@ extension ChatViewController {
     }
     
     func presentAnswerAlert() {
-        let answerAlert = UIAlertController(title: "확정", message: "이 동아리에 ", preferredStyle: .alert)
+        let answerAlert = UIAlertController(title: "확정", message: "이 동아리를 확정하시겠습니까?", preferredStyle: .alert)
         let confirm = UIAlertAction(title: "확인", style: .default) { _ in
             self.sendAnswer.onNext(true)
         }

@@ -22,7 +22,6 @@
 		9200D39025BBE2C400461843 /* ClubListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9200D38F25BBE2C400461843 /* ClubListTableViewCell.xib */; };
 		9227C22C25C2F05300E6DF41 /* ChatListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9227C22B25C2F05300E6DF41 /* ChatListTableViewCell.xib */; };
 		9227C25725C559C200E6DF41 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227C25625C559C200E6DF41 /* ChatListViewModel.swift */; };
-		9227C2E125C5D74900E6DF41 /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227C2E025C5D74900E6DF41 /* MainPageViewModel.swift */; };
 		9227C34825C6FE7900E6DF41 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227C34725C6FE7900E6DF41 /* SocketIOManager.swift */; };
 		9228A21925DD17C300C299E9 /* Personal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9228A21825DD17C300C299E9 /* Personal.storyboard */; };
 		9228A21C25DD17F800C299E9 /* PersonalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9228A21B25DD17F800C299E9 /* PersonalModel.swift */; };
@@ -41,6 +40,7 @@
 		925C9EB225B08BE7005A3694 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925C9EB025B08BE7005A3694 /* Main.storyboard */; };
 		925C9EB425B08BE9005A3694 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925C9EB325B08BE9005A3694 /* Assets.xcassets */; };
 		925C9EB725B08BE9005A3694 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925C9EB525B08BE9005A3694 /* LaunchScreen.storyboard */; };
+		925FDED625EE252200B78318 /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FDED525EE252200B78318 /* MainPageViewModel.swift */; };
 		9263695C25B6824200D2D107 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9263695B25B6824200D2D107 /* Auth.storyboard */; };
 		9263696025B684ED00D2D107 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263695F25B684ED00D2D107 /* LoginViewController.swift */; };
 		9263697825B7335C00D2D107 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263697725B7335C00D2D107 /* AuthAPI.swift */; };
@@ -94,7 +94,6 @@
 		9200D38F25BBE2C400461843 /* ClubListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClubListTableViewCell.xib; sourceTree = "<group>"; };
 		9227C22B25C2F05300E6DF41 /* ChatListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatListTableViewCell.xib; sourceTree = "<group>"; };
 		9227C25625C559C200E6DF41 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
-		9227C2E025C5D74900E6DF41 /* MainPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainPageViewModel.swift; path = ../../../../../../../../Documents/MainPageViewModel.swift; sourceTree = "<group>"; };
 		9227C34725C6FE7900E6DF41 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		9228A21825DD17C300C299E9 /* Personal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Personal.storyboard; sourceTree = "<group>"; };
 		9228A21B25DD17F800C299E9 /* PersonalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalModel.swift; sourceTree = "<group>"; };
@@ -115,6 +114,7 @@
 		925C9EB325B08BE9005A3694 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		925C9EB625B08BE9005A3694 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		925C9EB825B08BE9005A3694 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		925FDED525EE252200B78318 /* MainPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewModel.swift; sourceTree = "<group>"; };
 		9263695B25B6824200D2D107 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		9263695F25B684ED00D2D107 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9263696425B6EE0E00D2D107 /* DDYZD_V2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = DDYZD_V2.entitlements; path = "DDYZD_V2/Surpporting Files/DDYZD_V2.entitlements"; sourceTree = SOURCE_ROOT; };
@@ -250,7 +250,7 @@
 		9227C2DF25C5D71900E6DF41 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				9227C2E025C5D74900E6DF41 /* MainPageViewModel.swift */,
+				925FDED525EE252200B78318 /* MainPageViewModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -596,6 +596,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				925FDED625EE252200B78318 /* MainPageViewModel.swift in Sources */,
 				92D97F2525CEEE98008456C8 /* FeedAPI.swift in Sources */,
 				92D97F2825CEF1C0008456C8 /* FeedModel.swift in Sources */,
 				9200D12325B88E7000461843 /* ClubModel.swift in Sources */,
@@ -618,7 +619,6 @@
 				92C35F4225B5BD0700D30DDF /* DDYZDAPI.swift in Sources */,
 				9263697825B7335C00D2D107 /* AuthAPI.swift in Sources */,
 				92E3A80925E63168000E3654 /* OthersChatTableViewCell.swift in Sources */,
-				9227C2E125C5D74900E6DF41 /* MainPageViewModel.swift in Sources */,
 				9228A23D25DD1DC600C299E9 /* MyPageViewModel.swift in Sources */,
 				92D97F5425CFF527008456C8 /* FeedWithMediaTableViewCell.swift in Sources */,
 				92BED6DA25BD473100526C33 /* ChatAPI.swift in Sources */,
