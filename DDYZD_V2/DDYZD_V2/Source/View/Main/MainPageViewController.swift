@@ -38,7 +38,6 @@ class MainPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setNavigationbar()
-        SocketIOManager.shared.closeConnection()
     }
     
     func bind() {

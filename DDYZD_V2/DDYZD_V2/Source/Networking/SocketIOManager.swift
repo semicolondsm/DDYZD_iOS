@@ -25,11 +25,6 @@ class SocketIOManager {
             print($1)
             print("...........................")
         })
-        
-        socket.on(clientEvent: .connect) {
-            print($0)
-            print($1)
-        }
     }
     
     func establishConnection() {
