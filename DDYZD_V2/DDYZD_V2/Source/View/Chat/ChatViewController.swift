@@ -72,6 +72,22 @@ class ChatViewController: UIViewController {
         output.roomInfo.subscribe(onNext: { roomInfo in
             self.navigationBarImage.kf.setImage(with: URL(string: roomInfo.image))
             self.navigationBarTitile.text = roomInfo.name
+            switch roomInfo.status {
+            case .Common:
+                if self.userType == .Volunteer {
+                    self.actionBtn.isHidden = false
+                    self.chatTable.tableHeaderView?.frame.size.height = 44
+                }
+            case .Applicant:
+                self.actionBtn.isHidden = true
+                self.chatTable.tableHeaderView?.frame.size.height = 0
+            case .Scheduled:
+                self.actionBtn.isHidden = self.userType! == .ClubHead ? false : true
+                self.chatTable.tableHeaderView?.frame.size.height = self.userType! == .ClubHead ? 44 : 0
+            case .Resulted:
+                self.actionBtn.isHidden = true
+                self.chatTable.tableHeaderView?.frame.size.height = 0
+            }
         })
         .disposed(by: disposeBag)
         
@@ -131,27 +147,6 @@ class ChatViewController: UIViewController {
                 return cell
             }
         }
-        .disposed(by: disposeBag)
-        
-        output.chatProgress.subscribe(onNext: { progress in
-            switch progress {
-            case .Apply:
-                self.actionBtn.isHidden = true
-                self.chatTable.tableHeaderView?.frame.size.height = 0
-            case .Schedule:
-                self.actionBtn.isHidden = self.userType! == .ClubHead ? false : true
-                self.chatTable.tableHeaderView?.frame.size.height = self.userType! == .ClubHead ? 44 : 0
-            case .Result:
-                self.actionBtn.isHidden = true
-                self.chatTable.tableHeaderView?.frame.size.height = 0
-            default :
-                if self.userType == .Volunteer {
-                    self.actionBtn.isHidden = false
-                    self.chatTable.tableHeaderView?.frame.size.height = 44
-                }
-            }
-            self.chatTable.reloadData()
-        })
         .disposed(by: disposeBag)
         
         output.majorBeingRecruited.subscribe(onNext: { majors in

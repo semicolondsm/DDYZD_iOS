@@ -31,7 +31,6 @@ class ChatViewModel: ViewModelProtocol {
         let roomInfo: PublishRelay<RoomInfo>
         let majorBeingRecruited: PublishRelay<[String]>
         let breakdown: PublishRelay<[Chat]>
-        let chatProgress: PublishRelay<ChatType>
     }
     
     func transform(_ input: input) -> output {
@@ -41,7 +40,6 @@ class ChatViewModel: ViewModelProtocol {
         let isRecruitmenting = PublishRelay<Bool>()
         let majorBeingRecruited = PublishRelay<[String]>()
         let breakdown = PublishRelay<[Chat]>()
-        let chatProgress = PublishRelay<ChatType>()
         
         SocketIOManager.shared.establishConnection()
         
@@ -70,28 +68,6 @@ class ChatViewModel: ViewModelProtocol {
                         default:
                             isRecruitmenting.accept(false)
                         }
-                        chatAPI.getBreakdown(roomID: self.roomID!).subscribe(onNext: { data, response in
-                            switch response {
-                            case .success:
-                                if data!.isEmpty && self.isRecruitmenting{
-                                    chatProgress.accept(.user)
-                                } else {
-                                    for index in 0..<data!.count {
-                                        if data![index].user_type == .user || data![index].user_type == .Club{
-                                            if index == data!.count-1 && self.isRecruitmenting{
-                                                chatProgress.accept(.user)
-                                            }
-                                        } else {
-                                            chatProgress.accept(data![index].user_type)
-                                            break
-                                        }
-                                    }
-                                }
-                            default:
-                                break
-                            }
-                        })
-                        .disposed(by: self.disposeBag)
                     })
                     .disposed(by: self.disposeBag)
                 default:
@@ -119,12 +95,6 @@ class ChatViewModel: ViewModelProtocol {
                                         created_at: dataIndex["date"] as? String ?? "",
                                         result: dataIndex["result"] as? Bool ?? false)
                         breakdown.accept([chat])
-                        switch chat.user_type {
-                        case .user, .Club:
-                            break
-                        default:
-                            chatProgress.accept(chat.user_type)
-                        }
                     }
                 }
             })
@@ -163,7 +133,6 @@ class ChatViewModel: ViewModelProtocol {
             
         return output(roomInfo: roomInfo,
                       majorBeingRecruited: majorBeingRecruited,
-                      breakdown: breakdown,
-                      chatProgress: chatProgress)
+                      breakdown: breakdown)
     }
 }
