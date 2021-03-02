@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Google
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +14,14 @@
  * limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
+#import "GoogleDataTransport/GDTCORLibrary/Public/GoogleDataTransport/GDTCOREndpoints.h"
 
-#import "GoogleDataTransport/GDTCORLibrary/Internal/GDTCORPlatform.h"
+@interface GDTCOREndpoints ()
 
-NS_ASSUME_NONNULL_BEGIN
-
-/** This class helps determine upload conditions by determining connectivity. */
-@interface GDTCORReachability : NSObject
-
-/** The current set flags indicating network conditions */
-+ (GDTCORNetworkReachabilityFlags)currentFlags;
+/** Returns the list of all the upload URLs used by the transport library.
+ *
+ *  @return Map of the transport target and the URL used for uploading the events for that target.
+ */
++ (NSDictionary<NSNumber *, NSURL *> *)uploadURLs;
 
 @end
-
-NS_ASSUME_NONNULL_END

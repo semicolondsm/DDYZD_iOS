@@ -13,8 +13,7 @@ public let DSMAUTH = DSMAuth.shared
 public class DSMAuth {
     static public let shared = DSMAuth()
     
-    private var AuthorizationServer = "http://54.180.98.91:8080"
-    private var ResourceServer = "http://54.180.98.91:8090"
+    private var baseURL = "https://developer-api.dsmkr.com"
     
     private var _client_id: String = ""
     private var _client_secret: String = ""
@@ -45,7 +44,7 @@ public class DSMAuth {
                 "code":code
             ]
             
-            AF.request(self.AuthorizationServer+"/dsmauth/token", method: .post, parameters: requstBody, encoder: JSONParameterEncoder.default).validate().responseJSON{ res in
+            AF.request(self.baseURL+"/dsmauth/token", method: .post, parameters: requstBody, encoder: JSONParameterEncoder.default).validate().responseJSON{ res in
                 switch res.result
                 {
                 case .success(let value):
@@ -66,7 +65,7 @@ public class DSMAuth {
     }
     
     public func tokenRefresh(refresh_token: String, handler: @escaping (String?, AFError?)->Void){
-        AF.request(self.AuthorizationServer+"/dsmauth/refresh?"+now(), method: .get, headers: ["refresh-token":"Bearer "+refresh_token]).validate().responseJSON{ res in
+        AF.request(self.baseURL+"/dsmauth/refresh?"+now(), method: .get, headers: ["refresh-token":"Bearer "+refresh_token]).validate().responseJSON{ res in
             switch res.result
             {
             case.success(let value):
@@ -82,7 +81,7 @@ public class DSMAuth {
     }
     
     public func me(access_token: String, handler: @escaping (personInfo?, AFError?)->Void){
-        AF.request(self.ResourceServer+"/v1/info/basic?"+now(), method: .get, headers: ["access-token":"Bearer "+access_token]).validate().responseJSON{ res in
+        AF.request(self.baseURL+"/v1/info/basic?"+now(), method: .get, headers: ["access-token":"Bearer "+access_token]).validate().responseJSON{ res in
             switch res.result
             {
             case.success(let value):

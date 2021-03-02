@@ -193,5 +193,6 @@ extension MainPageViewController: UITableViewDelegate {
     @objc func refreshFeed(refresh: UIRefreshControl) {
         refresh.endRefreshing()
         reloadFeeds()
+        setHeaderWKView()
     }
 }

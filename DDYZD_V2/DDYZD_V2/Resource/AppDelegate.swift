@@ -32,7 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
         UNUserNotificationCenter.current().requestAuthorization(
             options: authOptions,
-            completionHandler: {_, _ in }
+            completionHandler: { _, _ in
+            }
         )
         
         application.registerForRemoteNotifications()
@@ -46,15 +47,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
       completionHandler([.alert, .badge, .sound])
-        let rootViewController = self.window!.rootViewController as! UINavigationController
-        let mainStoryboard = UIStoryboard(name: "Chat", bundle: nil)
-        let ChatViewController = mainStoryboard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
-        rootViewController.pushViewController(ChatViewController, animated: true)
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
       completionHandler()
+        if let roomID = response.notification.request.content.userInfo["room_id"], let userType = response.notification.request.content.userInfo["user_type"]{
+            print(roomID)
+            print(userType)
+//            let mainSB: UIStoryboard = UIStoryboard(name: "Chat", bundle: nil)
+//            let chatVC = mainSB.instantiateViewController(identifier: "ChatViewController") as! ChatViewController
+//            chatVC.roomID = roomID as? Int
+//            chatVC.userType = userType as? UserType
+//            self.window?.rootViewController?.navigationController?.pushViewController(chatVC, animated: true)
+            // 채팅창으로 이동
+        } else if let clubID = response.notification.request.content.userInfo["club_id"]{
+            print(clubID)
+            // 동아리 상세로 이동
+        }
     }
-
-
 }

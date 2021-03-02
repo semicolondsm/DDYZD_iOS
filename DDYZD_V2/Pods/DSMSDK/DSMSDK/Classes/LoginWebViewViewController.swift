@@ -37,7 +37,7 @@ class LoginWebViewViewController: UIViewController {
 
 extension LoginWebViewViewController : WKUIDelegate, WKNavigationDelegate {
     func settingWKView(){
-        let URL = "http://193.123.237.232/external/login?redirect_url="+_redirctURL+"&client_id="+_client_id
+        let URL = "https://developer.dsmkr.com/external/login?redirect_url="+_redirctURL+"&client_id="+_client_id
         
         let request: URLRequest = URLRequest.init(url: NSURL.init(string: URL)! as URL, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 10)
         wkWebView.load(request)
