@@ -42,4 +42,8 @@ class ModifyBioViewController: UIViewController {
         bioTextView.layer.cornerRadius = 20
         confirmBtn.layer.cornerRadius = 20
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+          self.view.endEditing(true)
+    }
 }
