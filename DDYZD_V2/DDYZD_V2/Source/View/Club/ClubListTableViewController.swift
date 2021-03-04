@@ -44,7 +44,7 @@ class ClubListTableViewController: UIViewController {
                                                             "ClubListTableViewCell", cellType: ClubListTableViewCell.self)){ row, item, cell in
             cell.clubNameLabel.text = item.clubname
             cell.clubDescription.text = item.clubdescription
-            cell.clubProfileImageView.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(item.clubimage)"))
+            cell.clubProfileImageView.kf.setImage(with: kfImageURL(url: item.clubimage, type: .half))
         }
         .disposed(by: disposeBag)
         

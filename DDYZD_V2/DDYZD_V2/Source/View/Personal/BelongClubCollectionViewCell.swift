@@ -23,7 +23,7 @@ class BelongClubCollectionViewCell: UICollectionViewCell {
     }
     
     func bind(_ item: Club) {
-        clubProfileImage.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(item.club_image)"))
+        clubProfileImage.kf.setImage(with: kfImageURL(url: item.club_image, type: .half))
         clubNameLabel.text = item.club_name
     }
 }

@@ -67,7 +67,7 @@ extension ClubListViewController: PageboyViewControllerDataSource, TMBarDataSour
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
         let indexViewController = viewControllers[index] as! ClubListTableViewController
         let item = TMBarItem(title: "")
-        item.title = indexViewController.clubTag.title() + "        "
+        item.title = indexViewController.clubTag.title() + "      "
         
         return item
     }

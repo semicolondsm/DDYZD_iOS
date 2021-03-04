@@ -14,6 +14,8 @@ enum ClubListCategory {
     case embedded
     case ect
     case CA
+    case Autonomy
+    case Committee
     
     func title() -> String{
         switch  self {
@@ -29,6 +31,10 @@ enum ClubListCategory {
             return "기타"
         case .CA:
             return "창체"
+        case .Autonomy:
+            return "자율"
+        case .Committee:
+            return "위원회"
         }
     }
     
@@ -61,7 +67,19 @@ enum ClubListCategory {
                 return false
             }
         case .CA:
-            if tag == "교과목" || tag == "전공과목" || tag == "스포츠" || tag == "예술 창의 교양" || tag == "교내활동" || tag == "기타" {
+            if tag == "창체" {
+                return true
+            } else {
+                return false
+            }
+        case .Autonomy:
+            if tag == "자율" {
+                return true
+            } else {
+                return false
+            }
+        case .Committee:
+            if tag == "위원회" {
                 return true
             } else {
                 return false
@@ -69,7 +87,7 @@ enum ClubListCategory {
         }
     }
     
-    static let allItems = [all,web,app,embedded,ect,CA]
+    static let allItems = [all,web,app,embedded,ect,CA,Autonomy,Committee]
 }
 
 struct ClubList: Codable {

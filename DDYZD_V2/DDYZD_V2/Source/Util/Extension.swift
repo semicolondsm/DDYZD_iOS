@@ -247,3 +247,40 @@ extension UIButton {
         }
     }
 }
+
+func kfImageURL(url: String, type: imageURLtype) -> URL?{
+    switch type {
+    case .all:
+        guard let encoded = url.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed), let url = URL(string: encoded) else {
+            return nil
+        }
+        return url
+    case .half:
+        guard let encoded = "https://api.semicolon.live/file/\(url)".addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed), let url = URL(string: encoded) else {
+            return nil
+        }
+        return url
+    }
+}
+
+enum imageURLtype {
+    case all
+    case half
+}
+
+extension UIApplication {
+    class func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let navigationController = controller as? UINavigationController {
+            return topViewController(controller: navigationController.visibleViewController)
+        }
+        if let tabController = controller as? UITabBarController {
+            if let selected = tabController.selectedViewController {
+                return topViewController(controller: selected)
+            }
+        }
+        if let presented = controller?.presentedViewController {
+            return topViewController(controller: presented)
+        }
+        return controller
+    }
+}

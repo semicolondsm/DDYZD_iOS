@@ -50,7 +50,7 @@ class OtherUserPageViewController: UIViewController {
         let output = viewModel.transform(input)
         
         output.userInfo.subscribe(onNext: { userInfo in
-            self.profileImage.kf.setImage(with: URL(string: userInfo.image_path ?? "" ))
+            self.profileImage.kf.setImage(with: kfImageURL(url: userInfo.image_path ?? "", type: .all))
             self.nameLabel.text = userInfo.name
             self.gcnLabel.text = userInfo.gcn
             self.emailLabel.text = userInfo.email

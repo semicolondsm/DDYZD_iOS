@@ -56,7 +56,6 @@ class ClubDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setNavigationBar()
-        SocketIOManager.shared.closeConnection()
     }
     
     func bind() {
@@ -77,8 +76,8 @@ class ClubDetailViewController: UIViewController {
             self.clubNameLabel.text = data.clubname
             self.fieldLabel.fieldLabel(clubTag: data.clubtag)
             self.clubDescriptionLabel.text = data.description
-            self.clubBackImage.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(data.backimage)"))
-            self.clubProfileImgae.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(data.clubimage)"))
+            self.clubBackImage.kf.setImage(with: kfImageURL(url: data.backimage, type: .half))
+            self.clubProfileImgae.kf.setImage(with: kfImageURL(url: data.clubimage, type: .half))
             if data.follow {
                 self.isFollowing = true
                 self.followBtn.setBtnInClubDetail(type: .unfollow)

@@ -51,6 +51,7 @@ enum ChatType: String, Codable{
     case Apply = "H1"
     case Schedule = "H2"
     case Result = "H3"
+    case Answer = "H4"
 }
 
 enum UserType: String {
@@ -60,6 +61,7 @@ enum UserType: String {
 
 enum ChatStatus: String, Codable {
     case Common = "C"
+    case Notificate = "N"
     case Applicant = "A"
     case Scheduled = "S"
     case Resulted = "R"

@@ -20,6 +20,8 @@
 		9200D19C25B99D0000461843 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200D19B25B99D0000461843 /* Extension.swift */; };
 		9200D38C25BBD6AD00461843 /* ClubListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200D38B25BBD6AD00461843 /* ClubListTableViewCell.swift */; };
 		9200D39025BBE2C400461843 /* ClubListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9200D38F25BBE2C400461843 /* ClubListTableViewCell.xib */; };
+		920B0F0F25EFC075009C8835 /* AnswerChatHelperTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B0F0E25EFC075009C8835 /* AnswerChatHelperTableViewCell.swift */; };
+		920B0F1225EFC08E009C8835 /* AnswerChatHelper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 920B0F1125EFC08E009C8835 /* AnswerChatHelper.xib */; };
 		9227C22C25C2F05300E6DF41 /* ChatListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9227C22B25C2F05300E6DF41 /* ChatListTableViewCell.xib */; };
 		9227C25725C559C200E6DF41 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227C25625C559C200E6DF41 /* ChatListViewModel.swift */; };
 		9227C34825C6FE7900E6DF41 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227C34725C6FE7900E6DF41 /* SocketIOManager.swift */; };
@@ -92,6 +94,8 @@
 		9200D19B25B99D0000461843 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		9200D38B25BBD6AD00461843 /* ClubListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListTableViewCell.swift; sourceTree = "<group>"; };
 		9200D38F25BBE2C400461843 /* ClubListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClubListTableViewCell.xib; sourceTree = "<group>"; };
+		920B0F0E25EFC075009C8835 /* AnswerChatHelperTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerChatHelperTableViewCell.swift; sourceTree = "<group>"; };
+		920B0F1125EFC08E009C8835 /* AnswerChatHelper.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswerChatHelper.xib; sourceTree = "<group>"; };
 		9227C22B25C2F05300E6DF41 /* ChatListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatListTableViewCell.xib; sourceTree = "<group>"; };
 		9227C25625C559C200E6DF41 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
 		9227C34725C6FE7900E6DF41 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 				92E3A7FA25E59560000E3654 /* ApplyChatHelper.xib */,
 				92E3A7FD25E5957C000E3654 /* ScheduleChatHelper.xib */,
 				92E3A80025E59592000E3654 /* ResultChatHelper.xib */,
+				920B0F1125EFC08E009C8835 /* AnswerChatHelper.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -462,6 +467,7 @@
 				92E3A80B25E6317A000E3654 /* ApplyChatHelperTableViewCell.swift */,
 				92E3A80E25E63197000E3654 /* ScheduleChatHelperTableViewCell.swift */,
 				92E3A81125E631A8000E3654 /* ResultChatHelperTableViewCell.swift */,
+				920B0F0E25EFC075009C8835 /* AnswerChatHelperTableViewCell.swift */,
 			);
 			path = ChatCell;
 			sourceTree = "<group>";
@@ -532,6 +538,7 @@
 				922EBECD25E15E5300AE5697 /* ClubMemberCollectionViewCell.xib in Resources */,
 				92D97F1A25CEECAB008456C8 /* Feed.xib in Resources */,
 				92E3A7F825E594B3000E3654 /* OthersChat.xib in Resources */,
+				920B0F1225EFC08E009C8835 /* AnswerChatHelper.xib in Resources */,
 				92FBA6A025B537320014FB8B /* GoogleService-Info.plist in Resources */,
 				9200D39025BBE2C400461843 /* ClubListTableViewCell.xib in Resources */,
 				9200D12025B88DCF00461843 /* Club.storyboard in Resources */,
@@ -637,6 +644,7 @@
 				9228A24025DD1DCC00C299E9 /* OtherUserPageViewModel.swift in Sources */,
 				9200D0B925B751E700461843 /* Token.swift in Sources */,
 				924CD78F25DF7F06009C9824 /* BelongClubCollectionViewCell.swift in Sources */,
+				920B0F0F25EFC075009C8835 /* AnswerChatHelperTableViewCell.swift in Sources */,
 				92E3A80F25E63197000E3654 /* ScheduleChatHelperTableViewCell.swift in Sources */,
 				9228A23625DD1D7700C299E9 /* MyPageViewController.swift in Sources */,
 				9200D12C25B88F1A00461843 /* ClubListTableViewModel.swift in Sources */,

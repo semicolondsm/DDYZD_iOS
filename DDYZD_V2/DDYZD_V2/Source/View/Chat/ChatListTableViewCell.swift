@@ -27,7 +27,7 @@ class ChatListTableViewCell: UITableViewCell {
     }
     
     func bind(item: Room){
-        clubProfileImageView.kf.setImage(with: URL(string: item.image))
+        clubProfileImageView.kf.setImage(with: kfImageURL(url: item.image, type: .all))
         clubNameLabel.text = item.name
         whenLabel.dateLabel(item.lastdate ?? "")
         whenLabel.text = "• " + whenLabel.text!

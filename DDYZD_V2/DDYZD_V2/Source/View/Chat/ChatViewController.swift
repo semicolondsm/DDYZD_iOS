@@ -70,14 +70,15 @@ class ChatViewController: UIViewController {
         let output = viewModel.transform(input)
         
         output.roomInfo.subscribe(onNext: { roomInfo in
-            self.navigationBarImage.kf.setImage(with: URL(string: roomInfo.image))
+            self.navigationBarImage.kf.setImage(with: kfImageURL(url: roomInfo.image, type: .all))
             self.navigationBarTitile.text = roomInfo.name
             switch roomInfo.status {
             case .Common:
-                if self.userType == .Volunteer {
-                    self.actionBtn.isHidden = false
-                    self.chatTable.tableHeaderView?.frame.size.height = 44
-                }
+                self.actionBtn.isHidden = true
+                self.chatTable.tableHeaderView?.frame.size.height = 0
+            case .Notificate:
+                self.actionBtn.isHidden = self.userType! == .Volunteer ? false : true
+                self.chatTable.tableHeaderView?.frame.size.height = self.userType! == .Volunteer ? 44 : 0
             case .Applicant:
                 self.actionBtn.isHidden = true
                 self.chatTable.tableHeaderView?.frame.size.height = 0
@@ -92,9 +93,7 @@ class ChatViewController: UIViewController {
         .disposed(by: disposeBag)
         
         output.breakdown
-            .scan([], accumulator: {
-                return $1 + $0
-            })
+            .scan([], accumulator: { $1 + $0 })
             .bind(to: chatTable.rx.items) { tableView, row, item -> UITableViewCell in
             switch item.user_type {
             case .Club, .user:
@@ -140,14 +139,24 @@ class ChatViewController: UIViewController {
                 cell.titileLabel.text = item.title
                 cell.contentLabel.text = item.msg
                 cell.whenLabel.dateLabel(item.created_at)
-                cell.confirmationBtn.isHidden = item.result ?? true && self.userType! != .Volunteer
+                cell.confirmationBtn.isHidden = ((item.result ?? true) && (self.userType! == .Volunteer))
                 cell.confirmationBtn.rx.tap.subscribe(onNext: {
                     self.presentAnswerAlert()
                 })
                 .disposed(by: cell.disposeBag)
                 
                 return cell
+            case .Answer:
+                let cell = self.chatTable.dequeueReusableCell(withIdentifier: "AnswerChatHelper") as! AnswerChatHelperTableViewCell
+                
+                cell.titleLabel.text = item.title
+                cell.contentLabel.text = item.msg
+                cell.whenLabel.dateLabel(item.created_at)
+                
+                return cell
             }
+                
+            
         }
         .disposed(by: disposeBag)
         
@@ -161,7 +170,7 @@ class ChatViewController: UIViewController {
             case .Volunteer:
                 self.presentApplyAlert()
             case .ClubHead:
-                break
+                self.presentResultActionSheet()
             default:
                 break
             }
@@ -332,6 +341,8 @@ extension ChatViewController: UITableViewDelegate {
         chatTable.register(scheduleChatHelper, forCellReuseIdentifier: "ScheduleChatHelper")
         let resultChatHelper = UINib(nibName: "ResultChatHelper", bundle: nil)
         chatTable.register(resultChatHelper, forCellReuseIdentifier: "ResultChatHelper")
+        let answerChatHelper = UINib(nibName: "AnswerChatHelper", bundle: nil)
+        chatTable.register(answerChatHelper, forCellReuseIdentifier: "AnswerChatHelper")
     }
 }
 
@@ -349,6 +360,8 @@ extension ChatViewController {
         applyAlert.setValue(vc, forKey: "contentViewController")
         let confirm = UIAlertAction(title: "확인", style: .default) { _ in
             self.sendApply.onNext(self.majorBeingRecruited[pickerView.selectedRow(inComponent: 0)])
+            self.actionBtn.isHidden = true
+            self.chatTable.tableHeaderView?.frame.size.height = 0
         }
         let cancle = UIAlertAction(title: "취소", style: .cancel)
         applyAlert.addAction(confirm)
@@ -370,7 +383,8 @@ extension ChatViewController {
             formatter.locale = Locale(identifier: "ko")
             formatter.dateFormat = "M월 d일 a h시 m분"
             self.sendSchedule.onNext((formatter.string(from: datePickerView.date),
-                                      scheduleAlert.textFields![0].text!)) // (일시, 장소)
+                                      scheduleAlert.textFields![0].text!))
+            self.actionBtn.setTitle("결과 보내기", for: .normal)
         }
         scheduleAlert.addTextField(){ textField in
             textField.placeholder = "면접 장소"
@@ -392,9 +406,13 @@ extension ChatViewController {
         let resultActionSheet = UIAlertController.init(title: "면접 결과", message: "면접 결과를 선택해주세요.", preferredStyle: .actionSheet)
         let pass = UIAlertAction(title: "합격", style: .default) { _ in
             self.sendResult.onNext(true)
+            self.actionBtn.isHidden = true
+            self.chatTable.tableHeaderView?.frame.size.height = 0
         }
         let fail = UIAlertAction(title: "불합격", style: .destructive) { _ in
             self.sendResult.onNext(false)
+            self.actionBtn.isHidden = true
+            self.chatTable.tableHeaderView?.frame.size.height = 0
         }
         let cancle = UIAlertAction(title: "취소", style: .cancel)
         resultActionSheet.addAction(pass)

@@ -39,7 +39,7 @@ class FeedWithMediaTableViewCell: UITableViewCell {
         if item.pin ?? false {
             cellSuperView.layer.borderWidth = 1
         }
-        clubProfileImageView.kf.setImage(with: URL(string: "https://api.semicolon.live/file/\(item.profileImage)"))
+        clubProfileImageView.kf.setImage(with: kfImageURL(url: item.profileImage, type: .half))
         clubName.text = item.clubName
         uploadAt.dateLabel(item.uploadAt)
         content.text = item.content
@@ -53,7 +53,7 @@ class FeedWithMediaTableViewCell: UITableViewCell {
         var kingfisherSource = [KingfisherSource]()
         
         for image in images {
-            kingfisherSource.append(KingfisherSource(urlString: "https://api.semicolon.live/file/\(image)")!)
+            kingfisherSource.append(KingfisherSource(url: kfImageURL(url: image, type: .half)!))
         }
         
         let pageIndicator = UIPageControl()

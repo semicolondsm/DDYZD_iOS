@@ -92,7 +92,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mne-51-2ML">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="349"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BFY-G5-4or" customClass="clubBackImage" customModule="DDYZD_V2" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BFY-G5-4or" customClass="clubBackImage" customModule="DDYZD_V2" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="8" width="398" height="180"/>
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -274,7 +274,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="clubList" width="32" height="24.5"/>
+        <image name="clubList" width="25" height="19"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

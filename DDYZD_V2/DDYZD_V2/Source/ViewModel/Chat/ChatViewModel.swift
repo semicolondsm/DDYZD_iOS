@@ -15,7 +15,6 @@ class ChatViewModel: ViewModelProtocol {
     public var roomID: Int!
     
     private let disposeBag = DisposeBag()
-    private var isRecruitmenting: Bool = false
     
     struct input {
         let enterRoom: Driver<Void>
@@ -63,23 +62,22 @@ class ChatViewModel: ViewModelProtocol {
                     chatAPI.getRecruitmentInfo(clubID: Int(data!.id)!).subscribe(onNext: { data, response in
                         switch response {
                         case .success:
-                            self.isRecruitmenting = true
                             majorBeingRecruited.accept(data!.major)
                         default:
                             isRecruitmenting.accept(false)
                         }
                     })
                     .disposed(by: self.disposeBag)
-                default:
-                    break
-                }
-            })
-            .disposed(by: self.disposeBag)
-            
-            chatAPI.getBreakdown(roomID: self.roomID!).subscribe(onNext: { data, response in
-                switch response {
-                case .success:
-                    breakdown.accept(data!)
+                    
+                    chatAPI.getBreakdown(roomID: self.roomID!).subscribe(onNext: { data, response in
+                        switch response {
+                        case .success:
+                            breakdown.accept(data!)
+                        default:
+                            break
+                        }
+                    })
+                    .disposed(by: self.disposeBag)
                 default:
                     break
                 }
@@ -127,7 +125,7 @@ class ChatViewModel: ViewModelProtocol {
         .disposed(by: disposeBag)
         
         input.sendAnswer.asObservable().subscribe(onNext: { answer in
-            SocketIOManager.shared.emit(.senfAnswer(answer: answer))
+            SocketIOManager.shared.emit(.sendAnswer(answer: answer))
         })
         .disposed(by: disposeBag)
             

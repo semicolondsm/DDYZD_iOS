@@ -37,12 +37,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         )
         
         application.registerForRemoteNotifications()
+        AuthAPI().refreshToken().subscribe().dispose()
         
         return true
     }
     
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        UIApplication.topViewController()?.navigationController?.popViewController(animated: true)
+        UIApplication.topViewController()?.navigationController?.popViewController(animated: true)
+    }
+    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-         print(userInfo)
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
@@ -51,18 +56,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
       completionHandler()
-        if let roomID = response.notification.request.content.userInfo["room_id"], let userType = response.notification.request.content.userInfo["user_type"]{
-            print(roomID)
-            print(userType)
-//            let mainSB: UIStoryboard = UIStoryboard(name: "Chat", bundle: nil)
-//            let chatVC = mainSB.instantiateViewController(identifier: "ChatViewController") as! ChatViewController
-//            chatVC.roomID = roomID as? Int
-//            chatVC.userType = userType as? UserType
-//            self.window?.rootViewController?.navigationController?.pushViewController(chatVC, animated: true)
-            // 채팅창으로 이동
-        } else if let clubID = response.notification.request.content.userInfo["club_id"]{
-            print(clubID)
-            // 동아리 상세로 이동
+        if let clubID = response.notification.request.content.userInfo["club_id"] as? String{
+            let mainStoryboard = UIStoryboard(name: "Club", bundle: nil)
+            let clubDetailViewController = mainStoryboard.instantiateViewController(withIdentifier: "ClubDetailViewController") as! ClubDetailViewController
+            clubDetailViewController.clubID = Int(clubID)!
+            UIApplication.topViewController()?.navigationController?.navigationBar.topItem?.title = ""
+            UIApplication.topViewController()?.navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.4811326265, green: 0.1003668979, blue: 0.812384963, alpha: 1)
+            UIApplication.topViewController()?.navigationController?.pushViewController(clubDetailViewController, animated: true)
         }
     }
 }

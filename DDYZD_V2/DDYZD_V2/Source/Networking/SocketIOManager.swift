@@ -31,10 +31,6 @@ class SocketIOManager {
         socket.connect()
     }
     
-    func closeConnection() {
-        socket.disconnect()
-    }
-    
     func on(_ api: DDYZDSocket, callback: @escaping (([Any], SocketAckEmitter)->Void)) {
         socket.on(api.event(), callback: callback)
     }
