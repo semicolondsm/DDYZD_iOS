@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="osC-bC-gHF">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -14,36 +14,36 @@
             <objects>
                 <viewController storyboardIdentifier="LoginViewController" id="osC-bC-gHF" customClass="LoginViewController" customModule="DDYZD_V2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c4b-yp-Vlc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebM-WL-eBl">
-                                <rect key="frame" x="352" y="72" width="42" height="27"/>
+                                <rect key="frame" x="313" y="28" width="42" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="둘러보기">
                                     <color key="titleColor" red="0.3889680505" green="0.38326472039999998" blue="0.40922543410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sCn-UQ-cZl">
-                                <rect key="frame" x="0.0" y="570" width="414" height="292"/>
+                                <rect key="frame" x="0.0" y="516.5" width="375" height="150.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nOe-sK-XIz">
-                                        <rect key="frame" x="40" y="56" width="334" height="60"/>
+                                        <rect key="frame" x="40" y="45.5" width="295" height="60"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="Pg1-tx-FLQ"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="nOe-sK-XIz" firstAttribute="centerY" secondItem="sCn-UQ-cZl" secondAttribute="centerY" id="J9n-ct-dqQ"/>
                                     <constraint firstItem="nOe-sK-XIz" firstAttribute="leading" secondItem="sCn-UQ-cZl" secondAttribute="leading" constant="40" id="aou-dA-pPz"/>
                                     <constraint firstAttribute="trailing" secondItem="nOe-sK-XIz" secondAttribute="trailing" constant="40" id="mvf-9o-Y8g"/>
-                                    <constraint firstItem="nOe-sK-XIz" firstAttribute="top" secondItem="sCn-UQ-cZl" secondAttribute="top" constant="56" id="uGy-Hn-hlB"/>
                                 </constraints>
                             </view>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mo4-8J-j9S">
-                                <rect key="frame" x="0.0" y="110" width="414" height="460"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="416.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mo4-8J-j9S" secondAttribute="height" multiplier="9:10" id="blX-7h-24R"/>
@@ -63,7 +63,7 @@
                             <constraint firstItem="sCn-UQ-cZl" firstAttribute="top" secondItem="mo4-8J-j9S" secondAttribute="bottom" id="SUH-U5-48R"/>
                             <constraint firstItem="sCn-UQ-cZl" firstAttribute="leading" secondItem="NpU-fe-Cc0" secondAttribute="leading" id="TSq-rp-eAd"/>
                             <constraint firstItem="sCn-UQ-cZl" firstAttribute="trailing" secondItem="NpU-fe-Cc0" secondAttribute="trailing" id="U14-01-b2s"/>
-                            <constraint firstItem="mo4-8J-j9S" firstAttribute="top" secondItem="NpU-fe-Cc0" secondAttribute="top" constant="66" id="VGA-1B-0Pk"/>
+                            <constraint firstItem="mo4-8J-j9S" firstAttribute="top" secondItem="NpU-fe-Cc0" secondAttribute="top" constant="100" id="VGA-1B-0Pk"/>
                             <constraint firstItem="mo4-8J-j9S" firstAttribute="trailing" secondItem="NpU-fe-Cc0" secondAttribute="trailing" id="ZQh-D8-vti"/>
                             <constraint firstItem="mo4-8J-j9S" firstAttribute="leading" secondItem="NpU-fe-Cc0" secondAttribute="leading" id="gb8-Ra-jGE"/>
                         </constraints>
@@ -76,7 +76,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4at-fG-g4R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="244" y="24.7376311844078"/>
+            <point key="canvasLocation" x="243.47826086956525" y="24.107142857142858"/>
         </scene>
     </scenes>
     <resources>

@@ -139,7 +139,7 @@ class ChatViewController: UIViewController {
                 cell.titileLabel.text = item.title
                 cell.contentLabel.text = item.msg
                 cell.whenLabel.dateLabel(item.created_at)
-                cell.confirmationBtn.isHidden = ((item.result ?? true) && (self.userType! == .Volunteer))
+                cell.confirmationBtn.isHidden = !((item.result ?? true) && (self.userType! == .Volunteer))
                 cell.confirmationBtn.rx.tap.subscribe(onNext: {
                     self.presentAnswerAlert()
                 })
