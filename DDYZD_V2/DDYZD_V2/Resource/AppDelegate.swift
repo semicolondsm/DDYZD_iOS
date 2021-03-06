@@ -42,6 +42,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return true
     }
     
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        AuthAPI().refreshToken().subscribe().dispose()
+    }
+    
     func applicationDidEnterBackground(_ application: UIApplication) {
         UIApplication.topViewController()?.navigationController?.popViewController(animated: true)
         UIApplication.topViewController()?.navigationController?.popViewController(animated: true)
