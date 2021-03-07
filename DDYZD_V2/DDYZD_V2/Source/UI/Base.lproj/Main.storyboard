@@ -48,7 +48,7 @@
                             <constraint firstItem="oov-AG-k1d" firstAttribute="trailing" secondItem="5tK-Yc-hoV" secondAttribute="trailing" constant="20" id="ae0-pK-4Cc"/>
                             <constraint firstItem="5tK-Yc-hoV" firstAttribute="leading" secondItem="oov-AG-k1d" secondAttribute="leading" constant="20" id="bv1-mg-eyc"/>
                             <constraint firstItem="oov-AG-k1d" firstAttribute="trailing" secondItem="8QY-qO-8O0" secondAttribute="trailing" constant="20" id="dm0-KZ-O0R"/>
-                            <constraint firstItem="5tK-Yc-hoV" firstAttribute="top" secondItem="EvY-Ke-b9s" secondAttribute="bottom" constant="8" symbolic="YES" id="o0z-KY-9Fn"/>
+                            <constraint firstItem="5tK-Yc-hoV" firstAttribute="top" secondItem="oov-AG-k1d" secondAttribute="top" constant="76" id="t8f-MM-6Al"/>
                             <constraint firstItem="oov-AG-k1d" firstAttribute="bottom" secondItem="5tK-Yc-hoV" secondAttribute="bottom" constant="100" id="vm0-Ij-zh1"/>
                         </constraints>
                     </view>

@@ -77,4 +77,16 @@ class FeedAPI {
                 }
             }
     }
+    
+    func reportFeed(feedID: Int, reason: String) -> Observable<StatusCodes> {
+        httpClient.post(.reportFeed, param: ["feed_id": feedID, "reason": reason])
+            .map{ response, data -> StatusCodes in
+                switch response.statusCode {
+                case 200, 201:
+                    return .success
+                default:
+                    return .fault
+                }
+            }
+    }
 }

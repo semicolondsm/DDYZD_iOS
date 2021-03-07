@@ -30,6 +30,7 @@ enum DDYZDAPI {
     case uploadFeedFile(_ feedID: Int)          // 피드 파일 업로드
     case deleteFeed(_ feedID: Int)              // 피드 삭제
     case pinFeed(_ feedID: Int)                 // 피드 고정
+    case reportFeed                        // 피드 신고
     
     //club
     case clubList                           // 동아리 리스트 반환
@@ -80,6 +81,8 @@ enum DDYZDAPI {
             return "/feed/\(feedID)"
         case .pinFeed(let feedID):
             return "/feed/\(feedID)/pin"
+        case .reportFeed:
+            return "/report"
         case .clubList:
             return "/club/list"
         case .clubDetailInfo(let clubID):
@@ -109,7 +112,7 @@ enum DDYZDAPI {
     
     func header() -> HTTPHeaders? {
         switch self {
-        case .clubList, .getClubMember(_):
+        case .clubList, .getClubMember(_), .reportFeed:
             return nil
         case .getToken(let DSMAuthToken) :
             return ["access-token": "Bearer \(DSMAuthToken)"]

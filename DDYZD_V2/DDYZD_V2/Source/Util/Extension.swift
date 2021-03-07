@@ -7,6 +7,7 @@
 
 import UIKit
 import SafariServices
+import RxSwift
 
 extension UIView {
     
@@ -70,6 +71,9 @@ extension UIViewController {
     }
     
     func menuActionSheet(item: Feed, isHead: Bool?, pinCloser: (()->Void)?, deleteCloser: @escaping (()->Void)){
+        
+        let disposeBag = DisposeBag()
+        
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         if item.owner {
             let deleteFeed = UIAlertAction(title: "삭제", style: .destructive){ _ in
@@ -102,14 +106,22 @@ extension UIViewController {
                     textField.placeholder = "신고 사유"
                 }
                 let declaration = UIAlertAction(title: "신고", style: .destructive){ _ in
-                    // 신고
-                    print(item.feedId)
-                    print(declarationAlert.textFields![0].text!)
-                    //
-                    let completeAlert = UIAlertController(title: "게시물이 신고되었습니다.", message: "이 게시물은 24시간내에 조치됩니다.", preferredStyle: .alert)
-                    let confirm = UIAlertAction(title: "확인", style: .default)
-                    completeAlert.addAction(confirm)
-                    self.present(completeAlert, animated: true, completion: nil)
+                    let feedAPI = FeedAPI()
+                    feedAPI.reportFeed(feedID: item.feedId, reason: declarationAlert.textFields![0].text!).subscribe(onNext: { res in
+                        switch res {
+                        case .success:
+                            let completeAlert = UIAlertController(title: "신고가 접수되었습니다.", message: "이 게시물은 24시간내에 조치됩니다.", preferredStyle: .alert)
+                            let confirm = UIAlertAction(title: "확인", style: .default)
+                            completeAlert.addAction(confirm)
+                            self.present(completeAlert, animated: true, completion: nil)
+                        default:
+                            let completeAlert = UIAlertController(title: "오류가 발생되었습니다.", message: "다시 시도해주세요.", preferredStyle: .alert)
+                            let confirm = UIAlertAction(title: "확인", style: .default)
+                            completeAlert.addAction(confirm)
+                            self.present(completeAlert, animated: true, completion: nil)
+                        }
+                        
+                    }).disposed(by: disposeBag)
                 }
                 let cancle = UIAlertAction(title: "취소", style: .cancel)
                 declarationAlert.addAction(declaration)
