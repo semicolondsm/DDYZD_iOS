@@ -56,6 +56,7 @@
 		92BED6EB25BD534B00526C33 /* ClubDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BED6EA25BD534B00526C33 /* ClubDetailViewController.swift */; };
 		92BED6EE25BD536200526C33 /* ClubDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BED6ED25BD536200526C33 /* ClubDetailViewModel.swift */; };
 		92C35F4225B5BD0700D30DDF /* DDYZDAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C35F4125B5BD0600D30DDF /* DDYZDAPI.swift */; };
+		92C4B01225F4E0070034B1A5 /* TOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C4B01125F4E0070034B1A5 /* TOSViewController.swift */; };
 		92D1759D25BD696B00E6F2D6 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D1759C25BD696B00E6F2D6 /* MainPageViewController.swift */; };
 		92D97F1A25CEECAB008456C8 /* Feed.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D97F1925CEECAB008456C8 /* Feed.xib */; };
 		92D97F2525CEEE98008456C8 /* FeedAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D97F2425CEEE98008456C8 /* FeedAPI.swift */; };
@@ -133,6 +134,7 @@
 		92BED6EA25BD534B00526C33 /* ClubDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailViewController.swift; sourceTree = "<group>"; };
 		92BED6ED25BD536200526C33 /* ClubDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailViewModel.swift; sourceTree = "<group>"; };
 		92C35F4125B5BD0600D30DDF /* DDYZDAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDYZDAPI.swift; sourceTree = "<group>"; };
+		92C4B01125F4E0070034B1A5 /* TOSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSViewController.swift; sourceTree = "<group>"; };
 		92D1759C25BD696B00E6F2D6 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		92D97F1925CEECAB008456C8 /* Feed.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Feed.xib; sourceTree = "<group>"; };
 		92D97F2425CEEE98008456C8 /* FeedAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAPI.swift; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 		92D1759B25BD694C00E6F2D6 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				92C4B01125F4E0070034B1A5 /* TOSViewController.swift */,
 				92D1759C25BD696B00E6F2D6 /* MainPageViewController.swift */,
 				92D97F1C25CEECFD008456C8 /* FeedCell */,
 			);
@@ -640,6 +643,7 @@
 				9200D0B425B74DAA00461843 /* LoginViewModel.swift in Sources */,
 				9228A21C25DD17F800C299E9 /* PersonalModel.swift in Sources */,
 				92E3A81A25E6CB80000E3654 /* DDYZDSocket.swift in Sources */,
+				92C4B01225F4E0070034B1A5 /* TOSViewController.swift in Sources */,
 				92BED6E825BD4BA600526C33 /* ChatModel.swift in Sources */,
 				9228A24025DD1DCC00C299E9 /* OtherUserPageViewModel.swift in Sources */,
 				9200D0B925B751E700461843 /* Token.swift in Sources */,
@@ -806,6 +810,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.semicolon.DDYZD-V2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -827,6 +832,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.semicolon.DDYZD-V2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

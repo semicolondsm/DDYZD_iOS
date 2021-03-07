@@ -9,6 +9,60 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="lJ3-TQ-69C">
+            <objects>
+                <viewController storyboardIdentifier="TOSViewController" id="biS-oJ-Eqc" customClass="TOSViewController" customModule="DDYZD_V2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JPQ-eB-IKJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이용약관" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EvY-Ke-b9s">
+                                <rect key="frame" x="20" y="20" width="139" height="48"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8QY-qO-8O0">
+                                <rect key="frame" x="275" y="716" width="119" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="동의하고 시작하기 ›">
+                                    <color key="titleColor" red="0.48113262649999999" green="0.1003668979" blue="0.81238496299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5tK-Yc-hoV">
+                                <rect key="frame" x="20" y="76" width="374" height="632"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oov-AG-k1d"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EvY-Ke-b9s" firstAttribute="top" secondItem="oov-AG-k1d" secondAttribute="top" constant="20" id="385-NU-rgv"/>
+                            <constraint firstItem="EvY-Ke-b9s" firstAttribute="leading" secondItem="oov-AG-k1d" secondAttribute="leading" constant="20" id="Dv5-ds-hGP"/>
+                            <constraint firstItem="8QY-qO-8O0" firstAttribute="top" secondItem="5tK-Yc-hoV" secondAttribute="bottom" constant="8" symbolic="YES" id="EMA-Zz-sYQ"/>
+                            <constraint firstItem="oov-AG-k1d" firstAttribute="trailing" secondItem="5tK-Yc-hoV" secondAttribute="trailing" constant="20" id="ae0-pK-4Cc"/>
+                            <constraint firstItem="5tK-Yc-hoV" firstAttribute="leading" secondItem="oov-AG-k1d" secondAttribute="leading" constant="20" id="bv1-mg-eyc"/>
+                            <constraint firstItem="oov-AG-k1d" firstAttribute="trailing" secondItem="8QY-qO-8O0" secondAttribute="trailing" constant="20" id="dm0-KZ-O0R"/>
+                            <constraint firstItem="5tK-Yc-hoV" firstAttribute="top" secondItem="EvY-Ke-b9s" secondAttribute="bottom" constant="8" symbolic="YES" id="o0z-KY-9Fn"/>
+                            <constraint firstItem="oov-AG-k1d" firstAttribute="bottom" secondItem="5tK-Yc-hoV" secondAttribute="bottom" constant="100" id="vm0-Ij-zh1"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="TOSwkview" destination="5tK-Yc-hoV" id="nnf-WG-Yma"/>
+                        <outlet property="nextBtn" destination="8QY-qO-8O0" id="QXt-0o-NsG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aPj-Gf-gRg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="273.91304347826087" y="-820.3125"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ATC-Ph-wXb">
             <objects>
@@ -140,7 +194,7 @@
     </scenes>
     <resources>
         <image name="ChatIcon" width="25" height="25"/>
-        <image name="home" width="32" height="32.5"/>
+        <image name="home" width="25" height="25.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

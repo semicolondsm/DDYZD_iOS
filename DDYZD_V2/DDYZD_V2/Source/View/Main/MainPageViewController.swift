@@ -28,6 +28,7 @@ class MainPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        presentTOS()
         bind()
         refreshToken()
         setHeaderWKView()
@@ -135,6 +136,14 @@ extension MainPageViewController {
 
         let leftButton = UIBarButtonItem(customView: customView)
         navigationItem.leftBarButtonItem = leftButton
+    }
+    
+    func presentTOS(){
+        if UserDefaults.standard.bool(forKey: "isAgreeTOS") != true {
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let tosViewController = mainStoryboard.instantiateViewController(withIdentifier: "TOSViewController") as! TOSViewController
+            UIApplication.topViewController()?.present(tosViewController, animated: true, completion: nil)
+        }
     }
 }
 
