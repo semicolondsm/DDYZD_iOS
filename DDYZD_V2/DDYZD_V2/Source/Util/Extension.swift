@@ -72,7 +72,7 @@ extension UIViewController {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         if item.owner {
             let deleteFeed = UIAlertAction(title: "삭제", style: .destructive){ _ in
-                let deleteAlert = UIAlertController(title: "개시물을 삭제하시겠어요?", message: nil, preferredStyle: .alert)
+                let deleteAlert = UIAlertController(title: "게시물을 삭제하시겠어요?", message: nil, preferredStyle: .alert)
                 let delete = UIAlertAction(title: "삭제", style: .destructive){ _ in
                     deleteCloser()
                 }
@@ -95,6 +95,28 @@ extension UIViewController {
             
         } else {
             alert.message = "이 피드에대한 권한이 없습니다."
+            let declarationFeed = UIAlertAction(title: "신고", style: .destructive){ _ in
+                let declarationAlert = UIAlertController(title: "게시물을 신고하시겠어요?", message: "신고 사유를 적어주세요.", preferredStyle: .alert)
+                declarationAlert.addTextField(){ textField in
+                    textField.placeholder = "신고 사유"
+                }
+                let declaration = UIAlertAction(title: "신고", style: .destructive){ _ in
+                    // 신고
+                    print(item.feedId)
+                    print(declarationAlert.textFields![0].text!)
+                    //
+                    let completeAlert = UIAlertController(title: "게시물이 신고되었습니다.", message: "이 게시물은 24시간내에 조치됩니다.", preferredStyle: .alert)
+                    let confirm = UIAlertAction(title: "확인", style: .default)
+                    completeAlert.addAction(confirm)
+                    self.present(completeAlert, animated: true, completion: nil)
+                }
+                let cancle = UIAlertAction(title: "취소", style: .cancel)
+                declarationAlert.addAction(declaration)
+                declarationAlert.addAction(cancle)
+                declarationAlert.view.tintColor = .black
+                self.present(declarationAlert, animated: true, completion: nil)
+            }
+            alert.addAction(declarationFeed)
         }
         let cancle = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         alert.addAction(cancle)
