@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 extension UIView {
     
@@ -126,7 +127,8 @@ extension UIViewController {
     
     func openInSafari(url: String) {
         if let url = URL(string: url) {
-            UIApplication.shared.open(url, options: [:])
+            let safariViewController = SFSafariViewController(url: url)
+            present(safariViewController, animated: true, completion: nil)
         }
     }
     
