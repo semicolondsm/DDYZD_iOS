@@ -17,6 +17,7 @@ target 'DDYZD_V2' do
   pod 'RxCocoa', '~> 6.0'
   pod 'RxSwift', '~> 6.0'
   pod 'Socket.IO-Client-Swift', '~> 16.0.0'
+  pod 'SwiftOverlays', '~> 5.0.1'
   pod 'Tabman', '~> 2.9'
   
 end

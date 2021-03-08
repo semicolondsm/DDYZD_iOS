@@ -80,6 +80,7 @@ PODS:
   - Socket.IO-Client-Swift (16.0.1):
     - Starscream (~> 4.0)
   - Starscream (4.0.4)
+  - SwiftOverlays (5.0.1)
   - Tabman (2.10.0):
     - Pageboy (~> 3.6.0)
 
@@ -94,6 +95,7 @@ DEPENDENCIES:
   - RxCocoa (~> 6.0)
   - RxSwift (~> 6.0)
   - Socket.IO-Client-Swift (~> 16.0.0)
+  - SwiftOverlays (~> 5.0.1)
   - Tabman (~> 2.9)
 
 SPEC REPOS:
@@ -119,6 +121,7 @@ SPEC REPOS:
     - RxSwift
     - Socket.IO-Client-Swift
     - Starscream
+    - SwiftOverlays
     - Tabman
 
 SPEC CHECKSUMS:
@@ -143,8 +146,9 @@ SPEC CHECKSUMS:
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
   Socket.IO-Client-Swift: c116d6dc9fd6be9c259bacfe143f8725bce7d79e
   Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
+  SwiftOverlays: ab459ea9194b0e96aaccaa00e9ead1bf6d46eef1
   Tabman: d8d6ab0b483c7db375a71ac227d3ef791b56a049
 
-PODFILE CHECKSUM: 08f08ed723bb9bf639d02a5931cdb6f328eeb94b
+PODFILE CHECKSUM: 62da3298946d91f130fad71cbde708803c3546f5
 
 COCOAPODS: 1.10.1

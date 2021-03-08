@@ -10,6 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import WebKit
+import SwiftOverlays
 
 class MainPageViewController: UIViewController {
     
@@ -28,6 +29,7 @@ class MainPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.showWaitOverlay()
         presentTOS()
         bind()
         refreshToken()
@@ -54,6 +56,7 @@ class MainPageViewController: UIViewController {
         .disposed(by: disposeBag)
         
         output.feedList.bind(to: feedTable.rx.items) { tableView, row, item -> UITableViewCell in
+            self.removeAllOverlays()
             self.loadMore = false
             if item.media.isEmpty { 
                 let cell = self.feedTable.dequeueReusableCell(withIdentifier: "Feed") as! FeedTableViewCell

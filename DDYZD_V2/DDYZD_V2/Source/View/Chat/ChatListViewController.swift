@@ -11,6 +11,7 @@ import Alamofire
 import RxCocoa
 import RxSwift
 import Kingfisher
+import SwiftOverlays
 
 class ChatListViewController: UIViewController {
 
@@ -27,6 +28,7 @@ class ChatListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.showWaitOverlay()
         registerCell()
         setUI()
         bind()
@@ -64,6 +66,7 @@ class ChatListViewController: UIViewController {
         .disposed(by: disposeBag)
         
         output.sectionList.subscribe(onNext: { sections in
+            self.removeAllOverlays()
             self.chatSections = sections
             self.setSelectSectionBarItem()
         })
