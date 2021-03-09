@@ -134,6 +134,20 @@
                                         <constraint firstItem="iGW-mH-9Xb" firstAttribute="leading" secondItem="H6l-Ur-EOM" secondAttribute="leading" id="uyu-c5-fsd"/>
                                     </constraints>
                                 </view>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="sYT-PI-f6z">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Jtc-Ls-P1e">
+                                            <rect key="frame" x="197" y="10" width="20" height="20"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.97254908080000002" green="0.97254908080000002" blue="0.97647058959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstItem="Jtc-Ls-P1e" firstAttribute="centerY" secondItem="sYT-PI-f6z" secondAttribute="centerY" id="4RN-pz-Y0b"/>
+                                        <constraint firstItem="Jtc-Ls-P1e" firstAttribute="centerX" secondItem="sYT-PI-f6z" secondAttribute="centerX" id="wiZ-sT-tIB"/>
+                                    </constraints>
+                                </view>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dIY-lK-xRX"/>
