@@ -6,14 +6,17 @@
 //
 
 import UIKit
+
 import DSMSDK
 import Firebase
+import RxSwift
 import UserNotificationsUI
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window : UIWindow?
+    var disposeBag = DisposeBag()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -37,13 +40,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         )
         
         application.registerForRemoteNotifications()
-        AuthAPI().refreshToken().subscribe().dispose()
+        AuthAPI().refreshToken().subscribe().disposed(by: disposeBag)
         
         return true
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
-        AuthAPI().refreshToken().subscribe().dispose()
+        AuthAPI().refreshToken().subscribe().disposed(by: disposeBag)
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        disposeBag = DisposeBag()
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
