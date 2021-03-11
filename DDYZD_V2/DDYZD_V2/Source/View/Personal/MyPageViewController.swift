@@ -10,6 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import Kingfisher
+import SwiftOverlays
 
 class MyPageViewController: UIViewController {
 
@@ -33,6 +34,7 @@ class MyPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.showWaitOverlay()
         setUI()
         setNavigationBar()
         setCollectionView()
@@ -78,7 +80,7 @@ class MyPageViewController: UIViewController {
             if userInfo.clubs.count >= 1 {
                 self.noClubNotice.isHidden = true
             }
-            
+            self.removeAllOverlays()
         })
         .disposed(by: disposeBag)
         
