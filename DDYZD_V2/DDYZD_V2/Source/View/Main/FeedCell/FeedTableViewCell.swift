@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import RxSwift
 
 class FeedTableViewCell: UITableViewCell {
@@ -14,6 +15,7 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var clubProfileImageView: UIImageView!
     @IBOutlet weak var clubName: UILabel!
     @IBOutlet weak var uploadAt: UILabel!
+    @IBOutlet weak var goClubDetailArea: UIButton!
     @IBOutlet weak var content: UILabel!
     @IBOutlet weak var flagNum: UILabel!
     @IBOutlet weak var MenuBtn: UIButton!

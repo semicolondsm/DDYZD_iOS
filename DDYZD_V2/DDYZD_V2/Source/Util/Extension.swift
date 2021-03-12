@@ -70,6 +70,13 @@ extension UIViewController {
         self.present(loginVC, animated: true, completion: nil)
     }
     
+    func goClubDetailView(_ clubID: Int){
+        self.navigationController?.navigationBar.shadowImage = nil
+        let vc = UIStoryboard.init(name: "Club", bundle: nil).instantiateViewController(withIdentifier: "ClubDetailViewController") as! ClubDetailViewController
+        vc.clubID = clubID
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func menuActionSheet(item: Feed, isHead: Bool?, pinCloser: (()->Void)?, deleteCloser: @escaping (()->Void)){
         
         let disposeBag = DisposeBag()

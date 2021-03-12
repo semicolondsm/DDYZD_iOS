@@ -37,14 +37,14 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kme-kQ-GAK">
-                                        <rect key="frame" x="45" y="0.0" width="0.0" height="0.0"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kme-kQ-GAK">
+                                        <rect key="frame" x="45" y="0.0" width="73.5" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTN-A1-aco">
-                                        <rect key="frame" x="45" y="30" width="0.0" height="0.0"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload at" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTN-A1-aco">
+                                        <rect key="frame" x="45" y="15.5" width="55" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.76863271" green="0.76861804720000004" blue="0.76862794160000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -56,6 +56,9 @@
                                             <constraint firstAttribute="height" constant="3" id="fB8-Ah-wLb"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTK-w7-fLi">
+                                        <rect key="frame" x="2" y="0.0" width="117" height="30"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -63,12 +66,16 @@
                                     <constraint firstItem="kme-kQ-GAK" firstAttribute="leading" secondItem="Ufa-gF-SP7" secondAttribute="trailing" constant="15" id="APR-Ej-6Ui"/>
                                     <constraint firstAttribute="height" constant="30" id="GUU-Hi-Qy1"/>
                                     <constraint firstAttribute="trailing" secondItem="qoH-ii-UHs" secondAttribute="trailing" id="KwI-QH-kwi"/>
+                                    <constraint firstAttribute="bottom" secondItem="LTK-w7-fLi" secondAttribute="bottom" id="NuR-58-gXD"/>
                                     <constraint firstItem="qoH-ii-UHs" firstAttribute="centerY" secondItem="7df-KX-ZK1" secondAttribute="centerY" id="OTD-Cl-r20"/>
+                                    <constraint firstItem="LTK-w7-fLi" firstAttribute="leading" secondItem="7df-KX-ZK1" secondAttribute="leading" constant="2" id="SjG-zM-iTV"/>
                                     <constraint firstItem="KTN-A1-aco" firstAttribute="leading" secondItem="Ufa-gF-SP7" secondAttribute="trailing" constant="15" id="UGn-V3-d6h"/>
                                     <constraint firstAttribute="bottom" secondItem="KTN-A1-aco" secondAttribute="bottom" id="a0a-YN-cZb"/>
                                     <constraint firstAttribute="bottom" secondItem="Ufa-gF-SP7" secondAttribute="bottom" id="dxA-CK-YyE"/>
                                     <constraint firstItem="kme-kQ-GAK" firstAttribute="top" secondItem="7df-KX-ZK1" secondAttribute="top" id="k23-Fh-RKP"/>
+                                    <constraint firstItem="LTK-w7-fLi" firstAttribute="trailing" secondItem="kme-kQ-GAK" secondAttribute="trailing" id="o3G-EF-khQ"/>
                                     <constraint firstItem="lQF-Zf-Cn2" firstAttribute="centerY" secondItem="7df-KX-ZK1" secondAttribute="centerY" id="oNT-Zx-4UE"/>
+                                    <constraint firstItem="LTK-w7-fLi" firstAttribute="top" secondItem="7df-KX-ZK1" secondAttribute="top" id="of6-uP-ctq"/>
                                     <constraint firstAttribute="trailing" secondItem="lQF-Zf-Cn2" secondAttribute="trailing" id="pfg-G6-YeZ"/>
                                     <constraint firstItem="Ufa-gF-SP7" firstAttribute="leading" secondItem="7df-KX-ZK1" secondAttribute="leading" id="qw9-Ke-f5F"/>
                                     <constraint firstItem="Ufa-gF-SP7" firstAttribute="top" secondItem="7df-KX-ZK1" secondAttribute="top" id="wWF-Uh-CzU"/>
@@ -161,6 +168,7 @@
                 <outlet property="content" destination="uIU-jP-OnD" id="sFF-3b-g8j"/>
                 <outlet property="flagBtn" destination="UuC-Q4-7eT" id="llc-0O-Esx"/>
                 <outlet property="flagNum" destination="hg4-9l-XkF" id="0bg-9C-gEQ"/>
+                <outlet property="goClubDetailArea" destination="LTK-w7-fLi" id="vCa-4N-7t6"/>
                 <outlet property="imageSlider" destination="YJJ-ZO-DLt" id="ng1-t8-k0L"/>
                 <outlet property="uploadAt" destination="KTN-A1-aco" id="rz1-Lf-RCc"/>
             </connections>

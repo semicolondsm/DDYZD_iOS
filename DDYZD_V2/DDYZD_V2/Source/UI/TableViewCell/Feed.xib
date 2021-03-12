@@ -101,22 +101,29 @@
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                         <state key="normal" title="Button"/>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntL-YY-X7k">
+                                        <rect key="frame" x="0.0" y="0.0" width="119" height="30"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="gvi-l2-G4c" secondAttribute="trailing" id="0eJ-lf-Qtj"/>
                                     <constraint firstItem="gvi-l2-G4c" firstAttribute="centerY" secondItem="nHq-aR-bgb" secondAttribute="centerY" id="1Im-sK-e9H"/>
+                                    <constraint firstItem="ntL-YY-X7k" firstAttribute="top" secondItem="nHq-aR-bgb" secondAttribute="top" id="Buz-Bw-0lp"/>
                                     <constraint firstAttribute="bottom" secondItem="BBp-kf-tRu" secondAttribute="bottom" id="FaK-Kg-sm8"/>
+                                    <constraint firstItem="ntL-YY-X7k" firstAttribute="leading" secondItem="nHq-aR-bgb" secondAttribute="leading" id="JHY-7Z-S62"/>
                                     <constraint firstItem="ZVJ-9m-XEB" firstAttribute="top" secondItem="nHq-aR-bgb" secondAttribute="top" id="KsA-VU-OfY"/>
                                     <constraint firstAttribute="bottom" secondItem="ZVJ-9m-XEB" secondAttribute="bottom" id="Pdn-Ve-9o0"/>
                                     <constraint firstItem="bkN-E1-uTX" firstAttribute="top" secondItem="nHq-aR-bgb" secondAttribute="top" id="Ph6-dQ-d95"/>
                                     <constraint firstItem="BBp-kf-tRu" firstAttribute="leading" secondItem="ZVJ-9m-XEB" secondAttribute="trailing" constant="15" id="QUj-y3-aoz"/>
                                     <constraint firstItem="hF3-lD-1Sl" firstAttribute="centerY" secondItem="nHq-aR-bgb" secondAttribute="centerY" id="dku-xf-drT"/>
+                                    <constraint firstAttribute="bottom" secondItem="ntL-YY-X7k" secondAttribute="bottom" id="esc-hY-pph"/>
                                     <constraint firstItem="hF3-lD-1Sl" firstAttribute="top" secondItem="nHq-aR-bgb" secondAttribute="top" id="fBS-na-Rpg"/>
                                     <constraint firstAttribute="bottom" secondItem="hF3-lD-1Sl" secondAttribute="bottom" id="gBy-t1-GUC"/>
                                     <constraint firstAttribute="height" constant="30" id="q2X-c4-Cgv"/>
                                     <constraint firstAttribute="trailing" secondItem="hF3-lD-1Sl" secondAttribute="trailing" id="rMe-kT-VXB"/>
                                     <constraint firstItem="ZVJ-9m-XEB" firstAttribute="leading" secondItem="nHq-aR-bgb" secondAttribute="leading" id="sjw-Z1-BlO"/>
+                                    <constraint firstItem="ntL-YY-X7k" firstAttribute="trailing" secondItem="bkN-E1-uTX" secondAttribute="trailing" id="tPT-gs-ZPe"/>
                                     <constraint firstItem="bkN-E1-uTX" firstAttribute="leading" secondItem="ZVJ-9m-XEB" secondAttribute="trailing" constant="15" id="wvg-mi-QwM"/>
                                 </constraints>
                             </view>
@@ -152,6 +159,7 @@
                 <outlet property="content" destination="JUk-1u-uht" id="tg5-S7-zZq"/>
                 <outlet property="flagBtn" destination="847-BF-Gcv" id="mVk-yR-G9c"/>
                 <outlet property="flagNum" destination="9QV-K5-M9Q" id="NB1-1e-Y7F"/>
+                <outlet property="goClubDetailArea" destination="ntL-YY-X7k" id="nkz-DE-5lY"/>
                 <outlet property="uploadAt" destination="BBp-kf-tRu" id="BHI-FN-f7r"/>
             </connections>
             <point key="canvasLocation" x="-568.1159420289855" y="-256.13839285714283"/>

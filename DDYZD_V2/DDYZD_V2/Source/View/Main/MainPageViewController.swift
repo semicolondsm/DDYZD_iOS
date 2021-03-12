@@ -62,6 +62,12 @@ class MainPageViewController: UIViewController {
                 let cell = self.feedTable.dequeueReusableCell(withIdentifier: "Feed") as! FeedTableViewCell
                 
                 cell.bind(item: item)
+                
+                cell.goClubDetailArea.rx.tap.subscribe(onNext: {
+                    self.goClubDetailView(item.clubId!)
+                })
+                .disposed(by: cell.disposeBag)
+                
                 cell.MenuBtn.rx.tap.subscribe(onNext: {
                     self.menuActionSheet(item: item, isHead: nil, pinCloser: nil){
                         self.deleteFeed.onNext(row)
@@ -78,6 +84,12 @@ class MainPageViewController: UIViewController {
                 let cell = self.feedTable.dequeueReusableCell(withIdentifier: "FeedWithMedia") as! FeedWithMediaTableViewCell
                 
                 cell.bind(item: item)
+                
+                cell.goClubDetailArea.rx.tap.subscribe(onNext: {
+                    self.goClubDetailView(item.clubId!)
+                })
+                .disposed(by: cell.disposeBag)
+                
                 cell.MenuBtn.rx.tap.subscribe(onNext: {
                     self.menuActionSheet(item: item, isHead: nil, pinCloser: nil){
                         self.deleteFeed.onNext(row)

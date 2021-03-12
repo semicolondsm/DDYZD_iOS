@@ -10,6 +10,7 @@ import Foundation
 struct Feed: Codable {
     let feedId: Int
     let clubName: String
+    let clubId: Int?
     let profileImage: String
     let uploadAt: String
     let content: String
