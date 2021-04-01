@@ -23,9 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         window?.backgroundColor = .white
         
-        DSMSDKCommon.initSDK(clientID: "e20961403e0b43009c5dc070a8245e2e",
-                             clientSecret: "b1336493014a4cef8a480712c2be4bcf",
-                             redirectURL: "https://semicolondsm.xyz/")
+        DSMSDKCommon.initSDK(clientID: "ab840667ddcd41dc81b29f8f128a0e66",
+                             clientSecret: "adbf21db93f240a8a2d1e4e3b446689c",
+                             redirectURL: "https://ddyzd.dsmkr.com/callback")
         
         FirebaseApp.configure()
         
