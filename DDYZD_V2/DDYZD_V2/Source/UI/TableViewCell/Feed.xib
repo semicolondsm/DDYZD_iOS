@@ -121,8 +121,8 @@
                                     <constraint firstItem="bkN-E1-uTX" firstAttribute="leading" secondItem="ZVJ-9m-XEB" secondAttribute="trailing" constant="15" id="wvg-mi-QwM"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="content" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4re-dd-W0h">
-                                <rect key="frame" x="15" y="48" width="384" height="24"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" text="content" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4re-dd-W0h">
+                                <rect key="frame" x="19" y="48" width="384" height="24"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
