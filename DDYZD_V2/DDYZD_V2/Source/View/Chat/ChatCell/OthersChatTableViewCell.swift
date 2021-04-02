@@ -11,13 +11,19 @@ class OthersChatTableViewCell: UITableViewCell {
 
     @IBOutlet weak var othersProfileImage: UIImageView!
     @IBOutlet weak var chatCellView: UIView!
-    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var content: UITextView!
     @IBOutlet weak var chatAtLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        setTextView()
         setUI()
+    }
+    
+    func setTextView(){
+        content.isEditable = false
+        content.dataDetectorTypes = .link
     }
     
     func setUI() {
