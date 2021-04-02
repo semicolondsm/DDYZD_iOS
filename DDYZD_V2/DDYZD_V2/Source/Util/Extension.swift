@@ -151,6 +151,11 @@ extension UIViewController {
         }
     }
     
+    func openInSafari(url: URL) {
+        let safariViewController = SFSafariViewController(url: url)
+        present(safariViewController, animated: true, completion: nil)
+    }
+    
 }
 
 extension UIImageView {
