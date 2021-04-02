@@ -99,7 +99,8 @@ class ChatViewController: UIViewController {
             case .Club, .user:
                 if item.user_type.rawValue == self.userType!.rawValue {
                     let cell = self.chatTable.dequeueReusableCell(withIdentifier: "MyChat") as! MyChatTableViewCell
-
+                    
+                    cell.content.delegate = self
                     cell.content.text = item.msg
                     
                     return cell
@@ -107,6 +108,7 @@ class ChatViewController: UIViewController {
                     let cell = self.chatTable.dequeueReusableCell(withIdentifier: "OthersChat") as! OthersChatTableViewCell
                     
                     cell.othersProfileImage.image = self.navigationBarImage.image
+                    cell.content.delegate = self
                     cell.content.text = item.msg
                     cell.chatAtLabel.dateLabel(item.created_at)
                     
@@ -433,4 +435,14 @@ extension ChatViewController {
         answerAlert.view.tintColor = .black
         self.present(answerAlert, animated: true)
     }
+}
+
+// MARK:- TextView
+extension ChatViewController: UITextViewDelegate {
+    
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        self.openInSafari(url: URL)
+        return false
+    }
+    
 }
