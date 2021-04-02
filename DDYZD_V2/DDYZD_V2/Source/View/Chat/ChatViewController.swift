@@ -75,19 +75,19 @@ class ChatViewController: UIViewController {
             switch roomInfo.status {
             case .Common:
                 self.actionBtn.isHidden = true
-                self.chatTable.tableHeaderView?.frame.size.height = 0
+                self.chatTable.tableHeaderView?.frame.size.height = 20
             case .Notificate:
                 self.actionBtn.isHidden = self.userType! == .Volunteer ? false : true
-                self.chatTable.tableHeaderView?.frame.size.height = self.userType! == .Volunteer ? 44 : 0
+                self.chatTable.tableHeaderView?.frame.size.height = self.userType! == .Volunteer ? 64 : 20
             case .Applicant:
                 self.actionBtn.isHidden = true
-                self.chatTable.tableHeaderView?.frame.size.height = 0
+                self.chatTable.tableHeaderView?.frame.size.height = 20
             case .Scheduled:
                 self.actionBtn.isHidden = self.userType! == .ClubHead ? false : true
-                self.chatTable.tableHeaderView?.frame.size.height = self.userType! == .ClubHead ? 44 : 0
+                self.chatTable.tableHeaderView?.frame.size.height = self.userType! == .ClubHead ? 64 : 20
             case .Resulted:
                 self.actionBtn.isHidden = true
-                self.chatTable.tableHeaderView?.frame.size.height = 0
+                self.chatTable.tableHeaderView?.frame.size.height = 20
             }
         })
         .disposed(by: disposeBag)
@@ -99,15 +99,17 @@ class ChatViewController: UIViewController {
             case .Club, .user:
                 if item.user_type.rawValue == self.userType!.rawValue {
                     let cell = self.chatTable.dequeueReusableCell(withIdentifier: "MyChat") as! MyChatTableViewCell
-
-                    cell.contentLabel.text = item.msg
+                    
+                    cell.content.delegate = self
+                    cell.content.text = item.msg
                     
                     return cell
                 } else {
                     let cell = self.chatTable.dequeueReusableCell(withIdentifier: "OthersChat") as! OthersChatTableViewCell
                     
                     cell.othersProfileImage.image = self.navigationBarImage.image
-                    cell.contentLabel.text = item.msg
+                    cell.content.delegate = self
+                    cell.content.text = item.msg
                     cell.chatAtLabel.dateLabel(item.created_at)
                     
                     return cell
@@ -283,14 +285,14 @@ extension ChatViewController {
         let keyboardHeight = keybaordRectangle.height
         movingView.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight+bottomPadding)
         actionBtn.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight+bottomPadding)
-        chatTableBottomConstraint.constant = 60+keyboardHeight-bottomPadding
+        chatTableBottomConstraint.constant = 40+keyboardHeight-bottomPadding
       }
     }
       
     @objc private func keyboardWillHide(_ notification: Notification) {
         movingView.transform = .identity
         actionBtn.transform = .identity
-        chatTableBottomConstraint.constant = 60
+        chatTableBottomConstraint.constant = 40
     }
 }
 
@@ -433,4 +435,14 @@ extension ChatViewController {
         answerAlert.view.tintColor = .black
         self.present(answerAlert, animated: true)
     }
+}
+
+// MARK:- TextView
+extension ChatViewController: UITextViewDelegate {
+    
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        self.openInSafari(url: URL)
+        return false
+    }
+    
 }

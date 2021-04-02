@@ -10,12 +10,18 @@ import UIKit
 class MyChatTableViewCell: UITableViewCell {
 
     @IBOutlet weak var chatCellView: UIView!
-    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var content: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        setTextView()
         setUI()
+    }
+    
+    func setTextView(){
+        content.isEditable = false
+        content.dataDetectorTypes = .link
     }
 
     func setUI() {

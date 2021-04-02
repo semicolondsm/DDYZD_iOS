@@ -51,7 +51,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o2Y-z2-alu">
-                                <rect key="frame" x="0.0" y="88" width="414" height="714"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="734"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="wAJ-J7-Gaz">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
@@ -127,7 +127,7 @@
                             <constraint firstItem="7KE-l3-Snb" firstAttribute="leading" secondItem="6RV-Br-Pc7" secondAttribute="leading" id="PUn-Ga-jAJ"/>
                             <constraint firstItem="7KE-l3-Snb" firstAttribute="bottom" secondItem="6RV-Br-Pc7" secondAttribute="bottom" id="nnp-MY-YOr"/>
                             <constraint firstItem="6RV-Br-Pc7" firstAttribute="trailing" secondItem="o2Y-z2-alu" secondAttribute="trailing" id="oo4-JG-h0F"/>
-                            <constraint firstItem="6RV-Br-Pc7" firstAttribute="bottom" secondItem="o2Y-z2-alu" secondAttribute="bottom" constant="60" id="uBF-Hl-fFH"/>
+                            <constraint firstItem="6RV-Br-Pc7" firstAttribute="bottom" secondItem="o2Y-z2-alu" secondAttribute="bottom" constant="40" id="uBF-Hl-fFH"/>
                             <constraint firstItem="7KE-l3-Snb" firstAttribute="top" secondItem="kon-DF-S25" secondAttribute="bottom" constant="8" symbolic="YES" id="wmh-gT-jHZ"/>
                             <constraint firstItem="o2Y-z2-alu" firstAttribute="top" secondItem="6RV-Br-Pc7" secondAttribute="top" id="yz2-m9-KwG"/>
                         </constraints>
