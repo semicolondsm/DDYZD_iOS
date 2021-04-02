@@ -9,7 +9,7 @@ import UIKit
 
 import RxSwift
 
-class FeedTableViewCell: UITableViewCell, UITextViewDelegate {
+class FeedTableViewCell: UITableViewCell {
     
     @IBOutlet weak var cellSuperView: UIView!
     @IBOutlet weak var clubProfileImageView: UIImageView!
