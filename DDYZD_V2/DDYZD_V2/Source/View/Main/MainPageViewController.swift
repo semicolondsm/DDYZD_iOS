@@ -141,7 +141,7 @@ extension MainPageViewController {
         
         let customView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 44.0))
 
-        let icon = UIImageView(image: UIImage(named: "logo"))
+        let icon = UIImageView(image: UIImage(named: "icon"))
         icon.contentMode = .scaleToFill
         icon.frame = CGRect(x: 0.0, y: 5.0, width: 30.0, height: 30.0)
         customView.addSubview(icon)

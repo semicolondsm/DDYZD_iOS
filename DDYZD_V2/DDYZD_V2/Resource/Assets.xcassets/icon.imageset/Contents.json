@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "SEMICOLON.png",
+      "filename" : "logo-1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "SEMICOLONx2.png",
+      "filename" : "logo-2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "SEMICOLONx3.png",
+      "filename" : "120-3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
