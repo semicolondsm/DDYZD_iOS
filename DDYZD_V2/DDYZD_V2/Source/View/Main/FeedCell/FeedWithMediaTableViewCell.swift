@@ -29,6 +29,12 @@ class FeedWithMediaTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         setUI()
+        setTextView()
+    }
+    
+    func setTextView(){
+        content.isEditable = false
+        content.dataDetectorTypes = .link
     }
     
     func setUI() {
