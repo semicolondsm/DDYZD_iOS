@@ -100,7 +100,7 @@ class ChatViewController: UIViewController {
                 if item.user_type.rawValue == self.userType!.rawValue {
                     let cell = self.chatTable.dequeueReusableCell(withIdentifier: "MyChat") as! MyChatTableViewCell
 
-                    cell.contentLabel.text = item.msg
+                    cell.content.text = item.msg
                     
                     return cell
                 } else {
