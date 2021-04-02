@@ -63,6 +63,8 @@ class MainPageViewController: UIViewController {
                 
                 cell.bind(item: item)
                 
+                cell.content.delegate = self
+                
                 cell.goClubDetailArea.rx.tap.subscribe(onNext: {
                     self.goClubDetailView(item.clubId!)
                 })
@@ -84,6 +86,8 @@ class MainPageViewController: UIViewController {
                 let cell = self.feedTable.dequeueReusableCell(withIdentifier: "FeedWithMedia") as! FeedWithMediaTableViewCell
                 
                 cell.bind(item: item)
+                
+                cell.content.delegate = self
                 
                 cell.goClubDetailArea.rx.tap.subscribe(onNext: {
                     self.goClubDetailView(item.clubId!)
@@ -219,4 +223,14 @@ extension MainPageViewController: UITableViewDelegate {
         reloadFeeds()
         setHeaderWKView()
     }
+}
+
+// MARK:- TextView
+extension MainPageViewController: UITextViewDelegate {
+    
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        self.openInSafari(url: URL)
+        return false
+    }
+    
 }

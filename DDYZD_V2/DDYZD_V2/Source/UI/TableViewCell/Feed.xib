@@ -58,12 +58,6 @@
                                     <constraint firstAttribute="bottom" secondItem="847-BF-Gcv" secondAttribute="bottom" id="bzS-tt-y6C"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="conect" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUk-1u-uht">
-                                <rect key="frame" x="15" y="55" width="384" height="10"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nHq-aR-bgb">
                                 <rect key="frame" x="15" y="10" width="384" height="30"/>
                                 <subviews>
@@ -102,7 +96,7 @@
                                         <state key="normal" title="Button"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntL-YY-X7k">
-                                        <rect key="frame" x="0.0" y="0.0" width="119" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="118.5" height="30"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -127,19 +121,26 @@
                                     <constraint firstItem="bkN-E1-uTX" firstAttribute="leading" secondItem="ZVJ-9m-XEB" secondAttribute="trailing" constant="15" id="wvg-mi-QwM"/>
                                 </constraints>
                             </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" text="content" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4re-dd-W0h">
+                                <rect key="frame" x="19" y="48" width="384" height="24"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6fY-Y1-8gS" firstAttribute="leading" secondItem="2PF-rT-dkq" secondAttribute="leading" constant="15" id="10O-Kb-HY6"/>
-                            <constraint firstItem="JUk-1u-uht" firstAttribute="top" secondItem="nHq-aR-bgb" secondAttribute="bottom" constant="15" id="5B8-c5-f63"/>
+                            <constraint firstItem="6fY-Y1-8gS" firstAttribute="top" secondItem="4re-dd-W0h" secondAttribute="bottom" constant="8" symbolic="YES" id="5Ts-X1-GFh"/>
                             <constraint firstAttribute="bottom" secondItem="6fY-Y1-8gS" secondAttribute="bottom" constant="10" id="5tf-gN-hY8"/>
                             <constraint firstItem="nHq-aR-bgb" firstAttribute="top" secondItem="2PF-rT-dkq" secondAttribute="top" constant="10" id="CUL-qW-flP"/>
-                            <constraint firstItem="JUk-1u-uht" firstAttribute="leading" secondItem="2PF-rT-dkq" secondAttribute="leading" constant="15" id="DEG-zV-EWq"/>
-                            <constraint firstAttribute="trailing" secondItem="JUk-1u-uht" secondAttribute="trailing" constant="15" id="Rlj-jH-IAr"/>
+                            <constraint firstAttribute="trailing" secondItem="4re-dd-W0h" secondAttribute="trailing" constant="15" id="LOx-3b-6Yu"/>
+                            <constraint firstItem="4re-dd-W0h" firstAttribute="leading" secondItem="2PF-rT-dkq" secondAttribute="leading" constant="15" id="YQY-Ul-BXA"/>
                             <constraint firstAttribute="trailing" secondItem="nHq-aR-bgb" secondAttribute="trailing" constant="15" id="bQt-EE-xou"/>
+                            <constraint firstItem="4re-dd-W0h" firstAttribute="top" secondItem="nHq-aR-bgb" secondAttribute="bottom" constant="8" symbolic="YES" id="uCc-6n-hIC"/>
                             <constraint firstAttribute="trailing" secondItem="6fY-Y1-8gS" secondAttribute="trailing" constant="15" id="vzi-zt-zB0"/>
                             <constraint firstItem="nHq-aR-bgb" firstAttribute="leading" secondItem="2PF-rT-dkq" secondAttribute="leading" constant="15" id="yc6-HP-Bw9"/>
-                            <constraint firstItem="6fY-Y1-8gS" firstAttribute="top" secondItem="JUk-1u-uht" secondAttribute="bottom" constant="15" id="yoH-Wz-NT1"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -156,7 +157,7 @@
                 <outlet property="cellSuperView" destination="2PF-rT-dkq" id="eLa-EH-tLj"/>
                 <outlet property="clubName" destination="bkN-E1-uTX" id="23O-Ks-tKI"/>
                 <outlet property="clubProfileImageView" destination="ZVJ-9m-XEB" id="2HH-G4-E85"/>
-                <outlet property="content" destination="JUk-1u-uht" id="tg5-S7-zZq"/>
+                <outlet property="content" destination="4re-dd-W0h" id="Psy-e7-zCG"/>
                 <outlet property="flagBtn" destination="847-BF-Gcv" id="mVk-yR-G9c"/>
                 <outlet property="flagNum" destination="9QV-K5-M9Q" id="NB1-1e-Y7F"/>
                 <outlet property="goClubDetailArea" destination="ntL-YY-X7k" id="nkz-DE-5lY"/>
@@ -169,6 +170,9 @@
         <image name="flag" width="30" height="28"/>
         <image name="flagdefault" width="32" height="31.5"/>
         <image name="list" width="25" height="5"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
