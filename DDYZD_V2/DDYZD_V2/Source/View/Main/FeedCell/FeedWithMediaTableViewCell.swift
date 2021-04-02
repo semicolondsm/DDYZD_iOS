@@ -17,7 +17,7 @@ class FeedWithMediaTableViewCell: UITableViewCell {
     @IBOutlet weak var clubName: UILabel!
     @IBOutlet weak var uploadAt: UILabel!
     @IBOutlet weak var goClubDetailArea: UIButton!
-    @IBOutlet weak var content: UILabel!
+    @IBOutlet weak var content: UITextView!
     @IBOutlet weak var imageSlider: ImageSlideshow!
     @IBOutlet weak var flagNum: UILabel!
     @IBOutlet weak var MenuBtn: UIButton!
