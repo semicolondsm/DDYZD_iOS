@@ -9,14 +9,14 @@ import UIKit
 
 import RxSwift
 
-class FeedTableViewCell: UITableViewCell {
+class FeedTableViewCell: UITableViewCell, UITextViewDelegate {
     
     @IBOutlet weak var cellSuperView: UIView!
     @IBOutlet weak var clubProfileImageView: UIImageView!
     @IBOutlet weak var clubName: UILabel!
     @IBOutlet weak var uploadAt: UILabel!
     @IBOutlet weak var goClubDetailArea: UIButton!
-    @IBOutlet weak var content: UILabel!
+    @IBOutlet weak var content: UITextView!
     @IBOutlet weak var flagNum: UILabel!
     @IBOutlet weak var MenuBtn: UIButton!
     @IBOutlet weak var flagBtn: UIButton!
@@ -27,6 +27,12 @@ class FeedTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         setUI()
+        setTextView()
+    }
+    
+    func setTextView(){
+        content.isEditable = false
+        content.dataDetectorTypes = .link
     }
     
     func setUI() {
