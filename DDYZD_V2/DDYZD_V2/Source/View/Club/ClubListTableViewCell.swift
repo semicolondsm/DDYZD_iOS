@@ -12,6 +12,7 @@ class ClubListTableViewCell: UITableViewCell {
     @IBOutlet weak var clubProfileImageView: UIImageView!
     @IBOutlet weak var clubNameLabel: UILabel!
     @IBOutlet weak var clubDescription: UILabel!
+    @IBOutlet weak var recruitmentIndicator: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,5 +22,6 @@ class ClubListTableViewCell: UITableViewCell {
 
     func setUI() {
         clubProfileImageView.layer.cornerRadius = 30
+        recruitmentIndicator.isHidden = true
     }
 }

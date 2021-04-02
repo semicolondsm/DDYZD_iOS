@@ -45,6 +45,7 @@ class ClubListTableViewController: UIViewController {
             cell.clubNameLabel.text = item.clubname
             cell.clubDescription.text = item.clubdescription
             cell.clubProfileImageView.kf.setImage(with: kfImageURL(url: item.clubimage, type: .half))
+            cell.recruitmentIndicator.isHidden = !item.clubrecruitment
         }
         .disposed(by: disposeBag)
         

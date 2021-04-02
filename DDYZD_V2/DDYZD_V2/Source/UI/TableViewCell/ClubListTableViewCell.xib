@@ -24,23 +24,30 @@
                             <constraint firstAttribute="width" constant="60" id="aEa-Pv-vjX"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="모집중" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBr-SU-ivb">
+                        <rect key="frame" x="349" y="29.5" width="45" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                        <color key="textColor" red="0.4823529412" green="0.1019607843" blue="0.81176470590000005" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="leZ-5e-qjT">
-                        <rect key="frame" x="88" y="23" width="306" height="34"/>
+                        <rect key="frame" x="88" y="23" width="253" height="34"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keE-1T-oY5">
-                                <rect key="frame" x="8" y="0.0" width="0.0" height="0.0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="qwer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keE-1T-oY5">
+                                <rect key="frame" x="8" y="0.0" width="34" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQO-e1-zUQ">
-                                <rect key="frame" x="8" y="34" width="0.0" height="0.0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="qwerqwer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQO-e1-zUQ">
+                                <rect key="frame" x="8" y="19" width="245" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.34898746009999998" green="0.34904092549999999" blue="0.34897059200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="aQO-e1-zUQ" secondAttribute="trailing" id="2XU-MF-hfG"/>
                             <constraint firstItem="keE-1T-oY5" firstAttribute="top" secondItem="leZ-5e-qjT" secondAttribute="top" id="7OA-c9-BEE"/>
                             <constraint firstAttribute="bottom" secondItem="aQO-e1-zUQ" secondAttribute="bottom" id="c29-89-QSd"/>
                             <constraint firstAttribute="height" constant="34" id="cog-h9-eFD"/>
@@ -52,15 +59,19 @@
                 <constraints>
                     <constraint firstItem="zPb-lj-lex" firstAttribute="centerY" secondItem="ubD-IG-Tbo" secondAttribute="centerY" id="7Yh-az-KOm"/>
                     <constraint firstItem="leZ-5e-qjT" firstAttribute="leading" secondItem="zPb-lj-lex" secondAttribute="trailing" constant="8" symbolic="YES" id="8ma-ek-l3a"/>
-                    <constraint firstAttribute="trailing" secondItem="leZ-5e-qjT" secondAttribute="trailing" constant="20" symbolic="YES" id="NLS-22-cMb"/>
+                    <constraint firstAttribute="trailing" secondItem="oBr-SU-ivb" secondAttribute="trailing" constant="20" symbolic="YES" id="Brh-AG-pge"/>
+                    <constraint firstAttribute="trailing" secondItem="leZ-5e-qjT" secondAttribute="trailing" constant="73" id="KWG-ra-VsG"/>
+                    <constraint firstItem="leZ-5e-qjT" firstAttribute="leading" secondItem="ubD-IG-Tbo" secondAttribute="leading" constant="88" id="Q1O-pg-j0z"/>
                     <constraint firstItem="leZ-5e-qjT" firstAttribute="centerY" secondItem="ubD-IG-Tbo" secondAttribute="centerY" id="f2g-hh-oKT"/>
                     <constraint firstItem="zPb-lj-lex" firstAttribute="leading" secondItem="ubD-IG-Tbo" secondAttribute="leading" constant="20" symbolic="YES" id="pxV-Az-7bl"/>
+                    <constraint firstItem="oBr-SU-ivb" firstAttribute="centerY" secondItem="ubD-IG-Tbo" secondAttribute="centerY" id="tqo-lS-CdD"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="clubDescription" destination="aQO-e1-zUQ" id="iyw-t6-ijj"/>
                 <outlet property="clubNameLabel" destination="keE-1T-oY5" id="JhF-sy-Omr"/>
                 <outlet property="clubProfileImageView" destination="zPb-lj-lex" id="xYy-2S-Bax"/>
+                <outlet property="recruitmentIndicator" destination="oBr-SU-ivb" id="FOI-xc-mvF"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="202.90178571428569"/>
         </tableViewCell>

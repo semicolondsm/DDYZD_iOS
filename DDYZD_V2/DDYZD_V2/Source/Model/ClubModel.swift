@@ -96,6 +96,7 @@ struct ClubList: Codable {
     let clubdescription: String?
     let clubimage: String
     let clubtag: [String]
+    let clubrecruitment: Bool
 }
 
 struct ClubInfo: Codable {
