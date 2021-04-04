@@ -40,8 +40,6 @@ class ChatViewModel: ViewModelProtocol {
         let majorBeingRecruited = PublishRelay<[String]>()
         let breakdown = PublishRelay<[Chat]>()
         
-        SocketIOManager.shared.establishConnection()
-        
         input.enterRoom.asObservable().subscribe(onNext: {
             
             chatAPI.getRoomToken(roomID: self.roomID!).subscribe(onNext: { data, response in
@@ -49,6 +47,18 @@ class ChatViewModel: ViewModelProtocol {
                 case .success:
                     Token.room_token = data?.room_token
                     SocketIOManager.shared.emit(.joinRoom)
+                    SocketIOManager.shared.on(.receiveChat, callback: { data, _ in
+                        if let data = data as? [[String:Any]] {
+                            for dataIndex in data {
+                                let chat = Chat(title: dataIndex["title"] as? String ?? nil,
+                                                msg: dataIndex["msg"] as! String,
+                                                user_type: ChatType(rawValue: dataIndex["user_type"] as! String)!,
+                                                created_at: dataIndex["date"] as? String ?? "",
+                                                result: dataIndex["result"] as? Bool ?? false)
+                                breakdown.accept([chat])
+                            }
+                        }
+                    })
                 default:
                     break
                 }
@@ -83,19 +93,7 @@ class ChatViewModel: ViewModelProtocol {
                 }
             })
             .disposed(by: self.disposeBag)
-            
-            SocketIOManager.shared.on(.receiveChat, callback: { data, _ in
-                if let data = data as? [[String:Any]] {
-                    for dataIndex in data {
-                        let chat = Chat(title: dataIndex["title"] as? String ?? nil,
-                                        msg: dataIndex["msg"] as! String,
-                                        user_type: ChatType(rawValue: dataIndex["user_type"] as! String)!,
-                                        created_at: dataIndex["date"] as? String ?? "",
-                                        result: dataIndex["result"] as? Bool ?? false)
-                        breakdown.accept([chat])
-                    }
-                }
-            })
+        
         })
         .disposed(by: disposeBag)
         

@@ -56,6 +56,8 @@ class ChatViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         exitChatRoom()
+        UIApplication.topViewController()?.navigationController?.navigationBar.backIndicatorImage = UIImage(systemName: "chevron.backward")
+        UIApplication.topViewController()?.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(systemName: "chevron.backward")
     }
     
     func bind() {

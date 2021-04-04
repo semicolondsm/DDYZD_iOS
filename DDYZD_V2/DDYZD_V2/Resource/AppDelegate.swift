@@ -65,8 +65,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
       completionHandler([.alert, .badge, .sound])
     }
     
+    // FCM 클릭시 처리
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-      completionHandler()
         if let clubID = response.notification.request.content.userInfo["club_id"] as? String{
             let mainStoryboard = UIStoryboard(name: "Club", bundle: nil)
             let clubDetailViewController = mainStoryboard.instantiateViewController(withIdentifier: "ClubDetailViewController") as! ClubDetailViewController
@@ -74,6 +74,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             UIApplication.topViewController()?.navigationController?.navigationBar.topItem?.title = ""
             UIApplication.topViewController()?.navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.4811326265, green: 0.1003668979, blue: 0.812384963, alpha: 1)
             UIApplication.topViewController()?.navigationController?.pushViewController(clubDetailViewController, animated: true)
+        } else if let roomID = response.notification.request.content.userInfo["room_id"] as? String {
+            if let userType = response.notification.request.content.userInfo["user_type"] as? String {
+                SocketIOManager.shared.establishConnection()
+                let mainStoryboard = UIStoryboard(name: "Chat", bundle: nil)
+                let chatViewController = mainStoryboard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+                chatViewController.roomID = Int(roomID)!
+                chatViewController.userType = UserType(rawValue: userType)
+                UIApplication.topViewController()?.navigationController?.navigationBar.backIndicatorImage = UIImage(systemName: "xmark")
+                UIApplication.topViewController()?.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(systemName: "xmark")
+                UIApplication.topViewController()?.navigationController?.navigationBar.topItem?.title = ""
+                UIApplication.topViewController()?.navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.4811326265, green: 0.1003668979, blue: 0.812384963, alpha: 1)
+                AuthAPI().refreshToken().subscribe(onNext: { _ in
+                    usleep(100000)
+                    UIApplication.topViewController()?.navigationController?.pushViewController(chatViewController, animated: true)
+                }).disposed(by: disposeBag)
+            }
         }
+        
+        completionHandler()
     }
 }

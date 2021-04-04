@@ -13,7 +13,7 @@ import SocketIO
 class SocketIOManager {
     static let shared = SocketIOManager()
     let manager = SocketManager(socketURL: URL(string: "https://api.semicolon.live")!,
-                                config: [.log(true), .compress, .forceWebsockets(true), .reconnects(false), .extraHeaders(["Authorization": "Bearer \(Token.access_token)"]) ])
+                                config: [.log(true), .compress, .forceWebsockets(true), .reconnects(true), .extraHeaders(["Authorization": "Bearer \(Token.access_token)"]) ])
     var socket: SocketIOClient!
     
     init() {
