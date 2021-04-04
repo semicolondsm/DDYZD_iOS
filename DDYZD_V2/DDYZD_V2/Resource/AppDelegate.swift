@@ -76,7 +76,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             UIApplication.topViewController()?.navigationController?.pushViewController(clubDetailViewController, animated: true)
         } else if let roomID = response.notification.request.content.userInfo["room_id"] as? String {
             if let userType = response.notification.request.content.userInfo["user_type"] as? String {
-                SocketIOManager.shared.establishConnection()
                 let mainStoryboard = UIStoryboard(name: "Chat", bundle: nil)
                 let chatViewController = mainStoryboard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
                 chatViewController.roomID = Int(roomID)!
@@ -86,8 +85,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 UIApplication.topViewController()?.navigationController?.navigationBar.topItem?.title = ""
                 UIApplication.topViewController()?.navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.4811326265, green: 0.1003668979, blue: 0.812384963, alpha: 1)
                 AuthAPI().refreshToken().subscribe(onNext: { _ in
-                    usleep(100000)
-                    UIApplication.topViewController()?.navigationController?.pushViewController(chatViewController, animated: true)
+                    SocketIOManager.shared.establishConnection()
+                    SocketIOManager.shared.on(.connect) { _,_ in
+                        UIApplication.topViewController()?.navigationController?.pushViewController(chatViewController, animated: true)
+                    }
                 }).disposed(by: disposeBag)
             }
         }

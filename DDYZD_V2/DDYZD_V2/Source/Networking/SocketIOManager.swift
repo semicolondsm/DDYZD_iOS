@@ -12,9 +12,9 @@ import SocketIO
 
 class SocketIOManager {
     static let shared = SocketIOManager()
-    let manager = SocketManager(socketURL: URL(string: "https://api.semicolon.live")!,
+    private let manager = SocketManager(socketURL: URL(string: "https://api.semicolon.live")!,
                                 config: [.log(true), .compress, .forceWebsockets(true), .reconnects(true), .extraHeaders(["Authorization": "Bearer \(Token.access_token)"]) ])
-    var socket: SocketIOClient!
+    private var socket: SocketIOClient!
     
     init() {
         socket = manager.socket(forNamespace: "/chat")
@@ -33,6 +33,10 @@ class SocketIOManager {
     
     func on(_ api: DDYZDSocket, callback: @escaping (([Any], SocketAckEmitter)->Void)) {
         socket.on(api.event(), callback: callback)
+    }
+    
+    func on(_ socketEvent: SocketClientEvent, callback: @escaping (([Any], SocketAckEmitter)->Void)) {
+        socket.on(clientEvent: socketEvent, callback: callback)
     }
     
     func emit(_ api: DDYZDSocket) {
