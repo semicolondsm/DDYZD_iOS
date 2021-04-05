@@ -138,6 +138,7 @@ class ClubDetailViewController: UIViewController {
                 let cell = self.feedTable.dequeueReusableCell(withIdentifier: "Feed") as! FeedTableViewCell
                 
                 cell.bind(item: item)
+                cell.content.delegate = self
                 cell.MenuBtn.rx.tap.subscribe(onNext: {
                     self.menuActionSheet(item: item, isHead: self.isHead, pinCloser: {
                         self.pinFeed.onNext(row)
@@ -155,6 +156,7 @@ class ClubDetailViewController: UIViewController {
                 let cell = self.feedTable.dequeueReusableCell(withIdentifier: "FeedWithMedia") as! FeedWithMediaTableViewCell
                 
                 cell.bind(item: item)
+                cell.content.delegate = self
                 cell.MenuBtn.rx.tap.subscribe(onNext: {
                     self.menuActionSheet(item: item, isHead: self.isHead, pinCloser: {
                         self.pinFeed.onNext(row)
@@ -340,4 +342,14 @@ extension ClubDetailViewController: UITableViewDelegate {
         getClubDetailInfo()
         reloadFeeds()
     }
+}
+
+// MARK:- TextView
+extension ClubDetailViewController: UITextViewDelegate {
+    
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        self.openInSafari(url: URL)
+        return false
+    }
+    
 }
