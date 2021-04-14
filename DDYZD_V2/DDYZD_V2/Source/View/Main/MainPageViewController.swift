@@ -170,7 +170,7 @@ extension MainPageViewController {
 extension MainPageViewController: UITableViewDelegate {
     
     func setHeaderWKView() {
-        let URL = "https://semicolondsm.xyz/mobile/banner"
+        let URL = "https://ddyzd.dsmkr.com/mobile/banner"
         let request: URLRequest = URLRequest.init(url: NSURL.init(string: URL)! as URL, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 10)
         headerWKView.load(request)
         headerWKView.scrollView.isScrollEnabled = false
