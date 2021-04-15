@@ -44,7 +44,8 @@ class ChatListViewController: UIViewController {
         let input = ChatListViewModel.input(
             loadSections: loadSections.asDriver(onErrorJustReturn: ()),
             loadList: loadList.asDriver(onErrorJustReturn: 0),
-            selectIndexPath: ChatListTable.rx.itemSelected.asSignal()
+            selectIndexPath: ChatListTable.rx.itemSelected.asSignal(),
+            deleteChat: ChatListTable.rx.itemDeleted.asSignal()
         )
         let output = viewModel.transform(input)
         
@@ -79,11 +80,6 @@ class ChatListViewController: UIViewController {
         
         output.roomID.asObservable().subscribe(onNext: { roomID in
             self.goChatPage(roomID: roomID)
-        })
-        .disposed(by: disposeBag)
-        
-        ChatListTable.rx.itemDeleted.subscribe(onNext: {
-            print($0)
         })
         .disposed(by: disposeBag)
         
