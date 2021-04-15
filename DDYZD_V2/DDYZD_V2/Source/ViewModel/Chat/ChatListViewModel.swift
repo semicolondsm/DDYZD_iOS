@@ -19,7 +19,7 @@ class ChatListViewModel: ViewModelProtocol {
         let loadSections: Driver<()>
         let loadList: Driver<Int>
         let selectIndexPath: Signal<IndexPath>
-        let deleteChat: Signal<IndexPath>
+        let deleteChat: Driver<Int>
     }
     
     struct output {
@@ -73,19 +73,13 @@ class ChatListViewModel: ViewModelProtocol {
             .disposed(by: disposeBag)
         
         input.deleteChat.asObservable()
-            .withLatestFrom(chatList){ indexPath, data in
-                Int(data[indexPath.row].roomid)!
-            }
-            .subscribe(onNext: {
-                api.deleteRoom(roomID: $0).subscribe(onNext: { response in
-                    switch response {
-                    case .success:
-                        loadList()
-                    default:
-                        break
-                    }
-                })
-                .disposed(by: self.disposeBag)
+            .withLatestFrom(chatList){($0, $1)}
+            .subscribe(onNext: { (indexPathRow, data) in
+                var processedList = data
+                processedList.remove(at: indexPathRow)
+                chatList.accept(processedList)
+                api.deleteRoom(roomID: Int(data[indexPathRow].roomid) ?? 0).subscribe({_ in
+                }).disposed(by: self.disposeBag)
             })
             .disposed(by: disposeBag)
         
