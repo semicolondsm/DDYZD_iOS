@@ -79,4 +79,16 @@ class ChatAPI {
                 }
             }
     }
+    
+    func deleteRoom(roomID: Int) -> Observable<StatusCodes> {
+        httpClient.delete(.deleteChatRoom(roomID), param: nil)
+            .map{ response, data -> StatusCodes in
+                switch response.statusCode {
+                case 200:
+                    return .success
+                default:
+                    return .fault
+                }
+            }
+    }
 }

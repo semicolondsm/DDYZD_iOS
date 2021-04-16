@@ -19,6 +19,7 @@ class ChatListViewModel: ViewModelProtocol {
         let loadSections: Driver<()>
         let loadList: Driver<Int>
         let selectIndexPath: Signal<IndexPath>
+        let deleteChat: Driver<Int>
     }
     
     struct output {
@@ -55,28 +56,34 @@ class ChatListViewModel: ViewModelProtocol {
         
         input.loadList.asObservable().subscribe(onNext: { sectionIndex in
             self.selectedChatSection = sectionIndex
-            api.getChatList().subscribe(onNext: { data, response in
-                switch response {
-                case .success:
-                    var roomsInSection = [Room]()
-                    for room in data!.rooms {
-                        if room.index == sectionIndex {
-                            roomsInSection.append(room)
-                        }
-                    }
-                    chatList.accept(roomsInSection)
-                    result.accept(true)
-                case .unauthorized:
-                    result.accept(false)
-                default:
-                    result.accept(false)
-                }
-            })
-            .disposed(by: self.disposeBag)
+            loadList()
         })
         .disposed(by: disposeBag)
         
         SocketIOManager.shared.on(.listChangeAlarm) { _, _ in
+            loadList()
+        }
+        
+        
+        input.selectIndexPath.asObservable()
+            .withLatestFrom(chatList){ indexPath, data in
+                Int(data[indexPath.row].roomid)!
+            }
+            .subscribe{ roomID.accept($0) }
+            .disposed(by: disposeBag)
+        
+        input.deleteChat.asObservable()
+            .withLatestFrom(chatList){($0, $1)}
+            .subscribe(onNext: { (indexPathRow, data) in
+                var processedList = data
+                processedList.remove(at: indexPathRow)
+                chatList.accept(processedList)
+                api.deleteRoom(roomID: Int(data[indexPathRow].roomid) ?? 0).subscribe({_ in
+                }).disposed(by: self.disposeBag)
+            })
+            .disposed(by: disposeBag)
+        
+        func loadList() {
             api.getChatList().subscribe(onNext: { data, response in
                 switch response {
                 case .success:
@@ -96,14 +103,6 @@ class ChatListViewModel: ViewModelProtocol {
             })
             .disposed(by: self.disposeBag)
         }
-        
-        
-        input.selectIndexPath.asObservable()
-            .withLatestFrom(chatList){ indexPath, data in
-                Int(data[indexPath.row].roomid)!
-            }
-            .subscribe{ roomID.accept($0) }
-            .disposed(by: disposeBag)
         
         return output(result: result,
                       sectionList: sectionList,

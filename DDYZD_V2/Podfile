@@ -15,6 +15,7 @@ target 'DDYZD_V2' do
   pod 'Kingfisher', '~> 6.0'
   pod 'RxAlamofire', '~> 6.1'
   pod 'RxCocoa', '~> 6.0'
+  pod 'RxDataSources', '~> 5.0'
   pod 'RxSwift', '~> 6.0'
   pod 'Socket.IO-Client-Swift', '~> 16.0.0'
   pod 'SwiftOverlays', '~> 5.0.1'
