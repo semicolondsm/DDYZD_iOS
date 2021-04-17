@@ -84,12 +84,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 UIApplication.topViewController()?.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(systemName: "xmark")
                 UIApplication.topViewController()?.navigationController?.navigationBar.topItem?.title = ""
                 UIApplication.topViewController()?.navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.4811326265, green: 0.1003668979, blue: 0.812384963, alpha: 1)
-                AuthAPI().refreshToken().subscribe(onNext: { _ in
-                    SocketIOManager.shared.establishConnection()
-                    SocketIOManager.shared.on(.connect) { _,_ in
-                        UIApplication.topViewController()?.navigationController?.pushViewController(chatViewController, animated: true)
-                    }
-                }).disposed(by: disposeBag)
+                if SocketIOManager.shared.socketStatus == .connected {
+                    UIApplication.topViewController()?.navigationController?.pushViewController(chatViewController, animated: true)
+                } else {
+                    AuthAPI().refreshToken().subscribe(onNext: { _ in
+                        SocketIOManager.shared.establishConnection()
+                        SocketIOManager.shared.on(.connect) { _,_ in
+                            UIApplication.topViewController()?.navigationController?.pushViewController(chatViewController, animated: true)
+                        }
+                    }).disposed(by: disposeBag)
+                }
             }
         }
         

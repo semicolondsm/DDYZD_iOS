@@ -44,6 +44,7 @@ enum DDYZDAPI {
     //Chat
     case chatList                           // 채팅 리스트
     case createChatRoom(_ clubID: Int)      // 채팅 룸 생성
+    case deleteChatRoom(_ roomID: Int)      // 채팅 룸 삭제
     case getRoomToken(_ roomID: Int)        // 채팅방 토큰 발급
     case chatRoomInfo(_ roomID: Int)        // 채팅 룸 정보
     case chatBreakdown(_ roomID: Int)       // 채팅 내역
@@ -101,6 +102,8 @@ enum DDYZDAPI {
             return "/chat/list"
         case .createChatRoom(let clubID):
             return "/chat/\(clubID)/room"
+        case .deleteChatRoom(let roomID):
+            return "/room/\(roomID)"
         case .getRoomToken(let roomID):
             return "/room/\(roomID)/token"
         case .chatRoomInfo(let roomID):

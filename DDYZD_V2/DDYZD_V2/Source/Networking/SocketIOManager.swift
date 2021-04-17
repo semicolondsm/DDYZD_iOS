@@ -15,6 +15,11 @@ class SocketIOManager {
     private let manager = SocketManager(socketURL: URL(string: "https://api.semicolon.live")!,
                                 config: [.log(true), .compress, .forceWebsockets(true), .reconnects(true), .extraHeaders(["Authorization": "Bearer \(Token.access_token)"]) ])
     private var socket: SocketIOClient!
+    public var socketStatus: SocketIOStatus {
+        get {
+            return socket.status
+        }
+    }
     
     init() {
         socket = manager.socket(forNamespace: "/chat")

@@ -19,6 +19,7 @@ class ChatListViewController: UIViewController {
         
     private let loadSections = PublishSubject<Void>()
     private let loadList = PublishSubject<Int>()
+    private let deleteChat = PublishSubject<Int>()
     
     private let viewModel = ChatListViewModel()
     private let disposeBag = DisposeBag()
@@ -29,7 +30,7 @@ class ChatListViewController: UIViewController {
         super.viewDidLoad()
         
         self.showWaitOverlay()
-        registerCell()
+        setTableView()
         setUI()
         bind()
         getChatSections()
@@ -44,7 +45,8 @@ class ChatListViewController: UIViewController {
         let input = ChatListViewModel.input(
             loadSections: loadSections.asDriver(onErrorJustReturn: ()),
             loadList: loadList.asDriver(onErrorJustReturn: 0),
-            selectIndexPath: ChatListTable.rx.itemSelected.asSignal()
+            selectIndexPath: ChatListTable.rx.itemSelected.asSignal(),
+            deleteChat: deleteChat.asDriver(onErrorJustReturn: 0)
         )
         let output = viewModel.transform(input)
         
@@ -82,6 +84,20 @@ class ChatListViewController: UIViewController {
         })
         .disposed(by: disposeBag)
         
+        ChatListTable.rx.itemDeleted.subscribe(onNext: { indexPath in
+            let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            actionSheet.message = "이 대화를 영구적으로 삭제하시겠어요?"
+            let deleteChatAction = UIAlertAction(title: "삭제", style: .destructive) { _ in
+                self.deleteChat.onNext(indexPath.row)
+            }
+            let cancle = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+            actionSheet.addAction(deleteChatAction)
+            actionSheet.addAction(cancle)
+            actionSheet.view.tintColor = .black
+            self.present(actionSheet, animated: true, completion: nil)
+        })
+        .disposed(by: disposeBag)
+        
     }
     
     func getChatSections() {
@@ -90,12 +106,6 @@ class ChatListViewController: UIViewController {
     
     func getChatList(section: Int) {
         loadList.onNext(section)
-    }
-    
-    func registerCell() {
-        let nib = UINib(nibName: "ChatListTableViewCell", bundle: nil)
-        ChatListTable.register(nib, forCellReuseIdentifier: "ChatListTableViewCell")
-        ChatListTable.rowHeight = 80
     }
     
     func goChatPage(roomID: Int){
@@ -142,4 +152,24 @@ extension ChatListViewController {
     func setUI(){
         ChatListTable.separatorStyle = .none
     }
+}
+
+//MARK:- table view
+extension ChatListViewController: UITableViewDelegate {
+    
+    func setTableView() {
+        ChatListTable.delegate = self
+        registerCell()
+    }
+    
+    func registerCell() {
+        let nib = UINib(nibName: "ChatListTableViewCell", bundle: nil)
+        ChatListTable.register(nib, forCellReuseIdentifier: "ChatListTableViewCell")
+        ChatListTable.rowHeight = 80
+    }
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "삭제"
+    }
+    
 }
