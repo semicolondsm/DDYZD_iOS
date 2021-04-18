@@ -23,8 +23,6 @@ jobs:
       - name: submodules-init
         uses: snickerbockers/submodules-init@v4
       - name: Bundle Install
-        run: bundle install
-      - name: Install Fastlane
         run: cd DDYZD_V2 && bundle install && cd ..
       - name: Install packages
         run: yarn install
