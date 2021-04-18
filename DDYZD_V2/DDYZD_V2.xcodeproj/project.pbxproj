@@ -805,7 +805,7 @@
 				CODE_SIGN_ENTITLEMENTS = "DDYZD_V2/Surpporting Files/DDYZD_V2.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = P5QSBGBP3C;
 				INFOPLIST_FILE = "DDYZD_V2/Surpporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -830,7 +830,7 @@
 				CODE_SIGN_ENTITLEMENTS = "DDYZD_V2/Surpporting Files/DDYZD_V2.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = P5QSBGBP3C;
 				INFOPLIST_FILE = "DDYZD_V2/Surpporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
