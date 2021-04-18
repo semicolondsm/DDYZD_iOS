@@ -16,9 +16,9 @@ or alternatively using `brew install fastlane`
 
 # Available Actions
 ## iOS
-### ios release
+### ios github
 ```
-fastlane ios release
+fastlane ios github
 ```
 Push a new release build to the App Store
 
