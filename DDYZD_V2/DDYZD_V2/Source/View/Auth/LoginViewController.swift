@@ -63,7 +63,7 @@ class LoginViewController: UIViewController {
     }
     
     func setIntroduceWebView(){
-        let url = "https://semicolondsm.xyz/mobile/loginslide"
+        let url = "https://ddyzd.dsmkr.com/mobile/loginslide"
         let request = URLRequest(url: URL(string: url)!)
         
         introduceWebView.load(request)
