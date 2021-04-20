@@ -20,15 +20,9 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: "10.x"
-      - uses: actions/setup-ruby@v1
-        with:
-          ruby-version: "2.x"
-      - name: Install Fastlane
-        run: gem install bundler:1.17.2
-      - name: Install pods
-        run: cd DDYZD_V2 && pod install && cd ..
+      - name: submodules-init
+        uses: snickerbockers/submodules-init@v4
+      - name: Bundle Install
+        run: bundle install
       - name: Execute Fastlane command
-        run: cd DDYZD_V2 && fastlane github
+        run: cd DDYZD_V2 && bundle exec fastlane github
