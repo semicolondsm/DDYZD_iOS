@@ -20,7 +20,7 @@ jobs:
     runs-on: macos-latest
     env:
       GIT_URL: ${{ secrets.MATCH_CERT_GIT_URL }}
-      KEYCHAIN_PASSWORD: ${{ secrets.MATCH_KEYCHAIN_PASSWORD }}
+      MATCH_PASSWORD: ${{ secrets.MATCH_KEYCHAIN_PASSWORD }}
     steps:
       - uses: actions/checkout@v2
       - name: submodules-init
