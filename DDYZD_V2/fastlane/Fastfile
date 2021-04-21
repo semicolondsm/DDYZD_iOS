@@ -27,25 +27,7 @@ platform :ios do
       unlock: true,
       lock_when_sleeps: false
     )
-    import_certificate(
-      certificate_path: 'DDYZD_V2/Surpporting Files/distribution.p12',
-      certificate_password: 'tpalzhffhs2020',
-      keychain_name: 'ios_app_keychain',
-      keychain_password: 'tpalzhffhs2020'
-    )
-    install_provisioning_profile(path: 'DDYZD_V2/Surpporting Files/distribution.mobileprovision')
-    update_project_provisioning(
-      xcodeproj: 'DDYZD_V2.xcodeproj',
-      target_filter: 'github',
-      profile: 'DDYZD_V2/Surpporting Files/distribution.mobileprovision',
-      build_configuration: 'Release'
-    )
-    api_key = app_store_connect_api_key(
-      key_id: 'UYFRRC56KZ',
-      issuer_id: '9a0a3c53-c2f6-46ff-93da-4039e203f508',
-      key_filepath: 'DDYZD_V2/Surpporting Files/distribution.p8'
-    )
-
+    match(type: "appstore")
     build_app(workspace: 'DDYZD_V2.xcworkspace', scheme: 'DDYZD_V2')
     upload_to_app_store(
       force: true,

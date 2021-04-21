@@ -18,6 +18,8 @@ jobs:
    release-ios:
     name: Build and release iOS app
     runs-on: macos-latest
+    env:
+      GIT_URL: ${{ secrets.GIT_URL }}
     steps:
       - uses: actions/checkout@v2
       - name: submodules-init
