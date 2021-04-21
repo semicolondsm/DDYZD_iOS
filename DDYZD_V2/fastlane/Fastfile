@@ -49,8 +49,7 @@ platform :ios do
         add_id_info_tracks_action: false,
         add_id_info_limits_tracking: true,
         export_compliance_encryption_updated: false
-      },
-      api_key: api_key
+      }
     )
   end
 end
