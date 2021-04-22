@@ -36,6 +36,12 @@ platform :ios do
       keychain_password: ENV['MATCH_PASSWORD']
     )
 
+    api_key = app_store_connect_api_key(
+      key_id: ENV['KEY_ID'],
+      issuer_id: ENV['ISSUER_ID'],
+      key_filepath: 'DDYZD_V2/Supporting Files/distribution.p8'
+    )
+
     match(type: "appstore", readonly: true, keychain_name: 'ios_app_store', keychain_password: ENV['MATCH_PASSWORD'])
     
     build_app(workspace: 'DDYZD_V2.xcworkspace', scheme: 'DDYZD_V2')
@@ -60,7 +66,8 @@ platform :ios do
         add_id_info_tracks_action: false,
         add_id_info_limits_tracking: true,
         export_compliance_encryption_updated: false
-      }
+      },
+      api_key: api_key
     )
 
   end
