@@ -25,32 +25,16 @@ platform :ios do
       timeout: 1800,
       default_keychain: true,
       unlock: true,
-      lock_when_sleeps: false
+      add_to_search_list: true,
     )
     match(type: "appstore", readonly: true, keychain_name: 'ios_app_store', keychain_password: ENV['MATCH_PASSWORD'])
     build_app(workspace: 'DDYZD_V2.xcworkspace', scheme: 'DDYZD_V2')
     upload_to_app_store(
       force: true,
-      reject_if_possible: true,
       skip_metadata: true,
       skip_screenshots: true,
-      languages: ['ko'],
-      release_notes: {
-        'default' => 'bug fixed',
-        'ko' => 'bug fixed'
-      },
-      submit_for_review: true,
-      precheck_include_in_app_purchases: false,
-      automatic_release: true,
-      submission_information: {
-        add_id_info_uses_idfa: true,
-        add_id_info_serves_ads: true,
-        add_id_info_tracks_install: true,
-        add_id_info_tracks_action: false,
-        add_id_info_limits_tracking: true,
-        export_compliance_encryption_updated: false
-      },
-      api_key: api_key
+      skip_binary_upload: true,
+      app_identifier: "com.semicolon.DDYZD-V2"
     )
   end
 end
