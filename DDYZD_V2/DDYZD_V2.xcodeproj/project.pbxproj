@@ -312,7 +312,7 @@
 		925C9EA925B08BE7005A3694 /* DDYZD_V2 */ = {
 			isa = PBXGroup;
 			children = (
-				926E86D725B416E400E7F213 /* Surpporting Files */,
+				926E86D725B416E400E7F213 /* Supporting Files */,
 				926E86D825B4184100E7F213 /* Source */,
 				926E86D925B4184E00E7F213 /* Resource */,
 			);
@@ -364,14 +364,14 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		926E86D725B416E400E7F213 /* Surpporting Files */ = {
+		926E86D725B416E400E7F213 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				925C9EB825B08BE9005A3694 /* Info.plist */,
 				92FBA69F25B537320014FB8B /* GoogleService-Info.plist */,
 				9263696425B6EE0E00D2D107 /* DDYZD_V2.entitlements */,
 			);
-			path = "Surpporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		926E86D825B4184100E7F213 /* Source */ = {
