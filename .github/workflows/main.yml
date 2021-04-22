@@ -21,7 +21,7 @@ jobs:
     env:
       GIT_URL: ${{ secrets.MATCH_CERT_GIT_URL }}
       MATCH_PASSWORD: ${{ secrets.MATCH_KEYCHAIN_PASSWORD }}
-      FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD}}
+      FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
     steps:
       - uses: actions/checkout@v2
       - name: submodules-init

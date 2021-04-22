@@ -19,6 +19,7 @@ platform :ios do
   desc "Push a new release build to the App Store"
 
   lane :github do |_options|
+
     create_keychain(
       name: 'ios_app_keychain',
       password: ENV['MATCH_PASSWORD'],
@@ -27,8 +28,18 @@ platform :ios do
       unlock: true,
       lock_when_sleeps: false
     )
+
+    import_certificate(
+      certificate_path: 'distribution.p12',
+      certificate_password: ENV['MATCH_PASSWORD'],
+      keychain_name: 'ios_app_keychain',
+      keychain_password: ENV['MATCH_PASSWORD']
+    )
+
     match(type: "appstore", readonly: true, keychain_name: 'ios_app_store', keychain_password: ENV['MATCH_PASSWORD'])
+    
     build_app(workspace: 'DDYZD_V2.xcworkspace', scheme: 'DDYZD_V2')
+
     upload_to_app_store(
       force: true,
       reject_if_possible: true,
@@ -51,5 +62,6 @@ platform :ios do
         export_compliance_encryption_updated: false
       }
     )
+
   end
 end
