@@ -28,5 +28,7 @@ jobs:
         uses: snickerbockers/submodules-init@v4
       - name: Bundle Install
         run: gem install bundler:1.17.2 && cd DDYZD_V2 && security find-identity -v -p codesigning ios_app_store && bundle install && cd ..
-      - name: Execute Fastlane command
+      - name: Set Appstore Connect User
+        run: bundle exec fastlane fastlane-credentials add --username "kimxwan0319@naver.com" --password ${{ secrets.APPLE_ACCOUNT_PASSWORD }}
+      - name: Deploy App
         run: cd DDYZD_V2 && bundle exec fastlane github
