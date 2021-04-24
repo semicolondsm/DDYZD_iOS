@@ -22,7 +22,7 @@ platform :ios do
     create_keychain(
       name: 'ios_app_keychain',
       password: ENV['MATCH_PASSWORD'],
-      timeout: 1800,
+      timeout: 3600,
       default_keychain: true,
       unlock: true,
       add_to_search_list: true,
