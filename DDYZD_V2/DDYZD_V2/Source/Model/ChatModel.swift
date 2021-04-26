@@ -46,7 +46,7 @@ struct Chat: Codable {
 }
 
 enum ChatType: String, Codable{
-    case user = "U"
+    case User = "U"
     case Club = "C"
     case Apply = "H1"
     case Schedule = "H2"

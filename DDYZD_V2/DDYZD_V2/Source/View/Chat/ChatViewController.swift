@@ -98,7 +98,7 @@ class ChatViewController: UIViewController {
             .scan([], accumulator: { $1 + $0 })
             .bind(to: chatTable.rx.items) { tableView, row, item -> UITableViewCell in
             switch item.user_type {
-            case .Club, .user:
+            case .Club, .User:
                 if item.user_type.rawValue == self.userType!.rawValue {
                     let cell = self.chatTable.dequeueReusableCell(withIdentifier: "MyChat") as! MyChatTableViewCell
                     
