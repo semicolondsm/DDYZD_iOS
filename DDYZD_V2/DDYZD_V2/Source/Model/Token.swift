@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import KeychainSwift
 
 struct TokenModel: Codable {
     let access_token: String
@@ -25,10 +26,12 @@ struct Token {
     static var room_token: String?
     static var refresh_token: String? {
         get {
-            return UserDefaults.standard.string(forKey: "refresh_token")
+            let keychain = KeychainSwift()
+            return keychain.get("refresh_token")
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "refresh_token")
+            let keychain = KeychainSwift()
+            keychain.set(newValue ?? "", forKey: "refresh_token")
         }
     }
 }
