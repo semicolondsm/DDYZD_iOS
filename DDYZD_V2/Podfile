@@ -12,6 +12,7 @@ target 'DDYZD_V2' do
   pod 'Firebase/Messaging'
   pod 'ImageSlideshow', '~> 1.9.0'
   pod 'ImageSlideshow/Kingfisher', '~> 1.9.0'
+  pod 'KeychainSwift', '~> 19.0'
   pod 'Kingfisher', '~> 6.0'
   pod 'RxAlamofire', '~> 6.1'
   pod 'RxCocoa', '~> 6.0'
