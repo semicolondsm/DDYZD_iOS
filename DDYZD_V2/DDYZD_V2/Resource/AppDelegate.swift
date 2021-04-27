@@ -10,6 +10,7 @@ import UIKit
 import DSMSDK
 import Firebase
 import RxSwift
+import Siren
 import UserNotificationsUI
 
 @main
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Override point for customization after application launch.
         
         window?.backgroundColor = .white
+        window?.makeKeyAndVisible()
         
         DSMSDKCommon.initSDK(clientID: "ab840667ddcd41dc81b29f8f128a0e66",
                              clientSecret: "adbf21db93f240a8a2d1e4e3b446689c",
@@ -41,6 +43,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         application.registerForRemoteNotifications()
         AuthAPI().refreshToken().subscribe().disposed(by: disposeBag)
+        
+        let siren = Siren.shared
+        siren.apiManager = APIManager(country: .korea) //기준 위치 대한민국 앱스토어로 변경
+        siren.presentationManager = PresentationManager(forceLanguageLocalization: .korean) //알림 메시지 한국어로
+        siren.rulesManager = RulesManager(majorUpdateRules: .persistent,
+                                          minorUpdateRules: .persistent,
+                                          patchUpdateRules: .persistent,
+                                          revisionUpdateRules: .persistent) // 하루에 한 번 확인, 다음에 업데이트 가능
+        siren.wail()
         
         return true
     }

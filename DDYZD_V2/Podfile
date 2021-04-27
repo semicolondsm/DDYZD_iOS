@@ -6,20 +6,28 @@ target 'DDYZD_V2' do
   use_frameworks!
 
   # Pods for DDYZD_V2
-
+  
+  #Networking
   pod 'Alamofire', '~> 5.2'
-  pod 'DSMSDK', '~> 1.3.0'
-  pod 'Firebase/Messaging'
-  pod 'ImageSlideshow', '~> 1.9.0'
-  pod 'ImageSlideshow/Kingfisher', '~> 1.9.0'
-  pod 'KeychainSwift', '~> 19.0'
-  pod 'Kingfisher', '~> 6.0'
+  pod 'Socket.IO-Client-Swift', '~> 16.0.0'
+
+  #Rx
   pod 'RxAlamofire', '~> 6.1'
   pod 'RxCocoa', '~> 6.0'
   pod 'RxDataSources', '~> 5.0'
   pod 'RxSwift', '~> 6.0'
-  pod 'Socket.IO-Client-Swift', '~> 16.0.0'
+
+  #UI
   pod 'SwiftOverlays', '~> 5.0.1'
   pod 'Tabman', '~> 2.9'
+  pod 'ImageSlideshow', '~> 1.9.0'
+  pod 'ImageSlideshow/Kingfisher', '~> 1.9.0'
+  pod 'Kingfisher', '~> 6.0'
+
+  #ect
+  pod 'DSMSDK', '~> 1.3.0'
+  pod 'KeychainSwift', '~> 19.0'
+  pod 'Firebase/Messaging'
+  pod 'Siren', '~> 5.8'
   
 end
