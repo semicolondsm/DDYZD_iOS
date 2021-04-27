@@ -122,7 +122,7 @@
 		925FDED525EE252200B78318 /* MainPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewModel.swift; sourceTree = "<group>"; };
 		9263695B25B6824200D2D107 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		9263695F25B684ED00D2D107 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		9263696425B6EE0E00D2D107 /* DDYZD_V2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = DDYZD_V2.entitlements; path = "DDYZD_V2/Surpporting Files/DDYZD_V2.entitlements"; sourceTree = SOURCE_ROOT; };
+		9263696425B6EE0E00D2D107 /* DDYZD_V2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = DDYZD_V2.entitlements; path = "DDYZD_V2/Supporting Files/DDYZD_V2.entitlements"; sourceTree = SOURCE_ROOT; };
 		9263697725B7335C00D2D107 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		926E86E625B4404F00E7F213 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		92B6377225D9667500FFE785 /* SubClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubClass.swift; sourceTree = "<group>"; };

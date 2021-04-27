@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.4.1)
+  - Differentiator (5.0.0)
   - DSMSDK (1.3.0):
     - Alamofire (~> 5.2)
   - Firebase/CoreOnly (7.7.0):
@@ -58,6 +59,7 @@ PODS:
   - ImageSlideshow/Kingfisher (1.9.2):
     - ImageSlideshow/Core
     - Kingfisher (> 3.0)
+  - KeychainSwift (19.0.0)
   - Kingfisher (6.1.1)
   - nanopb (2.30907.0):
     - nanopb/decode (= 2.30907.0)
@@ -74,6 +76,10 @@ PODS:
   - RxCocoa (6.1.0):
     - RxRelay (= 6.1.0)
     - RxSwift (= 6.1.0)
+  - RxDataSources (5.0.0):
+    - Differentiator (~> 5.0)
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
   - RxRelay (6.1.0):
     - RxSwift (= 6.1.0)
   - RxSwift (6.1.0)
@@ -90,9 +96,11 @@ DEPENDENCIES:
   - Firebase/Messaging
   - ImageSlideshow (~> 1.9.0)
   - ImageSlideshow/Kingfisher (~> 1.9.0)
+  - KeychainSwift (~> 19.0)
   - Kingfisher (~> 6.0)
   - RxAlamofire (~> 6.1)
   - RxCocoa (~> 6.0)
+  - RxDataSources (~> 5.0)
   - RxSwift (~> 6.0)
   - Socket.IO-Client-Swift (~> 16.0.0)
   - SwiftOverlays (~> 5.0.1)
@@ -101,6 +109,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Differentiator
     - DSMSDK
     - Firebase
     - FirebaseCore
@@ -111,12 +120,14 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleUtilities
     - ImageSlideshow
+    - KeychainSwift
     - Kingfisher
     - nanopb
     - Pageboy
     - PromisesObjC
     - RxAlamofire
     - RxCocoa
+    - RxDataSources
     - RxRelay
     - RxSwift
     - Socket.IO-Client-Swift
@@ -126,6 +137,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   DSMSDK: ebbc76812eac4b9d7c691ac584be266dc8fa2a07
   Firebase: cd2ab85eec8170dc260186159f21072ecb679ad5
   FirebaseCore: ac35d680a0bf32319a59966a1478e0741536b97b
@@ -136,12 +148,14 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 1024b1a4dfbd7a0e92cb20d7e0a6f1fb66b449a4
   GoogleUtilities: 31c5b01f978a70c6cff2afc6272b3f1921614b43
   ImageSlideshow: be305b54eaf2b2cfc7a7141c7c734605d44dc07d
+  KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
   Kingfisher: 676d63307fbef6ed5d5ed400bff36983480d7500
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   Pageboy: cf121b9dd48c63f3f281b2a9ec93d02e0f23879b
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
+  RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
   Socket.IO-Client-Swift: c116d6dc9fd6be9c259bacfe143f8725bce7d79e
@@ -149,6 +163,6 @@ SPEC CHECKSUMS:
   SwiftOverlays: ab459ea9194b0e96aaccaa00e9ead1bf6d46eef1
   Tabman: d8d6ab0b483c7db375a71ac227d3ef791b56a049
 
-PODFILE CHECKSUM: 62da3298946d91f130fad71cbde708803c3546f5
+PODFILE CHECKSUM: b6a7075f58c2ebfb75d1d20b2c12df34c9181dff
 
 COCOAPODS: 1.10.1
