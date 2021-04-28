@@ -18,6 +18,7 @@ target 'DDYZD_V2' do
   pod 'RxSwift', '~> 6.0'
 
   #UI
+  pod 'SkeletonView', '~> 1.15.0'
   pod 'SwiftOverlays', '~> 5.0.1'
   pod 'Tabman', '~> 2.9'
   pod 'ImageSlideshow', '~> 1.9.0'
