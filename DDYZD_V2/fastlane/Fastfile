@@ -27,7 +27,7 @@ platform :ios do
       unlock: true,
       add_to_search_list: true,
     )
-    match(type: "appstore", readonly: true, keychain_name: 'ios_app_store', keychain_password: ENV['MATCH_PASSWORD'])
+    match(type: "appstore", readonly: true, keychain_name: 'ios_app_keychain', keychain_password: ENV['MATCH_PASSWORD'])
     build_app(workspace: 'DDYZD_V2.xcworkspace', scheme: 'DDYZD_V2')
     upload_to_app_store(
       force: true,
