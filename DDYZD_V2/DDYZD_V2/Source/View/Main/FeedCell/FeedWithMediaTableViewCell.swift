@@ -9,6 +9,7 @@ import UIKit
 
 import ImageSlideshow
 import RxSwift
+import SkeletonView
 
 class FeedWithMediaTableViewCell: UITableViewCell {
     
@@ -29,6 +30,7 @@ class FeedWithMediaTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         setUI()
+        setSkeleton()
         setTextView()
     }
     
@@ -40,6 +42,15 @@ class FeedWithMediaTableViewCell: UITableViewCell {
     func setUI() {
         clubProfileImageView.circleImage()
         cellSuperView.layer.borderColor = #colorLiteral(red: 0.2078431373, green: 0.03484285995, blue: 0.4432567954, alpha: 1)
+    }
+    
+    func setSkeleton(){
+        clubProfileImageView.isSkeletonable = true
+        goClubDetailArea.isSkeletonable = true
+        content.isSkeletonable = true
+        imageSlider.isSkeletonable = true
+        flagNum.isSkeletonable = true
+        flagBtn.isSkeletonable = true
     }
 
     func bind(item: Feed){

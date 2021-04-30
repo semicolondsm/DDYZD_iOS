@@ -11,6 +11,7 @@ import RxCocoa
 import RxSwift
 import WebKit
 import SwiftOverlays
+import SkeletonView
 
 class MainPageViewController: UIViewController {
     
