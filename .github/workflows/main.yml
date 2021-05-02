@@ -25,10 +25,16 @@ jobs:
       FASTLANE_PASSWORD: ${{ secrets.APPLE_ACCOUNT_PASSWORD }}
     steps:
       - uses: actions/checkout@v2
-      - name: submodules-init
-        uses: snickerbockers/submodules-init@v4
-      - name: Bundle Install
-        run: gem install bundler:1.17.2 && cd DDYZD_V2 && security find-identity -v -p codesigning ios_app_store && bundle install && cd ..
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "10.x"
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: "2.x"
+      - name: Install Fastlane
+        run: cd DDYZD_V2 && bundle install && cd ..
+      - name: Install packages
+        run: yarn install
       - name: Install pods
         run: cd DDYZD_V2 && pod install && cd ..
       - name: Set Appstore Connect User
