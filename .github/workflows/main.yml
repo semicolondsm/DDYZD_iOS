@@ -38,6 +38,6 @@ jobs:
       - name: Install pods
         run: cd DDYZD_V2 && pod install && cd ..
       - name: Set Appstore Connect User
-        run: cd DDYZD_V2 && bundle exec fastlane fastlane-credentials add --username "kimxwan0319@naver.com" --password ${{ secrets.APPLE_ACCOUNT_PASSWORD }} && cd ..
+        run: cd DDYZD_V2 && security find-identity -v -p codesigning ios_app_store && bundle exec fastlane fastlane-credentials add --username "kimxwan0319@naver.com" --password ${{ secrets.APPLE_ACCOUNT_PASSWORD }} && cd ..
       - name: Deploy App
         run: cd DDYZD_V2 && bundle exec fastlane github && cd ..
