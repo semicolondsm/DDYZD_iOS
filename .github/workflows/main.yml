@@ -32,7 +32,7 @@ jobs:
         with:
           ruby-version: "2.x"
       - name: Install Fastlane
-        run: cd DDYZD_V2 && gem install bundler:1.17.2 && cd ..
+        run: cd DDYZD_V2 && gem install bundler:1.17.2 && bundle install && cd ..
       - name: Install packages
         run: yarn install
       - name: Install pods
