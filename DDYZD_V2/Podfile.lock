@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (5.4.1)
   - Differentiator (5.0.0)
-  - DSMSDK (1.3.0):
+  - DSMSDK (1.3.1):
     - Alamofire (~> 5.2)
   - Firebase/CoreOnly (7.7.0):
     - FirebaseCore (= 7.7.0)
@@ -93,7 +93,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
-  - DSMSDK (~> 1.3.0)
+  - DSMSDK (~> 1.3.1)
   - Firebase/Messaging
   - ImageSlideshow (~> 1.9.0)
   - ImageSlideshow/Kingfisher (~> 1.9.0)
@@ -141,7 +141,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
-  DSMSDK: ebbc76812eac4b9d7c691ac584be266dc8fa2a07
+  DSMSDK: 389218630a494de27cd621e12a25ef48d82a5585
   Firebase: cd2ab85eec8170dc260186159f21072ecb679ad5
   FirebaseCore: ac35d680a0bf32319a59966a1478e0741536b97b
   FirebaseCoreDiagnostics: 179bf3831213451c8addd036aca7fcf5492ec154
@@ -167,6 +167,6 @@ SPEC CHECKSUMS:
   SwiftOverlays: ab459ea9194b0e96aaccaa00e9ead1bf6d46eef1
   Tabman: d8d6ab0b483c7db375a71ac227d3ef791b56a049
 
-PODFILE CHECKSUM: 60545ebd2304ef25f9afe55cc81fde0531f892b0
+PODFILE CHECKSUM: 7580fa020554a482c17e9de09ee26b67b9e9849f
 
 COCOAPODS: 1.10.1

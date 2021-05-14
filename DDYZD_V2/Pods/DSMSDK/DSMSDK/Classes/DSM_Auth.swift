@@ -50,8 +50,10 @@ public class DSMAuth {
                 case .success(let value):
                     if let processedValue = value as? [String : String] {
                         
-                        let token = Token(Access_Token: processedValue["access-token"]!,
-                                          Refresh_Token: processedValue["refresh-token"]!)
+                        
+                        
+                        let token = Token(Access_Token: processedValue["access_token"]!,
+                                          Refresh_Token: processedValue["refresh_token"]!)
                         
                         handler(token, nil)
                     }
@@ -65,12 +67,12 @@ public class DSMAuth {
     }
     
     public func tokenRefresh(refresh_token: String, handler: @escaping (String?, AFError?)->Void){
-        AF.request(self.baseURL+"/dsmauth/refresh?"+now(), method: .get, headers: ["refresh-token":"Bearer "+refresh_token]).validate().responseJSON{ res in
+        AF.request(self.baseURL+"/dsmauth/refresh", method: .get, headers: ["x-refresh-token":"Bearer "+refresh_token]).validate().responseJSON{ res in
             switch res.result
             {
             case.success(let value):
                 if let processedValue = value as? [String:String]{
-                    let accessToken = processedValue["access-token"]
+                    let accessToken = processedValue["access_token"]
                     
                     handler(accessToken, nil)
                 }
@@ -81,7 +83,7 @@ public class DSMAuth {
     }
     
     public func me(access_token: String, handler: @escaping (personInfo?, AFError?)->Void){
-        AF.request(self.baseURL+"/v1/info/basic?"+now(), method: .get, headers: ["access-token":"Bearer "+access_token]).validate().responseJSON{ res in
+        AF.request(self.baseURL+"/v1/info/basic", method: .get, headers: ["Authorization":"Bearer "+access_token]).validate().responseJSON{ res in
             switch res.result
             {
             case.success(let value):
@@ -96,12 +98,5 @@ public class DSMAuth {
                 handler(nil, error)
             }
         }
-    }
-      
-    private func now() -> String{
-        let formatter_time = DateFormatter()
-        formatter_time.dateFormat = "ss"
-        let current_time_string = formatter_time.string(from: Date())
-        return current_time_string
     }
 }

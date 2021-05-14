@@ -25,7 +25,7 @@ target 'DDYZD_V2' do
   pod 'Kingfisher', '~> 6.0'
 
   #ect
-  pod 'DSMSDK', '~> 1.3.0'
+  pod 'DSMSDK', '~> 1.3.1'
   pod 'KeychainSwift', '~> 19.0'
   pod 'Firebase/Messaging'
   pod 'Siren', '~> 5.8'
