@@ -125,6 +125,7 @@
 		9263696425B6EE0E00D2D107 /* DDYZD_V2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = DDYZD_V2.entitlements; path = "DDYZD_V2/Supporting Files/DDYZD_V2.entitlements"; sourceTree = SOURCE_ROOT; };
 		9263697725B7335C00D2D107 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		926E86E625B4404F00E7F213 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		92AB8416264ED8B500818FD2 /* RxSkeleton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSkeleton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B6377225D9667500FFE785 /* SubClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubClass.swift; sourceTree = "<group>"; };
 		92B9AE9A25BF03C900026892 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
 		92BED6D125BD46C900526C33 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
@@ -135,6 +136,7 @@
 		92BED6ED25BD536200526C33 /* ClubDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubDetailViewModel.swift; sourceTree = "<group>"; };
 		92C35F4125B5BD0600D30DDF /* DDYZDAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDYZDAPI.swift; sourceTree = "<group>"; };
 		92C4B01125F4E0070034B1A5 /* TOSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSViewController.swift; sourceTree = "<group>"; };
+		92CB66A0264ED5CD00F02877 /* RxSkeleton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSkeleton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92D1759C25BD696B00E6F2D6 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		92D97F1925CEECAB008456C8 /* Feed.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Feed.xib; sourceTree = "<group>"; };
 		92D97F2425CEEE98008456C8 /* FeedAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAPI.swift; sourceTree = "<group>"; };
@@ -172,6 +174,8 @@
 		539CF63AB70C5BA53047CAA5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				92AB8416264ED8B500818FD2 /* RxSkeleton.framework */,
+				92CB66A0264ED5CD00F02877 /* RxSkeleton.framework */,
 				8869DDC5BC0228ACFDBDB078 /* Pods_DDYZD_V2.framework */,
 			);
 			name = Frameworks;
